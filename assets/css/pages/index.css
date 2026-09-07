@@ -1,4 +1,4 @@
-/* index.css   VERSION 2 — homepage styles, :root tokens intact. */
+/* index.css   VERSION 2 - homepage styles, :root tokens intact. */
 
 :root {
   --blue:      #1560FF;
@@ -616,4 +616,13 @@ body { padding-bottom:76px; }
   .cmp-grid { grid-template-columns:1fr; gap:1rem; }
   .cmp-card-price { font-size:2rem; }
   .cmp-actions a { width:100%; text-align:center; }
+}
+
+/* Flat-fee proof line, sits directly under the H1 so the price is the
+   first thing read after the headline without being the headline itself. */
+.hero-price { font-family:var(--body); font-size:19px; color:var(--ink2); margin-bottom:0.5rem; }
+.hero-price strong { font-family:var(--display); font-size:23px; font-weight:800; color:var(--blue-dk); }
+@media (max-width:720px) {
+  .hero-price { font-size:17px; }
+  .hero-price strong { font-size:21px; }
 }
