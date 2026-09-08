@@ -1,21 +1,14 @@
-# FixMyPC Perth — Jekyll configuration
 title: FixMyPC Perth
-url: https://www.fixmypcperth.com
 description: Computer and laptop repair in Canning Vale, Perth.
 
-# ---------------------------------------------------------------------------
-# DO NOT add `permalink: pretty`.
-# Jekyll's default keeps page.html serving at /page with no trailing slash,
-# which is what Google has indexed. Changing it rewrites every URL silently.
-# ---------------------------------------------------------------------------
+# `url` is deliberately NOT set. GitHub Pages sets it itself, and a manual
+# value here is one of the things that can send Liquid into a loop.
+# Absolute URLs in the layout are written out in full instead.
 
-# No theme. Without this GitHub Pages loads jekyll-theme-primer,
-# which pulls in styles and plugins this site does not use.
 theme: null
-
 plugins: []
 
 exclude:
   - Gemfile
   - README.md
-  - PLAN.md
+  - CHECKLIST.md
