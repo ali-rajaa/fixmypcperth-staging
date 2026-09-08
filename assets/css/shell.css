@@ -138,13 +138,32 @@ footer {
 }
 .footer-copy, .footer-note { font-size:13px; color:#94A3B8; }
 
-@media (max-width:900px) {
-  .footer-inner { grid-template-columns:1fr 1fr; gap:2.5rem; }
-  .footer-brand { grid-column:1 / -1; }
+@media (max-width: 1000px) {
+  .footer-inner { grid-template-columns: 1.4fr 1fr 1fr; gap: 2.5rem; }
+  .footer-contact { grid-column: 2 / -1; }
+  .footer-contact address, .footer-hours { display: inline-block; vertical-align: top; margin-right: 2.5rem; }
 }
-@media (max-width:560px) {
-  footer { padding:3rem 1.25rem 0; }
-  .footer-inner { grid-template-columns:1fr; gap:2.25rem; }
-  .footer-blurb { max-width:none; }
-  .footer-bar { flex-direction:column; align-items:flex-start; gap:.5rem; margin-top:2.25rem; }
+
+@media (max-width: 760px) {
+  footer { padding: 3rem 1.5rem 0; }
+  /* Brand across the top, then the two link columns side by side, then
+     contact across the bottom. Keeps the footer short instead of stacking
+     four blocks in a single column. */
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem 1.5rem; }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-contact { grid-column: 1 / -1; }
+  .footer-blurb { max-width: none; margin-bottom: 1.25rem; }
+  .footer-contact address, .footer-hours { display: inline-block; vertical-align: top; margin-right: 2rem; }
+  .footer-phone { display: inline-block; margin-right: 2rem; }
+}
+
+@media (max-width: 420px) {
+  footer { padding: 2.5rem 1.25rem 0; }
+  .footer-inner { gap: 1.75rem 1.25rem; }
+  .footer-tag { font-size: 15px; }
+  .footer-blurb { font-size: 13.5px; line-height: 1.7; }
+  .footer-col a { font-size: 14px; margin-bottom: .65rem; }
+  .footer-contact address, .footer-hours, .footer-phone { display: block; margin-right: 0; }
+  .footer-bar { flex-direction: column; align-items: flex-start; gap: .4rem; margin-top: 2rem; padding-bottom: 1.5rem; }
+  .footer-copy, .footer-note { font-size: 12px; }
 }
