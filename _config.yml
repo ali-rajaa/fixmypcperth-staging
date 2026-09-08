@@ -9,6 +9,10 @@ description: Computer and laptop repair in Canning Vale, Perth.
 # which is what Google has indexed. Changing it rewrites every URL silently.
 # ---------------------------------------------------------------------------
 
+# No theme. Without this GitHub Pages loads jekyll-theme-primer,
+# which pulls in styles and plugins this site does not use.
+theme: null
+
 plugins: []
 
 exclude:
