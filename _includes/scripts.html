@@ -3,6 +3,29 @@
 (function () {
   'use strict';
 
+  /* ---- Reveal on scroll ----
+     Runs FIRST, before anything else can throw. It adds the `js` class
+     itself, so the hidden state is only ever applied once the observer
+     that undoes it is confirmed working. If this block fails, the page
+     stays fully visible. */
+  try {
+    const fadeEls = document.querySelectorAll('.fade-up');
+    if (fadeEls.length && 'IntersectionObserver' in window) {
+      const obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry, i) {
+          if (entry.isIntersecting) {
+            setTimeout(function() { entry.target.classList.add('in'); }, i * 60);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+      document.documentElement.classList.add('js');
+      fadeEls.forEach(function(el) { obs.observe(el); });
+    }
+  } catch (e) {
+    document.documentElement.classList.remove('js');
+  }
+
   /* ---- Scroll Progress Bar ---- */
   const bar = document.getElementById('scroll-bar');
   if (bar) {
@@ -38,21 +61,6 @@
     }).join('');
   }
 
-  /* ---- Fade-up on scroll ---- */
-  const fadeEls = document.querySelectorAll('.fade-up');
-  if ('IntersectionObserver' in window) {
-    const obs = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry, i) {
-        if (entry.isIntersecting) {
-          setTimeout(function() { entry.target.classList.add('in'); }, i * 60);
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.08 });
-    fadeEls.forEach(function(el) { obs.observe(el); });
-  } else {
-    fadeEls.forEach(function(el) { el.classList.add('in'); });
-  }
 
   /* ---- Mobile Hamburger ---- */
   const hamburger = document.getElementById('mob-hamburger');

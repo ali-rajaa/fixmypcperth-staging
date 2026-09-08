@@ -19,10 +19,6 @@
   <meta property="og:image" content="{{ site.url }}/logo.png">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Marks that JS is running, so the reveal animation can be applied.
-       Without this class the content stays visible. -->
-  <script>document.documentElement.className += ' js';</script>
-
   <link rel="icon" type="image/png" href="/favicon.png">
   <meta name="theme-color" content="#0F172A">
 
@@ -39,8 +35,8 @@
   <noscript><link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet"></noscript>
 
   <!-- Page stylesheet first, shared chrome last, so the header always wins -->
-  {% if page.page_css %}<link rel="stylesheet" href="{{ page.page_css }}">{% endif %}
-  <link rel="stylesheet" href="/assets/css/shell.css?v=1">
+  {% if page.page_css %}<link rel="stylesheet" href="{{ page.page_css }}?v=4">{% endif %}
+  <link rel="stylesheet" href="/assets/css/shell.css?v=4">
 
   <!-- Every JSON-LD block the page carries, not just the first -->
   {%- if page.schemas %}{% for sc in page.schemas %}
