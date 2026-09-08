@@ -1,9 +1,9 @@
 title: FixMyPC Perth
 description: Computer and laptop repair in Canning Vale, Perth.
 
-# `url` is deliberately NOT set. GitHub Pages sets it itself, and a manual
-# value here is one of the things that can send Liquid into a loop.
-# Absolute URLs in the layout are written out in full instead.
+# jekyll-github-metadata is forced on by GitHub Pages and loops when it
+# cannot resolve the repository itself. Naming it explicitly stops that.
+repository: ali-rajaa/fixmypcperth-staging
 
 theme: null
 plugins: []
