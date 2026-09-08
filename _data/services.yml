@@ -17,3 +17,4 @@ windows_11_upgrade:     { name: "Windows 11 Upgrade with Key",      price: 120 }
 overheating:            { name: "Overheating Fix & Deep Clean",     price: 89 }
 business_it:            { name: "Business IT Support",              price: 149, per: month, from: true }
 remote_session:         { name: "Remote Support Session",           price: 45, per: hour }
+onsite_callout:         { name: "On-site call-out",                 price: 35, note: "flat, we come to you" }

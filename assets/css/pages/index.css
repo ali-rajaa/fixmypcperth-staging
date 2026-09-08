@@ -1,4 +1,4 @@
-/* index.css   VERSION 2 - homepage styles, :root tokens intact. */
+/* index.css   VERSION 3 - homepage styles, :root tokens intact. */
 
 :root {
   --blue:      #1560FF;
@@ -48,8 +48,12 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 img  { display:block; max-width:100%; }
 a    { color:inherit; }
 .wrap { max-width:1100px; margin:0 auto; padding:0 2rem; }
-.fade-up { opacity:0; transform:translateY(24px); transition:opacity 0.6s cubic-bezier(.22,.68,0,1.2),transform 0.6s cubic-bezier(.22,.68,0,1.2); }
-.fade-up.in { opacity:1; transform:none; }
+/* Content is visible by default. The reveal animation only applies once the
+   <html class="js"> flag is set by the head script, so if JavaScript fails
+   for any reason the page still renders instead of going blank. */
+.fade-up { opacity:1; transform:none; }
+.js .fade-up { opacity:0; transform:translateY(24px); transition:opacity 0.6s cubic-bezier(.22,.68,0,1.2),transform 0.6s cubic-bezier(.22,.68,0,1.2); }
+.js .fade-up.in { opacity:1; transform:none; }
 .accent { color:var(--blue); }
 .s-eyebrow { display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--blue); background:var(--blue-lt); padding:4px 12px; border-radius:50px; border:1px solid var(--blue-mid); margin-bottom:1rem; }
 .s-title { font-family:var(--display); font-size:clamp(1.8rem,3vw,2.8rem); font-weight:800; letter-spacing:-1.2px; line-height:1.1; color:var(--ink); margin-bottom:0.75rem; }

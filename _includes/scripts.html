@@ -5,10 +5,12 @@
 
   /* ---- Scroll Progress Bar ---- */
   const bar = document.getElementById('scroll-bar');
-  window.addEventListener('scroll', function() {
-    const h = document.documentElement.scrollHeight - window.innerHeight;
-    bar.style.transform = 'scaleX(' + (window.scrollY / h) + ')';
-  }, { passive: true });
+  if (bar) {
+    window.addEventListener('scroll', function() {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.transform = 'scaleX(' + (window.scrollY / h) + ')';
+    }, { passive: true });
+  }
 
   /* ---- Trust Ticker ---- */
   const items = [
@@ -29,10 +31,12 @@
     'Free $89 cleanup on jobs $149+',
   ];
   const track = document.getElementById('trust-track');
-  const doubled = [...items, ...items];
-  track.innerHTML = doubled.map(function(t) {
-    return '<div class="trust-item"><div class="trust-dot" aria-hidden="true"></div>' + t + '</div>';
-  }).join('');
+  if (track) {
+    const doubled = [...items, ...items];
+    track.innerHTML = doubled.map(function(t) {
+      return '<div class="trust-item"><div class="trust-dot" aria-hidden="true"></div>' + t + '</div>';
+    }).join('');
+  }
 
   /* ---- Fade-up on scroll ---- */
   const fadeEls = document.querySelectorAll('.fade-up');
@@ -54,6 +58,7 @@
   const hamburger = document.getElementById('mob-hamburger');
   const mobMenu   = document.getElementById('mob-menu');
 
+  if (hamburger && mobMenu) {
   hamburger.addEventListener('click', function() {
     var isOpen = mobMenu.classList.toggle('open');
     hamburger.classList.toggle('open', isOpen);
@@ -78,6 +83,8 @@
       hamburger.setAttribute('aria-label', 'Open navigation menu');
     }
   });
+
+  }
 
   /* ---- FAQ Accordion ---- */
   document.querySelectorAll('.faq-q').forEach(function(btn) {
