@@ -55,7 +55,9 @@ a    { color:inherit; }
 .js .fade-up { opacity:0; transform:translateY(24px); transition:opacity 0.6s cubic-bezier(.22,.68,0,1.2),transform 0.6s cubic-bezier(.22,.68,0,1.2); }
 .js .fade-up.in { opacity:1; transform:none; }
 .accent { color:var(--blue); }
-.s-eyebrow { display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--blue); background:var(--blue-lt); padding:4px 12px; border-radius:50px; border:1px solid var(--blue-mid); margin-bottom:1rem; }
+/* Plain uppercase text rather than an outlined pill, matching .cta-kicker
+   in the closing section. Used 11 times across the page. */
+.s-eyebrow { display:block; font-size:12px; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; color:var(--blue); margin-bottom:0.9rem; }
 .s-title { font-family:var(--display); font-size:clamp(1.8rem,3vw,2.8rem); font-weight:800; letter-spacing:-1.2px; line-height:1.1; color:var(--ink); margin-bottom:0.75rem; }
 .s-sub { font-size:16px; color:var(--muted); max-width:560px; line-height:1.7; }
 .btn-blue { display:inline-flex; align-items:center; justify-content:center; gap:8px; background:var(--blue); color:#fff; font-family:var(--body); font-size:15px; font-weight:700; padding:14px 26px; border-radius:50px; text-decoration:none; box-shadow:0 4px 16px rgba(21,96,255,0.35); transition:transform 0.2s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.2s,filter 0.2s; white-space:nowrap; }
@@ -480,25 +482,33 @@ a.area-pill--link.has-page .area-dot {
    Added with the flat-$120 positioning. Uses only the tokens
    declared in :root above, so a brand change flows through.
    ============================================================ */
-.cmp { background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:4.5rem 1.5rem; }
-.cmp-inner { max-width:1000px; margin:0 auto; text-align:center; }
-.cmp-eyebrow { font-family:var(--body); font-size:12px; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; color:var(--blue-dk); margin-bottom:0.9rem; }
-.cmp-title { font-family:var(--display); font-size:clamp(1.6rem,4vw,2.4rem); line-height:1.2; color:var(--ink); margin-bottom:1rem; }
-.cmp-lede { font-family:var(--body); font-size:16px; color:var(--muted); line-height:1.75; max-width:600px; margin:0 auto 3rem; }
+.cmp { background:var(--bg2); padding:6rem 2rem; }
+/* Left aligned and 1100px wide, like every other section header on the page.
+   Centred text was the main reason this block read as imported from
+   somewhere else. */
+.cmp-inner { max-width:1100px; margin:0 auto; text-align:left; }
+.cmp-sub { margin:0 0 3rem; }
 
 .cmp-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; text-align:left; margin-bottom:2rem; }
-.cmp-card { border-radius:var(--radius); padding:1.75rem 1.5rem; border:1.5px solid var(--border); background:var(--bg); }
-.cmp-them { opacity:0.85; }
-.cmp-us { border-color:var(--blue); box-shadow:0 8px 30px rgba(21,96,255,0.12); }
+/* Same shell as .svc-card: 18px radius, 1.5px border, gradient hairline on
+   the featured one, lift on hover. Previously this block had its own radius,
+   its own shadow and a dimmed losing card, none of which appear anywhere
+   else on the site. */
+.cmp-card { border-radius:18px; padding:1.75rem 1.5rem; border:1.5px solid var(--border); background:var(--bg); position:relative; overflow:hidden; transition:border-color 0.2s,box-shadow 0.2s,transform 0.2s; }
+.cmp-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--blue),#00CFFF); opacity:0; transition:opacity 0.2s; }
+.cmp-card:hover { transform:translateY(-4px); box-shadow:0 10px 36px rgba(21,96,255,0.15); }
+.cmp-us { border-color:var(--blue); background:var(--blue-lt); }
+.cmp-us::before { opacity:1; }
 
 .cmp-card-label { font-family:var(--body); font-size:12.5px; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; color:var(--muted); margin-bottom:0.6rem; }
 .cmp-us .cmp-card-label { color:var(--blue-dk); }
-.cmp-card-price { font-family:var(--display); font-size:2.4rem; font-weight:800; color:var(--ink); line-height:1; margin-bottom:1.25rem; }
+.cmp-card-price { font-family:var(--display); font-size:2.4rem; font-weight:800; color:var(--ink); line-height:1; letter-spacing:-1.5px; margin-bottom:1.25rem; }
 .cmp-card-price span { font-size:1rem; font-weight:600; color:var(--muted); }
 
 .cmp-list { list-style:none; padding:0; margin:0; }
-.cmp-list li { font-family:var(--body); font-size:14.5px; line-height:1.6; color:var(--ink2); padding:0.55rem 0 0.55rem 1.9rem; position:relative; }
-.cmp-list li + li { border-top:1px solid var(--border); }
+/* No rules between rows. Nothing else on the site uses a divider list, and
+   they were what made this read as a stock pricing table. */
+.cmp-list li { font-family:var(--body); font-size:14.5px; line-height:1.65; color:var(--ink2); padding:0.45rem 0 0.45rem 1.9rem; position:relative; }
 .cmp-list li::before { position:absolute; left:0; top:0.5rem; font-size:15px; font-weight:700; }
 .cmp-list li.no::before  { content:"\00d7"; color:var(--red); }
 .cmp-list li.yes::before { content:"\2713"; color:var(--wa-dk); }
@@ -506,7 +516,7 @@ a.area-pill--link.has-page .area-dot {
 .cmp-saving { font-family:var(--body); font-size:16px; color:var(--ink2); background:var(--blue-lt); border:1px solid var(--blue-mid); border-radius:var(--radius-sm); padding:1rem 1.25rem; margin-bottom:2rem; }
 .cmp-saving strong { color:var(--blue-dk); }
 
-.cmp-actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:1.75rem; }
+.cmp-actions { display:flex; gap:12px; justify-content:flex-start; flex-wrap:wrap; margin-bottom:1.75rem; }
 .cmp-actions a { font-family:var(--body); font-size:15px; font-weight:600; text-decoration:none; padding:0.9rem 1.6rem; border-radius:var(--radius-sm); transition:transform 0.15s, box-shadow 0.15s; }
 .cmp-btn-wa { background:var(--wa); color:#fff; box-shadow:0 4px 16px rgba(34,197,94,0.28); }
 .cmp-btn-wa:hover { background:var(--wa-dk); transform:translateY(-1px); }

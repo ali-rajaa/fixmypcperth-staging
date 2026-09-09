@@ -191,10 +191,13 @@ footer {
 }
 .footer-copy, .footer-note { font-size:13px; color:#94A3B8; }
 
+/* Previously this dropped to three columns and pushed Visit or Call onto a
+   second row spanning columns 2 and 3. Because the brand column is the tallest,
+   that left a large empty block under the two link columns. Staying at four
+   columns with a tighter gap keeps everything on one row instead. */
 @media (max-width: 1000px) {
-  .footer-inner { grid-template-columns: 1.4fr 1fr 1fr; gap: 2.5rem; }
-  .footer-contact { grid-column: 2 / -1; }
-  .footer-contact address, .footer-hours { display: inline-block; vertical-align: top; margin-right: 2.5rem; }
+  .footer-inner { grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 2rem; }
+  .footer-blurb { max-width: none; }
 }
 
 @media (max-width: 760px) {
