@@ -317,8 +317,16 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
         <div class="hc-dot" style="background:#FEBC2E"></div>
         <div class="hc-dot" style="background:#28C840"></div>
         <span class="hc-url">Get an Instant Quote</span>
+        <span class="hc-hint" aria-hidden="true">Tap to open</span>
+        <!-- Covers the whole bar on mobile so the tap target is the full width.
+             display:none above 720px, so on desktop it is not rendered, not
+             focusable and does not change the cursor. -->
+        <button type="button" class="hc-toggle" id="hcToggle" aria-expanded="true" aria-controls="hcBody" aria-label="Collapse the instant quote form">
+          <svg class="hc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
       </div>
-      <div class="hc-body">
+      <div class="hc-collapse">
+      <div class="hc-body" id="hcBody">
 
         <a href="https://www.google.com/maps/place/FixMyPC+Perth/@-32.0697802,115.922018,17z/data=!3m1!4b1!4m6!3m5!1s0x2a32972020981243:0x3d33799da9010e17!8m2!3d-32.0697802!4d115.9245929" target="_blank" rel="noopener noreferrer" class="mq-rating" aria-label="Read FixMyPC Perth reviews on Google">
           <span class="mq-rating-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
@@ -495,6 +503,7 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
           <p class="mq-success-body">Our tech team will be in touch shortly, usually within the hour.</p>
         </div>
 
+      </div>
       </div>
     </div>
 
@@ -1380,3 +1389,55 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
 </section>
 
 <!-- FOOTER -->
+
+<!-- ==========================================================
+     Instant quote card, collapse toggle. Mobile only.
+     Lives here rather than in _includes/scripts.html because the card
+     exists on this page only, so nothing else needs to carry the weight.
+     Open is the default and comes from CSS, not from here, so the card
+     never flashes open then snaps shut on a slow connection.
+     The collapsed state is deliberately not remembered between page
+     loads: this card is the main conversion path on mobile and one
+     accidental tap should not remove it for good.
+     ========================================================== -->
+<script>
+(function () {
+  var card   = document.getElementById('top-quote');
+  var toggle = document.getElementById('hcToggle');
+  if (!card || !toggle) return;
+
+  var mq = window.matchMedia('(max-width: 720px)');
+
+  function setOpen(open) {
+    card.classList.toggle('is-collapsed', !open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open
+      ? 'Collapse the instant quote form'
+      : 'Open the instant quote form');
+  }
+
+  toggle.addEventListener('click', function () {
+    setOpen(card.classList.contains('is-collapsed'));
+  });
+
+  /* The sticky bottom bar links to #top-quote. If the card were collapsed
+     that link would scroll to a closed strip and do nothing, so open it
+     first. Delegated because the sticky bar is rendered by an include
+     after this script has already run. */
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest ? e.target.closest('a[href="#top-quote"]') : null;
+    if (link) setOpen(true);
+  });
+
+  /* Anyone arriving on /#top-quote gets it open too. */
+  if (window.location.hash === '#top-quote') setOpen(true);
+
+  /* Past 720px the collapse CSS does not apply, so the card is visible
+     whatever the class says. Reset the state so aria-expanded stays
+     truthful after a rotation or a resize. */
+  function syncToViewport() { if (!mq.matches) setOpen(true); }
+  if (mq.addEventListener) mq.addEventListener('change', syncToViewport);
+  else if (mq.addListener) mq.addListener(syncToViewport);
+  syncToViewport();
+})();
+</script>

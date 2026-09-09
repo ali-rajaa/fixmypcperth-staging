@@ -87,6 +87,16 @@ a    { color:inherit; }
 .hc-dot { width:10px; height:10px; border-radius:50%; }
 .hc-url { font-size:12px; font-weight:600; color:rgba(255,255,255,0.6); margin-left:6px; }
 .hc-body { padding:1.35rem 1.4rem 1.3rem; }
+
+/* ---- Instant quote card, collapse toggle ----
+   Mobile only. Everything that does the collapsing lives in the 720px
+   block below, so above that breakpoint the toggle is not rendered and
+   the is-collapsed class does nothing at all. That is what makes a
+   rotation or a resize safe: no JavaScript is needed to undo it. */
+.hc-header { position:relative; }
+.hc-hint { display:none; font-size:11.5px; font-weight:600; color:rgba(255,255,255,0.45); margin-left:auto; margin-right:26px; }
+.hc-toggle { display:none; }
+.hc-chevron { width:18px; height:18px; }
 .mq-form { display:flex; flex-direction:column; gap:11px; }
 .mq-field { display:flex; flex-direction:column; gap:5px; }
 .mq-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
@@ -631,6 +641,49 @@ body { padding-bottom:76px; }
 .mq-service-btn { flex-direction:column; justify-content:center; align-items:center; text-align:center; gap:5px; min-height:66px; padding:11px 7px; font-size:11px; }
 .mq-service-btn svg { width:19px; height:19px; }
 .hc-body { padding:1.35rem; }
+
+/* The toggle covers the whole header bar, so the tap target is the full
+   card width rather than just the chevron. Transparent, so the dots and
+   the label underneath still read normally. */
+.hc-toggle {
+  display:flex; align-items:center; justify-content:flex-end;
+  position:absolute; inset:0; width:100%;
+  padding:0 16px; margin:0; border:0; background:none;
+  color:rgba(255,255,255,0.65); cursor:pointer; -webkit-tap-highlight-color:transparent;
+}
+.hc-toggle:focus-visible { outline:2px solid #fff; outline-offset:-3px; border-radius:20px 20px 0 0; }
+.hero-card.is-collapsed .hc-toggle:focus-visible { border-radius:20px; }
+/* Points up while open (tap to close), down while collapsed (tap to open). */
+.hc-chevron { transform:rotate(180deg); transition:transform 0.32s cubic-bezier(0.4,0,0.2,1); }
+
+/* Animating grid-template-rows rather than max-height. The card changes
+   height between step 1 and step 2 of the form, so any fixed max-height
+   would either clip it or leave a pause at the end of the animation.
+   0fr to 1fr needs no guessed number. */
+/* overflow:hidden must sit on the grid container, not the item. The body
+   carries 1.35rem of padding, and with box-sizing:border-box that padding
+   is its floor, so at 0fr the row is 0 but the item still measured 43px
+   until the container clipped it. */
+.hc-collapse { display:grid; grid-template-rows:1fr; overflow:hidden; transition:grid-template-rows 0.32s cubic-bezier(0.4,0,0.2,1); }
+.hc-collapse > .hc-body { min-height:0; transition:padding 0.32s cubic-bezier(0.4,0,0.2,1); }
+/* box-sizing is border-box, so the body's padding is its height floor. At 0fr
+   the row is 0 but the item still measured 43px, which left a stub under the
+   bar. The padding animates out with the row so the card really does close to
+   just the bar. */
+.hero-card.is-collapsed .hc-collapse > .hc-body { padding-top:0; padding-bottom:0; }
+
+.hero-card.is-collapsed .hc-collapse { grid-template-rows:0fr; }
+.hero-card.is-collapsed .hc-chevron { transform:rotate(0deg); }
+.hero-card.is-collapsed .hc-hint { display:inline; }
+.hero-card.is-collapsed { margin-bottom:1.25rem; }
+/* Hidden only once the animation has finished, otherwise it disappears
+   mid-collapse. Without this a keyboard or screen reader user tabs
+   straight into an invisible form. */
+.hero-card.is-collapsed .hc-collapse > .hc-body { visibility:hidden; transition:visibility 0s 0.32s; }
+@media (prefers-reduced-motion: reduce) {
+  .hc-collapse, .hc-chevron, .hc-collapse > .hc-body { transition:none; }
+  .hero-card.is-collapsed .hc-collapse > .hc-body { transition:none; }
+}
 }
 @media (max-width:540px) {
 .section,.section-alt,.cta-section,.faq-section { padding:3rem 1.25rem; }
