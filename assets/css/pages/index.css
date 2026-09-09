@@ -64,7 +64,11 @@ a    { color:inherit; }
 .btn-wa:hover { transform:translateY(-3px) scale(1.02); box-shadow:0 12px 32px rgba(34,197,94,0.5); }
 .btn-outline { display:inline-flex; align-items:center; justify-content:center; gap:8px; background:transparent; color:var(--ink); font-family:var(--body); font-size:15px; font-weight:600; padding:13px 24px; border-radius:50px; text-decoration:none; border:1.5px solid var(--border2); transition:border-color 0.15s,color 0.15s; white-space:nowrap; }
 .btn-outline:hover { border-color:var(--blue); color:var(--blue); }
-.hero { padding:96px 2rem 64px; background:var(--bg); position:relative; overflow:hidden; }
+/* Safety net. All three button styles carry white-space:nowrap, so a long
+   label could grow wider than its column and push the whole page sideways.
+   This caps them without changing anything on desktop. */
+.btn-blue, .btn-wa, .btn-outline { max-width:100%; }
+.hero { padding:132px 2rem 64px; background:var(--bg); position:relative; overflow:hidden; }
 .hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 800px 500px at 70% 40%,rgba(21,96,255,0.06) 0%,transparent 70%),radial-gradient(ellipse 400px 300px at 10% 80%,rgba(34,197,94,0.05) 0%,transparent 60%); pointer-events:none; }
 .hero-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 420px; gap:3.5rem; align-items:start; }
 .hero-eyebrow { display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:600; color:var(--blue); background:var(--blue-lt); border:1px solid var(--blue-mid); padding:5px 14px; border-radius:50px; margin-bottom:1.5rem; letter-spacing:0.04em; text-transform:uppercase; }
@@ -169,7 +173,12 @@ a    { color:inherit; }
 .mq-progress-fill { height:100%; width:50%; background:linear-gradient(90deg,var(--blue),#00CFFF); border-radius:4px; transition:width 0.35s cubic-bezier(.22,.68,0,1.2); }
 .mq-progress-label { font-size:10.5px; font-weight:700; color:var(--muted2); white-space:nowrap; letter-spacing:0.04em; }
 .mq-service-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
-.mq-service-radio { position:absolute; opacity:0; width:1px; height:1px; pointer-events:none; }
+/* .mq-field input (below) sets width:100% and has higher specificity than a
+   bare class, so these radios were rendering at full viewport width and
+   absolutely positioned against the viewport. Matched on type as well so the
+   intended 1px wins. */
+.mq-field input.mq-service-radio,
+.mq-service-radio { position:absolute; opacity:0; width:1px; height:1px; min-height:0; padding:0; margin:0; border:0; background:none; pointer-events:none; appearance:none; -webkit-appearance:none; }
 .mq-service-btn {
   display:flex; flex-direction:row; align-items:center; justify-content:flex-start; gap:8px; text-align:left;
   padding:9px 10px; min-height:44px; border:1.5px solid var(--border); border-radius:10px; background:var(--bg2);
@@ -456,7 +465,64 @@ a.area-pill--link.has-page .area-dot {
 .guide-block strong { color:var(--ink); }
 .guide-block a { color:var(--blue); font-weight:600; text-decoration:none; border-bottom:1.5px solid var(--blue-mid); }
 .guide-block a:hover { border-color:var(--blue); }
+/* ============================================================
+   Workshop vs on-site comparison.
+   Added with the flat-$120 positioning. Uses only the tokens
+   declared in :root above, so a brand change flows through.
+   ============================================================ */
+.cmp { background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:4.5rem 1.5rem; }
+.cmp-inner { max-width:1000px; margin:0 auto; text-align:center; }
+.cmp-eyebrow { font-family:var(--body); font-size:12px; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; color:var(--blue-dk); margin-bottom:0.9rem; }
+.cmp-title { font-family:var(--display); font-size:clamp(1.6rem,4vw,2.4rem); line-height:1.2; color:var(--ink); margin-bottom:1rem; }
+.cmp-lede { font-family:var(--body); font-size:16px; color:var(--muted); line-height:1.75; max-width:600px; margin:0 auto 3rem; }
+
+.cmp-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; text-align:left; margin-bottom:2rem; }
+.cmp-card { border-radius:var(--radius); padding:1.75rem 1.5rem; border:1.5px solid var(--border); background:var(--bg); }
+.cmp-them { opacity:0.85; }
+.cmp-us { border-color:var(--blue); box-shadow:0 8px 30px rgba(21,96,255,0.12); }
+
+.cmp-card-label { font-family:var(--body); font-size:12.5px; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; color:var(--muted); margin-bottom:0.6rem; }
+.cmp-us .cmp-card-label { color:var(--blue-dk); }
+.cmp-card-price { font-family:var(--display); font-size:2.4rem; font-weight:800; color:var(--ink); line-height:1; margin-bottom:1.25rem; }
+.cmp-card-price span { font-size:1rem; font-weight:600; color:var(--muted); }
+
+.cmp-list { list-style:none; padding:0; margin:0; }
+.cmp-list li { font-family:var(--body); font-size:14.5px; line-height:1.6; color:var(--ink2); padding:0.55rem 0 0.55rem 1.9rem; position:relative; }
+.cmp-list li + li { border-top:1px solid var(--border); }
+.cmp-list li::before { position:absolute; left:0; top:0.5rem; font-size:15px; font-weight:700; }
+.cmp-list li.no::before  { content:"\00d7"; color:var(--red); }
+.cmp-list li.yes::before { content:"\2713"; color:var(--wa-dk); }
+
+.cmp-saving { font-family:var(--body); font-size:16px; color:var(--ink2); background:var(--blue-lt); border:1px solid var(--blue-mid); border-radius:var(--radius-sm); padding:1rem 1.25rem; margin-bottom:2rem; }
+.cmp-saving strong { color:var(--blue-dk); }
+
+.cmp-actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:1.75rem; }
+.cmp-actions a { font-family:var(--body); font-size:15px; font-weight:600; text-decoration:none; padding:0.9rem 1.6rem; border-radius:var(--radius-sm); transition:transform 0.15s, box-shadow 0.15s; }
+.cmp-btn-wa { background:var(--wa); color:#fff; box-shadow:0 4px 16px rgba(34,197,94,0.28); }
+.cmp-btn-wa:hover { background:var(--wa-dk); transform:translateY(-1px); }
+.cmp-btn-ghost { background:var(--bg); color:var(--ink2); border:1.5px solid var(--border2); }
+.cmp-btn-ghost:hover { border-color:var(--blue); color:var(--blue-dk); }
+
+.cmp-foot { font-family:var(--body); font-size:14px; color:var(--muted); }
+.cmp-foot strong { color:var(--ink2); }
+
+/* Flat-fee proof line, sits directly under the H1 so the price is the
+   first thing read after the headline without being the headline itself. */
+.hero-price { font-family:var(--body); font-size:19px; color:var(--ink2); margin-bottom:0.5rem; }
+.hero-price strong { font-family:var(--display); font-size:23px; font-weight:800; color:var(--blue-dk); }
+
 @media (max-width:900px) {
+/* The mobile nav takes over at 900, so the body offset has to move with it.
+   Kept here rather than in shell.css, which is deliberately free of body rules. */
+body { padding-top:var(--mob-nav-h); }
+/* With the body offset in place the fixed bar no longer overlaps the hero,
+   so the 132px desktop clearance is not needed here. */
+.hero { padding-top:2.5rem; }
+/* .his-checks li is nowrap by default. Between 721 and 900px that pushed
+   "30-day warranty on all work" past the viewport. Below 720px the mobile
+   block already handles it. */
+.his-checks { min-width:0; }
+.his-checks li { white-space:normal; }
 .hero-inner { grid-template-columns:1fr; gap:2.5rem; }
 .hero-card  { display:none; }
 .pkg-duo    { grid-template-columns:1fr; gap:14px; }
@@ -468,7 +534,6 @@ a.area-pill--link.has-page .area-dot {
 .his-inner { padding:1.1rem 1.35rem; gap:1.25rem; }
 }
 @media (max-width:720px) {
-body { padding-top:var(--mob-nav-h); }
 .hero { padding:1rem 1.25rem 2.25rem; }
 .hero-card { display:block; order:-1; margin-bottom:1.75rem; box-shadow:0 6px 28px rgba(15,23,42,0.12); }
 .hc-body { padding:1.35rem; }
@@ -533,7 +598,18 @@ body { padding-top:var(--mob-nav-h); }
 .svc-links-section { padding:1.5rem 1.25rem; }
 .svc-links-grid { gap:6px; }
 .svc-link-pill { font-size:12px; padding:5px 12px; }
-.wa-bubble { bottom:20px; right:16px; width:52px; height:52px; }
+/* Cleared above the sticky call bar, which is fixed to the bottom and about
+   70px tall. The two were overlapping. */
+.wa-bubble { bottom:calc(84px + env(safe-area-inset-bottom)); right:16px; width:52px; height:52px; }
+/* Long button labels wrap instead of forcing the page wider than the screen. */
+.btn-blue, .btn-wa, .btn-outline { white-space:normal; text-align:center; }
+.svc-links-section .btn-outline, .section .btn-outline { width:100%; }
+.cmp { padding:3rem 1.25rem; }
+.cmp-grid { grid-template-columns:1fr; gap:1rem; }
+.cmp-card-price { font-size:2rem; }
+.cmp-actions a { width:100%; text-align:center; }
+.hero-price { font-size:17px; }
+.hero-price strong { font-size:21px; }
 .guide-block h3 { font-size:1.2rem; }
 .guide-block p, .guide-block li { font-size:14.5px; }
 .hero-info-strip { padding:0 1.25rem 2.5rem; }
@@ -565,6 +641,13 @@ body { padding-bottom:76px; }
 .areas-grid { grid-template-columns:repeat(2,1fr); }
 }
 @media (max-width:380px) {
+/* Hardening for very narrow viewports. Several blocks carry a min-width of
+   220px or white-space:nowrap, which is fine on a phone but overflows once
+   the effective width drops below about 320px, which happens with large
+   accessibility text or page zoom. */
+.his-checks, .included-banner-text, .cta-actions, .offer-text { min-width:0; }
+.his-checks li, .its-cta, .svc-badge, .area-name, .area-pill { white-space:normal; overflow-wrap:anywhere; }
+.areas-grid > *, .visit-grid > *, .svc-top > *, .its-price-row > * { min-width:0; }
 .hero h1 { font-size:1.6rem; }
 .s-title  { font-size:1.35rem; }
 .areas-grid { grid-template-columns:1fr 1fr; gap:6px; }
@@ -572,61 +655,4 @@ body { padding-bottom:76px; }
 .area-name { font-size:12px; }
 .his-stats { gap:0.5rem; }
 .his-val { font-size:1.25rem; }
-}
-
-/* ============================================================
-   Workshop vs on-site comparison.
-   Added with the flat-$120 positioning. Uses only the tokens
-   declared in :root above, so a brand change flows through.
-   ============================================================ */
-.cmp { background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:4.5rem 1.5rem; }
-.cmp-inner { max-width:1000px; margin:0 auto; text-align:center; }
-.cmp-eyebrow { font-family:var(--body); font-size:12px; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; color:var(--blue-dk); margin-bottom:0.9rem; }
-.cmp-title { font-family:var(--display); font-size:clamp(1.6rem,4vw,2.4rem); line-height:1.2; color:var(--ink); margin-bottom:1rem; }
-.cmp-lede { font-family:var(--body); font-size:16px; color:var(--muted); line-height:1.75; max-width:600px; margin:0 auto 3rem; }
-
-.cmp-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; text-align:left; margin-bottom:2rem; }
-.cmp-card { border-radius:var(--radius); padding:1.75rem 1.5rem; border:1.5px solid var(--border); background:var(--bg); }
-.cmp-them { opacity:0.85; }
-.cmp-us { border-color:var(--blue); box-shadow:0 8px 30px rgba(21,96,255,0.12); }
-
-.cmp-card-label { font-family:var(--body); font-size:12.5px; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; color:var(--muted); margin-bottom:0.6rem; }
-.cmp-us .cmp-card-label { color:var(--blue-dk); }
-.cmp-card-price { font-family:var(--display); font-size:2.4rem; font-weight:800; color:var(--ink); line-height:1; margin-bottom:1.25rem; }
-.cmp-card-price span { font-size:1rem; font-weight:600; color:var(--muted); }
-
-.cmp-list { list-style:none; padding:0; margin:0; }
-.cmp-list li { font-family:var(--body); font-size:14.5px; line-height:1.6; color:var(--ink2); padding:0.55rem 0 0.55rem 1.9rem; position:relative; }
-.cmp-list li + li { border-top:1px solid var(--border); }
-.cmp-list li::before { position:absolute; left:0; top:0.5rem; font-size:15px; font-weight:700; }
-.cmp-list li.no::before  { content:"\00d7"; color:var(--red); }
-.cmp-list li.yes::before { content:"\2713"; color:var(--wa-dk); }
-
-.cmp-saving { font-family:var(--body); font-size:16px; color:var(--ink2); background:var(--blue-lt); border:1px solid var(--blue-mid); border-radius:var(--radius-sm); padding:1rem 1.25rem; margin-bottom:2rem; }
-.cmp-saving strong { color:var(--blue-dk); }
-
-.cmp-actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:1.75rem; }
-.cmp-actions a { font-family:var(--body); font-size:15px; font-weight:600; text-decoration:none; padding:0.9rem 1.6rem; border-radius:var(--radius-sm); transition:transform 0.15s, box-shadow 0.15s; }
-.cmp-btn-wa { background:var(--wa); color:#fff; box-shadow:0 4px 16px rgba(34,197,94,0.28); }
-.cmp-btn-wa:hover { background:var(--wa-dk); transform:translateY(-1px); }
-.cmp-btn-ghost { background:var(--bg); color:var(--ink2); border:1.5px solid var(--border2); }
-.cmp-btn-ghost:hover { border-color:var(--blue); color:var(--blue-dk); }
-
-.cmp-foot { font-family:var(--body); font-size:14px; color:var(--muted); }
-.cmp-foot strong { color:var(--ink2); }
-
-@media (max-width:720px) {
-  .cmp { padding:3rem 1.25rem; }
-  .cmp-grid { grid-template-columns:1fr; gap:1rem; }
-  .cmp-card-price { font-size:2rem; }
-  .cmp-actions a { width:100%; text-align:center; }
-}
-
-/* Flat-fee proof line, sits directly under the H1 so the price is the
-   first thing read after the headline without being the headline itself. */
-.hero-price { font-family:var(--body); font-size:19px; color:var(--ink2); margin-bottom:0.5rem; }
-.hero-price strong { font-family:var(--display); font-size:23px; font-weight:800; color:var(--blue-dk); }
-@media (max-width:720px) {
-  .hero-price { font-size:17px; }
-  .hero-price strong { font-size:21px; }
 }

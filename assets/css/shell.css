@@ -1,5 +1,5 @@
 /* ==========================================================
-   shell.css   VERSION 2
+   shell.css   VERSION 3
    Header, mobile nav, hamburger, sticky bar and footer.
    Desktop and mobile, media queries included.
 
@@ -13,6 +13,10 @@
    the desktop bar using animation-timeline. That block is wrapped
    in @supports, so browsers without scroll-driven animations
    simply keep the static header. No markup or JavaScript changes.
+
+   v3: footer shortened on phones. The blurb is hidden below 760px and
+   the vertical rhythm tightened. Both link columns are kept. Desktop nav
+   tightened below 900px so the last pill is no longer pushed off screen.
    ========================================================== */
 
 .desk-nav {
@@ -99,12 +103,23 @@
 }
 
 #scroll-bar { position:fixed; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,#1560FF,#00CFFF,#22C55E); transform:scaleX(0); transform-origin:left; z-index:9999; }
+/* The wordmark plus five pills needs roughly 890px. Squeezing them into a
+   tablet meant 11px text, so the switch to the hamburger now happens at 900
+   rather than 720. Between 901 and 1120 the chrome is tightened slightly to
+   keep real headroom, since Sora is wider than the fallback font. */
+@media (max-width:1120px) {
+.desk-nav { padding: 0 1rem; }
+.desk-nav-inner { gap: 10px; }
+.nav-right { gap: 5px; }
+.nav-pill { font-size: 12px; padding: 8px 12px; }
+.pill-ghost { padding: 7px 11px; }
+}
 @media (max-width:900px) {
 .desk-nav .pill-fb { display:none; }
-}
-@media (max-width:720px) {
 .desk-nav { display:none; }
 .mob-nav  { display:flex; }
+}
+@media (max-width:720px) {
 .sticky-cta { display:flex; }
 }
 
@@ -183,25 +198,35 @@ footer {
 }
 
 @media (max-width: 760px) {
-  footer { padding: 3rem 1.5rem 0; }
-  /* Brand across the top, then the two link columns side by side, then
-     contact across the bottom. Keeps the footer short instead of stacking
-     four blocks in a single column. */
-  .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem 1.5rem; }
+  footer { padding: 2.25rem 1.5rem 0; }
+  /* Brand across the top, the two link columns side by side beneath it, then
+     contact across the bottom. Both link columns are kept: they are the only
+     internal links to Pricing, Business IT, Tech Tips and Reviews from this
+     part of the page, and the site needs the internal linking.
+     The blurb is dropped instead. It repeats the hero almost word for word,
+     and on a phone it was the single tallest thing in the footer. */
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 1.5rem 1.25rem; }
   .footer-brand { grid-column: 1 / -1; }
   .footer-contact { grid-column: 1 / -1; }
-  .footer-blurb { max-width: none; margin-bottom: 1.25rem; }
+  .footer-blurb { display: none; }
+  .footer-logo { margin-bottom: .75rem; }
+  .footer-tag { font-size: 15px; line-height: 1.55; margin-bottom: .9rem; }
+  .footer-social a { width: 38px; height: 38px; border-radius: 10px; }
+  .footer-head { margin-bottom: .75rem; }
+  .footer-col a { margin-bottom: .6rem; }
+  .footer-contact address { margin-bottom: .6rem; }
+  .footer-phone { margin-bottom: .6rem; }
   .footer-contact address, .footer-hours { display: inline-block; vertical-align: top; margin-right: 2rem; }
   .footer-phone { display: inline-block; margin-right: 2rem; }
+  .footer-bar { margin-top: 1.75rem; padding: 1rem 0 1.5rem; }
 }
 
 @media (max-width: 420px) {
-  footer { padding: 2.5rem 1.25rem 0; }
-  .footer-inner { gap: 1.75rem 1.25rem; }
-  .footer-tag { font-size: 15px; }
-  .footer-blurb { font-size: 13.5px; line-height: 1.7; }
-  .footer-col a { font-size: 14px; margin-bottom: .65rem; }
+  footer { padding: 2rem 1.25rem 0; }
+  .footer-inner { gap: 1.35rem 1rem; }
+  .footer-tag { font-size: 14.5px; }
+  .footer-col a { font-size: 14px; margin-bottom: .55rem; }
   .footer-contact address, .footer-hours, .footer-phone { display: block; margin-right: 0; }
-  .footer-bar { flex-direction: column; align-items: flex-start; gap: .4rem; margin-top: 2rem; padding-bottom: 1.5rem; }
+  .footer-bar { flex-direction: column; align-items: flex-start; gap: .35rem; margin-top: 1.5rem; padding-bottom: 1.25rem; }
   .footer-copy, .footer-note { font-size: 12px; }
 }
