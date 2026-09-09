@@ -94,7 +94,7 @@ a    { color:inherit; }
    the is-collapsed class does nothing at all. That is what makes a
    rotation or a resize safe: no JavaScript is needed to undo it. */
 .hc-header { position:relative; }
-.hc-hint { display:none; font-size:11.5px; font-weight:600; color:rgba(255,255,255,0.45); margin-left:auto; margin-right:26px; }
+.hc-hint { display:none; font-size:11.5px; font-weight:600; color:rgba(255,255,255,0.62); margin-left:auto; margin-right:26px; letter-spacing:0.01em; }
 .hc-toggle { display:none; }
 .hc-chevron { width:18px; height:18px; }
 .mq-form { display:flex; flex-direction:column; gap:11px; }
@@ -653,8 +653,12 @@ body { padding-bottom:76px; }
 }
 .hc-toggle:focus-visible { outline:2px solid #fff; outline-offset:-3px; border-radius:20px 20px 0 0; }
 .hero-card.is-collapsed .hc-toggle:focus-visible { border-radius:20px; }
-/* Points up while open (tap to close), down while collapsed (tap to open). */
-.hc-chevron { transform:rotate(180deg); transition:transform 0.32s cubic-bezier(0.4,0,0.2,1); }
+/* Points up while open, down while collapsed. Slight overshoot on the
+   rotation so the tap feels answered rather than merely obeyed. */
+.hc-chevron { transform:rotate(180deg); transition:transform 0.34s cubic-bezier(0.34,1.4,0.64,1); }
+/* Press feedback on the bar itself, since the button is transparent and
+   there is no other sign that the tap registered. */
+.hc-toggle:active { background:rgba(255,255,255,0.07); }
 
 /* Animating grid-template-rows rather than max-height. The card changes
    height between step 1 and step 2 of the form, so any fixed max-height
@@ -674,7 +678,13 @@ body { padding-bottom:76px; }
 
 .hero-card.is-collapsed .hc-collapse { grid-template-rows:0fr; }
 .hero-card.is-collapsed .hc-chevron { transform:rotate(0deg); }
-.hero-card.is-collapsed .hc-hint { display:inline; }
+/* One label always showing, and it names what the next tap does. Both spans
+   live in the same flex slot, so only one is ever in flow and there is no
+   layout shift. display cannot be transitioned, so the incoming label fades
+   in with a keyframe instead. */
+.hero-card:not(.is-collapsed) .hc-hint-close { display:inline-block; animation:hcHintIn 0.3s ease both; }
+.hero-card.is-collapsed .hc-hint-open { display:inline-block; animation:hcHintIn 0.3s ease both; }
+@keyframes hcHintIn { from { opacity:0; transform:translateX(5px); } to { opacity:1; transform:none; } }
 .hero-card.is-collapsed { margin-bottom:1.25rem; }
 /* Hidden only once the animation has finished, otherwise it disappears
    mid-collapse. Without this a keyboard or screen reader user tabs
@@ -682,6 +692,7 @@ body { padding-bottom:76px; }
 .hero-card.is-collapsed .hc-collapse > .hc-body { visibility:hidden; transition:visibility 0s 0.32s; }
 @media (prefers-reduced-motion: reduce) {
   .hc-collapse, .hc-chevron, .hc-collapse > .hc-body { transition:none; }
+  .hc-hint { animation:none; }
   .hero-card.is-collapsed .hc-collapse > .hc-body { transition:none; }
 }
 }
