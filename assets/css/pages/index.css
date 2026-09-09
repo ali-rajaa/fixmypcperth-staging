@@ -156,34 +156,35 @@ a    { color:inherit; }
 .mq-success-icon { width:46px; height:46px; border-radius:50%; background:linear-gradient(135deg,var(--blue) 0%,#00CFFF 100%); color:#fff; font-size:20px; font-weight:800; display:flex; align-items:center; justify-content:center; margin:0 auto 0.85rem; box-shadow:0 6px 20px rgba(21,96,255,0.3); }
 .mq-success-title { font-family:var(--display); font-size:17px; font-weight:800; color:var(--ink); margin-bottom:0.4rem; }
 .mq-success-body { font-size:13px; color:var(--muted); line-height:1.6; }
-.mq-countdown {
-  display:flex; align-items:center; justify-content:center; gap:7px;
-  background:linear-gradient(135deg,#FFF7ED 0%,#FFEDD5 100%); border:1.5px solid #FDBA74;
-  border-radius:10px; padding:7px 12px; margin-bottom:11px;
-  font-size:12px; font-weight:700; color:#9A3412; text-align:center; line-height:1.4;
+/* Was an amber alert box with a pulsing dot and a live countdown. It is now
+   a quiet informational line in the card's own palette. */
+.mq-notice {
+  background:var(--bg2); border:1px solid var(--border);
+  border-radius:10px; padding:8px 12px; margin-bottom:11px;
+  font-size:12px; font-weight:500; color:var(--ink2); line-height:1.5;
+  min-height:34px; visibility:hidden;
 }
-.mq-countdown.closed { background:var(--bg3); border-color:var(--border2); color:var(--muted); }
-.mq-countdown { min-height:34px; visibility:hidden; }
-.mq-countdown.ready { visibility:visible; }
-.mq-countdown-dot { width:7px; height:7px; border-radius:50%; background:#F97316; animation:pulse 1.6s infinite; flex-shrink:0; }
-.mq-countdown.closed .mq-countdown-dot { background:var(--muted2); animation:none; }
-.mq-countdown-time { font-variant-numeric:tabular-nums; }
+.mq-notice.ready { visibility:visible; }
+.mq-notice.closed { color:var(--muted); }
 .mq-trust { display:grid; grid-template-columns:repeat(2,1fr); gap:6px; margin-top:11px; padding-top:11px; border-top:1px solid var(--border); }
 .mq-trust-item { display:flex; align-items:center; gap:6px; font-size:11px; font-weight:600; color:var(--ink2); }
 .mq-trust-item svg { width:13px; height:13px; color:var(--wa-dk); flex-shrink:0; }
-.mq-rating { display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:10px; padding:7px 10px; background:var(--bg2); border:1.5px solid var(--border); border-radius:10px; text-decoration:none; transition:border-color 0.15s,background 0.15s; }
+/* Left aligned, on the same edge as the form labels below it. */
+.mq-rating { display:flex; align-items:center; gap:8px; margin-bottom:10px; padding:8px 12px; background:var(--bg2); border:1px solid var(--border); border-radius:10px; text-decoration:none; transition:border-color 0.15s,background 0.15s; }
 .mq-rating:hover { border-color:var(--blue-mid); background:var(--blue-lt); }
 .mq-rating-stars { font-size:13px; color:#F59E0B; letter-spacing:1px; }
-.mq-rating-text { font-size:11.5px; font-weight:700; color:var(--ink2); }
+.mq-rating-text { font-size:11.5px; font-weight:600; color:var(--ink2); }
 .mq-rating-text span { font-weight:500; color:var(--muted); }
 .mq-response { display:flex; align-items:center; justify-content:center; gap:6px; font-size:11px; font-weight:600; color:var(--wa-dk); margin-top:9px; }
 .mq-response-dot { width:6px; height:6px; border-radius:50%; background:var(--wa); animation:pulse 2s infinite; flex-shrink:0; }
 .mq-step { display:none; }
 .mq-step.active { display:flex; flex-direction:column; gap:13px; }
 .mq-progress { display:flex; align-items:center; gap:7px; margin-bottom:2px; }
-.mq-progress-bar { flex:1; height:4px; border-radius:4px; background:var(--border); overflow:hidden; }
-.mq-progress-fill { height:100%; width:50%; background:linear-gradient(90deg,var(--blue),#00CFFF); border-radius:4px; transition:width 0.35s cubic-bezier(.22,.68,0,1.2); }
-.mq-progress-label { font-size:10.5px; font-weight:700; color:var(--muted2); white-space:nowrap; letter-spacing:0.04em; }
+.mq-progress-bar { flex:1; height:3px; border-radius:3px; background:var(--border); overflow:hidden; }
+/* Solid brand blue. The blue to cyan gradient was doing a lot of work for a
+   3px bar and it is the kind of detail that reads as decoration. */
+.mq-progress-fill { height:100%; width:50%; background:var(--blue); border-radius:3px; transition:width 0.3s cubic-bezier(0.4,0,0.2,1); }
+.mq-progress-label { font-size:10.5px; font-weight:600; color:var(--muted); white-space:nowrap; letter-spacing:0.03em; }
 .mq-service-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
 /* .mq-field input (below) sets width:100% and has higher specificity than a
    bare class, so these radios were rendering at full viewport width and
