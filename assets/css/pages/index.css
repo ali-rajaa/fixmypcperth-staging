@@ -166,6 +166,9 @@ a    { color:inherit; }
 }
 .mq-notice.ready { visibility:visible; }
 .mq-notice.closed { color:var(--muted); }
+/* tabular-nums keeps the digits a fixed width, so the line does not twitch
+   as the clock runs down. */
+.mq-notice-time { font-weight:700; color:var(--ink); font-variant-numeric:tabular-nums; }
 .mq-trust { display:grid; grid-template-columns:repeat(2,1fr); gap:6px; margin-top:11px; padding-top:11px; border-top:1px solid var(--border); }
 .mq-trust-item { display:flex; align-items:center; gap:6px; font-size:11px; font-weight:600; color:var(--ink2); }
 .mq-trust-item svg { width:13px; height:13px; color:var(--wa-dk); flex-shrink:0; }
