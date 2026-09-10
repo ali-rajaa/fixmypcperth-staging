@@ -1,5 +1,30 @@
 <!-- Shared behaviour: scroll bar, hamburger toggle, GA4 click tracking. -->
 <script>
+/* ============================================================
+   GA4 conversion helpers.
+   These three are called from onclick attributes throughout the
+   site but were defined nowhere, so every WhatsApp tap threw
+   "trackWAClick is not defined" and no conversion has ever been
+   recorded. Declared globally and ahead of everything else so
+   they exist before the first click can happen. Guarded on gtag
+   so they stay harmless if the tag is blocked.
+   ============================================================ */
+function trackPhoneClick() {
+  if (typeof gtag === 'function') {
+    gtag('event', 'phone_call_click', { event_category: 'engagement', event_label: 'phone' });
+  }
+}
+function trackWAClick() {
+  if (typeof gtag === 'function') {
+    gtag('event', 'whatsapp_click', { event_category: 'engagement', event_label: 'whatsapp' });
+  }
+}
+function trackQuoteForm() {
+  if (typeof gtag === 'function') {
+    gtag('event', 'quote_form_click', { event_category: 'engagement', event_label: 'quote_form' });
+  }
+}
+
 (function () {
   'use strict';
 
