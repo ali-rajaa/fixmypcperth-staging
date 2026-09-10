@@ -473,7 +473,16 @@ a.area-pill--link.has-page .area-dot {
 .wa-bubble:hover { transform:scale(1.1); box-shadow:0 6px 28px rgba(34,197,94,0.55); }
 .guide-block { max-width:760px; }
 .guide-block h3 { font-family:var(--display); font-size:1.35rem; font-weight:800; letter-spacing:-0.5px; color:var(--ink); margin:2.5rem 0 0.85rem; }
-.guide-block h3:first-of-type { margin-top:0.5rem; }
+/* Was .guide-block h3:first-of-type. The h3s now sit inside panel wrappers, so
+   that selector would have matched the first h3 in every panel and changed the
+   desktop spacing. Scoped to the first panel instead, which is the same element
+   it used to hit. */
+[data-guide-panel="0"] h3:first-of-type { margin-top:0.5rem; }
+/* Above 720px the panels are not boxes at all, so the guide is one continuous
+   article exactly as before, and the tab strip does not exist. */
+.guide-panel { display:contents; }
+.guide-tabs { display:none; }
+.slide-hint { display:none; }
 .guide-block h4 { font-family:var(--display); font-size:1.05rem; font-weight:700; color:var(--ink2); margin:1.5rem 0 0.5rem; }
 .guide-block p { font-size:15.5px; color:var(--ink2); line-height:1.85; margin-bottom:1rem; }
 .guide-block ul { margin:0 0 1.25rem 1.25rem; }
@@ -571,7 +580,20 @@ body { padding-top:var(--mob-nav-h); }
 .section,.section-alt,.cta-section,.faq-section { padding:3.5rem 1.25rem; }
 .s-title { font-size:clamp(1.55rem,6vw,2rem); letter-spacing:-0.8px; }
 .s-sub   { font-size:14.5px; max-width:100%; }
-.services-grid { grid-template-columns:1fr; gap:12px; }
+/* The three card grids become swipe carousels, reusing the .pkg-duo pattern
+   already on the page: 87% wide cards so the next one peeks in, snap points,
+   and a full bleed to the screen edge. */
+.services-grid, .testi-grid, .its-grid {
+    display:flex; grid-template-columns:none; gap:12px;
+    overflow-x:auto; scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch; scrollbar-width:none;
+    margin:0 -1.25rem; padding:0 1.25rem 4px;
+  }
+.services-grid::-webkit-scrollbar,
+.testi-grid::-webkit-scrollbar,
+.its-grid::-webkit-scrollbar { display:none; }
+.services-grid > *, .testi-grid > *, .its-grid > * { flex:0 0 87%; scroll-snap-align:center; }
+.slide-hint { display:flex; justify-content:flex-end; margin-top:0.85rem; }
 .svc-card { padding:1.4rem; }
 .svc-header-row { flex-direction:column; align-items:flex-start; }
 .svc-header-row .btn-outline { width:100%; justify-content:center; }
@@ -596,10 +618,8 @@ body { padding-top:var(--mob-nav-h); }
 .pkg-item  { font-size:12.5px; }
 .pkg-btn   { width:100%; justify-content:center; }
 .payment-strip { flex-direction:column; align-items:center; }
-.its-grid  { grid-template-columns:1fr; gap:12px; }
 .its-card  { padding:1.4rem; }
 .why-grid  { grid-template-columns:1fr; gap:10px; }
-.testi-grid { grid-template-columns:1fr; gap:10px; }
 .areas-grid { grid-template-columns:repeat(2,1fr); gap:8px; }
 .area-pill { padding:0.75rem 0.85rem; }
 .area-name { font-size:12.5px; }
@@ -634,6 +654,23 @@ body { padding-top:var(--mob-nav-h); }
 .cmp-actions a { width:100%; text-align:center; }
 .hero-price { font-size:17px; }
 .hero-price strong { font-size:21px; }
+/* Tabbed guide. One panel visible at a time, tab strip scrolls sideways. */
+.guide-panel { display:none; }
+.guide-panel.is-active { display:block; }
+.guide-panel h3:first-of-type { margin-top:0.5rem; }
+.guide-tabs {
+    display:flex; gap:8px; overflow-x:auto; scrollbar-width:none;
+    margin:0 -1.25rem 1.5rem; padding:0 1.25rem 2px; scroll-behavior:smooth;
+  }
+.guide-tabs::-webkit-scrollbar { display:none; }
+.guide-tab {
+    flex:0 0 auto; font-family:var(--body); font-size:13px; font-weight:600;
+    color:var(--ink2); background:var(--bg); border:1px solid var(--border);
+    border-radius:9px; padding:9px 14px; cursor:pointer; white-space:nowrap;
+    transition:background 0.18s,border-color 0.18s,color 0.18s;
+  }
+.guide-tab.is-active { background:var(--blue); border-color:var(--blue); color:#fff; }
+.guide-tab:focus-visible { outline:2px solid var(--blue); outline-offset:2px; }
 .guide-block h3 { font-size:1.2rem; }
 .guide-block p, .guide-block li { font-size:14.5px; }
 .hero-info-strip { padding:0 1.25rem 2.5rem; }

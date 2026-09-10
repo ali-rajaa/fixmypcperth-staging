@@ -696,6 +696,7 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
       </div>
 
     </div>
+      <div class="slide-hint" aria-hidden="true"><span class="pkg-swipe-hint">Swipe<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
   </div>
 </section>
 
@@ -902,6 +903,7 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
         </div>
       </div>
     </div>
+      <div class="slide-hint" aria-hidden="true"><span class="pkg-swipe-hint">Swipe<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
     <div style="text-align:center;margin-top:2rem;" class="fade-up">
       <a href="/business-it-support" class="btn-outline" aria-label="View all business IT support plans in Perth">View all business IT plans &amp; pricing</a>
     </div>
@@ -1024,6 +1026,19 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
 
     <div class="guide-block fade-up" style="margin-top:2.5rem;">
 
+      <!-- Mobile only. The tab strip is display:none above 720px and each panel
+           is display:contents, so on desktop the guide renders exactly as it did
+           before: one continuous article in unchanged DOM order. -->
+      <div class="guide-tabs" aria-label="Guide sections">
+        <button type="button" class="guide-tab is-active" data-guide-tab="0">What we fix</button>
+        <button type="button" class="guide-tab" data-guide-tab="1">Slow PCs</button>
+        <button type="button" class="guide-tab" data-guide-tab="2">Viruses</button>
+        <button type="button" class="guide-tab" data-guide-tab="3">Laptops & data</button>
+        <button type="button" class="guide-tab" data-guide-tab="4">Business IT</button>
+        <button type="button" class="guide-tab" data-guide-tab="5">Costs & areas</button>
+      </div>
+
+      <div class="guide-panel is-active" data-guide-panel="0">
       <p>If you've typed "computer repair Perth", "computer repairs Perth" or "PC repair Perth" into Google, you've probably noticed two things: there are a lot of options, and almost none of them tell you what's actually wrong with your computer before you hand it over.</p>
       <p>That's the gap FixMyPC Perth was built to close. We're a Canning Vale based computer & laptop repair business that services the entire southern Perth corridor: Cockburn, Willetton, Jandakot, Thornlie, Cannington, Harrisdale, Atwell, Gosnells, Armadale, Byford and beyond, and this guide walks through the most common questions we get about computer & laptop repairs, slow PCs, virus removal, laptop repair, data recovery and small business IT support in Perth.</p>
 
@@ -1031,7 +1046,8 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
       <p>When people search for <strong>computer & laptop repairs Perth</strong> or <strong>computer & laptop repair in Perth</strong>, they're usually dealing with one of a handful of problems: a computer that won't turn on, a computer that's painfully slow, a blue screen or constant crashing, a virus or malware infection, a cracked laptop screen, or a hard drive that's failed and taken important files with it. Every one of these is something we see weekly in our Canning Vale workshop, and every one of them gets the same starting point, a proper diagnostic before any work begins.</p>
       <p>A lot of "PC repair Perth" services either guess at the problem or replace parts until something works, which can mean paying for components you didn't need. Our approach is the opposite: full diagnostic first, written report on exactly what's wrong, fixed-price quote, and only then do we start work.</p>
       <p>For most repairs, virus removal, SSD upgrades, RAM upgrades, software issues, Windows reinstalls, turnaround is same day or next day. More involved jobs like data recovery or motherboard-level repairs can take one to three days depending on parts availability.</p>
-
+      </div>
+      <div class="guide-panel" data-guide-panel="1">
       <h3>Why Is My Computer So Slow? The Warning Signs Perth Users Ignore</h3>
       <p>"Why is my computer so slow" and "why is my PC so slow" are two of the most common things people search in Perth before they book a repair. What most people don't realise is that a slow computer is rarely just an annoyance, it's usually the first visible symptom of something failing underneath. Here are the signs we see most often in the Canning Vale workshop, and what each one actually means for your machine:</p>
       <ul>
@@ -1045,12 +1061,14 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
       </ul>
       <p><strong>The pattern we see over and over:</strong> people live with a slow computer for months, then bring it in the week it finally dies, when what would have been a straightforward same-day repair has turned into a data recovery job.</p>
       <p>If your PC or laptop is showing any of the signs above, the cheapest and safest time to have it looked at is now, while it still turns on. Our diagnostic tells you exactly what's happening before you commit to anything, and most jobs booked before 2pm are back in your hands the same day.</p>
-
+      </div>
+      <div class="guide-panel" data-guide-panel="2">
       <h3>Computer Virus Removal Perth: Signs Your PC Is Infected</h3>
       <p>Searches for <strong>computer virus removal Perth</strong> and "how do I know if my computer has a virus" spike constantly, and for good reason, modern malware is designed to stay hidden while it works. Common signs include: your browser homepage or search engine changed without you doing it, new toolbars or extensions you didn't install, pop-ups appearing even when you're not browsing, programs opening or closing on their own, your antivirus being disabled without your permission, and friends receiving strange messages or emails "from you" that you never sent.</p>
       <p><strong>Every day an infection stays on your machine, it keeps working.</strong> Modern malware logs keystrokes, harvests saved passwords, captures banking and card details, and quietly spreads to other devices on your home or office network. Ransomware variants sit dormant for weeks before encrypting everything at once. If you're seeing any of the signs above, the machine should be looked at now, not after the weekend.</p>
       <p>Our virus and malware removal service in Perth starts from <strong>$99</strong> and covers a full system scan, removal of viruses, spyware, ransomware and browser hijackers, a full browser cleanup, and setting up proper antivirus protection so it doesn't come straight back. Most infections are cleared the same day you drop the computer off in Canning Vale.</p>
-
+      </div>
+      <div class="guide-panel" data-guide-panel="3">
       <h3>Laptop Repair Perth: Screens, Batteries and Hinges</h3>
       <p>For <strong>laptop repair Perth</strong> and <strong>laptop repairs Perth</strong> searches, the most common jobs are cracked or dead screens, swollen or dead batteries, broken hinges, and laptops that won't charge.</p>
       <p>Laptop screen replacement starts from $120 in labour, with parts quoted separately and upfront once we've identified the exact panel your model needs, laptop screens vary a lot between manufacturers and even between different revisions of the same model, so we always confirm the part before ordering. The good news is that laptop screen and battery replacements are usually same-day jobs once the part is in stock.</p>
@@ -1060,12 +1078,14 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
       <p>A failing drive gets worse every single time it spins up, and the window where your files are still recoverable closes fast. The warning signs to look for: clicking, grinding or beeping noises from the machine, files that suddenly won't open or appear corrupted, the computer freezing during file transfers, folders that appear empty when you know they aren't, and increasingly frequent blue screen crashes.</p>
       <p><strong>If your drive is making noise, power the machine off and bring it in.</strong> The most heartbreaking jobs we see are the ones where someone kept restarting a clicking drive for a fortnight hoping it would sort itself out, and by the time it reached us the platters were beyond reach. Caught early, recovery is routine. Caught late, sometimes nothing can be done at any price.</p>
       <p>Our data recovery service starts from $149 and is offered on a <strong>no fix, no fee</strong> basis, if we can't recover your photos, documents or files, you don't pay for the recovery attempt. We see this most often with irreplaceable family photo collections, small business accounting files, and university or work documents that weren't backed up anywhere else. Bring the drive to our Canning Vale workshop as soon as you notice the symptoms above.</p>
-
+      </div>
+      <div class="guide-panel" data-guide-panel="4">
       <h3>Business IT Support Perth: What Small Businesses Actually Need</h3>
       <p>Searches like <strong>business IT support Perth</strong>, <strong>small business IT support Perth</strong> and <strong>medical IT support Perth</strong> tend to come from business owners who've just had something break at the worst possible time, a server down, a staff PC that won't boot, or an email system that's stopped working. For most small Perth businesses (cafes, retail shops, medical and allied health practices, accountants, trades businesses), the difference between "IT support" and "computer & laptop repair" is really about prevention versus reaction.</p>
       <p>Our managed IT plans start from $149/month and are built around proactive monitoring (so problems get caught before they cause downtime), remote support for day-to-day issues, onsite visits when something needs hands-on attention, managed antivirus across all business devices, and automated cloud backups.</p>
       <p>There's no lock-in contract, if a plan isn't working for your business, you can cancel with 14 days notice. For businesses that just need help right now rather than an ongoing plan, on-demand remote and onsite support is available from $89, with same-day availability across southern Perth.</p>
-
+      </div>
+      <div class="guide-panel" data-guide-panel="5">
       <h3>How Much Does Computer & Laptop Repair Cost in Perth?</h3>
       <p>This is one of the most searched questions we see, "how much does computer & laptop repair cost," "computer & laptop repair rates," "PC repair rates", and the honest answer is that it depends entirely on what's wrong. That said, here's a realistic breakdown of typical pricing in the Perth market based on what we charge:</p>
       <ul>
@@ -1086,8 +1106,8 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
       <p>If you've searched "computer & laptop repair near me," "PC repair near me" or "laptop repairs near me" from one of these suburbs, dropping off in <a href="/suburbs/canning-vale">Canning Vale</a> is usually the fastest option, no appointment needed, and most repairs are ready the same day or the next. We also provide remote support Australia-wide for software, virus removal and network issues that don't require hands-on access to the machine.</p>
 
       <p>Whatever's going on with your PC or laptop, slow, infected, cracked screen, dead drive, or just acting strange, get in touch via WhatsApp for a free, no-obligation quote. We'll tell you honestly what's wrong and what it'll cost before you commit to anything.</p>
-
-    </div>
+      </div>
+</div>
   </div>
 </section>
 
@@ -1153,6 +1173,7 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
       </div>
 
     </div>
+      <div class="slide-hint" aria-hidden="true"><span class="pkg-swipe-hint">Swipe<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></div>
     <p style="text-align:center;margin-top:1.75rem;font-size:13px;color:var(--muted);" class="fade-up">Have a story of your own? <a href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20to%20leave%20a%20review." target="_blank" rel="noopener" style="color:var(--blue);font-weight:600;text-decoration:none;">Send it over on WhatsApp</a>.</p>
   </div>
 </section>
@@ -1439,5 +1460,72 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
   if (mq.addEventListener) mq.addEventListener('change', syncToViewport);
   else if (mq.addListener) mq.addListener(syncToViewport);
   syncToViewport();
+})();
+
+/* ============================================================
+   In-depth guide, tabbed. Mobile only.
+   The CSS does the showing and hiding; this only moves the
+   is-active class and keeps the tab strip scrolled to the
+   selected tab. Above 720px it never runs, and the panels are
+   display:contents there, so desktop is byte for byte the
+   article it was before.
+   ============================================================ */
+(function () {
+  var strip = document.querySelector('.guide-tabs');
+  if (!strip) return;
+  var tabs   = [].slice.call(document.querySelectorAll('[data-guide-tab]'));
+  var panels = [].slice.call(document.querySelectorAll('[data-guide-panel]'));
+  if (!tabs.length || tabs.length !== panels.length) return;
+  var mq = window.matchMedia('(max-width: 720px)');
+
+  function label(i) { return 'guide-panel-' + i; }
+
+  function applyRoles(on) {
+    // Only claim to be a tab interface while it actually behaves like one.
+    strip.setAttribute('role', on ? 'tablist' : 'presentation');
+    tabs.forEach(function (t, i) {
+      if (on) {
+        t.setAttribute('role', 'tab');
+        t.setAttribute('aria-controls', label(i));
+        t.id = 'guide-tab-' + i;
+      } else {
+        t.removeAttribute('role');
+        t.removeAttribute('aria-controls');
+        t.removeAttribute('aria-selected');
+      }
+    });
+    panels.forEach(function (pnl, i) {
+      if (on) {
+        pnl.setAttribute('role', 'tabpanel');
+        pnl.id = label(i);
+        pnl.setAttribute('aria-labelledby', 'guide-tab-' + i);
+      } else {
+        pnl.removeAttribute('role');
+        pnl.removeAttribute('aria-labelledby');
+      }
+    });
+  }
+
+  function select(n) {
+    tabs.forEach(function (t, i) {
+      var on = i === n;
+      t.classList.toggle('is-active', on);
+      if (mq.matches) t.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    panels.forEach(function (pnl, i) { pnl.classList.toggle('is-active', i === n); });
+    // Bring the chosen tab fully into view, so tab 5 does not sit half off screen.
+    var t = tabs[n];
+    var l = t.offsetLeft - (strip.clientWidth - t.offsetWidth) / 2;
+    strip.scrollTo({ left: Math.max(0, l), behavior: 'smooth' });
+  }
+
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { if (mq.matches) select(i); });
+  });
+
+  function sync() { applyRoles(mq.matches); if (!mq.matches) select(0); }
+  sync();
+  if (mq.addEventListener) mq.addEventListener('change', sync);
+  else if (mq.addListener) mq.addListener(sync);
 })();
 </script>
