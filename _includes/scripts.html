@@ -126,13 +126,22 @@
       // regardless of where the visitor is.
       const nowUtc = new Date();
       const perth  = new Date(nowUtc.getTime() + (8 * 60 + nowUtc.getTimezoneOffset()) * 60000);
-      const beforeCutoff = perth.getHours() < 14;
 
-      // States the cutoff as a fact rather than counting down to it. A ticking
-      // timer on a repair booking is manufactured urgency, and it reads as one.
-      if (beforeCutoff) {
+      // 2pm Perth on the same day. If we are past it, the cutoff has gone.
+      const cutoff = new Date(perth.getTime());
+      cutoff.setHours(14, 0, 0, 0);
+      const diff = cutoff.getTime() - perth.getTime();
+
+      if (diff > 0) {
+        const h = Math.floor(diff / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        // Hours and minutes while there is over an hour left, minutes and
+        // seconds inside the last hour, so it reads as live without spending
+        // all day counting seconds nobody is watching.
+        const left = h > 0 ? (h + 'h ' + m + 'm') : (m + 'm ' + s + 's');
         box.classList.remove('closed');
-        text.textContent = 'Drop off before 2pm for same day pickup.';
+        text.innerHTML = 'Drop off within <span class="mq-notice-time">' + left + '</span> for same day pickup.';
       } else {
         box.classList.add('closed');
         text.textContent = 'Drop off tonight, first on the bench tomorrow.';
@@ -140,8 +149,7 @@
     }
     tick();
     box.classList.add('ready');
-    // Once a minute is enough. The only thing that changes is the 2pm boundary.
-    setInterval(tick, 60000);
+    setInterval(tick, 1000);
   })();
 
   /* ---- Sticky mobile CTA bar ---- */
