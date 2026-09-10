@@ -1,5 +1,5 @@
 /* ==========================================================
-   shell.css   VERSION 3
+   shell.css   VERSION 4
    Header, mobile nav, hamburger, sticky bar and footer.
    Desktop and mobile, media queries included.
 
@@ -13,6 +13,9 @@
    the desktop bar using animation-timeline. That block is wrapped
    in @supports, so browsers without scroll-driven animations
    simply keep the static header. No markup or JavaScript changes.
+
+   v4: nav hover toned down. A light wash instead of a blue glow, a 1px lift
+   instead of 2, and the logo no longer tilts.
 
    v3: footer shortened on phones. The blurb is hidden below 760px and
    the vertical rhythm tightened. Both link columns are kept, and the brand
@@ -35,7 +38,7 @@
 .desk-nav-inner { display:flex; align-items:center; justify-content:space-between; width:100%; max-width:1100px; margin:0 auto; }
 .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; border-radius: 12px; }
 .logo-mark { width: 38px; height: 38px; border-radius: 9px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.28s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.28s ease; }
-.nav-logo:hover .logo-mark { transform: scale(1.07) rotate(-2deg); box-shadow: 0 6px 18px rgba(21,96,255,0.30); }
+.nav-logo:hover .logo-mark { transform: scale(1.03); box-shadow: 0 3px 10px rgba(21,96,255,0.18); }
 .logo-mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .logo-name { font-family: 'Sora', sans-serif; font-size: 16px; font-weight: 700; color: #0F172A; letter-spacing: -0.3px; white-space: nowrap; }
 .logo-name--mob { font-size: 14px; }
@@ -45,10 +48,12 @@
 .nav-right { display: flex; align-items: center; gap: 8px; margin-left: auto; }
 .nav-pill { display: inline-flex; align-items: center; gap: 6px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; padding: 9px 18px; border-radius: 50px; text-decoration: none; border: none; cursor: pointer; white-space: nowrap; position: relative;
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.22s ease, transform 0.22s cubic-bezier(0.34,1.4,0.64,1); }
-.nav-pill:hover { transform: translateY(-2px); }
-.nav-pill:active { transform: translateY(0); box-shadow: none; }
+.nav-pill:hover { transform: translateY(-1px); }
+.nav-pill:active { transform: translateY(0); }
 .pill-ghost { background: transparent; color: #0F172A; border: 1.5px solid #CBD5E1; padding: 8px 16px; }
-.pill-ghost:hover { background: #F3F8FF; border-color: #9FC0FF; color: #1560FF; box-shadow: 0 6px 16px rgba(21,96,255,0.18); }
+/* A light wash and a slightly warmer border is enough to show which pill is
+   under the cursor. The glow and the 2px jump were doing too much for a nav. */
+.pill-ghost:hover { background: #F4F8FF; border-color: #CBDDFF; color: #1560FF; }
 .nav-pill.active { background: #EEF3FF; border-color: #C7D8FF; color: #0A3ACC; }
 .nav-pill.active::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: #1560FF; flex-shrink: 0; }
 
