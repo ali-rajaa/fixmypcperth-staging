@@ -275,7 +275,8 @@ a    { color:inherit; }
 .svc-card.popular .svc-icon-wrap { background:rgba(255,255,255,0.75); border-color:var(--blue-mid); }
 .svc-icon-wrap svg { width:24px; height:24px; }
 .svc-badge-col { display:flex; flex-direction:column; align-items:flex-end; gap:6px; }
-.svc-badge { font-size:9.5px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:4px 10px; border-radius:50px; background:var(--blue); color:#fff; white-space:nowrap; align-self:flex-start; }
+/* Plain uppercase text, like .s-eyebrow. No capsule. */
+.svc-badge { font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--blue); white-space:nowrap; align-self:flex-start; }
 .svc-badge.nofee { background:var(--wa); }
 .svc-badge.spec  { background:var(--ink2); }
 .svc-badge.perk  { background:#F59E0B; }
@@ -291,6 +292,8 @@ a    { color:inherit; }
 .svc-links-inner { max-width:1100px; margin:0 auto; }
 .svc-links-title { font-family:var(--display); font-size:14px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:1rem; }
 .svc-links-grid { display:flex; flex-wrap:wrap; gap:8px; }
+/* Mobile only: see the 720px block. All 13 fit on one screen above that. */
+.svc-links-more { display:none; }
 .svc-link-pill { display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:600; color:var(--blue); background:var(--bg); border:1.5px solid var(--blue-mid); padding:6px 14px; border-radius:50px; text-decoration:none; transition:background 0.15s,border-color 0.15s; }
 .svc-link-pill:hover { background:var(--blue-lt); border-color:var(--blue); }
 .how-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:14px; margin-top:2.5rem; }
@@ -356,7 +359,7 @@ a    { color:inherit; }
 .its-card:nth-child(3)::before { background:linear-gradient(90deg,#F59E0B,#FF6B6B); }
 .its-card:hover { border-color:var(--blue); transform:translateY(-3px); box-shadow:0 8px 24px rgba(21,96,255,0.08); }
 .its-card:hover::before { opacity:1; }
-.its-tag   { display:inline-block; font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--blue); background:var(--blue-lt); border:1px solid var(--blue-mid); padding:3px 10px; border-radius:50px; margin-bottom:0.9rem; }
+.its-tag   { display:block; font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--blue); margin-bottom:0.9rem; }
 .its-title { font-family:var(--display); font-size:16px; font-weight:700; color:var(--ink); margin-bottom:0.5rem; }
 .its-desc  { font-size:13.5px; color:var(--muted); line-height:1.7; margin-bottom:1.25rem; }
 .its-price-row { display:flex; align-items:center; justify-content:space-between; padding-top:1rem; border-top:1px solid var(--border); gap:0.5rem; }
@@ -592,7 +595,14 @@ body { padding-top:var(--mob-nav-h); }
 .services-grid::-webkit-scrollbar,
 .testi-grid::-webkit-scrollbar,
 .its-grid::-webkit-scrollbar { display:none; }
-.services-grid > *, .testi-grid > *, .its-grid > * { flex:0 0 87%; scroll-snap-align:center; }
+.services-grid > *, .testi-grid > *, .its-grid > * { flex:0 0 91%; scroll-snap-align:center; }
+/* One card width, one padding and one type scale across every carousel on the
+   page, so a service card, a review and a package all read the same on a
+   phone instead of each section having its own sizing. */
+.pkg-duo > .pkg-card { flex:0 0 91%; }
+.svc-card, .testi-card, .its-card, .pkg-card, .how-card { padding:1.4rem 1.3rem; }
+.svc-name, .its-title, .pkg-title, .how-title { font-size:16px; line-height:1.35; }
+.svc-desc, .its-desc, .testi-quote, .pkg-tagline, .pkg-item, .how-desc { font-size:14px; line-height:1.65; }
 .slide-hint { display:flex; justify-content:flex-end; margin-top:0.85rem; }
 .svc-card { padding:1.4rem; }
 .svc-header-row { flex-direction:column; align-items:flex-start; }
@@ -609,9 +619,7 @@ body { padding-top:var(--mob-nav-h); }
     margin:0 -1.25rem; padding:0 1.25rem 4px;
   }
 .pkg-duo::-webkit-scrollbar { display:none; }
-.pkg-duo > .pkg-card { flex:0 0 87%; scroll-snap-align:center; }
-.pkg-card  { padding:1.6rem 1.3rem; }
-.pkg-title { font-size:1.3rem; }
+.pkg-duo > .pkg-card { scroll-snap-align:center; }
 .pkg-price { font-size:2.75rem; letter-spacing:-2px; }
 .pkg-tagline { font-size:12.5px; margin-bottom:1.25rem; }
 .pkg-list  { gap:0.45rem; margin-bottom:1.4rem; }
@@ -641,6 +649,15 @@ body { padding-top:var(--mob-nav-h); }
 .faq-item.open .faq-a { padding:0 1.25rem 1rem; }
 .svc-links-section { padding:1.5rem 1.25rem; }
 .svc-links-grid { gap:6px; }
+/* First eight pills only, which is about three rows, then a toggle. */
+.svc-links-grid > :nth-child(n+9) { display:none; }
+.svc-links-grid.is-expanded > :nth-child(n+9) { display:inline-flex; }
+.svc-links-more {
+    display:inline-flex; align-items:center; gap:6px; margin-top:0.9rem;
+    font-family:var(--body); font-size:13px; font-weight:600; color:var(--blue);
+    background:none; border:none; padding:6px 0; cursor:pointer;
+  }
+.svc-links-more:focus-visible { outline:2px solid var(--blue); outline-offset:3px; }
 .svc-link-pill { font-size:12px; padding:5px 12px; }
 /* Cleared above the sticky call bar, which is fixed to the bottom and about
    70px tall. The two were overlapping. */

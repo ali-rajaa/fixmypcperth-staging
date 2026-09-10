@@ -586,7 +586,7 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
         <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><path d="M6 1v3M10 1v3M14 1v3"/></svg>
       </div>
       <div class="included-banner-text">
-        Each service <strong>$149 and over includes a free full system cleanup</strong> (worth $89) inc dust removal, thermal check and a general tidy-up inside the case. And whatever you're in for, we'll have a <strong>coffee, tea or cold drink</strong> ready while you wait, including takeaway cups if you're on the go.
+        Each service <strong>$149 and over includes a free full system cleanup</strong> (worth $89) inc dust removal, thermal check and a general tidy-up inside the case.
       </div>
     </div>
 
@@ -719,6 +719,8 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
       <a href="/laptop-battery-replacement-perth" class="svc-link-pill">Laptop Battery Replacement Perth</a>
       <a href="/tech-tips/why-is-my-pc-so-slow" class="svc-link-pill">Why Is My PC Slow?</a>
     </div>
+    <!-- Mobile only. display:none above 720px, where all 13 already fit. -->
+    <button type="button" class="svc-links-more" id="svcLinksMore" aria-expanded="false">Show all 13 pages</button>
   </div>
 </div>
 
@@ -1527,5 +1529,23 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
   sync();
   if (mq.addEventListener) mq.addEventListener('change', sync);
   else if (mq.addListener) mq.addListener(sync);
+})();
+
+/* ============================================================
+   Service page links, show more. Mobile only.
+   The CSS hides everything past the eighth pill; this only
+   flips one class and rewrites the button label.
+   ============================================================ */
+(function () {
+  var grid = document.querySelector('.svc-links-grid');
+  var btn  = document.getElementById('svcLinksMore');
+  if (!grid || !btn) return;
+  var total = grid.children.length;
+  btn.textContent = 'Show all ' + total + ' pages';
+  btn.addEventListener('click', function () {
+    var open = grid.classList.toggle('is-expanded');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.textContent = open ? 'Show less' : 'Show all ' + total + ' pages';
+  });
 })();
 </script>
