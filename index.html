@@ -1478,57 +1478,51 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
   var tabs   = [].slice.call(document.querySelectorAll('[data-guide-tab]'));
   var panels = [].slice.call(document.querySelectorAll('[data-guide-panel]'));
   if (!tabs.length || tabs.length !== panels.length) return;
-  var mq = window.matchMedia('(max-width: 720px)');
 
-  function label(i) { return 'guide-panel-' + i; }
-
-  function applyRoles(on) {
-    // Only claim to be a tab interface while it actually behaves like one.
-    strip.setAttribute('role', on ? 'tablist' : 'presentation');
-    tabs.forEach(function (t, i) {
-      if (on) {
-        t.setAttribute('role', 'tab');
-        t.setAttribute('aria-controls', label(i));
-        t.id = 'guide-tab-' + i;
-      } else {
-        t.removeAttribute('role');
-        t.removeAttribute('aria-controls');
-        t.removeAttribute('aria-selected');
-      }
-    });
-    panels.forEach(function (pnl, i) {
-      if (on) {
-        pnl.setAttribute('role', 'tabpanel');
-        pnl.id = label(i);
-        pnl.setAttribute('aria-labelledby', 'guide-tab-' + i);
-      } else {
-        pnl.removeAttribute('role');
-        pnl.removeAttribute('aria-labelledby');
-      }
-    });
-  }
+  strip.setAttribute('role', 'tablist');
+  tabs.forEach(function (t, i) {
+    t.setAttribute('role', 'tab');
+    t.setAttribute('aria-controls', 'guide-panel-' + i);
+    t.id = 'guide-tab-' + i;
+  });
+  panels.forEach(function (pnl, i) {
+    pnl.setAttribute('role', 'tabpanel');
+    pnl.id = 'guide-panel-' + i;
+    pnl.setAttribute('aria-labelledby', 'guide-tab-' + i);
+  });
 
   function select(n) {
     tabs.forEach(function (t, i) {
       var on = i === n;
       t.classList.toggle('is-active', on);
-      if (mq.matches) t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.setAttribute('tabindex', on ? '0' : '-1');
     });
     panels.forEach(function (pnl, i) { pnl.classList.toggle('is-active', i === n); });
-    // Bring the chosen tab fully into view, so tab 5 does not sit half off screen.
-    var t = tabs[n];
-    var l = t.offsetLeft - (strip.clientWidth - t.offsetWidth) / 2;
-    strip.scrollTo({ left: Math.max(0, l), behavior: 'smooth' });
+    // Only relevant on phones, where the strip is one scrolling row. On desktop
+    // it wraps, so there is nothing to scroll and this is a no-op.
+    if (strip.scrollWidth > strip.clientWidth) {
+      var t = tabs[n];
+      var l = t.offsetLeft - (strip.clientWidth - t.offsetWidth) / 2;
+      strip.scrollTo({ left: Math.max(0, l), behavior: 'smooth' });
+    }
   }
 
   tabs.forEach(function (t, i) {
-    t.addEventListener('click', function () { if (mq.matches) select(i); });
+    t.addEventListener('click', function () { select(i); });
+    // Left and right arrows move between tabs, which is what a tablist is
+    // expected to do once it announces itself as one.
+    t.addEventListener('keydown', function (e) {
+      var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!d) return;
+      e.preventDefault();
+      var n = (i + d + tabs.length) % tabs.length;
+      select(n);
+      tabs[n].focus();
+    });
   });
 
-  function sync() { applyRoles(mq.matches); if (!mq.matches) select(0); }
-  sync();
-  if (mq.addEventListener) mq.addEventListener('change', sync);
-  else if (mq.addListener) mq.addListener(sync);
+  select(0);
 })();
 
 /* ============================================================
