@@ -1,5 +1,5 @@
 /* ==========================================================
-   pricing.css   VERSION 2
+   pricing.css   VERSION 3
    Page stylesheet for /pricing. Self-contained, with its own
    :root, exactly like index.css. Design tokens are never
    shared between page stylesheets: a page that does not
@@ -52,10 +52,14 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 /* Two columns: the copy on the left, the illustration on the right. Keeping the
    text to one column stops the h1 running the full 1100px and cuts enough
    height that the search bar is visible without scrolling on a laptop. */
-.pr-hero-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr); gap:3rem; align-items:center; }
+.pr-hero-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr); gap:2.75rem; align-items:start; }
 .pr-hero-text { min-width:0; }
-.pr-hero-art { min-width:0; display:flex; justify-content:center; }
-.pr-art { width:100%; max-width:420px; height:auto; display:block; }
+/* Top aligned rather than centred, with the closing paragraph sitting under
+   the artwork. Centring left a large gap beneath the illustration because the
+   text column is taller. */
+.pr-hero-art { min-width:0; display:flex; flex-direction:column; align-self:start; }
+.pr-art { width:100%; max-width:400px; height:auto; display:block; margin:0 auto; }
+.pr-intro-art { margin:1.1rem 0 0; font-size:14.5px; }
 
 /* Three prices people actually look for, before any prose. */
 .pr-quick { display:flex; flex-wrap:wrap; gap:10px; margin:0 0 1.6rem; }
@@ -75,9 +79,14 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 /* ---------- search and category bar ---------- */
 .pr-tools { position:sticky; top:var(--nav-h); z-index:40; background:rgba(255,255,255,0.94); backdrop-filter:blur(10px); border-bottom:1px solid var(--border); }
 .pr-tools-inner { padding-top:0.9rem; padding-bottom:0.9rem; }
-.pr-search { display:flex; align-items:center; gap:10px; background:var(--bg2); border:1.5px solid var(--border); border-radius:12px; padding:0 14px; height:48px; transition:border-color 0.18s,background 0.18s; }
-.pr-search:focus-within { border-color:var(--blue); background:var(--bg); }
-.pr-search svg { width:18px; height:18px; color:var(--muted2); flex-shrink:0; }
+/* The input carried its own focus outline on top of the wrapper's border,
+   which is where the thick double ring came from. The input's ring is off and
+   the wrapper shows a single soft halo instead. */
+.pr-search { display:flex; align-items:center; gap:10px; background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:0 14px; height:46px; transition:border-color 0.2s,background 0.2s,box-shadow 0.2s; }
+.pr-search:hover { border-color:var(--border2); }
+.pr-search:focus-within { border-color:var(--blue); background:var(--bg); box-shadow:0 0 0 3px rgba(21,96,255,0.13); }
+.pr-search:focus-within svg { color:var(--blue); }
+.pr-search svg { width:17px; height:17px; color:var(--muted2); flex-shrink:0; transition:color 0.2s; }
 .pr-search input { flex:1; min-width:0; border:0; background:none; outline:none; font-family:var(--body); font-size:15px; color:var(--ink); }
 .pr-search input::-webkit-search-cancel-button { display:none; }
 .pr-search-clear { display:flex; align-items:center; justify-content:center; width:28px; height:28px; border:0; background:none; padding:0; cursor:pointer; color:var(--muted); border-radius:50%; }
@@ -94,7 +103,8 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 }
 .pr-chip:hover { border-color:var(--blue-mid); color:var(--blue); }
 .pr-chip.is-active { background:var(--blue); border-color:var(--blue); color:#fff; }
-.pr-chip:focus-visible, .pr-search input:focus-visible { outline:2px solid var(--blue); outline-offset:2px; }
+.pr-chip:focus-visible { outline:2px solid var(--blue); outline-offset:2px; }
+.pr-search input:focus, .pr-search input:focus-visible { outline:none; }
 
 .pr-count { font-size:13.5px; font-weight:600; color:var(--muted); margin:0 0 1.25rem; }
 .pr-count[hidden] { display:none; }
@@ -102,13 +112,13 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 /* ==========================================================
    Two-column layout: sticky category rail plus the price list.
    ========================================================== */
-.pr-layout { display:grid; grid-template-columns:272px 1fr; gap:2.5rem; align-items:start; padding-top:2.25rem; }
+.pr-layout { display:grid; grid-template-columns:300px 1fr; gap:2.5rem; align-items:start; padding-top:2.25rem; }
 .pr-side { position:sticky; top:calc(var(--nav-h) + 96px); }
 .pr-side-card { background:var(--bg); border:1.5px solid var(--border); border-radius:18px; overflow:hidden; }
-.pr-side-head { background:var(--ink); padding:1.05rem 1.25rem; position:relative; }
+.pr-side-head { background:var(--ink); padding:1.15rem 1.35rem; position:relative; }
 .pr-side-head::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--blue),#00CFFF); }
 .pr-side-eyebrow { display:block; font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.42); margin-bottom:3px; }
-.pr-side-title { display:block; font-family:var(--display); font-size:15px; font-weight:800; color:#fff; letter-spacing:-0.3px; }
+.pr-side-title { display:block; font-family:var(--display); font-size:16px; font-weight:800; color:#fff; letter-spacing:-0.3px; }
 .pr-side-nav { padding:0.6rem; }
 .pr-side-item {
   display:flex; align-items:center; gap:0; width:100%; background:none; border:0;
@@ -119,15 +129,15 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 .pr-side-item:hover { background:var(--bg2); }
 .pr-side-item.is-active { background:var(--blue-lt); }
 .pr-side-item:focus-visible { outline:2px solid var(--blue); outline-offset:-2px; }
-.pr-side-accent { width:3px; height:36px; border-radius:0 2px 2px 0; background:transparent; flex-shrink:0; transition:background 0.16s; }
+.pr-side-accent { width:3px; height:42px; border-radius:0 2px 2px 0; background:transparent; flex-shrink:0; transition:background 0.16s; }
 .pr-side-item.is-active .pr-side-accent { background:var(--blue); }
-.pr-side-ico { display:flex; align-items:center; justify-content:center; width:31px; height:31px; border-radius:9px; background:var(--bg3); color:var(--muted); flex-shrink:0; margin:0 10px 0 9px; transition:background 0.16s,color 0.16s; }
-.pr-side-ico svg { width:16px; height:16px; }
+.pr-side-ico { display:flex; align-items:center; justify-content:center; width:35px; height:35px; border-radius:10px; background:var(--bg3); color:var(--muted); flex-shrink:0; margin:0 11px 0 10px; transition:background 0.16s,color 0.16s; }
+.pr-side-ico svg { width:18px; height:18px; }
 .pr-side-item:hover .pr-side-ico { color:var(--ink2); }
 .pr-side-item.is-active .pr-side-ico { background:var(--blue); color:#fff; }
-.pr-side-label { flex:1; min-width:0; font-family:var(--body); font-size:13.5px; font-weight:600; color:var(--ink2); padding:0.6rem 0; }
+.pr-side-label { flex:1; min-width:0; font-family:var(--body); font-size:14.5px; font-weight:600; color:var(--ink2); padding:0.72rem 0; }
 .pr-side-item.is-active .pr-side-label { color:var(--blue-dk); font-weight:700; }
-.pr-side-n { font-family:var(--body); font-size:11.5px; font-weight:700; color:var(--muted); background:var(--bg3); border-radius:20px; padding:2px 8px; margin-right:0.75rem; }
+.pr-side-n { font-family:var(--body); font-size:12px; font-weight:700; color:var(--muted); background:var(--bg3); border-radius:20px; padding:3px 9px; margin-right:0.8rem; }
 .pr-side-item.is-active .pr-side-n { background:var(--blue); color:#fff; }
 .pr-side-cta {
   display:block; text-align:center; margin-top:0.85rem; text-decoration:none;
@@ -143,22 +153,23 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 .pr-main { min-width:0; padding-bottom:2rem; }
 .pr-sec { padding:0 0 2.5rem; }
 .pr-sec:first-of-type { padding-top:0; }
-.pr-sec-title { font-family:var(--display); font-size:clamp(1.35rem,3vw,1.9rem); font-weight:800; letter-spacing:-0.6px; color:var(--ink); margin:0 0 0.5rem; display:flex; align-items:center; gap:10px; }
+.pr-sec-title { font-family:var(--display); font-size:clamp(1.25rem,2.4vw,1.6rem); font-weight:800; letter-spacing:-0.6px; color:var(--ink); margin:0 0 0.4rem; display:flex; align-items:center; gap:10px; }
 .pr-sec-count { font-family:var(--body); font-size:12px; font-weight:700; color:var(--muted); background:var(--bg3); border-radius:6px; padding:3px 8px; }
-.pr-sec-blurb { font-size:15px; color:var(--muted); line-height:1.7; max-width:64ch; margin:0 0 1.5rem; }
+.pr-sec-blurb { font-size:14.5px; color:var(--muted); line-height:1.65; max-width:64ch; margin:0 0 1.2rem; }
 
 /* ---------- price rows ---------- */
-.pr-rows { display:flex; flex-direction:column; gap:10px; }
+.pr-rows { display:flex; flex-direction:column; gap:8px; }
+/* Tightened: the rows were reading as cards rather than as a price list. */
 .pr-row {
-  display:grid; grid-template-columns:1fr auto; gap:1.5rem; align-items:start;
-  background:var(--bg); border:1.5px solid var(--border); border-radius:16px;
-  padding:1.15rem 1.35rem; transition:border-color 0.18s,box-shadow 0.18s;
+  display:grid; grid-template-columns:1fr auto; gap:1.25rem; align-items:center;
+  background:var(--bg); border:1px solid var(--border); border-radius:13px;
+  padding:0.9rem 1.1rem; transition:border-color 0.18s,box-shadow 0.18s;
 }
 .pr-row:hover { border-color:var(--blue-mid); box-shadow:0 6px 22px rgba(15,23,42,0.05); }
 .pr-row[hidden] { display:none; }
-.pr-name { font-family:var(--display); font-size:16px; font-weight:700; color:var(--ink); margin:0 0 0.3rem; line-height:1.35; }
+.pr-name { font-family:var(--display); font-size:15px; font-weight:700; color:var(--ink); margin:0 0 0.2rem; line-height:1.35; }
 .pr-badge { display:inline-block; font-family:var(--body); font-size:10px; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; color:var(--green); margin-left:6px; vertical-align:middle; }
-.pr-desc { font-size:14px; color:var(--muted); line-height:1.65; margin:0; max-width:62ch; }
+.pr-desc { font-size:13.5px; color:var(--muted); line-height:1.6; margin:0; max-width:62ch; }
 .pr-note { font-size:13px; color:var(--ink2); line-height:1.6; margin:0.5rem 0 0; padding-top:0.5rem; border-top:1px solid var(--border); max-width:62ch; }
 .pr-note strong { color:var(--blue-dk); }
 
@@ -168,14 +179,14 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 .pr-symptoms { display:flex; flex-wrap:wrap; gap:6px; margin-top:0.75rem; }
 .pr-symptom { font-family:var(--body); font-size:11.5px; font-weight:600; color:var(--ink2); background:var(--bg3); border-radius:6px; padding:4px 9px; white-space:nowrap; }
 
-.pr-row-price { display:flex; flex-direction:column; align-items:flex-end; gap:8px; }
-.pr-price { font-family:var(--display); font-size:1.45rem; font-weight:800; letter-spacing:-0.8px; color:var(--ink); white-space:nowrap; line-height:1; }
+.pr-row-price { display:flex; flex-direction:column; align-items:flex-end; gap:7px; }
+.pr-price { font-family:var(--display); font-size:1.25rem; font-weight:800; letter-spacing:-0.7px; color:var(--ink); white-space:nowrap; line-height:1; }
 .pr-price-alt { font-family:var(--body); font-size:12.5px; font-weight:600; color:var(--muted); white-space:nowrap; }
 .pr-book {
   display:inline-flex; align-items:center; justify-content:center;
   font-family:var(--body); font-size:13px; font-weight:700; text-decoration:none;
-  color:var(--blue); background:var(--bg); border:1.5px solid var(--blue-mid);
-  padding:8px 18px; border-radius:50px; white-space:nowrap;
+  color:var(--blue); background:var(--bg); border:1px solid var(--blue-mid);
+  padding:7px 16px; border-radius:50px; white-space:nowrap;
   transition:background 0.18s,border-color 0.18s;
 }
 .pr-book:hover { background:var(--blue-lt); border-color:var(--blue); }
@@ -242,7 +253,8 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
    ========================================================== */
 @media (max-width:1000px) {
   .pr-hero-inner { grid-template-columns:1fr; gap:2rem; }
-  .pr-hero-art { order:-1; }
+    .pr-hero-art { order:-1; }
+  .pr-intro-art { margin-top:0.9rem; }
   .pr-art { max-width:340px; }
   /* Not enough width for a rail and a readable list side by side. */
   .pr-layout { grid-template-columns:1fr; gap:0; padding-top:1.5rem; }
@@ -280,11 +292,11 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
   /* The two-column row collapses. Price and Book sit on one
      line under the text instead of in a right-hand column,
      which is what keeps the rows short enough to scan. */
-  .pr-row { grid-template-columns:1fr; gap:0.9rem; padding:1.05rem 1.15rem; }
+  .pr-row { grid-template-columns:1fr; gap:0.75rem; padding:0.9rem 1rem; }
   /* Wraps rather than overflowing when a price string is long, for example
      a tier that carries an alternative figure alongside it. */
   .pr-row-price { flex-direction:row; flex-wrap:wrap; align-items:center; justify-content:space-between; width:100%; gap:8px 12px; padding-top:0.85rem; border-top:1px solid var(--border); }
-  .pr-price { font-size:1.3rem; }
+  .pr-price { font-size:1.2rem; }
   .pr-price-alt { margin-left:-4px; }
   .pr-book { margin-left:auto; }
   .pr-name { font-size:15.5px; }
