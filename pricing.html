@@ -38,32 +38,54 @@ description: "Computer repair Perth prices, all upfront. Diagnostic and repair $
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
-    <div class="pr-cats" id="prCats" role="tablist" aria-label="Price categories">
-      <button type="button" class="pr-cat is-active" data-cat="all">All</button>
-      <button type="button" class="pr-cat" data-cat="repairs">Repairs</button>
-      <button type="button" class="pr-cat" data-cat="performance">Performance</button>
-      <button type="button" class="pr-cat" data-cat="upgrades">Upgrades</button>
-      <button type="button" class="pr-cat" data-cat="gaming">Gaming</button>
-      <button type="button" class="pr-cat" data-cat="networking">Networking</button>
-      <button type="button" class="pr-cat" data-cat="software">Remote &amp; software</button>
-      <button type="button" class="pr-cat" data-cat="extras">Add-ons</button>
+    <!-- Phone and small tablet only. The sidebar below takes over from 1000px. -->
+    <div class="pr-chips" id="prChips">
+      <button type="button" class="pr-chip is-active" data-cat="all">All</button>
+      <button type="button" class="pr-chip" data-cat="repairs">Repairs</button>
+      <button type="button" class="pr-chip" data-cat="performance">Performance</button>
+      <button type="button" class="pr-chip" data-cat="upgrades">Upgrades</button>
+      <button type="button" class="pr-chip" data-cat="gaming">Gaming</button>
+      <button type="button" class="pr-chip" data-cat="networking">Networking</button>
+      <button type="button" class="pr-chip" data-cat="software">Remote &amp; software</button>
+      <button type="button" class="pr-chip" data-cat="extras">Add-ons</button>
     </div>
   </div>
 </div>
-<p class="pr-count wrap" id="prCount" aria-live="polite"></p>
 
-<main class="pr-main" id="prMain">
-  <section class="pr-sec" id="repairs" data-cat="repairs">
-    <div class="wrap">
+<div class="wrap pr-layout">
+  <!-- Desktop category rail. Sticky, mirrors the chips above, and carries a
+       live count per category so the size of each list is visible before
+       you open it. -->
+  <aside class="pr-side" aria-label="Browse services">
+    <div class="pr-side-card">
+      <div class="pr-side-head">
+        <span class="pr-side-eyebrow">Browse services</span>
+        <span class="pr-side-title">Full price list</span>
+      </div>
+      <nav class="pr-side-nav" id="prSide">
+        <button type="button" class="pr-side-item is-active" data-cat="all"><span class="pr-side-accent"></span><span class="pr-side-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span><span class="pr-side-label">All</span><span class="pr-side-n">69</span></button>
+        <button type="button" class="pr-side-item" data-cat="repairs"><span class="pr-side-accent"></span><span class="pr-side-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span><span class="pr-side-label">Repairs</span><span class="pr-side-n">18</span></button>
+        <button type="button" class="pr-side-item" data-cat="performance"><span class="pr-side-accent"></span><span class="pr-side-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><span class="pr-side-label">Performance</span><span class="pr-side-n">3</span></button>
+        <button type="button" class="pr-side-item" data-cat="upgrades"><span class="pr-side-accent"></span><span class="pr-side-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></span><span class="pr-side-label">Upgrades</span><span class="pr-side-n">10</span></button>
+        <button type="button" class="pr-side-item" data-cat="gaming"><span class="pr-side-accent"></span><span class="pr-side-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="11" x2="10" y2="11"/><line x1="8" y1="9" x2="8" y2="13"/><line x1="15" y1="12" x2="15.01" y2="12"/><line x1="18" y1="10" x2="18.01" y2="10"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg></span><span class="pr-side-label">Gaming</span><span class="pr-side-n">13</span></button>
+        <button type="button" class="pr-side-item" data-cat="networking"><span class="pr-side-accent"></span><span class="pr-side-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></span><span class="pr-side-label">Networking</span><span class="pr-side-n">9</span></button>
+        <button type="button" class="pr-side-item" data-cat="software"><span class="pr-side-accent"></span><span class="pr-side-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span><span class="pr-side-label">Remote &amp; software</span><span class="pr-side-n">8</span></button>
+        <button type="button" class="pr-side-item" data-cat="extras"><span class="pr-side-accent"></span><span class="pr-side-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></span><span class="pr-side-label">Add-ons</span><span class="pr-side-n">8</span></button>
+      </nav>
+    </div>
+    <a class="pr-side-cta" href="https://wa.me/61452573701" target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Not listed? Ask us</a>
+  </aside>
+  <main class="pr-main" id="prMain">
+    <p class="pr-count" id="prCount" aria-live="polite"></p>
+    <section class="pr-sec" id="repairs" data-cat="repairs">
       <h2 class="pr-sec-title">PC &amp; Laptop Repairs <span class="pr-sec-count">18</span></h2>
       <p class="pr-sec-blurb">Laptop repair Perth and desktop repair, all fixed price. If we need to find the fault before we can fix it, that is the $120 all-in fee.</p>
-    </div>
-    <div class="wrap pr-rows">
+      <div class="pr-rows">
       <div class="pr-row" data-name="diagnostic &amp; repair, all-in" data-key="diagnostic-repair-all-in">
         <div class="pr-row-main">
           <h3 class="pr-name">Diagnostic &amp; Repair, All-In <span class="pr-badge">Most Popular</span></h3>
           <p class="pr-desc">One flat fee covering the full diagnostic, all repair labour and a 30-day warranty. If we need to find the fault before we can fix it, this is the price.</p>
-          <div class="pr-chips"><span class="pr-chip">Blue screens</span><span class="pr-chip">Won't turn on</span><span class="pr-chip">Boot loops</span><span class="pr-chip">Stuck on logo</span><span class="pr-chip">Random restarts</span><span class="pr-chip">Freezing</span><span class="pr-chip">Crashes on startup</span><span class="pr-chip">No POST</span><span class="pr-chip">Driver conflicts</span></div>
+          <div class="pr-symptoms"><span class="pr-symptom">Blue screens</span><span class="pr-symptom">Won't turn on</span><span class="pr-symptom">Boot loops</span><span class="pr-symptom">Stuck on logo</span><span class="pr-symptom">Random restarts</span><span class="pr-symptom">Freezing</span><span class="pr-symptom">Crashes on startup</span><span class="pr-symptom">No POST</span><span class="pr-symptom">Driver conflicts</span></div>
         </div>
         <div class="pr-row-price">
           <span class="pr-price"><span class="price" data-price="diagnostic-repair-all-in">$120 all-in</span></span>
@@ -245,14 +267,12 @@ description: "Computer repair Perth prices, all upfront. Diagnostic and repair $
           <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Pre-Purchase%20Used%20PC%20Inspection." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="pr-sec" id="performance" data-cat="performance">
-    <div class="wrap">
+      </div>
+    </section>
+    <section class="pr-sec" id="performance" data-cat="performance">
       <h2 class="pr-sec-title">Performance Enhancement <span class="pr-sec-count">3</span></h2>
       <p class="pr-sec-blurb">For a machine that works but crawls. Three depths of tune-up depending on how far gone it is.</p>
-    </div>
-    <div class="wrap pr-rows">
+      <div class="pr-rows">
       <div class="pr-row" data-name="basic tune up" data-key="basic-tune-up">
         <div class="pr-row-main">
           <h3 class="pr-name">Basic Tune Up</h3>
@@ -283,14 +303,12 @@ description: "Computer repair Perth prices, all upfront. Diagnostic and repair $
           <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Pro%20Performance%20Overhaul." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="pr-sec" id="upgrades" data-cat="upgrades">
-    <div class="wrap">
+      </div>
+    </section>
+    <section class="pr-sec" id="upgrades" data-cat="upgrades">
       <h2 class="pr-sec-title">PC &amp; Laptop Upgrades <span class="pr-sec-count">10</span></h2>
       <p class="pr-sec-blurb">SSD upgrade Perth, RAM, graphics and Windows. Labour is fixed. Parts are yours or ours, your choice.</p>
-    </div>
-    <div class="wrap pr-rows">
+      <div class="pr-rows">
       <div class="pr-row" data-name="ssd upgrade, labour only" data-key="ssd-upgrade-labour-only">
         <div class="pr-row-main">
           <h3 class="pr-name">SSD Upgrade, Labour Only</h3>
@@ -398,14 +416,12 @@ description: "Computer repair Perth prices, all upfront. Diagnostic and repair $
           <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Upgrade%20Consultation." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="pr-sec" id="gaming" data-cat="gaming">
-    <div class="wrap">
+      </div>
+    </section>
+    <section class="pr-sec" id="gaming" data-cat="gaming">
       <h2 class="pr-sec-title">Gaming PC Build Perth <span class="pr-sec-count">13</span></h2>
       <p class="pr-sec-blurb">Assembly with your parts, plus the tuning and finishing work. Three build tiers and everything that goes around them.</p>
-    </div>
-    <div class="wrap pr-rows">
+      <div class="pr-rows">
       <div class="pr-row" data-name="essential assembly" data-key="essential-assembly">
         <div class="pr-row-main">
           <h3 class="pr-name">Essential Assembly</h3>
@@ -536,14 +552,12 @@ description: "Computer repair Perth prices, all upfront. Diagnostic and repair $
           <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Console%20Repair%2C%20PS5%20or%20Xbox." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="pr-sec" id="networking" data-cat="networking">
-    <div class="wrap">
+      </div>
+    </section>
+    <section class="pr-sec" id="networking" data-cat="networking">
       <h2 class="pr-sec-title">Home &amp; Business Networking <span class="pr-sec-count">9</span></h2>
       <p class="pr-sec-blurb">On site across the southern suburbs. Same price on site as in the workshop, plus the $35 call-out.</p>
-    </div>
-    <div class="wrap pr-rows">
+      <div class="pr-rows">
       <div class="pr-row" data-name="nbn router setup &amp; optimisation" data-key="nbn-router-setup-optimisation">
         <div class="pr-row-main">
           <h3 class="pr-name">NBN Router Setup &amp; Optimisation</h3>
@@ -634,14 +648,12 @@ description: "Computer repair Perth prices, all upfront. Diagnostic and repair $
           <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Full%20Home%20Network%20Setup." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="pr-sec" id="software" data-cat="software">
-    <div class="wrap">
+      </div>
+    </section>
+    <section class="pr-sec" id="software" data-cat="software">
       <h2 class="pr-sec-title">Software &amp; Remote Support <span class="pr-sec-count">8</span></h2>
       <p class="pr-sec-blurb">Remote support Perth wide for anything that does not need a bench. $45 covers the first half hour.</p>
-    </div>
-    <div class="wrap pr-rows">
+      <div class="pr-rows">
       <div class="pr-row" data-name="remote support session" data-key="remote-support-session">
         <div class="pr-row-main">
           <h3 class="pr-name">Remote Support Session</h3>
@@ -722,14 +734,12 @@ description: "Computer repair Perth prices, all upfront. Diagnostic and repair $
           <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Business%20Fleet%20Setup." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="pr-sec" id="extras" data-cat="extras">
-    <div class="wrap">
+      </div>
+    </section>
+    <section class="pr-sec" id="extras" data-cat="extras">
       <h2 class="pr-sec-title">Add-ons <span class="pr-sec-count">6</span></h2>
       <p class="pr-sec-blurb">Optional extras you can add to any service.</p>
-    </div>
-    <div class="wrap pr-rows">
+      <div class="pr-rows">
       <div class="pr-row" data-name="antivirus setup, 1 year" data-key="antivirus-setup-1-year">
         <div class="pr-row-main">
           <h3 class="pr-name">Antivirus setup, 1 year</h3>
@@ -784,12 +794,10 @@ description: "Computer repair Perth prices, all upfront. Diagnostic and repair $
           <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Home%20PC%20Care%20Plan%2C%20monthly." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
         </div>
       </div>
-    </div>
-    <div class="wrap">
+      </div>
       <h2 class="pr-sec-title">Fixed-price packages <span class="pr-sec-count">2</span></h2>
       <p class="pr-sec-blurb">Everything bundled for one price, rather than a list of separate jobs.</p>
-    </div>
-    <div class="wrap pr-packs">
+      <div class="pr-packs">
       <div class="pr-pack" data-name="complete pc overhaul" data-key="complete-pc-overhaul">
         <h3 class="pr-pack-title">Complete PC Overhaul</h3>
         <p class="pr-pack-desc">For a desktop that has slowed down, overheats or has not been serviced in years. Labour only, parts supplied by you.</p>
@@ -802,9 +810,12 @@ description: "Computer repair Perth prices, all upfront. Diagnostic and repair $
         <p class="pr-pack-price"><span class="price" data-price="used-laptop-revival">$140</span> <span class="pr-pack-was">Was $340</span></p>
         <a class="pr-book pr-book-wide" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Used%20Laptop%20Revival." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book this</a>
       </div>
-    </div>
-  </section>
-  <section class="pr-sec" id="bizit" data-cat="all">
+      </div>
+    </section>
+  </main>
+</div>
+
+<section class="pr-sec pr-wide" id="bizit">
     <div class="wrap">
       <h2 class="pr-sec-title">Business IT Support Perth</h2>
       <p class="pr-sec-blurb">Monthly managed plans, billed monthly with no lock-in and 14 days notice to cancel. Full detail on the business IT page.</p>
@@ -830,8 +841,8 @@ description: "Computer repair Perth prices, all upfront. Diagnostic and repair $
       </div>
     </div>
     <div class="wrap"><a class="btn-outline" href="/business-it-support">See what each plan includes</a></div>
-  </section>
-  <section class="pr-sec pr-rules-sec" id="rules" data-cat="all">
+</section>
+<section class="pr-sec pr-rules-sec pr-wide" id="rules">
     <div class="wrap">
       <span class="s-eyebrow">How our pricing works</span>
       <h2 class="pr-sec-title">The rules behind the numbers</h2>
@@ -846,8 +857,8 @@ description: "Computer repair Perth prices, all upfront. Diagnostic and repair $
       <div class="pr-rule"><h3>Payment</h3><p>Cash, bank transfer or PayID. A deposit covering the part cost is taken when we have to order one, with the labour paid on collection.</p></div>
       <div class="pr-rule"><h3>Same day where we can</h3><p>Drop off before 2pm and most repairs are ready by 6pm the same day at no extra cost. It is best effort rather than a guarantee, and we tell you early if we cannot make it. Work finishing after 6pm carries the $20 priority booking fee.</p></div>
     </div>
-  </section>
-  <section class="pr-sec pr-faq-sec" id="faq" data-cat="all">
+</section>
+<section class="pr-sec pr-faq-sec pr-wide" id="faq">
     <div class="wrap">
       <span class="s-eyebrow">Pricing questions</span>
       <h2 class="pr-sec-title">Computer repair Perth, answered</h2>
@@ -910,8 +921,7 @@ description: "Computer repair Perth prices, all upfront. Diagnostic and repair $
         <div class="faq-a"><p>Drop off before 2pm and most repairs are ready by 6pm the same day. Parts that have to be ordered add a day or two, and we tell you the timeline before you leave.</p></div>
       </div>
     </div>
-  </section>
-</main>
+</section>
 
 <script>
 /* ============================================================
@@ -925,7 +935,7 @@ description: "Computer repair Perth prices, all upfront. Diagnostic and repair $
 (function () {
   var input  = document.getElementById('prSearch');
   var clear  = document.getElementById('prSearchClear');
-  var cats   = document.getElementById('prCats');
+  var groups = [document.getElementById('prSide'), document.getElementById('prChips')].filter(Boolean);
   var count  = document.getElementById('prCount');
   var main   = document.getElementById('prMain');
   if (!input || !main) return;
@@ -1007,14 +1017,27 @@ description: "Computer repair Perth prices, all upfront. Diagnostic and repair $
   });
   clear.addEventListener('click', function () { input.value = ''; term = ''; apply(); input.focus(); });
 
-  cats.addEventListener('click', function (e) {
-    var b = e.target.closest('[data-cat]');
-    if (!b) return;
-    activeCat = b.getAttribute('data-cat');
-    [].slice.call(cats.children).forEach(function (x) { x.classList.toggle('is-active', x === b); });
+  /* The sidebar rail and the mobile chip strip are two views of one control,
+     so a click on either syncs both. */
+  function setCat(cat) {
+    activeCat = cat;
+    groups.forEach(function (g) {
+      [].slice.call(g.children).forEach(function (x) {
+        var on = x.getAttribute('data-cat') === cat;
+        x.classList.toggle('is-active', on);
+        x.setAttribute('aria-current', on ? 'true' : 'false');
+        if (on && g.scrollWidth > g.clientWidth) {
+          g.scrollTo({ left: Math.max(0, x.offsetLeft - (g.clientWidth - x.offsetWidth) / 2), behavior: 'smooth' });
+        }
+      });
+    });
     apply();
-    var l = b.offsetLeft - (cats.clientWidth - b.offsetWidth) / 2;
-    if (cats.scrollWidth > cats.clientWidth) cats.scrollTo({ left: Math.max(0, l), behavior: 'smooth' });
+  }
+  groups.forEach(function (g) {
+    g.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-cat]');
+      if (b) setCat(b.getAttribute('data-cat'));
+    });
   });
 
   apply();

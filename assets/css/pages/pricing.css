@@ -1,5 +1,5 @@
 /* ==========================================================
-   pricing.css   VERSION 1
+   pricing.css   VERSION 2
    Page stylesheet for /pricing. Self-contained, with its own
    :root, exactly like index.css. Design tokens are never
    shared between page stylesheets: a page that does not
@@ -48,7 +48,7 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 .btn-outline:hover { border-color:var(--blue); color:var(--blue); }
 
 /* ---------- hero ---------- */
-.pr-hero { background:var(--bg2); padding:132px 2rem 3.5rem; }
+.pr-hero { background:var(--bg2); padding:120px 2rem 2.5rem; }
 .pr-hero-inner { max-width:820px; margin:0 auto; }
 .pr-hero h1 {
   font-family:var(--display); font-size:clamp(2rem,5vw,3.2rem); font-weight:800;
@@ -56,8 +56,8 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 }
 .pr-anchor { font-family:var(--body); font-size:19px; color:var(--ink2); margin:0 0 0.4rem; }
 .pr-anchor strong { font-family:var(--display); font-size:24px; font-weight:800; color:var(--blue); }
-.pr-sub { font-size:15px; font-weight:700; color:var(--blue); margin:0 0 1.75rem; }
-.pr-intro { font-size:16px; color:var(--muted); line-height:1.8; max-width:68ch; margin:0 0 1rem; }
+.pr-sub { font-size:15px; font-weight:700; color:var(--blue); margin:0 0 1.4rem; }
+.pr-intro { font-size:15.5px; color:var(--muted); line-height:1.75; max-width:66ch; margin:0 0 0.85rem; }
 .pr-intro strong { color:var(--ink2); font-weight:700; }
 
 /* ---------- search and category bar ---------- */
@@ -71,23 +71,66 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 .pr-search-clear { display:flex; align-items:center; justify-content:center; width:28px; height:28px; border:0; background:none; padding:0; cursor:pointer; color:var(--muted); border-radius:50%; }
 .pr-search-clear:hover { background:var(--bg3); color:var(--ink); }
 
-.pr-cats { display:flex; gap:8px; margin-top:0.85rem; overflow-x:auto; scrollbar-width:none; scroll-behavior:smooth; }
-.pr-cats::-webkit-scrollbar { display:none; }
-.pr-cat {
+/* Phone and small tablet only. From 1000px the sidebar rail replaces it. */
+.pr-chips { display:none; gap:8px; margin-top:0.8rem; overflow-x:auto; scrollbar-width:none; scroll-behavior:smooth; }
+.pr-chips::-webkit-scrollbar { display:none; }
+.pr-chip {
   flex:0 0 auto; font-family:var(--body); font-size:13px; font-weight:600; white-space:nowrap;
   color:var(--ink2); background:var(--bg); border:1px solid var(--border);
   border-radius:10px; padding:9px 15px; cursor:pointer;
   transition:background 0.18s,border-color 0.18s,color 0.18s;
 }
-.pr-cat:hover { border-color:var(--blue-mid); color:var(--blue); }
-.pr-cat.is-active { background:var(--blue); border-color:var(--blue); color:#fff; }
-.pr-cat:focus-visible, .pr-search input:focus-visible { outline:2px solid var(--blue); outline-offset:2px; }
+.pr-chip:hover { border-color:var(--blue-mid); color:var(--blue); }
+.pr-chip.is-active { background:var(--blue); border-color:var(--blue); color:#fff; }
+.pr-chip:focus-visible, .pr-search input:focus-visible { outline:2px solid var(--blue); outline-offset:2px; }
 
-.pr-count { font-size:13.5px; font-weight:600; color:var(--muted); margin:1.25rem auto 0; }
+.pr-count { font-size:13.5px; font-weight:600; color:var(--muted); margin:0 0 1.25rem; }
+.pr-count[hidden] { display:none; }
+
+/* ==========================================================
+   Two-column layout: sticky category rail plus the price list.
+   ========================================================== */
+.pr-layout { display:grid; grid-template-columns:272px 1fr; gap:2.5rem; align-items:start; padding-top:2.25rem; }
+.pr-side { position:sticky; top:calc(var(--nav-h) + 96px); }
+.pr-side-card { background:var(--bg); border:1.5px solid var(--border); border-radius:18px; overflow:hidden; }
+.pr-side-head { background:var(--ink); padding:1.05rem 1.25rem; position:relative; }
+.pr-side-head::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--blue),#00CFFF); }
+.pr-side-eyebrow { display:block; font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.42); margin-bottom:3px; }
+.pr-side-title { display:block; font-family:var(--display); font-size:15px; font-weight:800; color:#fff; letter-spacing:-0.3px; }
+.pr-side-nav { padding:0.6rem; }
+.pr-side-item {
+  display:flex; align-items:center; gap:0; width:100%; background:none; border:0;
+  cursor:pointer; border-radius:11px; overflow:hidden; margin-bottom:3px; text-align:left;
+  transition:background 0.16s;
+}
+.pr-side-item:last-child { margin-bottom:0; }
+.pr-side-item:hover { background:var(--bg2); }
+.pr-side-item.is-active { background:var(--blue-lt); }
+.pr-side-item:focus-visible { outline:2px solid var(--blue); outline-offset:-2px; }
+.pr-side-accent { width:3px; height:36px; border-radius:0 2px 2px 0; background:transparent; flex-shrink:0; transition:background 0.16s; }
+.pr-side-item.is-active .pr-side-accent { background:var(--blue); }
+.pr-side-ico { display:flex; align-items:center; justify-content:center; width:31px; height:31px; border-radius:9px; background:var(--bg3); color:var(--muted); flex-shrink:0; margin:0 10px 0 9px; transition:background 0.16s,color 0.16s; }
+.pr-side-ico svg { width:16px; height:16px; }
+.pr-side-item:hover .pr-side-ico { color:var(--ink2); }
+.pr-side-item.is-active .pr-side-ico { background:var(--blue); color:#fff; }
+.pr-side-label { flex:1; min-width:0; font-family:var(--body); font-size:13.5px; font-weight:600; color:var(--ink2); padding:0.6rem 0; }
+.pr-side-item.is-active .pr-side-label { color:var(--blue-dk); font-weight:700; }
+.pr-side-n { font-family:var(--body); font-size:11.5px; font-weight:700; color:var(--muted); background:var(--bg3); border-radius:20px; padding:2px 8px; margin-right:0.75rem; }
+.pr-side-item.is-active .pr-side-n { background:var(--blue); color:#fff; }
+.pr-side-cta {
+  display:block; text-align:center; margin-top:0.85rem; text-decoration:none;
+  font-family:var(--body); font-size:13px; font-weight:700; color:var(--muted);
+  border:1.5px dashed var(--border2); border-radius:12px; padding:0.8rem;
+  transition:border-color 0.18s,color 0.18s;
+}
+.pr-side-cta:hover { border-color:var(--blue); color:var(--blue); }
+
+.pr-wide { padding-top:3.25rem; }
 
 /* ---------- sections ---------- */
-.pr-main { padding-bottom:2rem; }
-.pr-sec { padding:3.25rem 0 0; }
+.pr-main { min-width:0; padding-bottom:2rem; }
+.pr-sec { padding:0 0 2.5rem; }
+.pr-sec:first-of-type { padding-top:0; }
 .pr-sec-title { font-family:var(--display); font-size:clamp(1.35rem,3vw,1.9rem); font-weight:800; letter-spacing:-0.6px; color:var(--ink); margin:0 0 0.5rem; display:flex; align-items:center; gap:10px; }
 .pr-sec-count { font-family:var(--body); font-size:12px; font-weight:700; color:var(--muted); background:var(--bg3); border-radius:6px; padding:3px 8px; }
 .pr-sec-blurb { font-size:15px; color:var(--muted); line-height:1.7; max-width:64ch; margin:0 0 1.5rem; }
@@ -110,8 +153,8 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 /* Symptom chips under the diagnostic row. They are the words people actually
    search: blue screen, boot loop, won't turn on. Carried over from the live
    page, where they were the only place those phrases appeared. */
-.pr-chips { display:flex; flex-wrap:wrap; gap:6px; margin-top:0.75rem; }
-.pr-chip { font-family:var(--body); font-size:11.5px; font-weight:600; color:var(--ink2); background:var(--bg3); border-radius:6px; padding:4px 9px; white-space:nowrap; }
+.pr-symptoms { display:flex; flex-wrap:wrap; gap:6px; margin-top:0.75rem; }
+.pr-symptom { font-family:var(--body); font-size:11.5px; font-weight:600; color:var(--ink2); background:var(--bg3); border-radius:6px; padding:4px 9px; white-space:nowrap; }
 
 .pr-row-price { display:flex; flex-direction:column; align-items:flex-end; gap:8px; }
 .pr-price { font-family:var(--display); font-size:1.45rem; font-weight:800; letter-spacing:-0.8px; color:var(--ink); white-space:nowrap; line-height:1; }
@@ -178,16 +221,24 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 .faq-item.open .faq-a p { padding:0 1.35rem 1.35rem; }
 
 @media (prefers-reduced-motion: reduce) {
-  .faq-a, .faq-a p, .faq-q svg, .pr-cats { transition:none; scroll-behavior:auto; }
+  .faq-a, .faq-a p, .faq-q svg, .pr-chips, .pr-side-item { transition:none; scroll-behavior:auto; }
 }
 
 /* ==========================================================
    Tablet and phone. The nav switches to the hamburger at
    900px, so the sticky offset has to move with it.
    ========================================================== */
+@media (max-width:1000px) {
+  /* Not enough width for a rail and a readable list side by side. */
+  .pr-layout { grid-template-columns:1fr; gap:0; padding-top:1.5rem; }
+  .pr-side { display:none; }
+  .pr-chips { display:flex; }
+  .pr-wide { padding-top:2.5rem; }
+}
+
 @media (max-width:900px) {
   body { padding-top:var(--mob-nav-h); }
-  .pr-hero { padding-top:2.5rem; }
+  .pr-hero { padding-top:2.25rem; }
   .pr-tools { top:var(--mob-nav-h); }
   .pr-plans { grid-template-columns:1fr; }
   .pr-rules { grid-template-columns:1fr; gap:1.35rem; }
@@ -200,9 +251,9 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
   .pr-anchor { font-size:17px; }
   .pr-anchor strong { font-size:21px; }
   .pr-intro { font-size:15px; line-height:1.75; }
-  .pr-sec { padding-top:2.5rem; }
+  .pr-sec { padding-bottom:2rem; }
   .pr-tools-inner { padding-top:0.75rem; padding-bottom:0.75rem; }
-  .pr-cats { margin:0.75rem -1.25rem 0; padding:0 1.25rem; }
+  .pr-chips { margin:0.7rem -1.25rem 0; padding:0 1.25rem; }
 
   /* The two-column row collapses. Price and Book sit on one
      line under the text instead of in a right-hand column,
