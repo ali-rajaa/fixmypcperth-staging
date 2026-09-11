@@ -1,0 +1,136 @@
+/* ==========================================================
+   legal.css   VERSION 1
+   Shared page stylesheet for /terms and /privacy. Both pages
+   are the same shape, so they share one file rather than
+   duplicating a near-identical stylesheet twice.
+   Self-contained with its own :root, like every page CSS on
+   this site. Tokens are never shared between page
+   stylesheets: a page that uses a token it has not defined
+   renders dark text on dark panels.
+   ========================================================== */
+
+:root {
+  --blue:      #1560FF;
+  --blue-lt:   #EEF3FF;
+  --blue-mid:  #C7D8FF;
+  --blue-dk:   #0A3ACC;
+  --ink:       #0F172A;
+  --ink2:      #1E293B;
+  --muted:     #64748B;
+  --muted2:    #94A3B8;
+  --border:    #E2E8F0;
+  --border2:   #CBD5E1;
+  --bg:        #FFFFFF;
+  --bg2:       #F8FAFC;
+  --bg3:       #F1F5F9;
+  --wa:        #22C55E;
+  --wa-dk:     #16A34A;
+  --display:   'Sora', sans-serif;
+  --body:      'DM Sans', sans-serif;
+  --nav-h:     64px;
+  --mob-nav-h: 60px;
+}
+
+* { box-sizing: border-box; }
+body { background:var(--bg); color:var(--ink); font-family:var(--body); font-size:16px; line-height:1.6; overflow-x:hidden; }
+.wrap { max-width:1100px; margin:0 auto; padding:0 2rem; }
+
+/* ---------- hero ---------- */
+.lg-hero { background:var(--bg2); padding:96px 2rem 2.75rem; border-bottom:1px solid var(--border); }
+.lg-hero-inner { max-width:800px; margin:0 auto; }
+.lg-updated { display:inline-block; font-size:11.5px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); background:var(--bg3); border-radius:20px; padding:5px 12px; margin-bottom:1.1rem; }
+.lg-hero h1 { font-family:var(--display); font-size:clamp(2rem,4vw,2.9rem); font-weight:800; letter-spacing:-1.4px; line-height:1.1; color:var(--ink); margin:0 0 0.6rem; }
+.lg-sub { font-family:var(--display); font-size:clamp(1rem,1.8vw,1.25rem); font-weight:600; color:var(--blue); margin:0 0 1.25rem; }
+.lg-intro { font-size:15.5px; color:var(--muted); line-height:1.8; margin:0; max-width:68ch; }
+
+/* ---------- layout ---------- */
+.lg-layout { display:grid; grid-template-columns:280px 1fr; gap:3rem; align-items:start; padding-top:3rem; padding-bottom:4rem; }
+.lg-side { position:sticky; top:calc(var(--nav-h) + 24px); }
+.lg-side-card { background:var(--bg); border:1px solid var(--border); border-radius:16px; padding:1.1rem; max-height:calc(100vh - var(--nav-h) - 64px); overflow-y:auto; scrollbar-width:thin; }
+.lg-side-head { display:block; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); padding:0 0.6rem 0.75rem; }
+.lg-toc { display:flex; flex-direction:column; gap:1px; }
+.lg-toc a {
+  display:flex; align-items:flex-start; gap:10px; text-decoration:none;
+  font-family:var(--body); font-size:13.5px; font-weight:600; color:var(--ink2);
+  line-height:1.45; padding:0.55rem 0.6rem; border-radius:9px;
+  transition:background 0.16s,color 0.16s;
+}
+.lg-toc a:hover { background:var(--blue-lt); color:var(--blue-dk); }
+.lg-toc a:focus-visible { outline:2px solid var(--blue); outline-offset:-2px; }
+.lg-toc-n { flex:0 0 auto; font-size:11px; font-weight:700; color:var(--muted2); min-width:15px; padding-top:2px; }
+.lg-toc a:hover .lg-toc-n { color:var(--blue); }
+
+.lg-main { min-width:0; }
+
+/* ---------- sections ---------- */
+.lg-sec { padding-bottom:2.5rem; scroll-margin-top:calc(var(--nav-h) + 24px); }
+.lg-sec h2 {
+  display:flex; align-items:baseline; gap:12px;
+  font-family:var(--display); font-size:clamp(1.15rem,2.2vw,1.45rem); font-weight:800;
+  letter-spacing:-0.5px; color:var(--ink); margin:0 0 0.9rem;
+}
+.lg-num { flex:0 0 auto; font-family:var(--display); font-size:13px; font-weight:800; color:var(--blue); background:var(--blue-lt); border-radius:8px; padding:4px 9px; letter-spacing:0; }
+.lg-sec p { font-size:15px; color:var(--muted); line-height:1.85; margin:0 0 0.95rem; max-width:72ch; }
+.lg-sec p:last-child { margin-bottom:0; }
+.lg-sec strong { color:var(--ink2); font-weight:700; }
+.lg-sec a { color:var(--blue); text-decoration:none; border-bottom:1px solid var(--blue-mid); transition:border-color 0.15s; }
+.lg-sec a:hover { border-color:var(--blue); }
+.lg-sec ul { margin:0 0 0.95rem; padding:0; list-style:none; max-width:72ch; }
+.lg-sec li { position:relative; font-size:15px; color:var(--muted); line-height:1.75; padding:0 0 0.55rem 1.4rem; }
+.lg-sec li::before { content:''; position:absolute; left:2px; top:11px; width:6px; height:6px; border-radius:50%; background:var(--blue-mid); }
+.lg-sec li:last-child { padding-bottom:0; }
+
+/* ---------- closing card ---------- */
+.lg-help { background:var(--bg2); border:1px solid var(--border); border-radius:18px; padding:2rem; margin-top:1rem; }
+.lg-help h2 { font-family:var(--display); font-size:1.3rem; font-weight:800; letter-spacing:-0.5px; color:var(--ink); margin:0 0 0.5rem; }
+.lg-help p { font-size:15px; color:var(--muted); line-height:1.75; margin:0 0 1.35rem; max-width:60ch; }
+.lg-help-actions { display:flex; flex-wrap:wrap; gap:10px; }
+.lg-btn {
+  display:inline-flex; align-items:center; justify-content:center;
+  font-family:var(--body); font-size:15px; font-weight:700; text-decoration:none;
+  padding:13px 26px; border-radius:50px; max-width:100%; white-space:nowrap;
+  transition:background 0.18s,border-color 0.18s,color 0.18s;
+}
+.lg-btn-wa { background:var(--wa); color:#fff; border:1.5px solid var(--wa); }
+.lg-btn-wa:hover { background:var(--wa-dk); border-color:var(--wa-dk); }
+.lg-btn-ghost { background:var(--bg); color:var(--ink); border:1.5px solid var(--border2); }
+.lg-btn-ghost:hover { border-color:var(--blue); color:var(--blue); }
+
+/* ==========================================================
+   The nav switches to the hamburger at 900px, so the body
+   offset and every sticky top has to move with it.
+   ========================================================== */
+@media (max-width:1000px) {
+  .lg-layout { grid-template-columns:1fr; gap:0; padding-top:2rem; }
+  /* The rail becomes a plain contents block above the text rather than
+     disappearing. On a long legal page that list is the fastest way to
+     reach the one clause someone came for. */
+  .lg-side { position:static; margin-bottom:2rem; }
+  .lg-side-card { max-height:none; overflow:visible; }
+  .lg-toc { display:grid; grid-template-columns:1fr 1fr; gap:2px 1rem; }
+}
+
+@media (max-width:900px) {
+  body { padding-top:var(--mob-nav-h); }
+  .lg-hero { padding-top:2.5rem; }
+  .lg-side { top:calc(var(--mob-nav-h) + 16px); }
+  .lg-sec { scroll-margin-top:calc(var(--mob-nav-h) + 16px); }
+}
+
+@media (max-width:720px) {
+  .wrap { padding:0 1.25rem; }
+  .lg-hero { padding:2rem 1.25rem 2.25rem; }
+  .lg-hero h1 { font-size:1.85rem; letter-spacing:-1px; }
+  .lg-intro { font-size:15px; }
+  .lg-toc { grid-template-columns:1fr; }
+  .lg-layout { padding-bottom:2.5rem; }
+  .lg-sec { padding-bottom:2rem; }
+  .lg-sec p, .lg-sec li { font-size:14.5px; }
+  .lg-help { padding:1.5rem 1.25rem; }
+  .lg-btn { width:100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lg-toc a, .lg-btn, .lg-sec a { transition:none; }
+  html { scroll-behavior:auto; }
+}
