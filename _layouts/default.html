@@ -31,7 +31,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet"></noscript>
 
-  <link rel="stylesheet" href="/assets/css/pages/index.css?v={{ site.time | date: "%s" }}">
+  <!-- Each page loads its own stylesheet. Set "css:" in a page's front matter
+       to pick one, for example "css: pricing" loads pages/pricing.css. Pages
+       without it fall back to index.css. Design tokens are never shared
+       between page stylesheets, so every page CSS carries its own :root. -->
+  <link rel="stylesheet" href="/assets/css/pages/{{ page.css | default: "index" }}.css?v={{ site.time | date: "%s" }}">
   <link rel="stylesheet" href="/assets/css/shell.css?v={{ site.time | date: "%s" }}">
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-S0CW1QXBDY"></script>
