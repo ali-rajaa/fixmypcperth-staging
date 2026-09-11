@@ -1,5 +1,5 @@
 /* ==========================================================
-   pricing.css   VERSION 3
+   pricing.css   VERSION 4
    Page stylesheet for /pricing. Self-contained, with its own
    :root, exactly like index.css. Design tokens are never
    shared between page stylesheets: a page that does not
@@ -48,7 +48,7 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 .btn-outline:hover { border-color:var(--blue); color:var(--blue); }
 
 /* ---------- hero ---------- */
-.pr-hero { background:var(--bg2); padding:110px 2rem 2.5rem; overflow:hidden; }
+.pr-hero { background:var(--bg2); padding:96px 2rem 2.5rem; overflow:hidden; }
 /* Two columns: the copy on the left, the illustration on the right. Keeping the
    text to one column stops the h1 running the full 1100px and cuts enough
    height that the search bar is visible without scrolling on a laptop. */
@@ -57,9 +57,9 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 /* Top aligned rather than centred, with the closing paragraph sitting under
    the artwork. Centring left a large gap beneath the illustration because the
    text column is taller. */
-.pr-hero-art { min-width:0; display:flex; flex-direction:column; align-self:start; }
+.pr-hero-art { min-width:0; display:flex; flex-direction:column; justify-content:space-between; align-self:stretch; }
 .pr-art { width:100%; max-width:400px; height:auto; display:block; margin:0 auto; }
-.pr-intro-art { margin:1.1rem 0 0; font-size:14.5px; }
+.pr-intro-art { margin:1.75rem 0 0; font-size:14.5px; }
 
 /* Three prices people actually look for, before any prose. */
 .pr-quick { display:flex; flex-wrap:wrap; gap:10px; margin:0 0 1.6rem; }
@@ -156,6 +156,15 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 .pr-sec-title { font-family:var(--display); font-size:clamp(1.25rem,2.4vw,1.6rem); font-weight:800; letter-spacing:-0.6px; color:var(--ink); margin:0 0 0.4rem; display:flex; align-items:center; gap:10px; }
 .pr-sec-count { font-family:var(--body); font-size:12px; font-weight:700; color:var(--muted); background:var(--bg3); border-radius:6px; padding:3px 8px; }
 .pr-sec-blurb { font-size:14.5px; color:var(--muted); line-height:1.65; max-width:64ch; margin:0 0 1.2rem; }
+
+/* Sub-headings inside a section. 18 repairs in one run reads as a dump; four
+   named groups of four or five reads as a list you can scan. */
+.pr-group { display:flex; align-items:center; gap:9px; font-family:var(--body); font-size:11.5px; font-weight:700;
+  letter-spacing:0.09em; text-transform:uppercase; color:var(--muted); margin:1.6rem 0 0.7rem; }
+.pr-group:first-of-type { margin-top:0; }
+.pr-group[hidden], .pr-rows[hidden] { display:none; }
+.pr-group::after { content:''; flex:1; height:1px; background:var(--border); }
+.pr-group-n { font-size:11px; font-weight:700; color:var(--muted2); background:var(--bg3); border-radius:20px; padding:2px 7px; letter-spacing:0; }
 
 /* ---------- price rows ---------- */
 .pr-rows { display:flex; flex-direction:column; gap:8px; }
@@ -273,7 +282,7 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 
 @media (max-width:720px) {
   .wrap { padding:0 1.25rem; }
-  .pr-hero { padding:1.75rem 1.25rem 2.25rem; }
+  .pr-hero { padding:1.5rem 1.25rem 2.25rem; }
   /* The illustration is decoration. On a phone the screen is better spent on
      the prices, so it goes rather than eating a third of the first view. */
   .pr-hero-art { display:none; }
