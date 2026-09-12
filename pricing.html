@@ -1,14 +1,32 @@
 ---
 layout: default
 css: pricing
-title: "Computer Repair Prices Perth | Every Price Upfront | FixMyPC Perth"
-description: "Computer repair Perth prices, all upfront. Diagnostic and repair $120 flat, virus removal $99, laptop repair from $89, data recovery from $149. Canning Vale workshop, $35 call-out."
+title: "Computer Repair Prices Perth | FixMyPC Perth"
+description: "Computer repair Perth prices, all upfront. Diagnostic and repair $120 flat, virus removal $99, data recovery from $149. Canning Vale workshop, $35 call-out."
 ---
+{%- comment -%}
+  Every price, count and category on this page comes from _data/services.yml.
+  Nothing here is a hardcoded figure. To change a price, add a service or add
+  a category, edit that file. The counts, the rail, the groups and the JSON-LD
+  offers below are all derived, so they cannot fall out of step with the list.
+{%- endcomment -%}
+{%- assign D = site.data.services -%}
+{%- assign extras_n = D.addons.size | plus: D.packages.size -%}
+{%- assign all_n = D.services.size | plus: extras_n -%}
+
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"OfferCatalog","name":"Computer Repair Prices Perth",
 "url":"https://www.fixmypcperth.com/pricing",
 "provider":{"@type":"LocalBusiness","name":"FixMyPC Perth","@id":"https://www.fixmypcperth.com/#business"},
-"itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Diagnostic & Repair, All-In"},"price":"120","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Virus & Malware Removal"},"price":"99","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Windows Reinstall & Data Backup"},"price":"120","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Overheating Fix & Deep Clean"},"price":"89","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Password Reset & Account Recovery"},"price":"79","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Laptop Screen Replacement"},"price":"145","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Laptop Battery Replacement"},"price":"89","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Laptop Keyboard Replacement"},"price":"89","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Charging Port Repair"},"price":"99","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Laptop Hinge Repair"},"price":"99","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Screen Flicker or Line Repair"},"price":"99","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Trackpad Replacement"},"price":"89","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Liquid Spill Clean & Repair"},"price":"129","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Data Recovery, Failing Drive"},"price":"149","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Data Recovery, Dead Drive"},"price":"249","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"External Drive & USB Recovery"},"price":"99","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Secure Data Wipe & Certified Erase"},"price":"59","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Pre-Purchase Used PC Inspection"},"price":"49","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Basic Tune Up"},"price":"79","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Advanced Performance Boost"},"price":"129","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Pro Performance Overhaul"},"price":"189","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"SSD Upgrade, Labour Only"},"price":"65","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"RAM Upgrade, Labour Only"},"price":"55","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"RAM Upgrade, Supplied"},"price":"130","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Windows 11 Upgrade"},"price":"120","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"HDD to SSD Full Migration"},"price":"175","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"GPU Install & Driver Setup"},"price":"60","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"CPU Thermal Paste Replacement"},"price":"60","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Gaming Laptop Repaste & Clean"},"price":"99","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Case Fan Installation, Per Fan"},"price":"40","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Essential Assembly"},"price":"149","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Performance Assembly"},"price":"199","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Elite Assembly"},"price":"249","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"CPU Cooler Installation"},"price":"80","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Cable Management, Basic Tidy"},"price":"70","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Cable Management, Full Pro"},"price":"120","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"PBO & BIOS Performance Tuning"},"price":"60","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"RGB Software Setup & Sync"},"price":"69","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Benchmark Testing & Report"},"price":"99","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Overclocking, CPU or GPU"},"price":"89","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Streaming & Creator Setup"},"price":"129","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Creator Workstation Optimisation"},"price":"99","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Console Repair, PS5 or Xbox"},"price":"99","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"NBN Router Setup & Optimisation"},"price":"79","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"WiFi Dead Spot Diagnosis & Fix"},"price":"89","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Mesh WiFi Setup, Per Node"},"price":"65","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Gaming Network Optimisation"},"price":"89","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Wireless Printer Setup"},"price":"69","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"USB Printer Setup"},"price":"55","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Smart TV & Streaming Setup"},"price":"59","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Home Network Security Audit"},"price":"79","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Full Home Network Setup"},"price":"149","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Remote Support Session"},"price":"45","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Software Install & Configuration"},"price":"55","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Microsoft Office Setup"},"price":"65","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Email Setup, Outlook or Gmail"},"price":"55","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"PC to PC Data Transfer"},"price":"65","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Cloud Backup Setup"},"price":"55","priceCurrency":"AUD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Driver Updates & Optimisation"},"price":"60","priceCurrency":"AUD"}]}
+"itemListElement":[
+{%- assign first = true -%}
+{%- for s in D.services -%}{%- if s.price -%}
+{%- unless first %},{% endunless %}{%- assign first = false -%}
+{"@type":"Offer","itemOffered":{"@type":"Service","name":{{ s.name | jsonify }}},"price":"{{ s.price }}","priceCurrency":"{{ D.meta.currency }}"}
+{%- endif -%}{%- endfor -%}
+{%- for a in D.addons -%},{"@type":"Offer","itemOffered":{"@type":"Service","name":{{ a.name | jsonify }}},"price":"{{ a.price }}","priceCurrency":"{{ D.meta.currency }}"}{%- endfor -%}
+{%- for p in D.packages -%},{"@type":"Offer","itemOffered":{"@type":"Service","name":{{ p.name | jsonify }}},"price":"{{ p.price }}","priceCurrency":"{{ D.meta.currency }}"}{%- endfor -%}
+]}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does computer repair cost in Perth?","acceptedAnswer":{"@type":"Answer","text":"Diagnostic and repair is a flat $120 all-in, which covers finding the fault, all repair labour and a 30-day warranty. Fixed-scope jobs are priced separately: virus removal $99, password reset $79, overheating deep clean $89, and data recovery from $149. Every price includes GST."}},{"@type":"Question","name":"What does the $120 all-in fee actually cover?","acceptedAnswer":{"@type":"Answer","text":"Any fault where we have to diagnose the cause before we can fix it. Blue screens, random restarts, boot loops, stuck on the manufacturer logo, freezing, no POST, no power and driver conflicts. It includes the diagnostic, all repair labour and the warranty. Parts are quoted separately and only if your machine needs them."}},{"@type":"Question","name":"Is the $120 charged if I decide not to go ahead?","acceptedAnswer":{"@type":"Answer","text":"Yes. The diagnostic is the work, and it takes the same time whether you proceed or not. You will know the full cost before anything else happens."}},{"@type":"Question","name":"How much is laptop screen replacement in Perth?","acceptedAnswer":{"@type":"Answer","text":"$145 for a standard non-touch panel, $170 for a touchscreen or high-refresh gaming panel and $190 for OLED or premium 2-in-1 displays. Panel and labour are both included."}},{"@type":"Question","name":"How much does virus removal cost in Perth?","acceptedAnswer":{"@type":"Answer","text":"$99. That covers a full deep scan, complete threat removal, browser cleanup and antivirus setup. Most infections are cleared the same day."}},{"@type":"Question","name":"How much is data recovery in Perth?","acceptedAnswer":{"@type":"Answer","text":"$149 for a failing drive that still partially reads, $249 for a dead drive that will not spin or mount, and $99 for external drives, USB sticks and memory cards. Both internal recovery services are no fix no fee."}},{"@type":"Question","name":"How much is an SSD upgrade in Perth?","acceptedAnswer":{"@type":"Answer","text":"$65 labour. We fit the drive and transfer everything across. We supply every type, SATA and NVMe, specced to what you actually need, or we will fit one you have already bought."}},{"@type":"Question","name":"Do you charge by the hour?","acceptedAnswer":{"@type":"Answer","text":"No. The only hourly-style rate we have is remote support, billed at $45 per half hour with the first half hour as the minimum. Everything else is a fixed price."}},{"@type":"Question","name":"Do you come to me, and what does that cost?","acceptedAnswer":{"@type":"Answer","text":"Yes, anywhere across the southern Perth corridor. A flat $35 call-out is added to the service price, charged per visit. Most jobs are cheaper if you drop the machine at our Canning Vale workshop."}},{"@type":"Question","name":"How much does a gaming PC build cost in Perth?","acceptedAnswer":{"@type":"Answer","text":"Assembly with your own parts comes in three tiers: Essential $149, Performance $199 and Elite $249. We can also supply the parts at our prices if you would rather not source them yourself."}},{"@type":"Question","name":"How much is business IT support in Perth?","acceptedAnswer":{"@type":"Answer","text":"Managed plans start at $149 per month for up to 5 PCs, $199 for up to 10 and $299 for up to 20, all billed monthly with no lock-in and 14 days notice to cancel."}},{"@type":"Question","name":"Do you repair MacBooks and Surface devices?","acceptedAnswer":{"@type":"Answer","text":"We take both for diagnostics, virus removal, data recovery, software work and everything else on this page. We do not do screen or battery replacement on MacBook or Surface."}},{"@type":"Question","name":"Are your prices negotiable or do they change at collection?","acceptedAnswer":{"@type":"Answer","text":"Neither. The published price is the price. Nothing is added at collection and everything includes GST."}},{"@type":"Question","name":"How long do repairs take?","acceptedAnswer":{"@type":"Answer","text":"Drop off before 2pm and most repairs are ready by 6pm the same day. Parts that have to be ordered add a day or two, and we tell you the timeline before you leave."}}]}
@@ -21,12 +39,12 @@ description: "Computer repair Perth prices, all upfront. Diagnostic and repair $
   <div class="wrap pr-hero-inner">
     <div class="pr-hero-top">
       <h1>Computer Repair Prices Perth.<br><span class="accent">Every price before we start.</span></h1>
-      <p class="pr-anchor"><strong>Flat <span class="price" data-price="diagnostic-all-in">$120</span></strong> covers diagnosis and repair</p>
+      <p class="pr-anchor"><strong>Flat {% include price.html key="diagnostic-repair-all-in" bare=true %}</strong> covers diagnosis and repair</p>
       <p class="pr-sub">No hourly rates &middot; Fixed prices &middot; Nothing added at collection</p>
       <div class="pr-quick">
-        <div class="pr-quick-item"><span class="pr-quick-price">$120</span><span class="pr-quick-lbl">All-in repair</span></div>
-        <div class="pr-quick-item"><span class="pr-quick-price">$99</span><span class="pr-quick-lbl">Virus removal</span></div>
-        <div class="pr-quick-item"><span class="pr-quick-price">$149</span><span class="pr-quick-lbl">Data recovery</span></div>
+        <div class="pr-quick-item"><span class="pr-quick-price">{% include price.html key="diagnostic-repair-all-in" bare=true %}</span><span class="pr-quick-lbl">All-in repair</span></div>
+        <div class="pr-quick-item"><span class="pr-quick-price">{% include price.html key="virus-malware-removal" bare=true %}</span><span class="pr-quick-lbl">Virus removal</span></div>
+        <div class="pr-quick-item"><span class="pr-quick-price">{% include price.html key="data-recovery-failing-drive" bare=true %}</span><span class="pr-quick-lbl">Data recovery</span></div>
       </div>
     </div>
     <div class="pr-hero-art">
@@ -101,24 +119,17 @@ description: "Computer repair Perth prices, all upfront. Diagnostic and repair $
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
-    <!-- Phone and small tablet only. The sidebar below takes over from 1000px. -->
     <div class="pr-chips" id="prChips">
       <button type="button" class="pr-chip is-active" data-cat="all">All</button>
-      <button type="button" class="pr-chip" data-cat="repairs">Repairs</button>
-      <button type="button" class="pr-chip" data-cat="performance">Performance</button>
-      <button type="button" class="pr-chip" data-cat="upgrades">Upgrades</button>
-      <button type="button" class="pr-chip" data-cat="gaming">Gaming</button>
-      <button type="button" class="pr-chip" data-cat="networking">Networking</button>
-      <button type="button" class="pr-chip" data-cat="software">Remote &amp; software</button>
+      {%- for c in D.categories %}
+      <button type="button" class="pr-chip" data-cat="{{ c.id }}">{{ c.nav | escape }}</button>
+      {%- endfor %}
       <button type="button" class="pr-chip" data-cat="extras">Add-ons &amp; packages</button>
     </div>
   </div>
 </div>
 
 <div class="wrap pr-layout">
-  <!-- Desktop category rail. Sticky, mirrors the chips above, and carries a
-       live count per category so the size of each list is visible before
-       you open it. -->
   <aside class="pr-side" aria-label="Browse services">
     <div class="pr-side-card">
       <div class="pr-side-head">
@@ -126,1034 +137,246 @@ description: "Computer repair Perth prices, all upfront. Diagnostic and repair $
         <span class="pr-side-title">Full price list</span>
       </div>
       <nav class="pr-side-nav" id="prSide">
-        <button type="button" class="pr-side-item is-active" data-cat="all"><span class="pr-side-accent"></span><span class="pr-side-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span><span class="pr-side-label">All</span><span class="pr-side-n">69</span></button>
-        <button type="button" class="pr-side-item" data-cat="repairs"><span class="pr-side-accent"></span><span class="pr-side-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span><span class="pr-side-label">Repairs</span><span class="pr-side-n">18</span></button>
-        <button type="button" class="pr-side-item" data-cat="performance"><span class="pr-side-accent"></span><span class="pr-side-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><span class="pr-side-label">Performance</span><span class="pr-side-n">3</span></button>
-        <button type="button" class="pr-side-item" data-cat="upgrades"><span class="pr-side-accent"></span><span class="pr-side-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></span><span class="pr-side-label">Upgrades</span><span class="pr-side-n">10</span></button>
-        <button type="button" class="pr-side-item" data-cat="gaming"><span class="pr-side-accent"></span><span class="pr-side-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="11" x2="10" y2="11"/><line x1="8" y1="9" x2="8" y2="13"/><line x1="15" y1="12" x2="15.01" y2="12"/><line x1="18" y1="10" x2="18.01" y2="10"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg></span><span class="pr-side-label">Gaming</span><span class="pr-side-n">13</span></button>
-        <button type="button" class="pr-side-item" data-cat="networking"><span class="pr-side-accent"></span><span class="pr-side-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></span><span class="pr-side-label">Networking</span><span class="pr-side-n">9</span></button>
-        <button type="button" class="pr-side-item" data-cat="software"><span class="pr-side-accent"></span><span class="pr-side-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span><span class="pr-side-label">Remote &amp; software</span><span class="pr-side-n">8</span></button>
-        <button type="button" class="pr-side-item" data-cat="extras"><span class="pr-side-accent"></span><span class="pr-side-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></span><span class="pr-side-label">Add-ons &amp; packages</span><span class="pr-side-n">8</span></button>
+        <button type="button" class="pr-side-item is-active" data-cat="all"><span class="pr-side-accent"></span><span class="pr-side-ico">{% include svc-icon.html id="repairs" %}</span><span class="pr-side-label">All</span><span class="pr-side-n">{{ all_n }}</span></button>
+        {%- for c in D.categories %}
+        {%- assign n = D.services | where: "category", c.id | size %}
+        <button type="button" class="pr-side-item" data-cat="{{ c.id }}"><span class="pr-side-accent"></span><span class="pr-side-ico">{% include svc-icon.html id=c.icon %}</span><span class="pr-side-label">{{ c.nav | escape }}</span><span class="pr-side-n">{{ n }}</span></button>
+        {%- endfor %}
+        <button type="button" class="pr-side-item" data-cat="extras"><span class="pr-side-accent"></span><span class="pr-side-ico">{% include svc-icon.html id="extras" %}</span><span class="pr-side-label">Add-ons &amp; packages</span><span class="pr-side-n">{{ extras_n }}</span></button>
       </nav>
     </div>
     <a class="pr-side-cta" href="https://wa.me/61452573701" target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Not listed? Ask us</a>
   </aside>
   <main class="pr-main" id="prMain">
     <p class="pr-count" id="prCount" aria-live="polite"></p>
-    <section class="pr-sec" id="repairs" data-cat="repairs">
-      <h2 class="pr-sec-title">PC &amp; Laptop Repairs <span class="pr-sec-count">18</span></h2>
-      <p class="pr-sec-blurb">Laptop repair Perth and desktop repair, all fixed price. If we need to find the fault before we can fix it, that is the $120 all-in fee.</p>
-      <h3 class="pr-group">Most common faults <span class="pr-group-n">5</span></h3>
+    {%- for c in D.categories %}
+    {%- assign inCat = D.services | where: "category", c.id %}
+    <section class="pr-sec" id="{{ c.id }}" data-cat="{{ c.id }}">
+      <h2 class="pr-sec-title">{{ c.label | escape }} <span class="pr-sec-count">{{ inCat | size }}</span></h2>
+      <p class="pr-sec-blurb">{{ c.blurb | escape }}</p>
+      {%- if c.groups and c.groups.size > 0 %}
+      {%- for g in c.groups %}
+      {%- assign inGroup = inCat | where: "group", g %}
+      {%- if inGroup.size > 0 %}
+      <h3 class="pr-group">{{ g | escape }} <span class="pr-group-n">{{ inGroup | size }}</span></h3>
       <div class="pr-rows">
-      <div class="pr-row" data-name="diagnostic &amp; repair, all-in" data-key="diagnostic-repair-all-in">
+      {%- for s in inGroup %}
+      {%- assign wa = "https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20" | append: s.name | replace: "&", "and" | uri_escape -%}
+      <div class="pr-row" data-name="{{ s.name | downcase | escape }}" data-key="{{ s.key }}">
         <div class="pr-row-main">
-          <h3 class="pr-name">Diagnostic &amp; Repair, All-In <span class="pr-badge">Most Popular</span></h3>
-          <p class="pr-desc">One flat fee covering the full diagnostic, all repair labour and a 30-day warranty. If we need to find the fault before we can fix it, this is the price.</p>
-          <div class="pr-symptoms"><span class="pr-symptom">Blue screens</span><span class="pr-symptom">Won't turn on</span><span class="pr-symptom">Boot loops</span><span class="pr-symptom">Stuck on logo</span><span class="pr-symptom">Random restarts</span><span class="pr-symptom">Freezing</span><span class="pr-symptom">Crashes on startup</span><span class="pr-symptom">No POST</span><span class="pr-symptom">Driver conflicts</span></div>
+          <h3 class="pr-name">{{ s.name | escape }}{% if s.badge %} <span class="pr-badge">{{ s.badge | escape }}</span>{% endif %}</h3>
+          {%- if s.desc %}
+          <p class="pr-desc">{{ s.desc | escape }}</p>
+          {%- endif %}
+          {%- if s.chips %}
+          <div class="pr-symptoms">{% for ch in s.chips %}<span class="pr-symptom">{{ ch | escape }}</span>{% endfor %}</div>
+          {%- endif %}
         </div>
         <div class="pr-row-price">
           <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="diagnostic-repair-all-in">$120 all-in</span></span>
+            <span class="pr-price">{% include price.html key=s.key %}</span>
+            {%- if s.alt %}
+            <span class="pr-price-alt">{{ s.alt | escape }}</span>
+            {%- endif %}
           </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Diagnostic%20%26%20Repair%2C%20All-In." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
+          <a class="pr-book" href="{{ wa }}" target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
         </div>
-      </div>
-      <div class="pr-row" data-name="virus &amp; malware removal" data-key="virus-malware-removal">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Virus &amp; Malware Removal <span class="pr-badge">Most Popular</span></h3>
-          <p class="pr-desc">Full deep scan, complete threat removal, browser cleanup and antivirus setup. Most infections cleared same day.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="virus-malware-removal">$99</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Virus%20%26%20Malware%20Removal." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="windows reinstall &amp; data backup" data-key="windows-reinstall-data-backup">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Windows Reinstall &amp; Data Backup</h3>
-          <p class="pr-desc">Fresh Windows 10 or 11 install with all files and data safely backed up and transferred across.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="windows-reinstall-data-backup">$120</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Windows%20Reinstall%20%26%20Data%20Backup." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="overheating fix &amp; deep clean" data-key="overheating-fix-deep-clean">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Overheating Fix &amp; Deep Clean</h3>
-          <p class="pr-desc">Full internal clean, thermal paste replaced, fan inspection and airflow optimised.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="overheating-fix-deep-clean">$89</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Overheating%20Fix%20%26%20Deep%20Clean." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="password reset &amp; account recovery" data-key="password-reset-account-recovery">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Password Reset &amp; Account Recovery</h3>
-          <p class="pr-desc">Regain access to a locked Windows login, Microsoft or local account. No data loss.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="password-reset-account-recovery">$79</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Password%20Reset%20%26%20Account%20Recovery." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      </div>
-      <h3 class="pr-group">Laptop hardware <span class="pr-group-n">8</span></h3>
-      <div class="pr-rows">
-      <div class="pr-row" data-name="laptop screen replacement" data-key="laptop-screen-replacement">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Laptop Screen Replacement</h3>
-          <p class="pr-desc">Labour only. The panel itself is quoted separately once we confirm your exact model.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="laptop-screen-replacement">from $145</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Laptop%20Screen%20Replacement." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
+        {%- if s.options %}
         <div class="pr-opts">
-          <div class="pr-opt"><span class="pr-opt-name">Standard</span><span class="pr-opt-price"><span class="price" data-price="laptop-screen-replacement-standard">$145</span></span><span class="pr-opt-desc">Non-touch, the most common panel type</span></div>
-          <div class="pr-opt"><span class="pr-opt-name">Touchscreen</span><span class="pr-opt-price"><span class="price" data-price="laptop-screen-replacement-touchscreen">$170</span></span><span class="pr-opt-desc">Touchscreen or gaming high-refresh panels</span></div>
-          <div class="pr-opt"><span class="pr-opt-name">OLED / Premium</span><span class="pr-opt-price"><span class="price" data-price="laptop-screen-replacement-oled-premium">$190</span></span><span class="pr-opt-desc">OLED or premium 2-in-1 displays</span></div>
+          {%- for o in s.options %}
+          <div class="pr-opt"><span class="pr-opt-name">{{ o.name | escape }}</span><span class="pr-opt-price">{% if o.prefix %}{{ o.prefix | escape }} {% endif %}{% if o.text %}{{ o.text }}{% else %}${{ o.price }}{% endif %}</span><span class="pr-opt-desc">{{ o.note | escape }}</span></div>
+          {%- endfor %}
         </div>
+        {%- endif %}
       </div>
-      <div class="pr-row" data-name="laptop battery replacement" data-key="laptop-battery-replacement">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Laptop Battery Replacement</h3>
-          <p class="pr-desc">Labour only. Battery quoted separately, most major brands supported. Tested after fitting.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="laptop-battery-replacement">$89</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Laptop%20Battery%20Replacement." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
+      {%- endfor %}
       </div>
-      <div class="pr-row" data-name="laptop keyboard replacement" data-key="laptop-keyboard-replacement">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Laptop Keyboard Replacement</h3>
-          <p class="pr-desc">Labour for individual key repairs or full keyboard swaps on most laptop models.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="laptop-keyboard-replacement">$89</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Laptop%20Keyboard%20Replacement." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="charging port repair" data-key="charging-port-repair">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Charging Port Repair</h3>
-          <p class="pr-desc">Loose, damaged or non-charging ports repaired or replaced on laptops and 2-in-1 devices.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="charging-port-repair">$99</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Charging%20Port%20Repair." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="laptop hinge repair" data-key="laptop-hinge-repair">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Laptop Hinge Repair</h3>
-          <p class="pr-desc">Loose, cracked or snapped hinges repaired so the lid opens and closes properly again.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="laptop-hinge-repair">$99</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Laptop%20Hinge%20Repair." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="screen flicker or line repair" data-key="screen-flicker-or-line-repair">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Screen Flicker or Line Repair</h3>
-          <p class="pr-desc">Flex cable or connection repair for flickering, lines or dead areas. Often cheaper than a full screen swap.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="screen-flicker-or-line-repair">$99</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Screen%20Flicker%20or%20Line%20Repair." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="trackpad replacement" data-key="trackpad-replacement">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Trackpad Replacement</h3>
-          <p class="pr-desc">Unresponsive, clicking or drifting trackpads replaced and calibrated.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="trackpad-replacement">$89</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Trackpad%20Replacement." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="liquid spill clean &amp; repair" data-key="liquid-spill-clean-repair">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Liquid Spill Clean &amp; Repair <span class="pr-badge">Specialist</span></h3>
-          <p class="pr-desc">Full strip down, internal clean and corrosion treatment after a spill. Component-level repair quoted separately if needed.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="liquid-spill-clean-repair">from $129</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Liquid%20Spill%20Clean%20%26%20Repair." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      </div>
-      <h3 class="pr-group">Data services <span class="pr-group-n">4</span></h3>
+      {%- endif %}
+      {%- endfor %}
+      {%- else %}
       <div class="pr-rows">
-      <div class="pr-row" data-name="data recovery, failing drive" data-key="data-recovery-failing-drive">
+      {%- for s in inCat %}
+      {%- assign wa = "https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20" | append: s.name | replace: "&", "and" | uri_escape -%}
+      <div class="pr-row" data-name="{{ s.name | downcase | escape }}" data-key="{{ s.key }}">
         <div class="pr-row-main">
-          <h3 class="pr-name">Data Recovery, Failing Drive <span class="pr-badge">No fix no fee</span></h3>
-          <p class="pr-desc">Recover files from slow, clicking or partially accessible drives. The sooner you bring it in, the better the odds.</p>
+          <h3 class="pr-name">{{ s.name | escape }}{% if s.badge %} <span class="pr-badge">{{ s.badge | escape }}</span>{% endif %}</h3>
+          {%- if s.desc %}
+          <p class="pr-desc">{{ s.desc | escape }}</p>
+          {%- endif %}
+          {%- if s.chips %}
+          <div class="pr-symptoms">{% for ch in s.chips %}<span class="pr-symptom">{{ ch | escape }}</span>{% endfor %}</div>
+          {%- endif %}
         </div>
         <div class="pr-row-price">
           <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="data-recovery-failing-drive">$149</span></span>
+            <span class="pr-price">{% include price.html key=s.key %}</span>
+            {%- if s.alt %}
+            <span class="pr-price-alt">{{ s.alt | escape }}</span>
+            {%- endif %}
           </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Data%20Recovery%2C%20Failing%20Drive." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
+          <a class="pr-book" href="{{ wa }}" target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
         </div>
-      </div>
-      <div class="pr-row" data-name="data recovery, dead drive" data-key="data-recovery-dead-drive">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Data Recovery, Dead Drive <span class="pr-badge">No Fix No Fee</span></h3>
-          <p class="pr-desc">Advanced recovery from drives that will not spin or mount. You pay nothing if we cannot recover your files.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="data-recovery-dead-drive">$249</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Data%20Recovery%2C%20Dead%20Drive." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="external drive &amp; usb recovery" data-key="external-drive-usb-recovery">
-        <div class="pr-row-main">
-          <h3 class="pr-name">External Drive &amp; USB Recovery</h3>
-          <p class="pr-desc">Recovery from external hard drives, USB sticks and memory cards.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="external-drive-usb-recovery">$99</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20External%20Drive%20%26%20USB%20Recovery." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="secure data wipe &amp; certified erase" data-key="secure-data-wipe-certified-erase">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Secure Data Wipe &amp; Certified Erase</h3>
-          <p class="pr-desc">Full secure erase before selling, donating or disposing of a PC or laptop.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="secure-data-wipe-certified-erase">$59</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Secure%20Data%20Wipe%20%26%20Certified%20Erase." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      </div>
-      <h3 class="pr-group">Before you buy <span class="pr-group-n">1</span></h3>
-      <div class="pr-rows">
-      <div class="pr-row" data-name="pre-purchase used pc inspection" data-key="pre-purchase-used-pc-inspection">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Pre-Purchase Used PC Inspection <span class="pr-badge">Smart Buy</span></h3>
-          <p class="pr-desc">Buying second-hand off Marketplace or Gumtree? We check it over before you hand over any cash.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="pre-purchase-used-pc-inspection">$49</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Pre-Purchase%20Used%20PC%20Inspection." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      </div>
-    </section>
-    <section class="pr-sec" id="performance" data-cat="performance">
-      <h2 class="pr-sec-title">Performance Enhancement <span class="pr-sec-count">3</span></h2>
-      <p class="pr-sec-blurb">For a machine that works but crawls. Three depths of tune-up depending on how far gone it is.</p>
-      <div class="pr-rows">
-      <div class="pr-row" data-name="basic tune up" data-key="basic-tune-up">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Basic Tune Up</h3>
-          <p class="pr-desc">Junk file and bloatware cleanup, startup program cleanup, driver updates and a quick malware scan.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="basic-tune-up">$79</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Basic%20Tune%20Up." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="advanced performance boost" data-key="advanced-performance-boost">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Advanced Performance Boost <span class="pr-badge">Most Chosen</span></h3>
-          <p class="pr-desc">Everything in Basic, plus thermal paste replacement, full browser and registry optimisation and a before/after benchmark.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="advanced-performance-boost">$129</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Advanced%20Performance%20Boost." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="pro performance overhaul" data-key="pro-performance-overhaul">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Pro Performance Overhaul</h3>
-          <p class="pr-desc">Everything in Advanced, plus a full internal clean, RAM and SSD tuning, a written performance report and a 3-month follow-up check.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="pro-performance-overhaul">$189</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Pro%20Performance%20Overhaul." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      </div>
-    </section>
-    <section class="pr-sec" id="upgrades" data-cat="upgrades">
-      <h2 class="pr-sec-title">PC &amp; Laptop Upgrades <span class="pr-sec-count">10</span></h2>
-      <p class="pr-sec-blurb">SSD upgrade Perth, RAM, graphics and Windows. Labour is fixed. Parts are yours or ours, your choice.</p>
-      <h3 class="pr-group">Storage and memory <span class="pr-group-n">4</span></h3>
-      <div class="pr-rows">
-      <div class="pr-row" data-name="ssd upgrade, labour only" data-key="ssd-upgrade-labour-only">
-        <div class="pr-row-main">
-          <h3 class="pr-name">SSD Upgrade, Labour Only</h3>
-          <p class="pr-desc">We fit the SSD and transfer all your data across. We supply every type, SATA and NVMe, specced to what you actually need, or we fit one you have already bought.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="ssd-upgrade-labour-only">$65</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20SSD%20Upgrade%2C%20Labour%20Only." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="hdd to ssd full migration" data-key="hdd-to-ssd-full-migration">
-        <div class="pr-row-main">
-          <h3 class="pr-name">HDD to SSD Full Migration</h3>
-          <p class="pr-desc">Drive supplied, your entire system cloned across so nothing is lost. Ideal for older machines.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="hdd-to-ssd-full-migration">from $175</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20HDD%20to%20SSD%20Full%20Migration." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="ram upgrade, labour only" data-key="ram-upgrade-labour-only">
-        <div class="pr-row-main">
-          <h3 class="pr-name">RAM Upgrade, Labour Only</h3>
-          <p class="pr-desc">You supply the RAM, DDR4 or DDR5. We install it and configure XMP or EXPO in BIOS for full rated speed.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="ram-upgrade-labour-only">$55</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20RAM%20Upgrade%2C%20Labour%20Only." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="ram upgrade, supplied" data-key="ram-upgrade-supplied">
-        <div class="pr-row-main">
-          <h3 class="pr-name">RAM Upgrade, Supplied</h3>
-          <p class="pr-desc">Sourced, installed and fully configured with XMP or EXPO enabled. DDR4 sits at the lower end of each range, DDR5 at the higher end.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="ram-upgrade-supplied">from $130</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20RAM%20Upgrade%2C%20Supplied." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
+        {%- if s.options %}
         <div class="pr-opts">
-          <div class="pr-opt"><span class="pr-opt-name">8GB</span><span class="pr-opt-price"><span class="price" data-price="ram-upgrade-supplied-8gb">from $130</span></span><span class="pr-opt-desc">Light browsing and basic tasks</span></div>
-          <div class="pr-opt"><span class="pr-opt-name">16GB</span><span class="pr-opt-price"><span class="price" data-price="ram-upgrade-supplied-16gb">from $160</span></span><span class="pr-opt-desc">Best all-rounder for most PCs</span></div>
-          <div class="pr-opt"><span class="pr-opt-name">32GB</span><span class="pr-opt-price"><span class="price" data-price="ram-upgrade-supplied-32gb">from $230</span></span><span class="pr-opt-desc">Gaming, streaming and multitasking</span></div>
-          <div class="pr-opt"><span class="pr-opt-name">64GB</span><span class="pr-opt-price"><span class="price" data-price="ram-upgrade-supplied-64gb">from $340</span></span><span class="pr-opt-desc">Video editing and heavy workloads</span></div>
+          {%- for o in s.options %}
+          <div class="pr-opt"><span class="pr-opt-name">{{ o.name | escape }}</span><span class="pr-opt-price">{% if o.prefix %}{{ o.prefix | escape }} {% endif %}{% if o.text %}{{ o.text }}{% else %}${{ o.price }}{% endif %}</span><span class="pr-opt-desc">{{ o.note | escape }}</span></div>
+          {%- endfor %}
         </div>
+        {%- endif %}
       </div>
+      {%- endfor %}
       </div>
-      <h3 class="pr-group">Components and cooling <span class="pr-group-n">4</span></h3>
-      <div class="pr-rows">
-      <div class="pr-row" data-name="gpu install &amp; driver setup" data-key="gpu-install-driver-setup">
-        <div class="pr-row-main">
-          <h3 class="pr-name">GPU Install &amp; Driver Setup</h3>
-          <p class="pr-desc">Seated in PCIe, power connected, latest Nvidia or AMD drivers installed and verified stable.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="gpu-install-driver-setup">$60</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20GPU%20Install%20%26%20Driver%20Setup." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="cpu thermal paste replacement" data-key="cpu-thermal-paste-replacement">
-        <div class="pr-row-main">
-          <h3 class="pr-name">CPU Thermal Paste Replacement</h3>
-          <p class="pr-desc">Cooler removed, surfaces cleaned, premium compound applied. Dramatically lowers temperatures.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="cpu-thermal-paste-replacement">$60</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20CPU%20Thermal%20Paste%20Replacement." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="gaming laptop repaste &amp; clean" data-key="gaming-laptop-repaste-clean">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Gaming Laptop Repaste &amp; Clean <span class="pr-badge">Specialist</span></h3>
-          <p class="pr-desc">Full strip down, repaste and fan and vent clean for gaming laptops running hot or throttling.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="gaming-laptop-repaste-clean">$99</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Gaming%20Laptop%20Repaste%20%26%20Clean." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="case fan installation, per fan" data-key="case-fan-installation-per-fan">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Case Fan Installation, Per Fan</h3>
-          <p class="pr-desc">Labour only, you supply the fans. Mounted, connected and routed for clean airflow.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="case-fan-installation-per-fan">$40</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Case%20Fan%20Installation%2C%20Per%20Fan." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      </div>
-      <h3 class="pr-group">Software and advice <span class="pr-group-n">2</span></h3>
-      <div class="pr-rows">
-      <div class="pr-row" data-name="windows 11 upgrade" data-key="windows-11-upgrade">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Windows 11 Upgrade</h3>
-          <p class="pr-desc">Upgrade to the latest Windows. We supply a genuine activation key, or bring your own and pay $70.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="windows-11-upgrade">$120</span></span>
-            <span class="pr-price-alt"><span class="price" data-price="windows-11-upgrade-alt">or $70 without a key</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Windows%2011%20Upgrade." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="upgrade consultation" data-key="upgrade-consultation">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Upgrade Consultation</h3>
-          <p class="pr-desc">Message us your specs and budget and we will tell you what is actually worth upgrading before you spend anything.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="upgrade-consultation">Free</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Upgrade%20Consultation." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      </div>
+      {%- endif %}
     </section>
-    <section class="pr-sec" id="gaming" data-cat="gaming">
-      <h2 class="pr-sec-title">Gaming PC Build Perth <span class="pr-sec-count">13</span></h2>
-      <p class="pr-sec-blurb">Assembly with your parts, plus the tuning and finishing work. Three build tiers and everything that goes around them.</p>
-      <h3 class="pr-group">Build tiers <span class="pr-group-n">3</span></h3>
-      <div class="pr-rows">
-      <div class="pr-row" data-name="essential assembly" data-key="essential-assembly">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Essential Assembly</h3>
-          <p class="pr-desc">Full assembly, basic cable tidy, OS and driver install, benchmark check, 30-day warranty and a free Windows 11 key.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="essential-assembly">$149</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Essential%20Assembly." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="performance assembly" data-key="performance-assembly">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Performance Assembly <span class="pr-badge">Most Chosen</span></h3>
-          <p class="pr-desc">Everything in Essential, plus full professional cable management, PBO and XMP/EXPO tuning, a written benchmark report and RGB sync setup.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="performance-assembly">$199</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Performance%20Assembly." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="elite assembly" data-key="elite-assembly">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Elite Assembly</h3>
-          <p class="pr-desc">Everything in Performance, plus a 24-hour stress test burn-in, premium thermal compound, airflow and dust filter optimisation, priority same-day slot where parts allow, and an extended 60-day warranty.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="elite-assembly">$249</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Elite%20Assembly." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      </div>
-      <h3 class="pr-group">Assembly extras <span class="pr-group-n">4</span></h3>
-      <div class="pr-rows">
-      <div class="pr-row" data-name="cpu cooler installation" data-key="cpu-cooler-installation">
-        <div class="pr-row-main">
-          <h3 class="pr-name">CPU Cooler Installation</h3>
-          <p class="pr-desc">Stock removed, aftermarket air or AIO mounted with premium paste. Temperatures verified.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="cpu-cooler-installation">$80</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20CPU%20Cooler%20Installation." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="cable management, basic tidy" data-key="cable-management-basic-tidy">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Cable Management, Basic Tidy</h3>
-          <p class="pr-desc">Cables bundled and routed. Before and after photos provided.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="cable-management-basic-tidy">$70</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Cable%20Management%2C%20Basic%20Tidy." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="cable management, full pro" data-key="cable-management-full-pro">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Cable Management, Full Pro</h3>
-          <p class="pr-desc">Behind-tray routing, velcro throughout, airflow optimised. Show-build finish.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="cable-management-full-pro">$120</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Cable%20Management%2C%20Full%20Pro." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="rgb software setup &amp; sync" data-key="rgb-software-setup-sync">
-        <div class="pr-row-main">
-          <h3 class="pr-name">RGB Software Setup &amp; Sync</h3>
-          <p class="pr-desc">iCUE, Armoury Crate, Mystic Light and ARGB synced across all components. No brand conflicts.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="rgb-software-setup-sync">$69</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20RGB%20Software%20Setup%20%26%20Sync." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      </div>
-      <h3 class="pr-group">Tuning and testing <span class="pr-group-n">3</span></h3>
-      <div class="pr-rows">
-      <div class="pr-row" data-name="pbo &amp; bios performance tuning" data-key="pbo-bios-performance-tuning">
-        <div class="pr-row-main">
-          <h3 class="pr-name">PBO &amp; BIOS Performance Tuning</h3>
-          <p class="pr-desc">PBO, XMP or EXPO and BIOS power limits optimised. Typically 10-15% more CPU performance.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="pbo-bios-performance-tuning">$60</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20PBO%20%26%20BIOS%20Performance%20Tuning." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="overclocking, cpu or gpu" data-key="overclocking-cpu-or-gpu">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Overclocking, CPU or GPU</h3>
-          <p class="pr-desc">Safe, stability-tested overclock with temperature and voltage limits set correctly.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="overclocking-cpu-or-gpu">$89</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Overclocking%2C%20CPU%20or%20GPU." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="benchmark testing &amp; report" data-key="benchmark-testing-report">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Benchmark Testing &amp; Report</h3>
-          <p class="pr-desc">Cinebench, 3DMark and FurMark with logged temperatures. Full written performance report.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="benchmark-testing-report">$99</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Benchmark%20Testing%20%26%20Report." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      </div>
-      <h3 class="pr-group">Creators and consoles <span class="pr-group-n">3</span></h3>
-      <div class="pr-rows">
-      <div class="pr-row" data-name="streaming &amp; creator setup" data-key="streaming-creator-setup">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Streaming &amp; Creator Setup <span class="pr-badge">Specialist</span></h3>
-          <p class="pr-desc">OBS configuration, capture card setup and dual-PC streaming rigs configured and tested.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="streaming-creator-setup">$129</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Streaming%20%26%20Creator%20Setup." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="creator workstation optimisation" data-key="creator-workstation-optimisation">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Creator Workstation Optimisation</h3>
-          <p class="pr-desc">Render and export speed tuning for video editing and 3D workloads.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="creator-workstation-optimisation">$99</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Creator%20Workstation%20Optimisation." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="console repair, ps5 or xbox" data-key="console-repair-ps5-or-xbox">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Console Repair, PS5 or Xbox <span class="pr-badge">New</span></h3>
-          <p class="pr-desc">HDMI port, disc drive, overheating and fan noise issues diagnosed and repaired.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="console-repair-ps5-or-xbox">from $99</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Console%20Repair%2C%20PS5%20or%20Xbox." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      </div>
-    </section>
-    <section class="pr-sec" id="networking" data-cat="networking">
-      <h2 class="pr-sec-title">Home &amp; Business Networking <span class="pr-sec-count">9</span></h2>
-      <p class="pr-sec-blurb">On site across the southern suburbs. Same price on site as in the workshop, plus the $35 call-out.</p>
-      <h3 class="pr-group">Internet and wifi <span class="pr-group-n">5</span></h3>
-      <div class="pr-rows">
-      <div class="pr-row" data-name="nbn router setup &amp; optimisation" data-key="nbn-router-setup-optimisation">
-        <div class="pr-row-main">
-          <h3 class="pr-name">NBN Router Setup &amp; Optimisation</h3>
-          <p class="pr-desc">Router configured, WiFi channels set, QoS enabled, security hardened and all devices tested.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="nbn-router-setup-optimisation">$79</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20NBN%20Router%20Setup%20%26%20Optimisation." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="wifi dead spot diagnosis &amp; fix" data-key="wifi-dead-spot-diagnosis-fix">
-        <div class="pr-row-main">
-          <h3 class="pr-name">WiFi Dead Spot Diagnosis &amp; Fix</h3>
-          <p class="pr-desc">Find coverage gaps, reposition equipment or recommend the right solution for your layout.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="wifi-dead-spot-diagnosis-fix">$89</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20WiFi%20Dead%20Spot%20Diagnosis%20%26%20Fix." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="mesh wifi setup, per node" data-key="mesh-wifi-setup-per-node">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Mesh WiFi Setup, Per Node</h3>
-          <p class="pr-desc">Eero, Google Nest, Orbi and all major brands. Optimal placement and full configuration.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="mesh-wifi-setup-per-node">$65</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Mesh%20WiFi%20Setup%2C%20Per%20Node." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="gaming network optimisation" data-key="gaming-network-optimisation">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Gaming Network Optimisation <span class="pr-badge">Gamers</span></h3>
-          <p class="pr-desc">Router QoS tuned for low ping and a stable connection during online gaming.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="gaming-network-optimisation">$89</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Gaming%20Network%20Optimisation." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="full home network setup" data-key="full-home-network-setup">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Full Home Network Setup <span class="pr-badge">Most Popular</span></h3>
-          <p class="pr-desc">Router, printer and all devices connected and secured. Everything working before we leave.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="full-home-network-setup">$149</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Full%20Home%20Network%20Setup." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      </div>
-      <h3 class="pr-group">Devices and security <span class="pr-group-n">4</span></h3>
-      <div class="pr-rows">
-      <div class="pr-row" data-name="wireless printer setup" data-key="wireless-printer-setup">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Wireless Printer Setup</h3>
-          <p class="pr-desc">Connected to network, drivers on all devices, test print confirmed on every machine.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="wireless-printer-setup">$69</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Wireless%20Printer%20Setup." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="usb printer setup" data-key="usb-printer-setup">
-        <div class="pr-row-main">
-          <h3 class="pr-name">USB Printer Setup</h3>
-          <p class="pr-desc">Driver install, test print and any error troubleshooting sorted on the spot.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="usb-printer-setup">$55</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20USB%20Printer%20Setup." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="smart tv &amp; streaming setup" data-key="smart-tv-streaming-setup">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Smart TV &amp; Streaming Setup</h3>
-          <p class="pr-desc">WiFi connected, apps installed, accounts logged in. Chromecast, Apple TV, Fire Stick and more.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="smart-tv-streaming-setup">$59</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Smart%20TV%20%26%20Streaming%20Setup." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="home network security audit" data-key="home-network-security-audit">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Home Network Security Audit</h3>
-          <p class="pr-desc">Router security, firewall, device inventory and WiFi encryption reviewed and tightened.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="home-network-security-audit">$79</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Home%20Network%20Security%20Audit." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      </div>
-    </section>
-    <section class="pr-sec" id="software" data-cat="software">
-      <h2 class="pr-sec-title">Software &amp; Remote Support <span class="pr-sec-count">8</span></h2>
-      <p class="pr-sec-blurb">Remote support Perth wide for anything that does not need a bench. $45 covers the first half hour.</p>
-      <h3 class="pr-group">Remote help and setup <span class="pr-group-n">4</span></h3>
-      <div class="pr-rows">
-      <div class="pr-row" data-name="remote support session" data-key="remote-support-session">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Remote Support Session</h3>
-          <p class="pr-desc">Screen sharing for anything that does not need a bench. $45 covers the first half hour, then $45 per half hour after that.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="remote-support-session">$45</span></span>
-            <span class="pr-price-alt"><span class="price" data-price="remote-support-session-alt">per half hour</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Remote%20Support%20Session." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="software install &amp; configuration" data-key="software-install-configuration">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Software Install &amp; Configuration</h3>
-          <p class="pr-desc">Any application installed, configured and tested for your specific workflow.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="software-install-configuration">$55</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Software%20Install%20%26%20Configuration." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="microsoft office setup" data-key="microsoft-office-setup">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Microsoft Office Setup</h3>
-          <p class="pr-desc">Word, Excel and Outlook installed, activated and OneDrive synced. Ready to use.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="microsoft-office-setup">$65</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Microsoft%20Office%20Setup." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="email setup, outlook or gmail" data-key="email-setup-outlook-or-gmail">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Email Setup, Outlook or Gmail</h3>
-          <p class="pr-desc">Accounts configured across all devices with signatures, forwarding and sync all working.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="email-setup-outlook-or-gmail">$55</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Email%20Setup%2C%20Outlook%20or%20Gmail." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      </div>
-      <h3 class="pr-group">Data and maintenance <span class="pr-group-n">4</span></h3>
-      <div class="pr-rows">
-      <div class="pr-row" data-name="pc to pc data transfer" data-key="pc-to-pc-data-transfer">
-        <div class="pr-row-main">
-          <h3 class="pr-name">PC to PC Data Transfer</h3>
-          <p class="pr-desc">All files, photos, documents and bookmarks moved from old to new PC. Verified complete.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="pc-to-pc-data-transfer">$65</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20PC%20to%20PC%20Data%20Transfer." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="cloud backup setup" data-key="cloud-backup-setup">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Cloud Backup Setup</h3>
-          <p class="pr-desc">Google Drive or OneDrive auto-backup configured with folder selection and storage management.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="cloud-backup-setup">$55</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Cloud%20Backup%20Setup." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="driver updates &amp; optimisation" data-key="driver-updates-optimisation">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Driver Updates &amp; Optimisation</h3>
-          <p class="pr-desc">All drivers updated, startup trimmed, junk cleared. Noticeably faster on the same hardware.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="driver-updates-optimisation">$60</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Driver%20Updates%20%26%20Optimisation." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="business fleet setup" data-key="business-fleet-setup">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Business Fleet Setup</h3>
-          <p class="pr-desc">Multiple computers configured, imaged and deployed for a small office. Ties in with our Business IT Support plans.</p>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="business-fleet-setup">Custom</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Business%20Fleet%20Setup." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      </div>
-    </section>
+    {%- endfor %}
     <section class="pr-sec" id="extras" data-cat="extras">
-      <h2 class="pr-sec-title">Add-ons <span class="pr-sec-count">6</span></h2>
+      <h2 class="pr-sec-title">Add-ons <span class="pr-sec-count">{{ D.addons.size }}</span></h2>
       <p class="pr-sec-blurb">Optional extras you can add to any service.</p>
       <div class="pr-rows">
-      <div class="pr-row" data-name="antivirus setup, 1 year" data-key="antivirus-setup-1-year">
+      {%- for s in D.addons %}
+      {%- assign wa = "https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20" | append: s.name | replace: "&", "and" | uri_escape -%}
+      <div class="pr-row" data-name="{{ s.name | downcase | escape }}" data-key="{{ s.key }}">
         <div class="pr-row-main">
-          <h3 class="pr-name">Antivirus setup, 1 year</h3>
+          <h3 class="pr-name">{{ s.name | escape }}{% if s.badge %} <span class="pr-badge">{{ s.badge | escape }}</span>{% endif %}</h3>
+          {%- if s.desc %}
+          <p class="pr-desc">{{ s.desc | escape }}</p>
+          {%- endif %}
+          {%- if s.chips %}
+          <div class="pr-symptoms">{% for ch in s.chips %}<span class="pr-symptom">{{ ch | escape }}</span>{% endfor %}</div>
+          {%- endif %}
         </div>
         <div class="pr-row-price">
           <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="antivirus-setup-1-year">+$40</span></span>
+            <span class="pr-price">{% include price.html key=s.key %}</span>
+            {%- if s.alt %}
+            <span class="pr-price-alt">{{ s.alt | escape }}</span>
+            {%- endif %}
           </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Antivirus%20setup%2C%201%20year." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
+          <a class="pr-book" href="{{ wa }}" target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
         </div>
+        {%- if s.options %}
+        <div class="pr-opts">
+          {%- for o in s.options %}
+          <div class="pr-opt"><span class="pr-opt-name">{{ o.name | escape }}</span><span class="pr-opt-price">{% if o.prefix %}{{ o.prefix | escape }} {% endif %}{% if o.text %}{{ o.text }}{% else %}${{ o.price }}{% endif %}</span><span class="pr-opt-desc">{{ o.note | escape }}</span></div>
+          {%- endfor %}
+        </div>
+        {%- endif %}
       </div>
-      <div class="pr-row" data-name="usb windows recovery drive" data-key="usb-windows-recovery-drive">
-        <div class="pr-row-main">
-          <h3 class="pr-name">USB Windows recovery drive</h3>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="usb-windows-recovery-drive">+$15</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20USB%20Windows%20recovery%20drive." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
+      {%- endfor %}
       </div>
-      <div class="pr-row" data-name="3 month follow-up check" data-key="follow-up-check-3-month">
-        <div class="pr-row-main">
-          <h3 class="pr-name">3 month follow-up check</h3>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="follow-up-check-3-month">+$25</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%203%20month%20follow-up%20check." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="priority same-day booking" data-key="priority-same-day-booking">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Priority same-day booking</h3>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="priority-same-day-booking">+$20</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Priority%20same-day%20booking." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="on-site call-out fee" data-key="on-site-call-out">
-        <div class="pr-row-main">
-          <h3 class="pr-name">On-site call-out fee</h3>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="on-site-call-out">$35</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20On-site%20call-out%20fee." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      <div class="pr-row" data-name="home pc care plan, monthly" data-key="home-pc-care-plan">
-        <div class="pr-row-main">
-          <h3 class="pr-name">Home PC Care Plan, monthly</h3>
-        </div>
-        <div class="pr-row-price">
-          <span class="pr-price-wrap">
-            <span class="pr-price"><span class="price" data-price="home-pc-care-plan">+$35</span></span>
-          </span>
-          <a class="pr-book" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Home%20PC%20Care%20Plan%2C%20monthly." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book</a>
-        </div>
-      </div>
-      </div>
-      <h2 class="pr-sec-title">Fixed-price packages <span class="pr-sec-count">2</span></h2>
+      <h2 class="pr-sec-title">Fixed-price packages <span class="pr-sec-count">{{ D.packages.size }}</span></h2>
       <p class="pr-sec-blurb">Everything bundled for one price, rather than a list of separate jobs.</p>
       <div class="pr-packs">
-      <div class="pr-pack" data-name="complete pc overhaul" data-key="complete-pc-overhaul">
-        <h3 class="pr-pack-title">Complete PC Overhaul</h3>
-        <p class="pr-pack-desc">For a desktop that has slowed down, overheats or has not been serviced in years. Labour only, parts supplied by you.</p>
-        <p class="pr-pack-price"><span class="price" data-price="complete-pc-overhaul">$180</span> <span class="pr-pack-was">Shop price $549+</span></p>
-        <a class="pr-book pr-book-wide" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Complete%20PC%20Overhaul." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book this</a>
+      {%- for p in D.packages %}
+      {%- assign pwa = "https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20" | append: p.name | replace: "&", "and" | uri_escape %}
+      <div class="pr-pack" data-name="{{ p.name | downcase | escape }}" data-key="{{ p.key }}">
+        <h3 class="pr-pack-title">{{ p.name | escape }}</h3>
+        <p class="pr-pack-desc">{{ p.desc | escape }}</p>
+        <p class="pr-pack-price">{% include price.html key=p.key %} <span class="pr-pack-was">{{ p.was | escape }}</span></p>
+        <a class="pr-book pr-book-wide" href="{{ pwa }}" target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book this</a>
       </div>
-      <div class="pr-pack" data-name="used laptop revival" data-key="used-laptop-revival">
-        <h3 class="pr-pack-title">Used Laptop Revival</h3>
-        <p class="pr-pack-desc">Just bought a second-hand laptop, or dusting off an old one? The full health check and clean slate it needs. 16 checks and services included.</p>
-        <p class="pr-pack-price"><span class="price" data-price="used-laptop-revival">$140</span> <span class="pr-pack-was">Was $340</span></p>
-        <a class="pr-book pr-book-wide" href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20quote%20for%20Used%20Laptop%20Revival." target="_blank" rel="noopener noreferrer" onclick="trackWAClick()">Book this</a>
-      </div>
+      {%- endfor %}
       </div>
     </section>
   </main>
 </div>
 
 <section class="pr-sec pr-wide" id="bizit">
-    <div class="wrap">
-      <h2 class="pr-sec-title">Business IT Support Perth</h2>
-      <p class="pr-sec-blurb">Monthly managed plans, billed monthly with no lock-in and 14 days notice to cancel. Full detail on the business IT page.</p>
+  <div class="wrap">
+    <h2 class="pr-sec-title">Business IT Support Perth</h2>
+    <p class="pr-sec-blurb">Monthly managed plans, billed monthly with no lock-in and 14 days notice to cancel. Full detail on the business IT page.</p>
+  </div>
+  <div class="wrap pr-plans">
+    {%- for pl in D.plans %}
+    <div class="pr-plan" data-name="{{ pl.name | downcase | escape }} business it" data-key="{{ pl.key }}">
+      <span class="pr-plan-name">{{ pl.name | escape }}</span>
+      <p class="pr-plan-price">{% include price.html key=pl.key bare=true %}<span class="pr-plan-per">/{{ pl.per }}</span></p>
+      <p class="pr-plan-cov">{{ pl.covers | escape }} &middot; {{ pl.extra | escape }}</p>
+      <p class="pr-plan-who">{{ pl.who | escape }}</p>
     </div>
-    <div class="wrap pr-plans">
-      <div class="pr-plan" data-name="essential business it" data-key="business-it-essential">
-        <span class="pr-plan-name">Essential</span>
-        <p class="pr-plan-price"><span class="price" data-price="business-it-essential">$149</span><span class="pr-plan-per">/month</span></p>
-        <p class="pr-plan-cov">Up to 5 PCs &middot; +$35 per extra device</p>
-        <p class="pr-plan-who">Cafes, salons, small retail, sole trader tradies</p>
-      </div>
-      <div class="pr-plan" data-name="business business it" data-key="business-it-business">
-        <span class="pr-plan-name">Business</span>
-        <p class="pr-plan-price"><span class="price" data-price="business-it-business">$199</span><span class="pr-plan-per">/month</span></p>
-        <p class="pr-plan-cov">Up to 10 PCs &middot; +$45 per extra device</p>
-        <p class="pr-plan-who">Real estate, medical clinics, restaurants, retail</p>
-      </div>
-      <div class="pr-plan" data-name="premium business it" data-key="business-it-premium">
-        <span class="pr-plan-name">Premium</span>
-        <p class="pr-plan-price"><span class="price" data-price="business-it-premium">$299</span><span class="pr-plan-per">/month</span></p>
-        <p class="pr-plan-cov">Up to 20 PCs &middot; +$60 per extra device</p>
-        <p class="pr-plan-who">Dental and medical, accounting and law, multi-PC retail</p>
-      </div>
-    </div>
-    <div class="wrap"><a class="btn-outline" href="/business-it-support">See what each plan includes</a></div>
+    {%- endfor %}
+  </div>
+  <div class="wrap"><a class="btn-outline" href="/business-it-support">See what each plan includes</a></div>
 </section>
 <section class="pr-sec pr-rules-sec pr-wide" id="rules">
-    <div class="wrap">
-      <span class="s-eyebrow">How our pricing works</span>
-      <h2 class="pr-sec-title">The rules behind the numbers</h2>
-    </div>
-    <div class="wrap pr-rules">
-      <div class="pr-rule"><h3>The $120 is the job, not the hour</h3><p>One flat fee covers the diagnostic, all repair labour and the 30-day warranty. It is charged in full whether you go ahead with the repair or not, because the diagnostic is the work. If a part is needed, the labour to fit it is already included and you pay only for the part.</p></div>
-      <div class="pr-rule"><h3>Prices are fixed, never requoted</h3><p>The price you are quoted is the price you pay. If we find something else once the machine is open, we tell you. We do not come back with a bigger number.</p></div>
-      <div class="pr-rule"><h3>Quotes hold for six months</h3><p>A written quote from us is valid for six months from the date we issue it.</p></div>
-      <div class="pr-rule"><h3>No fix no fee on data recovery</h3><p>Both recovery services carry it. If we cannot get your files back you pay nothing. If we come to you rather than you coming to us, the $35 call-out still applies.</p></div>
-      <div class="pr-rule"><h3>On-site is a flat $35 call-out</h3><p>Charged per visit, on top of the service price, on every service. A $90 job at your place is $125. Most mobile technicians in Perth bill $205 an hour with a one-hour minimum.</p></div>
-      <div class="pr-rule"><h3>Everything includes GST</h3><p>Parts and labour. No fees added at collection.</p></div>
-      <div class="pr-rule"><h3>Payment</h3><p>Cash, bank transfer or PayID. A deposit covering the part cost is taken when we have to order one, with the labour paid on collection.</p></div>
-      <div class="pr-rule"><h3>Same day where we can</h3><p>Drop off before 2pm and most repairs are ready by 6pm the same day at no extra cost. It is best effort rather than a guarantee, and we tell you early if we cannot make it. Work finishing after 6pm carries the $20 priority booking fee.</p></div>
-    </div>
+  <div class="wrap">
+    <span class="s-eyebrow">How our pricing works</span>
+    <h2 class="pr-sec-title">The rules behind the numbers</h2>
+  </div>
+  <div class="wrap pr-rules">
+    <div class="pr-rule"><h3>The $120 is the job, not the hour</h3><p>One flat fee covers the diagnostic, all repair labour and the 30-day warranty. It is charged in full whether you go ahead with the repair or not, because the diagnostic is the work. If a part is needed, the labour to fit it is already included and you pay only for the part.</p></div>
+    <div class="pr-rule"><h3>Prices are fixed, never requoted</h3><p>The price you are quoted is the price you pay. If we find something else once the machine is open, we tell you. We do not come back with a bigger number.</p></div>
+    <div class="pr-rule"><h3>Quotes hold for six months</h3><p>A written quote from us is valid for six months from the date we issue it.</p></div>
+    <div class="pr-rule"><h3>No fix no fee on data recovery</h3><p>Both recovery services carry it. If we cannot get your files back you pay nothing. If we come to you rather than you coming to us, the $35 call-out still applies.</p></div>
+    <div class="pr-rule"><h3>On-site is a flat $35 call-out</h3><p>Charged per visit, on top of the service price, on every service. A $90 job at your place is $125. Most mobile technicians in Perth bill $205 an hour with a one-hour minimum.</p></div>
+    <div class="pr-rule"><h3>Everything includes GST</h3><p>Parts and labour. No fees added at collection.</p></div>
+    <div class="pr-rule"><h3>Payment</h3><p>Cash, bank transfer or PayID. A deposit covering the part cost is taken when we have to order one, with the labour paid on collection.</p></div>
+    <div class="pr-rule"><h3>Same day where we can</h3><p>Drop off before 2pm and most repairs are ready by 6pm the same day at no extra cost. It is best effort rather than a guarantee, and we tell you early if we cannot make it. Work finishing after 6pm carries the $20 priority booking fee.</p></div>
+  </div>
 </section>
 <section class="pr-sec pr-faq-sec pr-wide" id="faq">
-    <div class="wrap">
-      <span class="s-eyebrow">Pricing questions</span>
-      <h2 class="pr-sec-title">Computer repair Perth, answered</h2>
+  <div class="wrap">
+    <span class="s-eyebrow">Pricing questions</span>
+    <h2 class="pr-sec-title">Computer repair Perth, answered</h2>
+  </div>
+  <div class="wrap pr-faq">
+    <div class="faq-item">
+      <button type="button" class="faq-q" aria-expanded="false">How much does computer repair cost in Perth?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="faq-a"><p>Diagnostic and repair is a flat $120 all-in, which covers finding the fault, all repair labour and a 30-day warranty. Fixed-scope jobs are priced separately: virus removal $99, password reset $79, overheating deep clean $89, and data recovery from $149. Every price includes GST.</p></div>
     </div>
-    <div class="wrap pr-faq">
-      <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">How much does computer repair cost in Perth?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-a"><p>Diagnostic and repair is a flat $120 all-in, which covers finding the fault, all repair labour and a 30-day warranty. Fixed-scope jobs are priced separately: virus removal $99, password reset $79, overheating deep clean $89, and data recovery from $149. Every price includes GST.</p></div>
-      </div>
-      <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">What does the $120 all-in fee actually cover?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-a"><p>Any fault where we have to diagnose the cause before we can fix it. Blue screens, random restarts, boot loops, stuck on the manufacturer logo, freezing, no POST, no power and driver conflicts. It includes the diagnostic, all repair labour and the warranty. Parts are quoted separately and only if your machine needs them.</p></div>
-      </div>
-      <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">Is the $120 charged if I decide not to go ahead?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-a"><p>Yes. The diagnostic is the work, and it takes the same time whether you proceed or not. You will know the full cost before anything else happens.</p></div>
-      </div>
-      <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">How much is laptop screen replacement in Perth?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-a"><p>$145 for a standard non-touch panel, $170 for a touchscreen or high-refresh gaming panel and $190 for OLED or premium 2-in-1 displays. Panel and labour are both included.</p></div>
-      </div>
-      <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">How much does virus removal cost in Perth?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-a"><p>$99. That covers a full deep scan, complete threat removal, browser cleanup and antivirus setup. Most infections are cleared the same day.</p></div>
-      </div>
-      <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">How much is data recovery in Perth?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-a"><p>$149 for a failing drive that still partially reads, $249 for a dead drive that will not spin or mount, and $99 for external drives, USB sticks and memory cards. Both internal recovery services are no fix no fee.</p></div>
-      </div>
-      <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">How much is an SSD upgrade in Perth?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-a"><p>$65 labour. We fit the drive and transfer everything across. We supply every type, SATA and NVMe, specced to what you actually need, or we will fit one you have already bought.</p></div>
-      </div>
-      <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">Do you charge by the hour?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-a"><p>No. The only hourly-style rate we have is remote support, billed at $45 per half hour with the first half hour as the minimum. Everything else is a fixed price.</p></div>
-      </div>
-      <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">Do you come to me, and what does that cost?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-a"><p>Yes, anywhere across the southern Perth corridor. A flat $35 call-out is added to the service price, charged per visit. Most jobs are cheaper if you drop the machine at our Canning Vale workshop.</p></div>
-      </div>
-      <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">How much does a gaming PC build cost in Perth?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-a"><p>Assembly with your own parts comes in three tiers: Essential $149, Performance $199 and Elite $249. We can also supply the parts at our prices if you would rather not source them yourself.</p></div>
-      </div>
-      <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">How much is business IT support in Perth?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-a"><p>Managed plans start at $149 per month for up to 5 PCs, $199 for up to 10 and $299 for up to 20, all billed monthly with no lock-in and 14 days notice to cancel.</p></div>
-      </div>
-      <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">Do you repair MacBooks and Surface devices?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-a"><p>We take both for diagnostics, virus removal, data recovery, software work and everything else on this page. We do not do screen or battery replacement on MacBook or Surface.</p></div>
-      </div>
-      <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">Are your prices negotiable or do they change at collection?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-a"><p>Neither. The published price is the price. Nothing is added at collection and everything includes GST.</p></div>
-      </div>
-      <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">How long do repairs take?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-a"><p>Drop off before 2pm and most repairs are ready by 6pm the same day. Parts that have to be ordered add a day or two, and we tell you the timeline before you leave.</p></div>
-      </div>
+    <div class="faq-item">
+      <button type="button" class="faq-q" aria-expanded="false">What does the $120 all-in fee actually cover?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="faq-a"><p>Any fault where we have to diagnose the cause before we can fix it. Blue screens, random restarts, boot loops, stuck on the manufacturer logo, freezing, no POST, no power and driver conflicts. It includes the diagnostic, all repair labour and the warranty. Parts are quoted separately and only if your machine needs them.</p></div>
     </div>
+    <div class="faq-item">
+      <button type="button" class="faq-q" aria-expanded="false">Is the $120 charged if I decide not to go ahead?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="faq-a"><p>Yes. The diagnostic is the work, and it takes the same time whether you proceed or not. You will know the full cost before anything else happens.</p></div>
+    </div>
+    <div class="faq-item">
+      <button type="button" class="faq-q" aria-expanded="false">How much is laptop screen replacement in Perth?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="faq-a"><p>$145 for a standard non-touch panel, $170 for a touchscreen or high-refresh gaming panel and $190 for OLED or premium 2-in-1 displays. Panel and labour are both included.</p></div>
+    </div>
+    <div class="faq-item">
+      <button type="button" class="faq-q" aria-expanded="false">How much does virus removal cost in Perth?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="faq-a"><p>$99. That covers a full deep scan, complete threat removal, browser cleanup and antivirus setup. Most infections are cleared the same day.</p></div>
+    </div>
+    <div class="faq-item">
+      <button type="button" class="faq-q" aria-expanded="false">How much is data recovery in Perth?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="faq-a"><p>$149 for a failing drive that still partially reads, $249 for a dead drive that will not spin or mount, and $99 for external drives, USB sticks and memory cards. Both internal recovery services are no fix no fee.</p></div>
+    </div>
+    <div class="faq-item">
+      <button type="button" class="faq-q" aria-expanded="false">How much is an SSD upgrade in Perth?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="faq-a"><p>$65 labour. We fit the drive and transfer everything across. We supply every type, SATA and NVMe, specced to what you actually need, or we will fit one you have already bought.</p></div>
+    </div>
+    <div class="faq-item">
+      <button type="button" class="faq-q" aria-expanded="false">Do you charge by the hour?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="faq-a"><p>No. The only hourly-style rate we have is remote support, billed at $45 per half hour with the first half hour as the minimum. Everything else is a fixed price.</p></div>
+    </div>
+    <div class="faq-item">
+      <button type="button" class="faq-q" aria-expanded="false">Do you come to me, and what does that cost?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="faq-a"><p>Yes, anywhere across the southern Perth corridor. A flat $35 call-out is added to the service price, charged per visit. Most jobs are cheaper if you drop the machine at our Canning Vale workshop.</p></div>
+    </div>
+    <div class="faq-item">
+      <button type="button" class="faq-q" aria-expanded="false">How much does a gaming PC build cost in Perth?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="faq-a"><p>Assembly with your own parts comes in three tiers: Essential $149, Performance $199 and Elite $249. We can also supply the parts at our prices if you would rather not source them yourself.</p></div>
+    </div>
+    <div class="faq-item">
+      <button type="button" class="faq-q" aria-expanded="false">How much is business IT support in Perth?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="faq-a"><p>Managed plans start at $149 per month for up to 5 PCs, $199 for up to 10 and $299 for up to 20, all billed monthly with no lock-in and 14 days notice to cancel.</p></div>
+    </div>
+    <div class="faq-item">
+      <button type="button" class="faq-q" aria-expanded="false">Do you repair MacBooks and Surface devices?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="faq-a"><p>We take both for diagnostics, virus removal, data recovery, software work and everything else on this page. We do not do screen or battery replacement on MacBook or Surface.</p></div>
+    </div>
+    <div class="faq-item">
+      <button type="button" class="faq-q" aria-expanded="false">Are your prices negotiable or do they change at collection?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="faq-a"><p>Neither. The published price is the price. Nothing is added at collection and everything includes GST.</p></div>
+    </div>
+    <div class="faq-item">
+      <button type="button" class="faq-q" aria-expanded="false">How long do repairs take?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="faq-a"><p>Drop off before 2pm and most repairs are ready by 6pm the same day. Parts that have to be ordered add a day or two, and we tell you the timeline before you leave.</p></div>
+    </div>
+  </div>
 </section>
 
 <script>

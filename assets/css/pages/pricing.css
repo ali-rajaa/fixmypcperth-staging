@@ -175,7 +175,7 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 .pr-group:first-of-type { margin-top:0; }
 .pr-group[hidden], .pr-rows[hidden] { display:none; }
 .pr-group::after { content:''; flex:1; height:1px; background:var(--border); }
-.pr-group-n { font-size:11px; font-weight:700; color:var(--muted2); background:var(--bg3); border-radius:20px; padding:2px 7px; letter-spacing:0; }
+.pr-group-n { font-size:11px; font-weight:700; color:var(--muted); background:var(--bg3); border-radius:20px; padding:2px 7px; letter-spacing:0; }
 
 /* ---------- price rows ---------- */
 .pr-rows { display:flex; flex-direction:column; gap:8px; }

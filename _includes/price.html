@@ -1,0 +1,26 @@
+{% assign _d = site.data.services -%}
+{%- assign _s = _d.services | where: "key", include.key | first -%}
+{%- if _s == nil -%}{%- assign _s = _d.addons   | where: "key", include.key | first -%}{%- endif -%}
+{%- if _s == nil -%}{%- assign _s = _d.packages | where: "key", include.key | first -%}{%- endif -%}
+{%- if _s == nil -%}{%- assign _s = _d.plans    | where: "key", include.key | first -%}{%- endif -%}
+{%- if _s -%}
+<span class="price" data-price="{{ include.key }}">
+{%- if _s.text -%}{{ _s.text | escape }}
+{%- else -%}
+{%- unless include.bare -%}{%- if _s.prefix %}{{ _s.prefix | escape }} {% endif -%}{%- if _s.plus %}+{% endif -%}{%- endunless -%}
+${{ _s.price }}
+{%- unless include.bare -%}{%- if _s.suffix %} {{ _s.suffix | escape }}{% endif -%}{%- if _s.per %}/{{ _s.per }}{% endif -%}{%- endunless -%}
+{%- endif -%}
+</span>
+{%- endif -%}
+{% comment -%}
+  Price lookup. Use this anywhere on the site instead of typing a figure.
+
+    {% include price.html key="diagnostic-repair-all-in" %}   ->  $120 all-in
+    {% include price.html key="virus-malware-removal" bare=true %}  ->  $99
+
+  It searches services, then add-ons, then packages, then plans, so any key in
+  services.yml resolves. bare=true drops the prefix and suffix, for use inside
+  a sentence. If a key does not exist the include renders nothing rather than
+  a broken figure, so a typo is visible as a gap rather than a wrong price.
+{%- endcomment -%}
