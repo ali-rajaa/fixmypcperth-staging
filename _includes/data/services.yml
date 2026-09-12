@@ -132,7 +132,7 @@ services:
     group: Most common faults
     name: Virus & Malware Removal
     desc: Full deep scan, complete threat removal, browser cleanup and antivirus setup. Most infections cleared same day.
-    price: 99
+    price: 9000
     badge: Most Popular
   - key: windows-reinstall-data-backup
     category: repairs
