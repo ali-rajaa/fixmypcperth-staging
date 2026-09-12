@@ -52,14 +52,25 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 /* Two columns: the copy on the left, the illustration on the right. Keeping the
    text to one column stops the h1 running the full 1100px and cuts enough
    height that the search bar is visible without scrolling on a laptop. */
-.pr-hero-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr); gap:2.75rem; align-items:start; }
-.pr-hero-text { min-width:0; }
+/* Two columns, two rows. Row one is the headline block and the artwork, row
+   two is the body copy on both sides. Because both copy blocks are grid items
+   on the same row, their top edges line up exactly whatever height the
+   illustration turns out to be. */
+.pr-hero-inner {
+  max-width:1100px; margin:0 auto; display:grid;
+  grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr);
+  grid-template-rows:auto auto; column-gap:2.75rem; row-gap:1.9rem;
+  align-items:start;
+}
+.pr-hero-top      { grid-column:1; grid-row:1; min-width:0; }
+.pr-hero-copy     { grid-column:1; grid-row:2; min-width:0; }
+.pr-hero-copy-alt { grid-column:2; grid-row:2; min-width:0; }
 /* Top aligned rather than centred, with the closing paragraph sitting under
    the artwork. Centring left a large gap beneath the illustration because the
    text column is taller. */
-.pr-hero-art { min-width:0; display:flex; flex-direction:column; justify-content:space-between; align-self:stretch; }
+.pr-hero-art { grid-column:2; grid-row:1; min-width:0; display:flex; align-items:center; justify-content:center; align-self:stretch; }
 .pr-art { width:100%; max-width:400px; height:auto; display:block; margin:0 auto; }
-.pr-intro-art { margin:1.75rem 0 0; font-size:14.5px; }
+.pr-hero-copy .pr-intro:last-child, .pr-hero-copy-alt .pr-intro:last-child { margin-bottom:0; }
 
 /* Three prices people actually look for, before any prose. */
 .pr-quick { display:flex; flex-wrap:wrap; gap:10px; margin:0 0 1.6rem; }
@@ -188,9 +199,13 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 .pr-symptoms { display:flex; flex-wrap:wrap; gap:6px; margin-top:0.75rem; }
 .pr-symptom { font-family:var(--body); font-size:11.5px; font-weight:600; color:var(--ink2); background:var(--bg3); border-radius:6px; padding:4px 9px; white-space:nowrap; }
 
-.pr-row-price { display:flex; flex-direction:column; align-items:flex-end; gap:7px; }
+/* Price and Book sit on one line rather than stacked. Stacking put a small
+   outlined button directly under a large number, which read as two separate
+   things rather than one price with an action beside it. */
+.pr-row-price { display:flex; flex-direction:row; align-items:center; justify-content:flex-end; gap:14px; }
+.pr-price-wrap { display:flex; flex-direction:column; align-items:flex-end; gap:2px; }
 .pr-price { font-family:var(--display); font-size:1.25rem; font-weight:800; letter-spacing:-0.7px; color:var(--ink); white-space:nowrap; line-height:1; }
-.pr-price-alt { font-family:var(--body); font-size:12.5px; font-weight:600; color:var(--muted); white-space:nowrap; }
+.pr-price-alt { font-family:var(--body); font-size:12px; font-weight:600; color:var(--muted); white-space:nowrap; line-height:1.3; }
 .pr-book {
   display:inline-flex; align-items:center; justify-content:center;
   font-family:var(--body); font-size:13px; font-weight:700; text-decoration:none;
@@ -261,9 +276,12 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
    900px, so the sticky offset has to move with it.
    ========================================================== */
 @media (max-width:1000px) {
-  .pr-hero-inner { grid-template-columns:1fr; gap:2rem; }
-    .pr-hero-art { order:-1; }
-  .pr-intro-art { margin-top:0.9rem; }
+  /* Single column: headline, artwork, then both copy blocks in reading order. */
+  .pr-hero-inner { grid-template-columns:1fr; grid-template-rows:none; row-gap:1.5rem; }
+  .pr-hero-top, .pr-hero-art, .pr-hero-copy, .pr-hero-copy-alt { grid-column:1; grid-row:auto; }
+  .pr-hero-art { order:2; }
+  .pr-hero-copy { order:3; }
+  .pr-hero-copy-alt { order:4; }
   .pr-art { max-width:340px; }
   /* Not enough width for a rail and a readable list side by side. */
   .pr-layout { grid-template-columns:1fr; gap:0; padding-top:1.5rem; }
