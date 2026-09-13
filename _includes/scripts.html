@@ -71,12 +71,11 @@ function trackQuoteForm() {
     'Free quote in minutes',
     "Perth's most trusted tech specialist",
     'Gaming PC builds &amp; upgrades',
-    'Virus &amp; malware removal $99',
+    'Virus &amp; malware removal {% include price.html key="virus-malware-removal" bare=true raw=true %}',
     'Laptop screen replacement Perth',
-    'SSD upgrades from $65',
-    'Business IT support from $149/mo',
-    'Free coffee or tea while you wait',
-    'Free $89 cleanup on jobs $149+',
+    'SSD upgrades from {% include price.html key="ssd-upgrade-labour-only" bare=true raw=true %}',
+    'Business IT support from {% include price.html key="business-it-essential" bare=true raw=true %}/mo',
+    'Free cleanup on every larger job',
   ];
   const track = document.getElementById('trust-track');
   if (track) {

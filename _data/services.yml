@@ -43,6 +43,20 @@
 #   Add an entry under categories with a new id, then add an
 #   icon of the same name to _includes/svc-icon.html.
 #
+# ----------------------------------------------------------
+# THE ONLY THREE PLACES A PRICE IS STILL TYPED BY HAND
+#
+# Jekyll cannot run an include inside front matter, so these
+# three strings do not follow this file. If you change the
+# diagnostic fee, edit them too:
+#
+#   index.html      title:        "... Flat $120 All-In ..."
+#   index.html      description:  "... flat $120 covering ..."
+#   pricing.html    description:  "... $120 flat, virus $99 ..."
+#
+# Everything else on the site updates itself.
+# ----------------------------------------------------------
+#
 # Never rename this file to site.yml, page.yml, layout.yml or
 # content.yml. Those names collide with Jekyll's own objects.
 # ==========================================================
@@ -51,17 +65,17 @@ meta:
   currency: AUD
   gst_included: true
   callout_fee: 35
-  flat_repair_fee: 120
   same_day_cutoff: 2pm
   priority_fee: 20
   warranty_days: 30
   quote_valid_months: 6
+  competitor_hourly: 205   # what a typical Perth mobile tech charges, used in the comparison
 categories:
   - id: repairs
     label: PC & Laptop Repairs
     nav: Repairs
     icon: repairs
-    blurb: Laptop repair Perth and desktop repair, all fixed price. If we need to find the fault before we can fix it, that is the $120 all-in fee.
+    blurb: Laptop repair Perth and desktop repair, all fixed price. If we need to find the fault before we can fix it, that is the all-in diagnostic and repair fee below.
     groups:
       - Most common faults
       - Laptop hardware
@@ -96,7 +110,7 @@ categories:
     label: Home & Business Networking
     nav: Networking
     icon: networking
-    blurb: On site across the southern suburbs. Same price on site as in the workshop, plus the $35 call-out.
+    blurb: On site across the southern suburbs. Same price on site as in the workshop, plus the call-out fee listed under add-ons.
     groups:
       - Internet and wifi
       - Devices and security
@@ -104,7 +118,7 @@ categories:
     label: Software & Remote Support
     nav: Remote & software
     icon: software
-    blurb: Remote support Perth wide for anything that does not need a bench. $45 covers the first half hour.
+    blurb: Remote support Perth wide for anything that does not need a bench. The first half hour is the minimum charge.
     groups:
       - Remote help and setup
       - Data and maintenance

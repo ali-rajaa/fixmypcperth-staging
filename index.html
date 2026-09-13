@@ -3,6 +3,7 @@ layout: default
 title: "Computer Repair Perth | Flat $120 All-In | FixMyPC Perth"
 description: "Computer repair Perth, flat $120 covering diagnosis and repair. No hourly rates. Canning Vale workshop or $35 call-out. Call 0452 573 701."
 ---
+{%- assign _diag = site.data.services.services | where: "key", "diagnostic-repair-all-in" | first -%}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -100,7 +101,7 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
       "name": "My computer is acting strange but still works. Should I wait?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Freezing, unusual noises, corrupted files, random restarts and sudden slowdowns are early-stage failure signs. Every day the machine keeps running, the chance of a straightforward repair drops and the chance of needing data recovery rises. Data recovery at FixMyPC Perth starts from $149, while catching the same fault early is often a fraction of that cost."
+        "text": "No. Freezing, unusual noises, corrupted files, random restarts and sudden slowdowns are early-stage failure signs. Every day the machine keeps running, the chance of a straightforward repair drops and the chance of needing data recovery rises. Data recovery at FixMyPC Perth starts from {% include price.html key="data-recovery-failing-drive" bare=true raw=true %}, while catching the same fault early is often a fraction of that cost."
       }
     },
     {
@@ -108,7 +109,7 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
       "name": "How much does computer & laptop repair cost in Perth?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most computer repairs at FixMyPC Perth are a flat $120 covering diagnosis and repair, with no hourly rate. If you would rather not drive to us, on-site visits are a flat $35 call-out. Virus removal starts from $99, full diagnostics and repair from $120, data recovery from $149, our Complete PC Overhaul Package is $180 and our Used Laptop Revival Package is $140. All prices include GST with upfront transparent pricing and no hidden fees."
+        "text": "Most computer repairs at FixMyPC Perth are a flat {% include price.html key="diagnostic-repair-all-in" bare=true raw=true %} covering diagnosis and repair, with no hourly rate. If you would rather not drive to us, on-site visits are a flat {% include price.html key="on-site-call-out" bare=true raw=true %} call-out. Virus removal starts from {% include price.html key="virus-malware-removal" bare=true raw=true %}, full diagnostics and repair from {% include price.html key="diagnostic-repair-all-in" bare=true raw=true %}, data recovery from {% include price.html key="data-recovery-failing-drive" bare=true raw=true %}, our Complete PC Overhaul Package is $180 and our Used Laptop Revival Package is $140. All prices include GST with upfront transparent pricing and no hidden fees."
       }
     },
     {
@@ -148,7 +149,7 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
       "name": "Do you build custom gaming PCs in Perth?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. FixMyPC Perth specialises in custom gaming PC builds across Perth. We handle everything from parts selection to assembly, cable management, PBO tuning and benchmarking. Gaming PC assembly starts from $149."
+        "text": "Yes. FixMyPC Perth specialises in custom gaming PC builds across Perth. We handle everything from parts selection to assembly, cable management, PBO tuning and benchmarking. Gaming PC assembly starts from {% include price.html key="essential-assembly" bare=true raw=true %}."
       }
     },
     {
@@ -156,7 +157,7 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
       "name": "Do you offer business IT support in Perth?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. FixMyPC Perth provides managed IT support for small Perth businesses. Plans start from $149 per month and include proactive monitoring, remote support, onsite visits, managed antivirus and cloud backup. No lock-in contracts. Book a free 30-minute IT audit."
+        "text": "Yes. FixMyPC Perth provides managed IT support for small Perth businesses. Plans start from {% include price.html key="business-it-essential" bare=true raw=true %} per month and include proactive monitoring, remote support, onsite visits, managed antivirus and cloud backup. No lock-in contracts. Book a free 30-minute IT audit."
       }
     },
     {
@@ -164,7 +165,7 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
       "name": "Can you remove a virus from my computer in Perth?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Our virus and malware removal service is $99 and most infections are cleared the same day. We run a full scan, remove all threats, clean your browser and set up antivirus protection. Drop off in Canning Vale or get a free quote on WhatsApp."
+        "text": "Yes. Our virus and malware removal service is {% include price.html key="virus-malware-removal" bare=true raw=true %} and most infections are cleared the same day. We run a full scan, remove all threats, clean your browser and set up antivirus protection. Drop off in Canning Vale or get a free quote on WhatsApp."
       }
     }
   ]
@@ -264,7 +265,7 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
       "@type": "Service",
       "serviceType": "Gaming PC Build",
       "name": "Gaming PC Build and Upgrade Perth",
-      "description": "Custom gaming PC assembly in Perth across three tiers: Essential $149, Performance $199 and Elite $249. Includes cable management, PBO tuning, benchmarking and a free Windows 11 key.",
+      "description": "Custom gaming PC assembly in Perth across three tiers: Essential {% include price.html key="essential-assembly" bare=true raw=true %}, Performance {% include price.html key="performance-assembly" bare=true raw=true %} and Elite {% include price.html key="elite-assembly" bare=true raw=true %}. Includes cable management, PBO tuning, benchmarking and a free Windows 11 key.",
       "provider": { "@type": "LocalBusiness", "name": "FixMyPC Perth", "@id": "https://www.fixmypcperth.com/#business" },
       "areaServed": { "@type": "City", "name": "Perth" },
       "offers": { "@type": "Offer", "price": "149", "priceCurrency": "AUD", "availability": "https://schema.org/InStock" }
@@ -289,7 +290,7 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
       <p class="hero-sub">Repairs, data recovery, upgrades and gaming builds · All fixed price</p>
 
       <p class="hero-desc">
-        That $120 is the job, not the hour. Drop off at our Canning Vale workshop and most computer repairs are back the same day. We also handle data recovery from failing and dead drives, laptop screen and battery replacement, virus and malware removal, SSD upgrades and extra RAM, Windows reinstalls, gaming PC builds and ongoing business IT support. Every price is published up front and every job carries a 30-day warranty.
+        That {% include price.html key="diagnostic-repair-all-in" bare=true %} is the job, not the hour. Drop off at our Canning Vale workshop and most computer repairs are back the same day. We also handle data recovery from failing and dead drives, laptop screen and battery replacement, virus and malware removal, SSD upgrades and extra RAM, Windows reinstalls, gaming PC builds and ongoing business IT support. Every price is published up front and every job carries a 30-day warranty.
       </p>
 
       <div class="hero-actions">
@@ -602,7 +603,7 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
         <div class="svc-name">Virus &amp; Malware Removal Perth</div>
         <div class="svc-desc">Full scan, removal, browser cleanup and antivirus setup. Most infections cleared same day. Covers viruses, spyware, ransomware &amp; browser hijackers.</div>
         <div class="svc-price-row">
-          <span class="svc-price">$99</span>
+          <span class="svc-price">{% include price.html key="virus-malware-removal" bare=true %}</span>
           <a href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20free%20quote%20for%20virus%20removal." target="_blank" class="svc-cta" rel="noopener" aria-label="Book virus removal in Perth" onclick="trackWAClick()">Book now</a>
         </div>
       </div>
@@ -619,7 +620,7 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
         <div class="svc-name">Gaming PC Build &amp; Upgrade Perth</div>
         <div class="svc-desc">Custom gaming PC builds, GPU &amp; RAM installs, PBO performance tuning. Fully benchmarked before pickup. Your parts or ours.</div>
         <div class="svc-price-row">
-          <span class="svc-price">From $149</span>
+          <span class="svc-price">From {% include price.html key="essential-assembly" bare=true %}</span>
           <a href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20free%20quote%20for%20a%20gaming%20PC%20build." target="_blank" class="svc-cta" rel="noopener" aria-label="Book gaming PC build in Perth" onclick="trackWAClick()">Book now</a>
         </div>
       </div>
@@ -637,7 +638,7 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
         <div class="svc-name">Data Recovery Perth</div>
         <div class="svc-desc">Recover photos, documents and files from failing or dead hard drives. No fix, no fee guarantee. You only pay if we recover your data.</div>
         <div class="svc-price-row">
-          <span class="svc-price">From $149</span>
+          <span class="svc-price">From {% include price.html key="data-recovery-failing-drive" bare=true %}</span>
           <a href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20free%20quote%20for%20data%20recovery." target="_blank" class="svc-cta" rel="noopener" aria-label="Book data recovery in Perth" onclick="trackWAClick()">Book now</a>
         </div>
       </div>
@@ -654,7 +655,7 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
         <div class="svc-name">Laptop Screen Replacement Perth</div>
         <div class="svc-desc">Cracked or dead laptop screen? We replace all common screen sizes same day. From $145 standard, $170 touchscreen, $190 OLED, panel and labour included.</div>
         <div class="svc-price-row">
-          <span class="svc-price">From $120</span>
+          <span class="svc-price">From {% include price.html key="laptop-screen-replacement" bare=true %}</span>
           <a href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20free%20quote%20for%20a%20laptop%20screen%20replacement." target="_blank" class="svc-cta" rel="noopener" aria-label="Book laptop screen replacement in Perth" onclick="trackWAClick()">Book now</a>
         </div>
       </div>
@@ -671,7 +672,7 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
         <div class="svc-name">SSD Upgrade Perth</div>
         <div class="svc-desc">Double your computer's speed with an SSD upgrade. We supply &amp; fit Samsung or Crucial SSDs, then transfer all your data. Most jobs done same day.</div>
         <div class="svc-price-row">
-          <span class="svc-price">From $65</span>
+          <span class="svc-price">From {% include price.html key="ssd-upgrade-labour-only" bare=true %}</span>
           <a href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20free%20quote%20for%20an%20SSD%20upgrade." target="_blank" class="svc-cta" rel="noopener" aria-label="Book SSD upgrade in Perth" onclick="trackWAClick()">Book now</a>
         </div>
       </div>
@@ -688,7 +689,7 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
         <div class="svc-name">PC Diagnostic &amp; Repair Perth</div>
         <div class="svc-desc">Full system diagnostic, written report before we touch anything. Covers slow PCs, blue screens, crashes, boot failures &amp; overheating. 30-day warranty included.</div>
         <div class="svc-price-row">
-          <span class="svc-price">From $120</span>
+          <span class="svc-price">From {% include price.html key="diagnostic-repair-all-in" bare=true %}</span>
           <a href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20free%20quote%20for%20a%20PC%20diagnostic." target="_blank" class="svc-cta" rel="noopener" aria-label="Book PC diagnostic and repair in Perth" onclick="trackWAClick()">Book now</a>
         </div>
       </div>
@@ -871,7 +872,7 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
       <span class="s-eyebrow">Business IT Support</span>
       <h2 class="s-title">Business IT Support <span class="accent">Perth</span></h2>
       <p class="s-sub">
-        From cafes and retail shops to medical practices and law firms, we manage your IT so your team stays focused. No lock-in contracts. Fixed monthly plans from $149/month.
+        From cafes and retail shops to medical practices and law firms, we manage your IT so your team stays focused. No lock-in contracts. Fixed monthly plans from {% include price.html key="business-it-essential" bare=true %}/month.
       </p>
     </div>
     <div class="its-grid">
@@ -951,17 +952,17 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
 <section class="cmp" aria-label="Workshop pricing compared with on-site callout pricing">
   <div class="wrap cmp-inner">
     <span class="s-eyebrow">Why a workshop beats a callout</span>
-    <h2 class="s-title">A flat fee either way, drop it off, or we come to you for $35</h2>
+    <h2 class="s-title">A flat fee either way, drop it off, or we come to you for {% include price.html key="on-site-call-out" bare=true %}</h2>
     <p class="s-sub cmp-sub">
       Most mobile technicians bill by the hour with a one-hour minimum, so the
       meter is running before they have even looked at it. We charge a flat
-      repair price, and if you would rather not drive, a flat $35 call-out.
+      repair price, and if you would rather not drive, a flat {% include price.html key="on-site-call-out" bare=true %} call-out.
     </p>
 
     <div class="cmp-grid">
       <div class="cmp-card cmp-them">
         <p class="cmp-card-label">Typical on-site callout</p>
-        <p class="cmp-card-price">$205<span>/hour</span></p>
+        <p class="cmp-card-price">${{ site.data.services.meta.competitor_hourly }}<span>/hour</span></p>
         <ul class="cmp-list">
           <li class="no">One-hour minimum, billed whether it takes that long or not</li>
           <li class="no">The meter runs while they diagnose</li>
@@ -972,19 +973,19 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
 
       <div class="cmp-card cmp-us">
         <p class="cmp-card-label">FixMyPC Perth, Canning Vale</p>
-        <p class="cmp-card-price">$120<span> flat</span></p>
+        <p class="cmp-card-price">{% include price.html key="diagnostic-repair-all-in" bare=true %}<span> flat</span></p>
         <ul class="cmp-list">
           <li class="yes">Diagnosis <em>and</em> repair, both included</li>
           <li class="yes">No hourly rate, ever, the price is the price</li>
           <li class="yes">Every price published before you commit</li>
-          <li class="yes">Or $35 call-out if you would rather we came to you</li>
+          <li class="yes">Or {% include price.html key="on-site-call-out" bare=true %} call-out if you would rather we came to you</li>
         </ul>
       </div>
     </div>
 
     <p class="cmp-saving">
-      <strong>About $85 cheaper on a typical job</strong> at the workshop, and even
-      with our $35 call-out, on-site still costs less than one hour of theirs.
+      <strong>About ${{ site.data.services.meta.competitor_hourly | minus: _diag.price }} cheaper on a typical job</strong> at the workshop, and even
+      with our {% include price.html key="on-site-call-out" bare=true %} call-out, on-site still costs less than one hour of theirs.
     </p>
 
     <div class="cmp-actions">
@@ -1056,7 +1057,7 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
       <h3>Computer Virus Removal Perth: Signs Your PC Is Infected</h3>
       <p>Searches for <strong>computer virus removal Perth</strong> and "how do I know if my computer has a virus" spike constantly, and for good reason, modern malware is designed to stay hidden while it works. Common signs include: your browser homepage or search engine changed without you doing it, new toolbars or extensions you didn't install, pop-ups appearing even when you're not browsing, programs opening or closing on their own, your antivirus being disabled without your permission, and friends receiving strange messages or emails "from you" that you never sent.</p>
       <p><strong>Every day an infection stays on your machine, it keeps working.</strong> Modern malware logs keystrokes, harvests saved passwords, captures banking and card details, and quietly spreads to other devices on your home or office network. Ransomware variants sit dormant for weeks before encrypting everything at once. If you're seeing any of the signs above, the machine should be looked at now, not after the weekend.</p>
-      <p>Our virus and malware removal service in Perth starts from <strong>$99</strong> and covers a full system scan, removal of viruses, spyware, ransomware and browser hijackers, a full browser cleanup, and setting up proper antivirus protection so it doesn't come straight back. Most infections are cleared the same day you drop the computer off in Canning Vale.</p>
+      <p>Our virus and malware removal service in Perth starts from <strong>{% include price.html key="virus-malware-removal" bare=true %}</strong> and covers a full system scan, removal of viruses, spyware, ransomware and browser hijackers, a full browser cleanup, and setting up proper antivirus protection so it doesn't come straight back. Most infections are cleared the same day you drop the computer off in Canning Vale.</p>
       </div>
       <div class="guide-panel" data-guide-panel="3">
       <h3>Laptop Repair Perth: Screens, Batteries and Hinges</h3>
@@ -1067,25 +1068,25 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
       <p>If you're searching <strong>data recovery Perth</strong>, <strong>hard drive recovery Perth</strong> or "signs your hard drive is failing," treat it as urgent.</p>
       <p>A failing drive gets worse every single time it spins up, and the window where your files are still recoverable closes fast. The warning signs to look for: clicking, grinding or beeping noises from the machine, files that suddenly won't open or appear corrupted, the computer freezing during file transfers, folders that appear empty when you know they aren't, and increasingly frequent blue screen crashes.</p>
       <p><strong>If your drive is making noise, power the machine off and bring it in.</strong> The most heartbreaking jobs we see are the ones where someone kept restarting a clicking drive for a fortnight hoping it would sort itself out, and by the time it reached us the platters were beyond reach. Caught early, recovery is routine. Caught late, sometimes nothing can be done at any price.</p>
-      <p>Our data recovery service starts from $149 and is offered on a <strong>no fix, no fee</strong> basis, if we can't recover your photos, documents or files, you don't pay for the recovery attempt. We see this most often with irreplaceable family photo collections, small business accounting files, and university or work documents that weren't backed up anywhere else. Bring the drive to our Canning Vale workshop as soon as you notice the symptoms above.</p>
+      <p>Our data recovery service starts from {% include price.html key="data-recovery-failing-drive" bare=true %} and is offered on a <strong>no fix, no fee</strong> basis, if we can't recover your photos, documents or files, you don't pay for the recovery attempt. We see this most often with irreplaceable family photo collections, small business accounting files, and university or work documents that weren't backed up anywhere else. Bring the drive to our Canning Vale workshop as soon as you notice the symptoms above.</p>
       </div>
       <div class="guide-panel" data-guide-panel="4">
       <h3>Business IT Support Perth: What Small Businesses Actually Need</h3>
       <p>Searches like <strong>business IT support Perth</strong>, <strong>small business IT support Perth</strong> and <strong>medical IT support Perth</strong> tend to come from business owners who've just had something break at the worst possible time, a server down, a staff PC that won't boot, or an email system that's stopped working. For most small Perth businesses (cafes, retail shops, medical and allied health practices, accountants, trades businesses), the difference between "IT support" and "computer & laptop repair" is really about prevention versus reaction.</p>
-      <p>Our managed IT plans start from $149/month and are built around proactive monitoring (so problems get caught before they cause downtime), remote support for day-to-day issues, onsite visits when something needs hands-on attention, managed antivirus across all business devices, and automated cloud backups.</p>
+      <p>Our managed IT plans start from {% include price.html key="business-it-essential" bare=true %}/month and are built around proactive monitoring (so problems get caught before they cause downtime), remote support for day-to-day issues, onsite visits when something needs hands-on attention, managed antivirus across all business devices, and automated cloud backups.</p>
       <p>There's no lock-in contract, if a plan isn't working for your business, you can cancel with 14 days notice. For businesses that just need help right now rather than an ongoing plan, on-demand remote and onsite support is available from $89, with same-day availability across southern Perth.</p>
       </div>
       <div class="guide-panel" data-guide-panel="5">
       <h3>How Much Does Computer & Laptop Repair Cost in Perth?</h3>
       <p>This is one of the most searched questions we see, "how much does computer & laptop repair cost," "computer & laptop repair rates," "PC repair rates", and the honest answer is that it depends entirely on what's wrong. That said, here's a realistic breakdown of typical pricing in the Perth market based on what we charge:</p>
       <ul>
-        <li><strong>PC diagnostic and repair:</strong> from $120, includes a written report before any work starts</li>
-        <li><strong>Virus and malware removal:</strong> $99, most done same day</li>
+        <li><strong>PC diagnostic and repair:</strong> from {% include price.html key="diagnostic-repair-all-in" bare=true %}, includes a written report before any work starts</li>
+        <li><strong>Virus and malware removal:</strong> {% include price.html key="virus-malware-removal" bare=true %}, most done same day</li>
         <li><strong>SSD upgrade (labour):</strong> from $65, you can supply the SSD or we can source one</li>
-        <li><strong>Data recovery:</strong> from $149, no fix no fee, includes free $89 system cleanup</li>
+        <li><strong>Data recovery:</strong> from {% include price.html key="data-recovery-failing-drive" bare=true %}, no fix no fee, includes free $89 system cleanup</li>
         <li><strong>Laptop screen replacement:</strong> from $145 standard, $170 touchscreen, $190 OLED, panel and labour included</li>
-        <li><strong>Windows reinstall with data backup:</strong> from $120</li>
-        <li><strong>Gaming PC build/upgrade (labour):</strong> $149 Essential, $199 Performance, $249 Elite, all include a free Windows 11 key</li>
+        <li><strong>Windows reinstall with data backup:</strong> from {% include price.html key="windows-reinstall-data-backup" bare=true %}</li>
+        <li><strong>Gaming PC build/upgrade (labour):</strong> {% include price.html key="essential-assembly" bare=true %} Essential, {% include price.html key="performance-assembly" bare=true %} Performance, {% include price.html key="elite-assembly" bare=true %} Elite, all include a free Windows 11 key</li>
         <li><strong>Complete PC Overhaul Package:</strong> $180, combines virus removal, Windows 11 reinstall, cable management, thermal paste, driver updates, performance tuning, free cleanup and a benchmark report</li>
         <li><strong>Used Laptop Revival Package:</strong> $140, a 16-point service for second-hand laptops including a full hardware health check, battery test, secure wipe of the previous owner's data, Windows 11 clean reinstall and thermal service</li>
       </ul>
@@ -1186,7 +1187,7 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
           How much does computer & laptop repair cost in Perth?
           <span class="faq-q-arrow" aria-hidden="true">+</span>
         </button>
-        <div class="faq-a" id="faq-a-1" role="region">Most computer repairs at FixMyPC Perth are a flat $120 covering diagnosis and repair, with no hourly rate. If you would rather not drive to us, on-site visits are a flat $35 call-out. Virus removal starts from $99, full diagnostic and repair from $120, data recovery from $149, SSD upgrades from $65, our Complete PC Overhaul Package is $180 and our Used Laptop Revival Package is $140. All prices include GST with no hidden fees, you get a written quote before we start. Onsite jobs $149 and over also include a free system cleanup worth $89.</div>
+        <div class="faq-a" id="faq-a-1" role="region">Most computer repairs at FixMyPC Perth are a flat {% include price.html key="diagnostic-repair-all-in" bare=true raw=true %} covering diagnosis and repair, with no hourly rate. If you would rather not drive to us, on-site visits are a flat {% include price.html key="on-site-call-out" bare=true raw=true %} call-out. Virus removal starts from {% include price.html key="virus-malware-removal" bare=true raw=true %}, full diagnostic and repair from {% include price.html key="diagnostic-repair-all-in" bare=true raw=true %}, data recovery from {% include price.html key="data-recovery-failing-drive" bare=true raw=true %}, SSD upgrades from {% include price.html key="ssd-upgrade-labour-only" bare=true raw=true %}, our Complete PC Overhaul Package is $180 and our Used Laptop Revival Package is $140. All prices include GST with no hidden fees, you get a written quote before we start. Onsite jobs $149 and over also include a free system cleanup worth $89.</div>
       </div>
 
       <div class="faq-item" role="listitem">
@@ -1210,7 +1211,7 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
           My computer is still working but acting strange, should I wait?
           <span class="faq-q-arrow" aria-hidden="true">+</span>
         </button>
-        <div class="faq-a" id="faq-a-4" role="region">No. The most expensive jobs that come through our workshop are almost always machines that were showing warning signs for months. Freezing, unusual noises, files that won't open, random restarts and sudden slowdowns are early-stage failures, and every day the machine keeps running, the odds of a straightforward repair drop and the odds of a data recovery job rise. Data recovery starts from $149; catching the same problem early is often a fraction of that. If your PC is behaving oddly, get it looked at while it still turns on.</div>
+        <div class="faq-a" id="faq-a-4" role="region">No. The most expensive jobs that come through our workshop are almost always machines that were showing warning signs for months. Freezing, unusual noises, files that won't open, random restarts and sudden slowdowns are early-stage failures, and every day the machine keeps running, the odds of a straightforward repair drop and the odds of a data recovery job rise. Data recovery starts from {% include price.html key="data-recovery-failing-drive" bare=true %}; catching the same problem early is often a fraction of that. If your PC is behaving oddly, get it looked at while it still turns on.</div>
       </div>
 
       <div class="faq-item" role="listitem">
@@ -1226,7 +1227,7 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
           Can you remove a virus from my computer in Perth?
           <span class="faq-q-arrow" aria-hidden="true">+</span>
         </button>
-        <div class="faq-a" id="faq-a-6" role="region">Yes. Our virus and malware removal service costs $99 and most infections are cleared the same day. We run a full system scan, remove all viruses, spyware, ransomware and browser hijackers, clean your browser, and set up antivirus protection before you collect your PC.</div>
+        <div class="faq-a" id="faq-a-6" role="region">Yes. Our virus and malware removal service costs {% include price.html key="virus-malware-removal" bare=true %} and most infections are cleared the same day. We run a full system scan, remove all viruses, spyware, ransomware and browser hijackers, clean your browser, and set up antivirus protection before you collect your PC.</div>
       </div>
 
       <div class="faq-item" role="listitem">
@@ -1250,7 +1251,7 @@ description: "Computer repair Perth, flat $120 covering diagnosis and repair. No
           Do you offer business IT support in Perth?
           <span class="faq-q-arrow" aria-hidden="true">+</span>
         </button>
-        <div class="faq-a" id="faq-a-9" role="region">Yes. We provide managed IT support for small Perth businesses starting from $149/month. Plans include proactive monitoring, remote support, onsite visits, managed antivirus and cloud backup. No lock-in contracts. Cancel anytime with 14 days notice. Book a free 30-minute IT audit to see which plan suits your business.</div>
+        <div class="faq-a" id="faq-a-9" role="region">Yes. We provide managed IT support for small Perth businesses starting from {% include price.html key="business-it-essential" bare=true %}/month. Plans include proactive monitoring, remote support, onsite visits, managed antivirus and cloud backup. No lock-in contracts. Cancel anytime with 14 days notice. Book a free 30-minute IT audit to see which plan suits your business.</div>
       </div>
 
       <div class="faq-item" role="listitem">

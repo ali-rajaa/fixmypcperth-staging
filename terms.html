@@ -55,9 +55,9 @@ description: "Terms and conditions for computer and laptop repair at FixMyPC Per
     </section>
     <section class="lg-sec" id="pricing-and-the-flat-fee">
       <h2><span class="lg-num">2.</span> Pricing and the flat fee</h2>
-      <p>Diagnostic and repair is a flat <strong>$120</strong>. That single fee covers finding the fault, all repair labour and the warranty. It is not an hourly rate.</p>
+      <p>Diagnostic and repair is a flat <strong>{% include price.html key="diagnostic-repair-all-in" bare=true %}</strong>. That single fee covers finding the fault, all repair labour and the warranty. It is not an hourly rate.</p>
       <p><strong>The diagnostic fee is charged whether or not you go ahead with the repair.</strong> Diagnosing the fault is the work, and it takes the same time either way. You will know the full cost before anything beyond the diagnostic happens.</p>
-      <p>Fixed-scope services, such as virus removal, a password reset or an SSD upgrade, are charged at the published price for that service rather than the $120 fee. Every price is listed on our <a href="/pricing">pricing page</a>.</p>
+      <p>Fixed-scope services, such as virus removal, a password reset or an SSD upgrade, are charged at the published price for that service rather than the {% include price.html key="diagnostic-repair-all-in" bare=true %} fee. Every price is listed on our <a href="/pricing">pricing page</a>.</p>
       <p><strong>The price we quote is the price you pay.</strong> We do not revise a quote upward once work is underway. If we find that your machine needs a new part, we tell you what the part is and what it costs before we order or fit it. Labour to fit it is already covered by your original price.</p>
       <p>All prices include GST, on parts as well as labour. A tax invoice is issued for every job.</p>
       <p>A written quote is valid for <strong>six months</strong> from the date we issue it.</p>
@@ -74,7 +74,7 @@ description: "Terms and conditions for computer and laptop repair at FixMyPC Per
       <h2><span class="lg-num">4.</span> Turnaround and same-day service</h2>
       <p>Drop off before <strong>2pm</strong> and most repairs are ready for collection by 6pm the same day at no extra cost. This is a target we hit most of the time, not a guarantee. If we cannot make it we tell you early rather than late.</p>
       <p>Jobs that require a part to be ordered take longer, and we give you a realistic timeline before you leave.</p>
-      <p>Where you need work completed outside normal turnaround, for example finishing after 6pm on the same day, the <strong>priority same-day booking fee of $20</strong> applies. It is always agreed with you in advance.</p>
+      <p>Where you need work completed outside normal turnaround, for example finishing after 6pm on the same day, the <strong>priority same-day booking fee of {% include price.html key="priority-same-day-booking" bare=true %}</strong> applies. It is always agreed with you in advance.</p>
     </section>
     <section class="lg-sec" id="warranty">
       <h2><span class="lg-num">5.</span> Warranty</h2>
@@ -86,19 +86,19 @@ description: "Terms and conditions for computer and laptop repair at FixMyPC Per
     </section>
     <section class="lg-sec" id="no-fix-no-fee-on-data-recovery">
       <h2><span class="lg-num">6.</span> No fix, no fee on data recovery</h2>
-      <p>Both data recovery services, the <strong>$149</strong> failing drive service and the <strong>$249</strong> dead drive service, are no fix, no fee. If we cannot recover your files, you pay nothing for the attempt.</p>
-      <p>If we attend your premises rather than you bringing the drive to us, the $35 call-out fee still applies whether or not recovery succeeds, because that fee covers the visit rather than the result.</p>
+      <p>Both data recovery services, the <strong>{% include price.html key="data-recovery-failing-drive" bare=true %}</strong> failing drive service and the <strong>{% include price.html key="data-recovery-dead-drive" bare=true %}</strong> dead drive service, are no fix, no fee. If we cannot recover your files, you pay nothing for the attempt.</p>
+      <p>If we attend your premises rather than you bringing the drive to us, the {% include price.html key="on-site-call-out" bare=true %} call-out fee still applies whether or not recovery succeeds, because that fee covers the visit rather than the result.</p>
       <p>Recovery outcomes depend on the physical condition of the drive. We give you our assessment of the likely outcome before starting, and we do not promise a result we cannot deliver.</p>
     </section>
     <section class="lg-sec" id="on-site-visits">
       <h2><span class="lg-num">7.</span> On-site visits</h2>
-      <p>We are a workshop rather than a mobile service, but we do come to you. A flat <strong>$35 call-out fee</strong> applies on top of the service price, on every service, charged per visit. Where a job requires a second visit, the fee applies to each.</p>
+      <p>We are a workshop rather than a mobile service, but we do come to you. A flat <strong>{% include price.html key="on-site-call-out" bare=true %} call-out fee</strong> applies on top of the service price, on every service, charged per visit. Where a job requires a second visit, the fee applies to each.</p>
       <p>Networking and other on-site work is charged at the same price as it would be in the workshop. The call-out is the only difference.</p>
       <p>Please make sure someone over 18 is present for the duration of the visit, and that there is safe access, working power and, where relevant, a working internet connection. If we arrive and cannot get access, the call-out fee may still apply.</p>
     </section>
     <section class="lg-sec" id="remote-support">
       <h2><span class="lg-num">8.</span> Remote support</h2>
-      <p>Remote sessions run over AnyDesk at <strong>$45 per half hour</strong>, with the first half hour as the minimum charge. Time under 20 minutes into a new block is rounded down, over 20 minutes is rounded up.</p>
+      <p>Remote sessions run over AnyDesk at <strong>{% include price.html key="remote-support-session" bare=true %} per half hour</strong>, with the first half hour as the minimum charge. Time under 20 minutes into a new block is rounded down, over 20 minutes is rounded up.</p>
       <p>During a session you grant temporary access to your screen and device for the agreed task only. You stay present and in control, and can end the connection at any time. Access ends when the session ends.</p>
     </section>
     <section class="lg-sec" id="your-device-your-data">
@@ -123,13 +123,13 @@ description: "Terms and conditions for computer and laptop repair at FixMyPC Per
     </section>
     <section class="lg-sec" id="cancellations-and-refunds">
       <h2><span class="lg-num">12.</span> Cancellations and refunds</h2>
-      <p>You can cancel at any point before work begins at no charge. Once the diagnostic has been carried out, the $120 fee is payable whether or not you proceed.</p>
+      <p>You can cancel at any point before work begins at no charge. Once the diagnostic has been carried out, the {% include price.html key="diagnostic-repair-all-in" bare=true %} fee is payable whether or not you proceed.</p>
       <p>Where a part has been ordered specifically for your job, any deposit covering that part is not refundable once the part has been ordered.</p>
       <p>None of this affects your rights under the Australian Consumer Law, including your right to a repair, replacement or refund where a service is not carried out with due care and skill.</p>
     </section>
     <section class="lg-sec" id="business-it-support">
       <h2><span class="lg-num">13.</span> Business IT support</h2>
-      <p>Managed plans start at $149 per month. Plans are billed monthly with a minimum term of one month, no lock-in contract, and <strong>14 days notice</strong> to cancel.</p>
+      <p>Managed plans start at {% include price.html key="business-it-essential" bare=true %} per month. Plans are billed monthly with a minimum term of one month, no lock-in contract, and <strong>14 days notice</strong> to cancel.</p>
       <p>Support hours, response times and what each plan includes are set out on the <a href="/business-it-support">business IT support page</a>, and are confirmed in writing before a plan starts.</p>
     </section>
     <section class="lg-sec" id="australian-consumer-law">
