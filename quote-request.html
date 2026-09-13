@@ -21,9 +21,8 @@ description: "Request a free, no obligation computer repair quote from FixMyPC P
 
 <section class="qr-hero">
   <div class="wrap qr-hero-inner">
-    <span class="qr-tag"><span class="qr-dot" aria-hidden="true"></span>Free quote &middot; No obligation &middot; Open 24 hours</span>
     <h1>Request a Free Quote</h1>
-    <p class="qr-sub">Tell us what is going on and we come back with a fixed price, usually within the hour. No obligation, and no charge for asking.</p>
+    <p class="qr-sub">Tell us what is going on and we come back with a fixed price, usually within the hour. No obligation, and no charge for asking. Open 24 hours.</p>
   </div>
 </section>
 
@@ -52,10 +51,6 @@ description: "Request a free, no obligation computer repair quote from FixMyPC P
           {%- endfor %}
         </div>
         <p class="qr-err" id="errServices">Please select at least one service.</p>
-        <label class="qr-field">
-          <span class="qr-label">Anything else you are after <span class="qr-opt-note">optional</span></span>
-          <input type="text" name="Other Details" id="qrOther" autocomplete="off" placeholder="For example, a second drive fitted at the same time">
-        </label>
       </fieldset>
 
       <fieldset class="qr-block">
@@ -168,7 +163,7 @@ description: "Request a free, no obligation computer repair quote from FixMyPC P
   var $  = function (id) { return document.getElementById(id); };
   var opts   = [].slice.call(form.querySelectorAll('.qr-opt-input'));
   var device = $('qrDevice'), desc = $('qrDesc'), name = $('qrName');
-  var phone  = $('qrPhone'), email = $('qrEmail'), other = $('qrOther');
+  var phone  = $('qrPhone'), email = $('qrEmail');
   var hidden = $('qrServices'), fill = $('qrFill'), pct = $('qrPct');
   var saved  = $('qrSaved'), submit = $('qrSubmit');
 
@@ -197,7 +192,7 @@ description: "Request a free, no obligation computer repair quote from FixMyPC P
   function save() {
     try {
       localStorage.setItem(LS, JSON.stringify({
-        s: chosen(), o: other.value, d: device.value, x: desc.value,
+        s: chosen(), d: device.value, x: desc.value,
         n: name.value, p: phone.value, e: email.value,
         c: (form.querySelector('input[name="Preferred Contact"]:checked') || {}).value || ''
       }));
@@ -213,7 +208,7 @@ description: "Request a free, no obligation computer repair quote from FixMyPC P
     (v.s || []).forEach(function (val) {
       opts.forEach(function (o) { if (o.value === val) { o.checked = true; } });
     });
-    other.value = v.o || ''; device.value = v.d || ''; desc.value = v.x || '';
+    device.value = v.d || ''; desc.value = v.x || '';
     name.value = v.n || ''; phone.value = v.p || ''; email.value = v.e || '';
     if (v.c) {
       var r = form.querySelector('input[name="Preferred Contact"][value="' + v.c + '"]');
@@ -232,8 +227,19 @@ description: "Request a free, no obligation computer repair quote from FixMyPC P
     if (hit) { hit.checked = true; progress(); }
   }
 
-  form.addEventListener('input', function () { progress(); save(); });
-  form.addEventListener('change', function () { progress(); save(); });
+  /* Clear a field's error the moment it becomes valid, rather than making
+     someone submit again to find out they fixed it. */
+  function revalidate() {
+    if (chosen().length) err('errServices', false);
+    if (device.value) err('errDevice', false, device);
+    if (desc.value.trim()) err('errDesc', false, desc);
+    if (name.value.trim()) err('errName', false, name);
+    if (PHONE.test(phone.value.replace(/[\s\-()]/g, ''))) err('errPhone', false, phone);
+    if (!email.value.trim() || EMAIL.test(email.value.trim())) err('errEmail', false, email);
+  }
+
+  form.addEventListener('input', function () { revalidate(); progress(); save(); });
+  form.addEventListener('change', function () { revalidate(); progress(); save(); });
   opts.forEach(function (o) { o.addEventListener('change', function () { err('errServices', false); }); });
 
   $('qrClear').addEventListener('click', function () {

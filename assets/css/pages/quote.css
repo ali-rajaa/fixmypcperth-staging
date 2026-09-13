@@ -19,37 +19,37 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 .wrap { max-width:1100px; margin:0 auto; padding:0 2rem; }
 
 /* ---------- hero ---------- */
-.qr-hero { background:var(--bg2); padding:96px 0 2.5rem; border-bottom:1px solid var(--border); }
+/* Tight by design. On a conversion page the job is to get the first field
+   on screen, not to give the headline room to breathe. */
+.qr-hero { background:var(--bg2); padding:88px 0 2rem; border-bottom:1px solid var(--border); }
 .qr-hero-inner { max-width:1100px; margin:0 auto; padding:0 2rem; }
-.qr-tag { display:inline-flex; align-items:center; gap:8px; font-size:11.5px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--blue-dk); background:var(--blue-lt); border:1px solid var(--blue-mid); border-radius:50px; padding:6px 14px; margin-bottom:1.1rem; }
-.qr-dot { width:7px; height:7px; border-radius:50%; background:var(--green); flex-shrink:0; }
-.qr-hero h1 { font-family:var(--display); font-size:clamp(1.9rem,3.6vw,2.7rem); font-weight:800; letter-spacing:-1.3px; line-height:1.1; color:var(--ink); margin:0 0 0.7rem; }
-.qr-sub { font-size:16px; color:var(--muted); line-height:1.8; margin:0; max-width:62ch; }
+.qr-hero h1 { font-family:var(--display); font-size:clamp(1.8rem,3.2vw,2.4rem); font-weight:800; letter-spacing:-1.2px; line-height:1.12; color:var(--ink); margin:0 0 0.6rem; }
+.qr-sub { font-size:15.5px; color:var(--muted); line-height:1.7; margin:0; max-width:64ch; }
 
 /* ---------- layout ---------- */
-.qr-layout { display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:3rem; align-items:start; padding-top:3rem; padding-bottom:4rem; }
+.qr-layout { display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:2.5rem; align-items:start; padding-top:2.25rem; padding-bottom:3rem; }
 .qr-main { min-width:0; }
 
 /* ---------- progress ---------- */
-.qr-progress { display:flex; align-items:center; gap:14px; margin-bottom:2rem; }
+.qr-progress { display:flex; align-items:center; gap:14px; margin-bottom:1.5rem; }
 .qr-progress-bar { flex:1; height:3px; border-radius:3px; background:var(--border); overflow:hidden; }
 .qr-progress-fill { height:100%; width:0; background:var(--blue); border-radius:3px; transition:width 0.3s cubic-bezier(0.4,0,0.2,1); }
 .qr-progress-label { font-size:11.5px; font-weight:600; color:var(--muted); white-space:nowrap; font-variant-numeric:tabular-nums; }
 
 /* ---------- blocks ---------- */
 .qr-form { margin:0; }
-.qr-block { border:0; margin:0 0 2.25rem; padding:0; min-width:0; }
-.qr-block legend { display:flex; align-items:center; gap:11px; font-family:var(--display); font-size:1.05rem; font-weight:800; letter-spacing:-0.3px; color:var(--ink); padding:0; margin-bottom:1.1rem; }
+.qr-block { border:0; margin:0 0 1.75rem; padding:0; min-width:0; }
+.qr-block legend { display:flex; align-items:center; gap:10px; font-family:var(--display); font-size:1rem; font-weight:800; letter-spacing:-0.3px; color:var(--ink); padding:0; margin-bottom:0.9rem; }
 .qr-num { display:flex; align-items:center; justify-content:center; width:26px; height:26px; border-radius:8px; background:var(--blue-lt); color:var(--blue); font-family:var(--display); font-size:13px; font-weight:800; flex-shrink:0; }
 
 /* ---------- service options ---------- */
-.qr-opts { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:9px; margin-bottom:0.4rem; }
+.qr-opts { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:0.4rem; }
 .qr-opt { position:relative; display:block; cursor:pointer; }
 /* Visually hidden rather than display:none, so it stays keyboard reachable. */
 .qr-opt-input { position:absolute; width:1px; height:1px; padding:0; margin:0; border:0; opacity:0; }
 .qr-opt-face {
   display:flex; align-items:center; justify-content:center; text-align:center;
-  min-height:56px; padding:0.75rem 0.9rem; border-radius:12px;
+  min-height:50px; padding:0.6rem 0.85rem; border-radius:11px;
   border:1.5px solid var(--border); background:var(--bg);
   font-family:var(--body); font-size:14px; font-weight:600; color:var(--ink2);
   transition:border-color 0.16s,background 0.16s,color 0.16s;
@@ -59,7 +59,7 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 .qr-opt-input:focus-visible + .qr-opt-face { outline:2px solid var(--blue); outline-offset:2px; }
 
 /* ---------- fields ---------- */
-.qr-field { display:block; margin-bottom:1rem; }
+.qr-field { display:block; margin-bottom:0.85rem; }
 .qr-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
 .qr-label { display:block; font-family:var(--body); font-size:13px; font-weight:700; color:var(--ink2); margin-bottom:0.45rem; }
 .req { color:var(--red); }
@@ -67,9 +67,9 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 .qr-field input, .qr-field select, .qr-field textarea {
   width:100%; font-family:var(--body); font-size:15px; color:var(--ink);
   background:var(--bg2); border:1px solid var(--border); border-radius:11px;
-  padding:12px 14px; transition:border-color 0.18s,background 0.18s,box-shadow 0.18s;
+  padding:11px 14px; transition:border-color 0.18s,background 0.18s,box-shadow 0.18s;
 }
-.qr-field textarea { resize:vertical; min-height:120px; line-height:1.6; }
+.qr-field textarea { resize:vertical; min-height:96px; line-height:1.6; }
 .qr-field input:focus, .qr-field select:focus, .qr-field textarea:focus {
   outline:none; border-color:var(--blue); background:var(--bg); box-shadow:0 0 0 3px rgba(21,96,255,0.13);
 }
@@ -89,11 +89,11 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 .qr-hp { position:absolute; left:-9999px; opacity:0; }
 .qr-saved { display:flex; align-items:center; gap:10px; font-size:12.5px; font-weight:600; color:var(--muted); background:var(--bg3); border-radius:9px; padding:9px 13px; margin-bottom:1rem; }
 .qr-saved button { background:none; border:0; padding:0; font-family:var(--body); font-size:12.5px; font-weight:700; color:var(--blue); cursor:pointer; text-decoration:underline; }
-.qr-privacy { font-size:12.5px; color:var(--muted); line-height:1.7; margin:0 0 1.35rem; }
+.qr-privacy { font-size:12.5px; color:var(--muted); line-height:1.65; margin:0 0 1.1rem; }
 .qr-privacy a { color:var(--blue); text-decoration:none; border-bottom:1px solid var(--blue-mid); }
 .qr-submit {
   width:100%; font-family:var(--body); font-size:16px; font-weight:700; color:#fff;
-  background:var(--blue); border:0; border-radius:50px; padding:16px 28px; cursor:pointer;
+  background:var(--blue); border:0; border-radius:50px; padding:15px 28px; cursor:pointer;
   transition:background 0.18s,transform 0.15s;
 }
 .qr-submit:hover { background:var(--blue-dk); }
@@ -160,7 +160,7 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
   .qr-hero h1 { font-size:1.8rem; letter-spacing:-1px; }
   .qr-sub { font-size:15px; }
   .qr-layout { padding-bottom:2.5rem; }
-  .qr-opts { grid-template-columns:1fr 1fr; gap:8px; }
+  .qr-opts { grid-template-columns:1fr 1fr; gap:7px; }
   .qr-opt-face { min-height:52px; font-size:13.5px; padding:0.65rem 0.6rem; }
   .qr-row { grid-template-columns:1fr; gap:0; }
   .qr-aside { flex-direction:column; }
