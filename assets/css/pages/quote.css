@@ -1,5 +1,5 @@
 /* ==========================================================
-   quote.css   VERSION 1
+   quote.css   VERSION 2
    Page stylesheet for /quote-request. Self-contained with its
    own :root, like every page CSS here. Tokens are never
    shared between page stylesheets.
@@ -43,25 +43,33 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 .qr-num { display:flex; align-items:center; justify-content:center; width:26px; height:26px; border-radius:8px; background:var(--blue-lt); color:var(--blue); font-family:var(--display); font-size:13px; font-weight:800; flex-shrink:0; }
 
 /* ---------- service options ---------- */
-.qr-opts { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:0.4rem; }
+.qr-opts { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; margin-bottom:0.4rem; }
 .qr-opt { position:relative; display:block; cursor:pointer; }
 /* Visually hidden rather than display:none, so it stays keyboard reachable. */
 .qr-opt-input { position:absolute; width:1px; height:1px; padding:0; margin:0; border:0; opacity:0; }
+/* Icon above the label. A picture of the problem is read faster than the
+   words, which matters on the one screen that decides whether someone fills
+   the form in. */
 .qr-opt-face {
-  display:flex; align-items:center; justify-content:center; text-align:center;
-  min-height:50px; padding:0.6rem 0.85rem; border-radius:11px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:7px; text-align:center; min-height:82px; padding:0.85rem 0.7rem; border-radius:12px;
   border:1.5px solid var(--border); background:var(--bg);
-  font-family:var(--body); font-size:14px; font-weight:600; color:var(--ink2);
-  transition:border-color 0.16s,background 0.16s,color 0.16s;
+  transition:border-color 0.16s,background 0.16s,box-shadow 0.16s;
 }
+.qr-opt-ico { display:flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:9px; background:var(--bg3); color:var(--muted); transition:background 0.16s,color 0.16s; }
+.qr-opt-ico svg { width:17px; height:17px; }
+.qr-opt-text { font-family:var(--display); font-size:13px; font-weight:700; letter-spacing:-0.1px; line-height:1.25; color:var(--ink2); }
 .qr-opt:hover .qr-opt-face { border-color:var(--blue-mid); }
-.qr-opt-input:checked + .qr-opt-face { border-color:var(--blue); background:var(--blue-lt); color:var(--blue-dk); font-weight:700; }
+.qr-opt:hover .qr-opt-ico { color:var(--ink2); }
+.qr-opt-input:checked + .qr-opt-face { border-color:var(--blue); background:var(--blue-lt); box-shadow:0 0 0 1px var(--blue); }
+.qr-opt-input:checked + .qr-opt-face .qr-opt-ico { background:var(--blue); color:#fff; }
+.qr-opt-input:checked + .qr-opt-face .qr-opt-text { color:var(--blue-dk); }
 .qr-opt-input:focus-visible + .qr-opt-face { outline:2px solid var(--blue); outline-offset:2px; }
 
 /* ---------- fields ---------- */
 .qr-field { display:block; margin-bottom:0.85rem; }
 .qr-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-.qr-label { display:block; font-family:var(--body); font-size:13px; font-weight:700; color:var(--ink2); margin-bottom:0.45rem; }
+.qr-label { display:block; font-family:var(--display); font-size:13px; font-weight:700; letter-spacing:-0.1px; color:var(--ink2); margin-bottom:0.45rem; }
 .req { color:var(--red); }
 .qr-opt-note { font-weight:500; color:var(--muted2); text-transform:none; letter-spacing:0; }
 .qr-field input, .qr-field select, .qr-field textarea {
@@ -83,7 +91,7 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 .qr-contact legend { display:block; margin-bottom:0.55rem; font-family:var(--body); font-size:13px; font-weight:700; color:var(--ink2); }
 .qr-radio { display:inline-flex; align-items:center; gap:7px; margin:0 8px 8px 0; cursor:pointer; }
 .qr-radio input { accent-color:var(--blue); width:17px; height:17px; }
-.qr-radio span { font-size:14px; font-weight:600; color:var(--ink2); }
+.qr-radio span { font-family:var(--display); font-size:13.5px; font-weight:600; color:var(--ink2); }
 
 /* ---------- draft, privacy, submit ---------- */
 .qr-hp { position:absolute; left:-9999px; opacity:0; }
@@ -92,7 +100,7 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 .qr-privacy { font-size:12.5px; color:var(--muted); line-height:1.65; margin:0 0 1.1rem; }
 .qr-privacy a { color:var(--blue); text-decoration:none; border-bottom:1px solid var(--blue-mid); }
 .qr-submit {
-  width:100%; font-family:var(--body); font-size:16px; font-weight:700; color:#fff;
+  width:100%; font-family:var(--display); font-size:16px; font-weight:700; letter-spacing:-0.2px; color:#fff;
   background:var(--blue); border:0; border-radius:50px; padding:15px 28px; cursor:pointer;
   transition:background 0.18s,transform 0.15s;
 }
@@ -106,7 +114,7 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 .qr-done { text-align:center; background:var(--bg2); border:1px solid var(--border); border-radius:18px; padding:3rem 2rem; }
 .qr-done-icon { display:flex; align-items:center; justify-content:center; width:58px; height:58px; border-radius:50%; background:var(--green); color:#fff; margin:0 auto 1.35rem; }
 .qr-done-icon svg { width:26px; height:26px; }
-.qr-done h2 { font-family:var(--display); font-size:1.65rem; font-weight:800; letter-spacing:-0.6px; color:var(--ink); margin:0 0 0.65rem; }
+.qr-done h2 { font-family:var(--display); font-size:1.6rem; font-weight:800; letter-spacing:-0.6px; color:var(--ink); margin:0 0 0.65rem; }
 .qr-done p { font-size:15px; color:var(--muted); line-height:1.8; margin:0 auto 1.75rem; max-width:52ch; }
 .qr-done-actions { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
 
@@ -118,7 +126,7 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 .qr-card-eyebrow { display:block; font-size:10.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
 .qr-card-title { display:block; font-family:var(--display); font-size:15px; font-weight:800; color:var(--ink); letter-spacing:-0.2px; line-height:1.35; }
 .qr-list { list-style:none; margin:0; padding:0; }
-.qr-list li { position:relative; font-size:13.5px; color:var(--ink2); line-height:1.6; padding:0 0 0.7rem 1.55rem; }
+.qr-list li { position:relative; font-size:13.5px; color:var(--ink2); line-height:1.65; padding:0 0 0.7rem 1.55rem; }
 .qr-list li:last-child { padding-bottom:0; }
 .qr-list li::before { content:''; position:absolute; left:1px; top:7px; width:11px; height:6px; border-left:2px solid var(--green); border-bottom:2px solid var(--green); transform:rotate(-45deg); }
 .qr-phone { display:block; font-family:var(--display); font-size:1.35rem; font-weight:800; letter-spacing:-0.5px; color:var(--ink); text-decoration:none; margin:0.35rem 0 0.5rem; }
@@ -140,6 +148,9 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
    The nav switches to the hamburger at 900px, so the body
    offset and the sticky top move with it.
    ========================================================== */
+@media (max-width:1180px) {
+  .qr-layout { grid-template-columns:minmax(0,1fr) 270px; gap:2rem; }
+}
 @media (max-width:1000px) {
   /* The aside becomes a footer to the form rather than disappearing: on a
      form page those reassurances are worth more after the fields than beside
@@ -160,16 +171,27 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
   .qr-hero h1 { font-size:1.8rem; letter-spacing:-1px; }
   .qr-sub { font-size:15px; }
   .qr-layout { padding-bottom:2.5rem; }
-  .qr-opts { grid-template-columns:1fr 1fr; gap:7px; }
-  .qr-opt-face { min-height:52px; font-size:13.5px; padding:0.65rem 0.6rem; }
+  /* Three across down to 541px, then two. At two columns above that the
+     tiles stretch to 320px wide, which looks like a mistake. */
+  .qr-opts { grid-template-columns:repeat(3,minmax(0,1fr)); gap:7px; }
+  .qr-opt-face { min-height:76px; padding:0.75rem 0.5rem; }
+  .qr-opt-text { font-size:12.5px; }
+
   .qr-row { grid-template-columns:1fr; gap:0; }
   .qr-aside { flex-direction:column; }
   .qr-done { padding:2.25rem 1.25rem; }
   .qr-done h2 { font-size:1.4rem; }
   .qr-btn { width:100%; }
 }
+@media (max-width:540px) {
+  .qr-opts { grid-template-columns:repeat(2,minmax(0,1fr)); gap:7px; }
+}
 @media (max-width:380px) {
-  .qr-opts { grid-template-columns:1fr; }
+  .qr-opts { gap:6px; }
+  .qr-opt-face { min-height:72px; }
+  .qr-opt-ico { width:26px; height:26px; }
+  .qr-opt-ico svg { width:15px; height:15px; }
+  .qr-opt-text { font-size:11.5px; }
   .qr-hero h1 { font-size:1.6rem; }
 }
 @media (prefers-reduced-motion: reduce) {
