@@ -605,3 +605,32 @@ plans:
     covers: Up to 20 PCs
     extra: +$60 per extra device
     who: Dental and medical, accounting and law, multi-PC retail
+
+# ----------------------------------------------------------
+# QUOTE FORM
+# The options on the quote form and the homepage card. Both
+# read this list, so they can never drift apart. "service"
+# points at a key above, used for wording and future linking.
+# No price is shown on the form by design.
+# ----------------------------------------------------------
+quote_options:
+  - {key: virus,    label: Virus Removal,        value: Virus and Malware Removal,        service: virus-malware-removal}
+  - {key: slow,     label: Slow PC / Diagnostic, value: Slow Computer or PC Diagnostic,   service: diagnostic-repair-all-in}
+  - {key: data,     label: Data Recovery,        value: Data Recovery,                    service: data-recovery-failing-drive}
+  - {key: upgrade,  label: SSD / RAM Upgrade,    value: SSD or RAM Upgrade,               service: ssd-upgrade-labour-only}
+  - {key: screen,   label: Screen / Battery,     value: Laptop Screen or Battery Replacement, service: laptop-screen-replacement}
+  - {key: nopower,  label: Won't Turn On,        value: Computer Will Not Turn On,        service: diagnostic-repair-all-in}
+  - {key: gaming,   label: Gaming PC Build,      value: Gaming PC Build or Upgrade,       service: essential-assembly}
+  - {key: other,    label: Something Else,       value: Something Else,                   service: ~}
+
+device_types:
+  - Desktop PC
+  - Laptop
+  - All in One
+  - MacBook or Surface
+  - Other
+
+form:
+  provider: web3forms
+  access_key: b00c2b06-22d4-4924-af92-5143e83ab186
+  subject: New quote request from fixmypcperth.com

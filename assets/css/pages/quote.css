@@ -1,0 +1,178 @@
+/* ==========================================================
+   quote.css   VERSION 1
+   Page stylesheet for /quote-request. Self-contained with its
+   own :root, like every page CSS here. Tokens are never
+   shared between page stylesheets.
+   ========================================================== */
+
+:root {
+  --blue:#1560FF; --blue-lt:#EEF3FF; --blue-mid:#C7D8FF; --blue-dk:#0A3ACC;
+  --ink:#0F172A; --ink2:#1E293B; --muted:#64748B; --muted2:#94A3B8;
+  --border:#E2E8F0; --border2:#CBD5E1;
+  --bg:#FFFFFF; --bg2:#F8FAFC; --bg3:#F1F5F9;
+  --wa:#22C55E; --wa-dk:#16A34A; --red:#DC2626; --green:#16A34A;
+  --display:'Sora',sans-serif; --body:'DM Sans',sans-serif;
+  --nav-h:64px; --mob-nav-h:60px;
+}
+* { box-sizing:border-box; }
+body { background:var(--bg); color:var(--ink); font-family:var(--body); font-size:16px; line-height:1.6; overflow-x:hidden; }
+.wrap { max-width:1100px; margin:0 auto; padding:0 2rem; }
+
+/* ---------- hero ---------- */
+.qr-hero { background:var(--bg2); padding:96px 0 2.5rem; border-bottom:1px solid var(--border); }
+.qr-hero-inner { max-width:1100px; margin:0 auto; padding:0 2rem; }
+.qr-tag { display:inline-flex; align-items:center; gap:8px; font-size:11.5px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--blue-dk); background:var(--blue-lt); border:1px solid var(--blue-mid); border-radius:50px; padding:6px 14px; margin-bottom:1.1rem; }
+.qr-dot { width:7px; height:7px; border-radius:50%; background:var(--green); flex-shrink:0; }
+.qr-hero h1 { font-family:var(--display); font-size:clamp(1.9rem,3.6vw,2.7rem); font-weight:800; letter-spacing:-1.3px; line-height:1.1; color:var(--ink); margin:0 0 0.7rem; }
+.qr-sub { font-size:16px; color:var(--muted); line-height:1.8; margin:0; max-width:62ch; }
+
+/* ---------- layout ---------- */
+.qr-layout { display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:3rem; align-items:start; padding-top:3rem; padding-bottom:4rem; }
+.qr-main { min-width:0; }
+
+/* ---------- progress ---------- */
+.qr-progress { display:flex; align-items:center; gap:14px; margin-bottom:2rem; }
+.qr-progress-bar { flex:1; height:3px; border-radius:3px; background:var(--border); overflow:hidden; }
+.qr-progress-fill { height:100%; width:0; background:var(--blue); border-radius:3px; transition:width 0.3s cubic-bezier(0.4,0,0.2,1); }
+.qr-progress-label { font-size:11.5px; font-weight:600; color:var(--muted); white-space:nowrap; font-variant-numeric:tabular-nums; }
+
+/* ---------- blocks ---------- */
+.qr-form { margin:0; }
+.qr-block { border:0; margin:0 0 2.25rem; padding:0; min-width:0; }
+.qr-block legend { display:flex; align-items:center; gap:11px; font-family:var(--display); font-size:1.05rem; font-weight:800; letter-spacing:-0.3px; color:var(--ink); padding:0; margin-bottom:1.1rem; }
+.qr-num { display:flex; align-items:center; justify-content:center; width:26px; height:26px; border-radius:8px; background:var(--blue-lt); color:var(--blue); font-family:var(--display); font-size:13px; font-weight:800; flex-shrink:0; }
+
+/* ---------- service options ---------- */
+.qr-opts { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:9px; margin-bottom:0.4rem; }
+.qr-opt { position:relative; display:block; cursor:pointer; }
+/* Visually hidden rather than display:none, so it stays keyboard reachable. */
+.qr-opt-input { position:absolute; width:1px; height:1px; padding:0; margin:0; border:0; opacity:0; }
+.qr-opt-face {
+  display:flex; align-items:center; justify-content:center; text-align:center;
+  min-height:56px; padding:0.75rem 0.9rem; border-radius:12px;
+  border:1.5px solid var(--border); background:var(--bg);
+  font-family:var(--body); font-size:14px; font-weight:600; color:var(--ink2);
+  transition:border-color 0.16s,background 0.16s,color 0.16s;
+}
+.qr-opt:hover .qr-opt-face { border-color:var(--blue-mid); }
+.qr-opt-input:checked + .qr-opt-face { border-color:var(--blue); background:var(--blue-lt); color:var(--blue-dk); font-weight:700; }
+.qr-opt-input:focus-visible + .qr-opt-face { outline:2px solid var(--blue); outline-offset:2px; }
+
+/* ---------- fields ---------- */
+.qr-field { display:block; margin-bottom:1rem; }
+.qr-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.qr-label { display:block; font-family:var(--body); font-size:13px; font-weight:700; color:var(--ink2); margin-bottom:0.45rem; }
+.req { color:var(--red); }
+.qr-opt-note { font-weight:500; color:var(--muted2); text-transform:none; letter-spacing:0; }
+.qr-field input, .qr-field select, .qr-field textarea {
+  width:100%; font-family:var(--body); font-size:15px; color:var(--ink);
+  background:var(--bg2); border:1px solid var(--border); border-radius:11px;
+  padding:12px 14px; transition:border-color 0.18s,background 0.18s,box-shadow 0.18s;
+}
+.qr-field textarea { resize:vertical; min-height:120px; line-height:1.6; }
+.qr-field input:focus, .qr-field select:focus, .qr-field textarea:focus {
+  outline:none; border-color:var(--blue); background:var(--bg); box-shadow:0 0 0 3px rgba(21,96,255,0.13);
+}
+.qr-field .is-err { border-color:var(--red); background:#FEF2F2; }
+.qr-err { display:none; font-size:12.5px; font-weight:600; color:var(--red); margin:-0.55rem 0 1rem; }
+.qr-err.show { display:block; }
+.qr-err-form { margin-top:0.9rem; }
+
+/* ---------- contact preference ---------- */
+.qr-contact { border:0; padding:0; margin:0.5rem 0 0; min-width:0; }
+.qr-contact legend { display:block; margin-bottom:0.55rem; font-family:var(--body); font-size:13px; font-weight:700; color:var(--ink2); }
+.qr-radio { display:inline-flex; align-items:center; gap:7px; margin:0 8px 8px 0; cursor:pointer; }
+.qr-radio input { accent-color:var(--blue); width:17px; height:17px; }
+.qr-radio span { font-size:14px; font-weight:600; color:var(--ink2); }
+
+/* ---------- draft, privacy, submit ---------- */
+.qr-hp { position:absolute; left:-9999px; opacity:0; }
+.qr-saved { display:flex; align-items:center; gap:10px; font-size:12.5px; font-weight:600; color:var(--muted); background:var(--bg3); border-radius:9px; padding:9px 13px; margin-bottom:1rem; }
+.qr-saved button { background:none; border:0; padding:0; font-family:var(--body); font-size:12.5px; font-weight:700; color:var(--blue); cursor:pointer; text-decoration:underline; }
+.qr-privacy { font-size:12.5px; color:var(--muted); line-height:1.7; margin:0 0 1.35rem; }
+.qr-privacy a { color:var(--blue); text-decoration:none; border-bottom:1px solid var(--blue-mid); }
+.qr-submit {
+  width:100%; font-family:var(--body); font-size:16px; font-weight:700; color:#fff;
+  background:var(--blue); border:0; border-radius:50px; padding:16px 28px; cursor:pointer;
+  transition:background 0.18s,transform 0.15s;
+}
+.qr-submit:hover { background:var(--blue-dk); }
+.qr-submit:active { transform:translateY(1px); }
+.qr-submit:disabled { background:var(--muted2); cursor:default; transform:none; }
+.qr-submit:focus-visible { outline:2px solid var(--blue); outline-offset:3px; }
+.qr-note { text-align:center; font-size:12.5px; color:var(--muted); margin:0.85rem 0 0; }
+
+/* ---------- success ---------- */
+.qr-done { text-align:center; background:var(--bg2); border:1px solid var(--border); border-radius:18px; padding:3rem 2rem; }
+.qr-done-icon { display:flex; align-items:center; justify-content:center; width:58px; height:58px; border-radius:50%; background:var(--green); color:#fff; margin:0 auto 1.35rem; }
+.qr-done-icon svg { width:26px; height:26px; }
+.qr-done h2 { font-family:var(--display); font-size:1.65rem; font-weight:800; letter-spacing:-0.6px; color:var(--ink); margin:0 0 0.65rem; }
+.qr-done p { font-size:15px; color:var(--muted); line-height:1.8; margin:0 auto 1.75rem; max-width:52ch; }
+.qr-done-actions { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+
+/* ---------- aside ---------- */
+.qr-aside { position:sticky; top:calc(var(--nav-h) + 24px); display:flex; flex-direction:column; gap:14px; }
+.qr-card { background:var(--bg); border:1px solid var(--border); border-radius:16px; padding:1.35rem; }
+.qr-card-alt { background:var(--bg2); }
+.qr-card-head { margin-bottom:0.9rem; }
+.qr-card-eyebrow { display:block; font-size:10.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
+.qr-card-title { display:block; font-family:var(--display); font-size:15px; font-weight:800; color:var(--ink); letter-spacing:-0.2px; line-height:1.35; }
+.qr-list { list-style:none; margin:0; padding:0; }
+.qr-list li { position:relative; font-size:13.5px; color:var(--ink2); line-height:1.6; padding:0 0 0.7rem 1.55rem; }
+.qr-list li:last-child { padding-bottom:0; }
+.qr-list li::before { content:''; position:absolute; left:1px; top:7px; width:11px; height:6px; border-left:2px solid var(--green); border-bottom:2px solid var(--green); transform:rotate(-45deg); }
+.qr-phone { display:block; font-family:var(--display); font-size:1.35rem; font-weight:800; letter-spacing:-0.5px; color:var(--ink); text-decoration:none; margin:0.35rem 0 0.5rem; }
+.qr-phone:hover { color:var(--blue); }
+.qr-addr { font-size:13px; color:var(--muted); line-height:1.65; margin:0 0 1.1rem; }
+.qr-btn {
+  display:inline-flex; align-items:center; justify-content:center;
+  font-family:var(--body); font-size:14.5px; font-weight:700; text-decoration:none;
+  padding:12px 22px; border-radius:50px; max-width:100%; white-space:nowrap;
+  transition:background 0.18s,border-color 0.18s,color 0.18s;
+}
+.qr-btn-wide { width:100%; }
+.qr-btn-wa { background:var(--wa); color:#fff; border:1.5px solid var(--wa); }
+.qr-btn-wa:hover { background:var(--wa-dk); border-color:var(--wa-dk); }
+.qr-btn-ghost { background:var(--bg); color:var(--ink); border:1.5px solid var(--border2); }
+.qr-btn-ghost:hover { border-color:var(--blue); color:var(--blue); }
+
+/* ==========================================================
+   The nav switches to the hamburger at 900px, so the body
+   offset and the sticky top move with it.
+   ========================================================== */
+@media (max-width:1000px) {
+  /* The aside becomes a footer to the form rather than disappearing: on a
+     form page those reassurances are worth more after the fields than beside
+     them. */
+  .qr-layout { grid-template-columns:1fr; gap:2rem; padding-top:2.25rem; }
+  .qr-aside { position:static; flex-direction:row; flex-wrap:wrap; }
+  .qr-card { flex:1 1 260px; }
+}
+@media (max-width:900px) {
+  body { padding-top:var(--mob-nav-h); }
+  .qr-hero { padding-top:2.5rem; }
+  .qr-aside { top:calc(var(--mob-nav-h) + 16px); }
+}
+@media (max-width:720px) {
+  .wrap { padding:0 1.25rem; }
+  .qr-hero { padding:2rem 0 2.25rem; }
+  .qr-hero-inner { padding:0 1.25rem; }
+  .qr-hero h1 { font-size:1.8rem; letter-spacing:-1px; }
+  .qr-sub { font-size:15px; }
+  .qr-layout { padding-bottom:2.5rem; }
+  .qr-opts { grid-template-columns:1fr 1fr; gap:8px; }
+  .qr-opt-face { min-height:52px; font-size:13.5px; padding:0.65rem 0.6rem; }
+  .qr-row { grid-template-columns:1fr; gap:0; }
+  .qr-aside { flex-direction:column; }
+  .qr-done { padding:2.25rem 1.25rem; }
+  .qr-done h2 { font-size:1.4rem; }
+  .qr-btn { width:100%; }
+}
+@media (max-width:380px) {
+  .qr-opts { grid-template-columns:1fr; }
+  .qr-hero h1 { font-size:1.6rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .qr-progress-fill, .qr-opt-face, .qr-submit, .qr-btn { transition:none; }
+  html { scroll-behavior:auto; }
+}
