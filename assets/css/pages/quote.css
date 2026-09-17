@@ -1,8 +1,15 @@
 /* ==========================================================
-   quote.css   VERSION 2
+   quote.css   VERSION 3
    Page stylesheet for /quote-request. Self-contained with its
    own :root, like every page CSS here. Tokens are never
    shared between page stylesheets.
+
+   v3: Apple-design pass. Audited clean - no undefined vars, no HTML
+   classes missing a rule, JS class hooks (is-err, show, qr-opt-input)
+   all match. Real press feedback added to the option tiles, the submit
+   button (was a barely visible 1px nudge), the two sidebar CTA buttons,
+   and the clear-draft link (had no hover/active state at all). Critically
+   damped easing tokens added, matching the rest of the site.
    ========================================================== */
 
 :root {
@@ -13,6 +20,11 @@
   --wa:#22C55E; --wa-dk:#16A34A; --red:#DC2626; --green:#16A34A;
   --display:'Sora',sans-serif; --body:'DM Sans',sans-serif;
   --nav-h:64px; --mob-nav-h:60px;
+  /* Critically damped (no overshoot) - the default for hover/reveal motion
+     that isn't carrying momentum from a drag or flick. */
+  --ease-settle: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Fast, for the instant press feedback itself. */
+  --ease-press:  cubic-bezier(0.4, 0, 0.2, 1);
 }
 * { box-sizing:border-box; }
 body { background:var(--bg); color:var(--ink); font-family:var(--body); font-size:16px; line-height:1.6; overflow-x:hidden; }
@@ -54,13 +66,14 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
   display:flex; flex-direction:column; align-items:center; justify-content:center;
   gap:7px; text-align:center; min-height:82px; padding:0.85rem 0.7rem; border-radius:12px;
   border:1.5px solid var(--border); background:var(--bg);
-  transition:border-color 0.16s,background 0.16s,box-shadow 0.16s;
+  transition:border-color 0.16s,background 0.16s,box-shadow 0.16s,transform 0.1s var(--ease-press);
 }
 .qr-opt-ico { display:flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:9px; background:var(--bg3); color:var(--muted); transition:background 0.16s,color 0.16s; }
 .qr-opt-ico svg { width:17px; height:17px; }
 .qr-opt-text { font-family:var(--display); font-size:13px; font-weight:700; letter-spacing:-0.1px; line-height:1.25; color:var(--ink2); }
 .qr-opt:hover .qr-opt-face { border-color:var(--blue-mid); }
 .qr-opt:hover .qr-opt-ico { color:var(--ink2); }
+.qr-opt:active .qr-opt-face { transform:scale(0.96); }
 .qr-opt-input:checked + .qr-opt-face { border-color:var(--blue); background:var(--blue-lt); box-shadow:0 0 0 1px var(--blue); }
 .qr-opt-input:checked + .qr-opt-face .qr-opt-ico { background:var(--blue); color:#fff; }
 .qr-opt-input:checked + .qr-opt-face .qr-opt-text { color:var(--blue-dk); }
@@ -96,16 +109,18 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 /* ---------- draft, privacy, submit ---------- */
 .qr-hp { position:absolute; left:-9999px; opacity:0; }
 .qr-saved { display:flex; align-items:center; gap:10px; font-size:12.5px; font-weight:600; color:var(--muted); background:var(--bg3); border-radius:9px; padding:9px 13px; margin-bottom:1rem; }
-.qr-saved button { background:none; border:0; padding:0; font-family:var(--body); font-size:12.5px; font-weight:700; color:var(--blue); cursor:pointer; text-decoration:underline; }
+.qr-saved button { background:none; border:0; padding:0; font-family:var(--body); font-size:12.5px; font-weight:700; color:var(--blue); cursor:pointer; text-decoration:underline; transition:color 0.15s,opacity 0.1s var(--ease-press); }
+.qr-saved button:hover { color:var(--blue-dk); }
+.qr-saved button:active { opacity:0.6; }
 .qr-privacy { font-size:12.5px; color:var(--muted); line-height:1.65; margin:0 0 1.1rem; }
 .qr-privacy a { color:var(--blue); text-decoration:none; border-bottom:1px solid var(--blue-mid); }
 .qr-submit {
   width:100%; font-family:var(--display); font-size:16px; font-weight:700; letter-spacing:-0.2px; color:#fff;
   background:var(--blue); border:0; border-radius:50px; padding:15px 28px; cursor:pointer;
-  transition:background 0.18s,transform 0.15s;
+  transition:background 0.18s,transform 0.15s var(--ease-settle);
 }
 .qr-submit:hover { background:var(--blue-dk); }
-.qr-submit:active { transform:translateY(1px); }
+.qr-submit:active:not(:disabled) { transform:scale(0.98); transition:transform 0.1s var(--ease-press); }
 .qr-submit:disabled { background:var(--muted2); cursor:default; transform:none; }
 .qr-submit:focus-visible { outline:2px solid var(--blue); outline-offset:3px; }
 .qr-note { text-align:center; font-size:12.5px; color:var(--muted); margin:0.85rem 0 0; }
@@ -136,8 +151,9 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
   display:inline-flex; align-items:center; justify-content:center;
   font-family:var(--body); font-size:14.5px; font-weight:700; text-decoration:none;
   padding:12px 22px; border-radius:50px; max-width:100%; white-space:nowrap;
-  transition:background 0.18s,border-color 0.18s,color 0.18s;
+  transition:background 0.18s,border-color 0.18s,color 0.18s,transform 0.1s var(--ease-press);
 }
+.qr-btn:active { transform:scale(0.96); }
 .qr-btn-wide { width:100%; }
 .qr-btn-wa { background:var(--wa); color:#fff; border:1.5px solid var(--wa); }
 .qr-btn-wa:hover { background:var(--wa-dk); border-color:var(--wa-dk); }
@@ -195,6 +211,7 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
   .qr-hero h1 { font-size:1.6rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .qr-progress-fill, .qr-opt-face, .qr-submit, .qr-btn { transition:none; }
+  .qr-progress-fill, .qr-opt-face, .qr-submit, .qr-btn, .qr-saved button { transition:none; }
+  .qr-opt:active .qr-opt-face, .qr-submit:active, .qr-btn:active { transform:none; }
   html { scroll-behavior:auto; }
 }
