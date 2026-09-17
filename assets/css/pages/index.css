@@ -294,9 +294,9 @@ a    { color:inherit; }
 .svc-badge-col { display:flex; flex-direction:column; align-items:flex-end; gap:6px; }
 /* Plain uppercase text, like .s-eyebrow. No capsule. */
 .svc-badge { font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--blue); white-space:nowrap; align-self:flex-start; }
-.svc-badge.nofee { background:var(--wa); }
-.svc-badge.spec  { background:var(--ink2); }
-.svc-badge.perk  { background:#F59E0B; }
+.svc-badge.nofee { color:var(--wa-dk); }
+.svc-badge.spec  { color:var(--ink2); }
+.svc-badge.perk  { color:#B45309; }
 .svc-name  { font-family:var(--display); font-size:16px; font-weight:700; color:var(--ink); margin-bottom:0.5rem; letter-spacing:-0.3px; }
 .svc-desc  { font-size:13.5px; color:var(--muted); line-height:1.7; flex:1; margin-bottom:1.25rem; }
 .svc-perk-line { display:flex; align-items:center; gap:6px; font-size:12px; font-weight:600; color:var(--wa-dk); background:rgba(34,197,94,0.08); border:1px solid rgba(34,197,94,0.25); padding:6px 10px; border-radius:8px; margin-bottom:1rem; }
