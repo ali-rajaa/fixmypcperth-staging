@@ -1,5 +1,5 @@
 /* ==========================================================
-   legal.css   VERSION 2
+   legal.css   VERSION 3
    Shared page stylesheet for /terms and /privacy. Both pages
    are the same shape, so they share one file rather than
    duplicating a near-identical stylesheet twice.
@@ -7,6 +7,13 @@
    this site. Tokens are never shared between page
    stylesheets: a page that uses a token it has not defined
    renders dark text on dark panels.
+
+   v3: Apple-design pass. Audited clean against both terms.html and
+   privacy.html - no undefined vars, no HTML classes missing a rule, no
+   scrollspy JS to reconcile (the TOC is plain anchor links). Added press
+   feedback to the TOC links and the two closing CTA buttons, neither of
+   which had any active state before. Critically damped easing tokens
+   added, matching the rest of the site.
    ========================================================== */
 
 :root {
@@ -29,6 +36,11 @@
   --body:      'DM Sans', sans-serif;
   --nav-h:     64px;
   --mob-nav-h: 60px;
+  /* Critically damped (no overshoot) - the default for hover/reveal motion
+     that isn't carrying momentum from a drag or flick. */
+  --ease-settle: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Fast, for the instant press feedback itself. */
+  --ease-press:  cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * { box-sizing: border-box; }
@@ -63,6 +75,7 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
   transition:background 0.16s,color 0.16s;
 }
 .lg-toc a:hover { background:var(--blue-lt); color:var(--blue-dk); }
+.lg-toc a:active { background:var(--blue-mid); transition:background 0.1s var(--ease-press); }
 .lg-toc a:focus-visible { outline:2px solid var(--blue); outline-offset:-2px; }
 .lg-toc-n { flex:0 0 auto; font-size:12px; font-weight:600; color:var(--muted); min-width:16px; font-variant-numeric:tabular-nums; }
 .lg-toc a:hover .lg-toc-n { color:var(--blue); }
@@ -98,8 +111,9 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
   display:inline-flex; align-items:center; justify-content:center;
   font-family:var(--body); font-size:15px; font-weight:700; text-decoration:none;
   padding:13px 26px; border-radius:50px; max-width:100%; white-space:nowrap;
-  transition:background 0.18s,border-color 0.18s,color 0.18s;
+  transition:background 0.18s,border-color 0.18s,color 0.18s,transform 0.1s var(--ease-press);
 }
+.lg-btn:active { transform:scale(0.96); }
 .lg-btn-wa { background:var(--wa); color:#fff; border:1.5px solid var(--wa); }
 .lg-btn-wa:hover { background:var(--wa-dk); border-color:var(--wa-dk); }
 .lg-btn-ghost { background:var(--bg); color:var(--ink); border:1.5px solid var(--border2); }
@@ -143,5 +157,6 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 
 @media (prefers-reduced-motion: reduce) {
   .lg-toc a, .lg-btn, .lg-sec a { transition:none; }
+  .lg-btn:active { transform:none; }
   html { scroll-behavior:auto; }
 }
