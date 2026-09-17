@@ -1,0 +1,315 @@
+/* ==========================================================
+   business-it.css   VERSION 1
+   Page stylesheet for /business-it-support. Self-contained
+   with its own :root, like every page CSS on this site.
+   Tokens are never shared between page stylesheets: a page
+   that uses a token it has not defined renders dark text on
+   dark panels, which is how this site broke once before.
+
+   Loads before shell.css, so the header and footer chrome
+   always wins over anything here.
+
+   Section eyebrows are plain uppercase text, never pills.
+   ========================================================== */
+
+:root {
+  --bg:        #FFFFFF;
+  --bg2:       #F8FAFC;
+  --bg3:       #F1F5F9;
+  --ink:       #0F172A;
+  --ink2:      #1E293B;
+  --muted:     #475569;
+  --muted2:    #94A3B8;
+  --border:    #E2E8F0;
+  --border2:   #CBD5E1;
+  --blue:      #1560FF;
+  --blue-dk:   #0A3ACC;
+  --blue-lt:   #EEF3FF;
+  --blue-mid:  #C7D8FF;
+  --wa:        #22C55E;
+  --wa-dk:     #16A34A;
+  --display:   'Sora', sans-serif;
+  --body:      'DM Sans', sans-serif;
+  --radius:    14px;
+  --nav-h:     64px;
+  --mob-nav-h: 60px;
+  /* Critically damped (no overshoot) - the default for hover and reveal
+     motion that is not carrying momentum from a drag or flick. */
+  --ease-settle: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Fast, for the instant press feedback itself. */
+  --ease-press:  cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 16px); }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--body); font-size: 16px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; }
+.wrap { width: min(1180px, 100% - 2.5rem); margin-inline: auto; }
+
+.s-eyebrow {
+  display: block; font-family: var(--body); font-size: 12px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue);
+  margin-bottom: 0.6rem;
+}
+
+.bit-sec { padding: 3.75rem 0; }
+.bit-sec-title {
+  font-family: var(--display); font-size: clamp(1.6rem, 3vw, 2.3rem);
+  font-weight: 800; letter-spacing: -0.032em; line-height: 1.18;
+  color: var(--ink); margin: 0 0 0.6rem;
+}
+.bit-sec-blurb { font-size: 15px; color: var(--muted); line-height: 1.75; max-width: 680px; margin: 0; }
+
+/* Sourced-claim footnote. Deliberately quiet but never hidden: every number
+   on this page that came from outside our own books is attributed here. */
+.bit-source-note {
+  font-size: 12.5px; color: var(--muted2); line-height: 1.7;
+  max-width: 720px; margin: 1.5rem 0 0;
+}
+
+/* ---------- hero ---------- */
+.bit-hero { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 3.5rem 0 3.25rem; }
+.bit-hero-inner { max-width: 860px; }
+.bit-h1 {
+  font-family: var(--display); font-size: clamp(2.1rem, 4.6vw, 3.3rem);
+  font-weight: 800; letter-spacing: -0.038em; line-height: 1.12;
+  color: var(--ink); margin: 0 0 1rem;
+}
+.bit-hero-sub { font-size: 16.5px; color: var(--muted); line-height: 1.75; max-width: 620px; margin: 0 0 1.75rem; }
+.bit-hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 1.75rem; }
+
+.btn-blue {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  background: var(--blue); color: #fff; font-family: var(--body);
+  font-size: 15px; font-weight: 700; padding: 14px 26px; border-radius: 50px;
+  text-decoration: none; box-shadow: 0 4px 16px rgba(21,96,255,0.35);
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.25s var(--ease-settle), box-shadow 0.25s var(--ease-settle), filter 0.2s;
+}
+.btn-blue svg { width: 18px; height: 18px; flex-shrink: 0; }
+.btn-blue:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(21,96,255,0.5); filter: brightness(1.1); }
+.btn-blue:active { transform: translateY(-1px) scale(0.97); transition: transform 0.1s var(--ease-press); }
+
+.btn-outline {
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--body); font-size: 15px; font-weight: 600;
+  color: var(--ink); background: transparent; border: 1.5px solid var(--border2);
+  padding: 13px 24px; border-radius: 50px; text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color 0.15s, color 0.15s, transform 0.1s var(--ease-press);
+}
+.btn-outline:hover { border-color: var(--blue); color: var(--blue); }
+.btn-outline:active { transform: scale(0.97); }
+
+.bit-hero-points { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.bit-hero-points li { position: relative; padding-left: 20px; font-size: 13.5px; font-weight: 600; color: var(--ink2); }
+.bit-hero-points li::before {
+  content: ''; position: absolute; left: 0; top: 7px;
+  width: 8px; height: 8px; border-radius: 50%; background: var(--wa);
+}
+
+/* ---------- the honest comparison ---------- */
+.bit-compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-top: 2.25rem; }
+.bit-cmp-card {
+  background: var(--bg); border: 1.5px solid var(--border); border-radius: 18px;
+  padding: 1.6rem 1.5rem;
+  transition: border-color 0.2s, transform 0.3s var(--ease-settle), box-shadow 0.3s var(--ease-settle);
+}
+.bit-cmp-card:hover { border-color: var(--border2); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(15,23,42,0.06); }
+.bit-cmp-ours { border-color: var(--blue); background: var(--blue-lt); }
+.bit-cmp-ours:hover { border-color: var(--blue-dk); box-shadow: 0 10px 30px rgba(21,96,255,0.14); }
+.bit-cmp-label { display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.7rem; }
+.bit-cmp-ours .bit-cmp-label { color: var(--blue-dk); }
+.bit-cmp-figure { font-family: var(--display); font-size: 27px; font-weight: 800; letter-spacing: -0.028em; color: var(--ink); margin: 0 0 0.7rem; line-height: 1.15; }
+.bit-cmp-figure span { display: block; font-family: var(--body); font-size: 12.5px; font-weight: 600; color: var(--muted); letter-spacing: 0; margin-top: 3px; }
+.bit-cmp-note { font-size: 13.5px; color: var(--muted); line-height: 1.7; margin: 0; }
+
+/* ---------- plans ---------- */
+.bit-plans-sec { background: var(--bg2); border-block: 1px solid var(--border); }
+.bit-plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 14px; margin-top: 2.25rem; align-items: start; }
+.bit-plan {
+  position: relative; background: var(--bg); border: 1.5px solid var(--border);
+  border-radius: 18px; padding: 1.75rem 1.5rem; display: flex; flex-direction: column;
+  transition: border-color 0.2s, transform 0.3s var(--ease-settle), box-shadow 0.3s var(--ease-settle);
+}
+.bit-plan:hover { border-color: var(--blue-mid); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(15,23,42,0.07); }
+.bit-plan-pick { border-color: var(--blue); box-shadow: 0 8px 26px rgba(21,96,255,0.1); }
+.bit-plan-pick:hover { border-color: var(--blue-dk); box-shadow: 0 14px 36px rgba(21,96,255,0.16); }
+.bit-plan-flag {
+  position: absolute; top: -10px; left: 1.5rem;
+  background: var(--blue); color: #fff; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.04em; padding: 4px 12px; border-radius: 50px; white-space: nowrap;
+}
+.bit-plan-name { font-family: var(--display); font-size: 17px; font-weight: 800; color: var(--ink); }
+.bit-plan-price { font-family: var(--display); font-size: 36px; font-weight: 800; letter-spacing: -0.035em; color: var(--ink); margin: 0.5rem 0 0.1rem; line-height: 1; }
+.bit-plan-per { font-family: var(--body); font-size: 14px; font-weight: 600; color: var(--muted); letter-spacing: 0; }
+.bit-plan-covers { font-size: 14.5px; font-weight: 700; color: var(--ink2); margin: 0.6rem 0 0.15rem; }
+.bit-plan-extra { font-size: 13px; color: var(--muted); margin: 0 0 0.9rem; }
+.bit-plan-who { font-size: 13.5px; color: var(--muted); line-height: 1.65; margin: 0 0 1.3rem; flex: 1; }
+.bit-plan-btn {
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--body); font-size: 14px; font-weight: 700;
+  color: var(--blue); background: var(--bg); border: 1.5px solid var(--blue-mid);
+  padding: 12px 18px; border-radius: 50px; text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.18s, border-color 0.18s, transform 0.1s var(--ease-press);
+}
+.bit-plan-btn:hover { background: var(--blue-lt); border-color: var(--blue); }
+.bit-plan-btn:active { transform: scale(0.96); }
+.bit-plan-pick .bit-plan-btn { background: var(--blue); color: #fff; border-color: var(--blue); }
+.bit-plan-pick .bit-plan-btn:hover { background: var(--blue-dk); border-color: var(--blue-dk); }
+
+.bit-promo {
+  margin-top: 1.5rem; background: var(--blue-lt); border: 1.5px solid var(--blue-mid);
+  border-radius: var(--radius); padding: 1.1rem 1.35rem;
+}
+.bit-promo p { margin: 0; font-size: 14.5px; color: var(--ink2); line-height: 1.7; }
+
+/* ---------- what is included ---------- */
+.bit-inc { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; margin-top: 2.25rem; }
+.bit-inc-item {
+  background: var(--bg); border: 1.5px solid var(--border); border-radius: var(--radius);
+  padding: 1.4rem 1.35rem;
+  transition: border-color 0.2s, transform 0.3s var(--ease-settle), box-shadow 0.3s var(--ease-settle);
+}
+.bit-inc-item:hover { border-color: var(--blue-mid); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(21,96,255,0.07); }
+.bit-inc-item h3 { font-family: var(--display); font-size: 15px; font-weight: 700; color: var(--ink); margin: 0 0 0.4rem; }
+.bit-inc-item p { font-size: 13.5px; color: var(--muted); line-height: 1.7; margin: 0; }
+
+/* ---------- bolt-ons ---------- */
+.bit-addons { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 14px; margin-top: 2rem; }
+.bit-addon {
+  background: var(--bg); border: 1.5px solid var(--border); border-radius: var(--radius);
+  padding: 1.4rem 1.35rem; display: flex; flex-direction: column;
+  transition: border-color 0.2s, transform 0.3s var(--ease-settle);
+}
+.bit-addon:hover { border-color: var(--blue-mid); transform: translateY(-2px); }
+.bit-addon-name { font-family: var(--display); font-size: 14.5px; font-weight: 700; color: var(--ink); }
+.bit-addon-desc { font-size: 13px; color: var(--muted); line-height: 1.7; margin: 0.45rem 0 1rem; flex: 1; }
+.bit-addon-price { font-family: var(--display); font-size: 16px; font-weight: 800; color: var(--blue); letter-spacing: -0.02em; }
+
+/* ---------- case study ---------- */
+.bit-case-sec { background: var(--bg2); border-block: 1px solid var(--border); }
+.bit-case { margin-top: 2rem; }
+.bit-case-body { max-width: 760px; }
+.bit-case-meta { font-size: 13px; font-weight: 700; color: var(--muted); margin: 0 0 1.1rem; }
+.bit-case-body p { font-size: 15px; color: var(--muted); line-height: 1.8; margin: 0 0 1rem; }
+.bit-case-claim { color: var(--ink2) !important; font-weight: 600; }
+.bit-quote {
+  margin: 1.75rem 0 0; padding: 1.5rem 1.6rem;
+  background: var(--bg); border: 1.5px solid var(--border); border-left: 4px solid var(--blue);
+  border-radius: var(--radius);
+}
+.bit-quote p { font-size: 15px; color: var(--ink2); line-height: 1.8; margin: 0 0 0.9rem; font-style: italic; }
+.bit-quote cite { font-style: normal; font-size: 13px; font-weight: 700; color: var(--muted); }
+
+/* ---------- industries + related links ---------- */
+.bit-inds { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px; margin-top: 2rem; }
+.bit-ind {
+  display: flex; align-items: center; font-family: var(--body); font-size: 14px;
+  font-weight: 600; color: var(--ink2); text-decoration: none;
+  background: var(--bg); border: 1.5px solid var(--border); border-radius: 12px;
+  padding: 0.95rem 1.15rem; -webkit-tap-highlight-color: transparent;
+  transition: border-color 0.18s, color 0.18s, transform 0.25s var(--ease-settle), box-shadow 0.25s var(--ease-settle);
+}
+.bit-ind:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(21,96,255,0.1); }
+.bit-ind:active { transform: translateY(0) scale(0.97); transition: transform 0.1s var(--ease-press); }
+
+.bit-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.75rem; }
+.bit-link {
+  display: inline-flex; align-items: center; font-family: var(--body); font-size: 13.5px;
+  font-weight: 600; color: var(--blue); text-decoration: none;
+  background: var(--bg); border: 1.5px solid var(--blue-mid);
+  padding: 8px 16px; border-radius: 50px; -webkit-tap-highlight-color: transparent;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s var(--ease-press);
+}
+.bit-link:hover { background: var(--blue-lt); border-color: var(--blue); }
+.bit-link:active { transform: scale(0.95); }
+
+/* ---------- faq ---------- */
+.bit-faq-sec { background: var(--bg2); border-block: 1px solid var(--border); }
+.bit-faq { display: flex; flex-direction: column; gap: 8px; margin-top: 1.75rem; max-width: 840px; }
+.faq-item { background: var(--bg); border: 1.5px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: border-color 0.18s; }
+.faq-item.open { border-color: var(--blue-mid); }
+.faq-q {
+  width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  background: none; border: 0; text-align: left; cursor: pointer;
+  font-family: var(--display); font-size: 15px; font-weight: 700; color: var(--ink);
+  padding: 1.15rem 1.35rem; line-height: 1.45;
+  -webkit-tap-highlight-color: transparent; transition: background 0.15s;
+}
+.faq-q:active { background: var(--bg2); }
+.faq-q:focus-visible { outline: 2px solid var(--blue); outline-offset: -3px; }
+/* A touch of overshoot on the rotation (Apple's own spec value for rotation
+   is damping 0.8) so the tap feels answered rather than merely obeyed. */
+.faq-q svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--muted); transition: transform 0.35s cubic-bezier(0.34,1.35,0.64,1); }
+.faq-item.open .faq-q svg { transform: rotate(180deg); color: var(--blue); }
+.faq-a { display: grid; grid-template-rows: 0fr; overflow: hidden; transition: grid-template-rows 0.32s var(--ease-settle); }
+.faq-item.open .faq-a { grid-template-rows: 1fr; }
+.faq-a p { min-height: 0; font-size: 14.5px; color: var(--muted); line-height: 1.8; margin: 0; padding: 0 1.35rem; transition: padding 0.32s var(--ease-settle); }
+.faq-item.open .faq-a p { padding: 0 1.35rem 1.35rem; }
+
+/* ---------- closing cta ---------- */
+.bit-cta { background: var(--ink); padding: 3.5rem 0; }
+.bit-cta-inner { max-width: 720px; text-align: center; }
+.bit-cta-title { font-family: var(--display); font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; letter-spacing: -0.032em; color: #fff; margin: 0 0 0.75rem; line-height: 1.2; }
+.bit-cta-sub { font-size: 15.5px; color: #CBD5E1; line-height: 1.75; margin: 0 0 1.75rem; }
+.bit-cta-btns { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.bit-cta-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: var(--body); font-size: 15px; font-weight: 700; text-decoration: none;
+  padding: 14px 26px; border-radius: 50px; -webkit-tap-highlight-color: transparent;
+  transition: background 0.18s, border-color 0.18s, transform 0.25s var(--ease-settle), box-shadow 0.25s var(--ease-settle);
+}
+.bit-cta-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+.bit-cta-btn:active { transform: scale(0.96); transition: transform 0.1s var(--ease-press); }
+.bit-cta-wa { background: var(--wa); color: #fff; box-shadow: 0 4px 16px rgba(34,197,94,0.3); }
+.bit-cta-wa:hover { background: var(--wa-dk); transform: translateY(-2px); box-shadow: 0 8px 26px rgba(34,197,94,0.42); }
+.bit-cta-ghost { background: transparent; color: #fff; border: 1.5px solid #475569; }
+.bit-cta-ghost:hover { border-color: #fff; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 720px) {
+  .bit-sec { padding: 2.75rem 0; }
+  .bit-hero { padding: 2.5rem 0 2.25rem; }
+  .bit-hero-cta .btn-blue, .bit-hero-cta .btn-outline { width: 100%; }
+  .bit-hero-points { flex-direction: column; gap: 7px; }
+  .bit-cta-btn { width: 100%; }
+  .bit-plan-price { font-size: 32px; }
+  /* Clear of the sticky mobile call bar, which is fixed to the bottom. */
+  .bit-cta { padding-bottom: calc(3.5rem + 70px); }
+}
+@media (max-width: 420px) {
+  .wrap { width: calc(100% - 2rem); }
+  .bit-quote { padding: 1.25rem 1.2rem; }
+}
+
+/* ---------- accessibility preferences ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .faq-a, .faq-a p, .faq-q svg { transition: none; }
+  .bit-cmp-card, .bit-plan, .bit-inc-item, .bit-addon, .bit-ind, .bit-link,
+  .btn-blue, .btn-outline, .bit-plan-btn, .bit-cta-btn { transition-duration: 0.15s; }
+  .bit-cmp-card:hover, .bit-plan:hover, .bit-inc-item:hover, .bit-addon:hover,
+  .bit-ind:hover, .bit-ind:active, .bit-link:active, .btn-blue:hover, .btn-blue:active,
+  .btn-outline:active, .bit-plan-btn:active, .bit-cta-wa:hover, .bit-cta-btn:active {
+    transform: none;
+  }
+}
+
+/* Muted greys darkened to carry real contrast, and panels given a defined
+   border rather than relying on a tinted fill alone. */
+@media (prefers-contrast: more) {
+  .bit-hero-sub, .bit-sec-blurb, .bit-cmp-note, .bit-inc-item p, .bit-addon-desc,
+  .bit-case-body p, .bit-plan-who, .faq-a p { color: #334155; }
+  .bit-source-note { color: #475569; }
+  .bit-cmp-card, .bit-plan, .bit-inc-item, .bit-addon, .bit-ind, .faq-item, .bit-quote { border-color: #0F172A; }
+  .bit-link, .bit-plan-btn { border-color: #0A3ACC; }
+  .btn-outline { border-color: #0F172A; }
+  .bit-cta-sub { color: #E2E8F0; }
+  .bit-cta-ghost { border-color: #fff; }
+}
