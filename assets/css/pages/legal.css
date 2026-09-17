@@ -1,5 +1,7 @@
 /* ==========================================================
-   legal.css   VERSION 3
+   legal.css   VERSION 4
+   v4: adds prefers-contrast, kills the iOS tap flash, em tracking on the
+   fluid h1. (v3 below)
    Shared page stylesheet for /terms and /privacy. Both pages
    are the same shape, so they share one file rather than
    duplicating a near-identical stylesheet twice.
@@ -58,7 +60,7 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 .lg-sub { max-width:46ch; }
 /* Plain text, not a capsule. Same rule as every other label on the site. */
 .lg-updated { display:block; font-size:11.5px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); margin-bottom:0.9rem; }
-.lg-hero h1 { font-family:var(--display); font-size:clamp(1.9rem,3.4vw,2.6rem); font-weight:800; letter-spacing:-1.2px; line-height:1.12; color:var(--ink); margin:0 0 0.6rem; }
+.lg-hero h1 { font-family:var(--display); font-size:clamp(1.9rem,3.4vw,2.6rem); font-weight:800; letter-spacing:-0.034em; line-height:1.12; color:var(--ink); margin:0 0 0.6rem; }
 .lg-sub { font-family:var(--display); font-size:clamp(1rem,1.8vw,1.25rem); font-weight:600; color:var(--blue); margin:0 0 1.25rem; }
 .lg-intro { font-size:15.5px; color:var(--muted); line-height:1.8; margin:0; max-width:68ch; }
 
@@ -160,3 +162,16 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
   .lg-btn:active { transform:none; }
   html { scroll-behavior:auto; }
 }
+
+/* High contrast. Body copy on these pages is long-form legal text, so the
+   muted grey is darkened and the link underline strengthened. */
+@media (prefers-contrast: more) {
+  .lg-intro, .lg-sec p, .lg-sec li, .lg-help p { color:#334155; }
+  .lg-sec a { border-bottom-color:#0A3ACC; }
+  .lg-side-card, .lg-help { border-color:#0F172A; }
+  .lg-btn-ghost { border-color:#0F172A; }
+  .lg-sec li::before { background:#0A3ACC; }
+}
+
+/* The grey iOS tap flash paints over the press-scale feedback above. */
+.lg-toc a, .lg-btn, .lg-sec a { -webkit-tap-highlight-color:transparent; }

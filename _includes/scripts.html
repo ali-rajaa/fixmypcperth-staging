@@ -91,30 +91,47 @@ function trackQuoteForm() {
   const mobMenu   = document.getElementById('mob-menu');
 
   if (hamburger && mobMenu) {
-  hamburger.addEventListener('click', function() {
-    var isOpen = mobMenu.classList.toggle('open');
+
+  /* One place that sets the state, so the class, the ARIA and the label can
+     never drift apart. Previously each of the three close paths repeated the
+     same four lines, and a fourth path (Escape) was missing entirely. */
+  function setMenu(isOpen) {
+    mobMenu.classList.toggle('open', isOpen);
     hamburger.classList.toggle('open', isOpen);
     hamburger.setAttribute('aria-expanded', String(isOpen));
     hamburger.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+  }
+
+  hamburger.addEventListener('click', function() {
+    setMenu(!mobMenu.classList.contains('open'));
   });
 
   mobMenu.querySelectorAll('.mob-link').forEach(function(link) {
-    link.addEventListener('click', function() {
-      mobMenu.classList.remove('open');
-      hamburger.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
-      hamburger.setAttribute('aria-label', 'Open navigation menu');
-    });
+    link.addEventListener('click', function() { setMenu(false); });
   });
 
   document.addEventListener('click', function(e) {
     if (mobMenu.classList.contains('open') && !mobMenu.contains(e.target) && !hamburger.contains(e.target)) {
-      mobMenu.classList.remove('open');
-      hamburger.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
-      hamburger.setAttribute('aria-label', 'Open navigation menu');
+      setMenu(false);
     }
   });
+
+  /* Escape closes the menu and returns focus to the button that opened it.
+     Without this a keyboard user who opened the menu had no way to dismiss it. */
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && mobMenu.classList.contains('open')) {
+      setMenu(false);
+      hamburger.focus();
+    }
+  });
+
+  /* The hamburger is hidden above 900px. If the menu was open and the viewport
+     crossed that breakpoint (rotating a phone to landscape, resizing a window),
+     the panel was left on screen with no control able to close it. */
+  var deskQuery = window.matchMedia('(min-width: 901px)');
+  var onBreakpoint = function(e) { if (e.matches) setMenu(false); };
+  if (deskQuery.addEventListener) { deskQuery.addEventListener('change', onBreakpoint); }
+  else if (deskQuery.addListener) { deskQuery.addListener(onBreakpoint); }
 
   }
 

@@ -1,3 +1,4 @@
+/* index.css   VERSION 7 - adds prefers-reduced-transparency + prefers-contrast, kills the iOS tap flash that fought the press feedback, and converts fluid-heading tracking from px to em so it scales with the clamp().
 /* index.css   VERSION 6 - Apple-design pass: critically damped hover, instant press feedback, reduced-motion sweep. .wa-bubble moved to shell.css (was duplicated, and shell.css is where it belongs since it ships in a shared include). :root tokens intact. */
 
 :root {
@@ -63,7 +64,7 @@ a    { color:inherit; }
 /* Plain uppercase text rather than an outlined pill, matching .cta-kicker
    in the closing section. Used 11 times across the page. */
 .s-eyebrow { display:block; font-size:12px; font-weight:700; letter-spacing:0.09em; text-transform:uppercase; color:var(--blue); margin-bottom:0.9rem; }
-.s-title { font-family:var(--display); font-size:clamp(1.8rem,3vw,2.8rem); font-weight:800; letter-spacing:-1.2px; line-height:1.1; color:var(--ink); margin-bottom:0.75rem; }
+.s-title { font-family:var(--display); font-size:clamp(1.8rem,3vw,2.8rem); font-weight:800; letter-spacing:-0.034em; line-height:1.1; color:var(--ink); margin-bottom:0.75rem; }
 .s-sub { font-size:16px; color:var(--muted); max-width:560px; line-height:1.7; }
 .btn-blue { display:inline-flex; align-items:center; justify-content:center; gap:8px; background:var(--blue); color:#fff; font-family:var(--body); font-size:15px; font-weight:700; padding:14px 26px; border-radius:50px; text-decoration:none; box-shadow:0 4px 16px rgba(21,96,255,0.35); transition:transform 0.25s var(--ease-settle),box-shadow 0.25s var(--ease-settle),filter 0.2s; white-space:nowrap; }
 .btn-blue:hover { transform:translateY(-3px); box-shadow:0 12px 32px rgba(21,96,255,0.5); filter:brightness(1.1); }
@@ -85,7 +86,7 @@ a    { color:inherit; }
 .hero-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 420px; gap:3.5rem; align-items:start; }
 .hero-eyebrow { display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:600; color:var(--blue); background:var(--blue-lt); border:1px solid var(--blue-mid); padding:5px 14px; border-radius:50px; margin-bottom:1.5rem; letter-spacing:0.04em; text-transform:uppercase; }
 .hero-eyebrow-dot { width:6px; height:6px; background:var(--blue); border-radius:50%; animation:pulse 2s infinite; flex-shrink:0; }
-.hero h1 { font-family:var(--display); font-size:clamp(2.4rem,5vw,4rem); font-weight:800; letter-spacing:-2px; line-height:1.05; color:var(--ink); margin-bottom:0.6rem; }
+.hero h1 { font-family:var(--display); font-size:clamp(2.4rem,5vw,4rem); font-weight:800; letter-spacing:-0.042em; line-height:1.05; color:var(--ink); margin-bottom:0.6rem; }
 .hero-sub { font-family:var(--display); font-size:18px; font-weight:600; color:var(--blue); margin-bottom:1rem; }
 .hero-desc { font-size:16px; color:var(--muted); line-height:1.8; margin-bottom:2rem; max-width:480px; }
 .hero-actions { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
@@ -353,7 +354,7 @@ a    { color:inherit; }
 .pkg-eyebrow { font-size:10.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#00CFFF; margin-bottom:0.5rem; display:flex; align-items:center; gap:6px; }
 .pkg-eyebrow::before { content:'\2605'; font-size:10px; }
 .pkg-eyebrow--alt { color:#FBBF24; }
-.pkg-title { font-family:var(--display); font-size:clamp(1.35rem,2.2vw,1.75rem); font-weight:800; color:#fff; letter-spacing:-0.8px; margin-bottom:0.55rem; line-height:1.15; }
+.pkg-title { font-family:var(--display); font-size:clamp(1.35rem,2.2vw,1.75rem); font-weight:800; color:#fff; letter-spacing:-0.033em; margin-bottom:0.55rem; line-height:1.15; }
 .pkg-tagline { font-size:13px; color:rgba(255,255,255,0.62); line-height:1.6; margin-bottom:1.5rem; }
 .pkg-list { display:flex; flex-direction:column; gap:0.5rem; flex:1; position:relative; z-index:1; margin-bottom:1.75rem; }
 .pkg-item  { font-size:13px; color:rgba(255,255,255,0.82); display:flex; align-items:flex-start; gap:9px; font-weight:500; line-height:1.5; }
@@ -497,7 +498,7 @@ a.area-pill--link.has-page .area-dot {
 .cta-section { background:var(--bg2); padding:5rem 2rem; border-top:1px solid var(--border); }
 .cta-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr auto; gap:3rem; align-items:center; }
 .cta-kicker { font-size:12px; font-weight:600; color:var(--blue); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.75rem; }
-.cta-title { font-family:var(--display); font-size:clamp(1.7rem,3vw,2.6rem); font-weight:800; color:var(--ink); letter-spacing:-1px; line-height:1.1; margin-bottom:0.6rem; }
+.cta-title { font-family:var(--display); font-size:clamp(1.7rem,3vw,2.6rem); font-weight:800; color:var(--ink); letter-spacing:-0.030em; line-height:1.1; margin-bottom:0.6rem; }
 .cta-desc  { font-size:15px; color:var(--muted); }
 .cta-actions { display:flex; flex-direction:column; gap:10px; flex-shrink:0; min-width:220px; }
 .cta-icon-row { display:flex; gap:8px; }
@@ -625,7 +626,7 @@ body { padding-top:var(--mob-nav-h); }
 .hero { padding:1rem 1.25rem 2.25rem; }
 .hero-card { display:block; order:-1; margin-bottom:1.75rem; box-shadow:0 6px 28px rgba(15,23,42,0.12); }
 .hc-body { padding:1.35rem; }
-.hero h1 { font-size:clamp(1.9rem,8vw,2.8rem); letter-spacing:-1.5px; line-height:1.08; max-width:300px; }
+.hero h1 { font-size:clamp(1.9rem,8vw,2.8rem); letter-spacing:-0.040em; line-height:1.08; max-width:300px; }
 .hero-sub { font-size:15px; max-width:250px; }
 .hero-desc { font-size:14.5px; line-height:1.7; }
 .hero-actions { flex-direction:column; align-items:stretch; gap:0.65rem; }
@@ -633,7 +634,7 @@ body { padding-top:var(--mob-nav-h); }
 .hero-action-icons { display:flex; gap:10px; width:100%; }
 .hero-action-icons .hero-icon-btn { flex:1; height:50px; width:auto; min-width:0; border-radius:50px; }
 .section,.section-alt,.cta-section,.faq-section { padding:3.5rem 1.25rem; }
-.s-title { font-size:clamp(1.55rem,6vw,2rem); letter-spacing:-0.8px; }
+.s-title { font-size:clamp(1.55rem,6vw,2rem); letter-spacing:-0.033em; }
 .s-sub   { font-size:14.5px; max-width:100%; }
 /* The three card grids become swipe carousels, reusing the .pkg-duo pattern
    already on the page: 87% wide cards so the next one peeks in, snap points,
@@ -693,7 +694,7 @@ body { padding-top:var(--mob-nav-h); }
 .map-card { min-height:260px; }
 .map-embed { min-height:260px; }
 .cta-inner  { grid-template-columns:1fr; }
-.cta-title  { font-size:clamp(1.5rem,6vw,2rem); letter-spacing:-0.8px; }
+.cta-title  { font-size:clamp(1.5rem,6vw,2rem); letter-spacing:-0.033em; }
 .cta-actions { flex-direction:column; align-items:stretch; width:100%; }
 .cta-actions .btn-blue { width:100%; }
 .cta-icon-row { display:flex; gap:8px; width:100%; }
@@ -838,6 +839,31 @@ body { padding-bottom:76px; }
     transition-duration:0.15s;
   }
 }
+/* Reduced transparency. The homepage's own translucent surfaces go solid. */
+@media (prefers-reduced-transparency: reduce) {
+  .his-check-icon { background:var(--bg3); border-color:var(--border2); }
+  .svc-perk-line { background:var(--bg3); border-color:var(--border2); }
+}
+
+/* High contrast. Muted greys darkened to carry real contrast, and the
+   tinted panels given a defined border rather than relying on fill alone. */
+@media (prefers-contrast: more) {
+  .s-sub, .svc-desc, .how-desc, .why-desc, .its-desc, .testi-text,
+  .cmp-list li, .area-count { color:#334155; }
+  .svc-card, .how-card, .its-card, .why-card, .testi-card, .cmp-card,
+  .area-pill { border-color:#0F172A; }
+  .btn-outline { border-color:#0F172A; }
+  .svc-cta, .its-cta, .svc-link-pill { border-color:#0A3ACC; }
+}
+
+/* The grey iOS tap flash paints over the press-scale feedback above, so the
+   two fight each other. The scale and colour change are the feedback now. */
+.btn-blue, .btn-wa, .btn-outline, .hero-icon-btn, .mq-submit, .mq-pref-btn,
+.mq-service-btn, .pkg-btn, .cta-icon-btn, .svc-cta, .its-cta, .svc-link-pill,
+.area-pill--link, .guide-tab, .svc-links-more, .faq-q, .cmp-actions a, .pkg-dot {
+  -webkit-tap-highlight-color:transparent;
+}
+
 @media (max-width:540px) {
 .section,.section-alt,.cta-section,.faq-section { padding:3rem 1.25rem; }
 .hero h1 { font-size:1.75rem; }

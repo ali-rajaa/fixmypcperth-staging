@@ -1,5 +1,15 @@
 /* ==========================================================
-   shell.css   VERSION 5
+   shell.css   VERSION 7
+   v7: mobile nav audit. The menu now emerges from the hamburger that opens
+   it (transform-origin top right) and materialises its blur rather than
+   plain-fading, and is hidden entirely above 901px - it had no such rule, so
+   crossing the breakpoint with the menu open stranded it on screen with no
+   control able to close it. Paired with scripts.html, which gains Escape-to-
+   close (there was no keyboard dismissal at all) and a breakpoint listener.
+   (v6 below)
+   v6: adds prefers-reduced-transparency and prefers-contrast (the site has
+   four translucent chrome surfaces and had neither), and suppresses the iOS
+   tap flash that painted over the press feedback. (v5 below)
    Header, mobile nav, hamburger, sticky bar and footer.
    Desktop and mobile, media queries included.
 
@@ -87,17 +97,32 @@
 .mob-hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
 .mob-hamburger.open span:nth-child(2) { opacity:0; }
 .mob-hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+/* Anchored to the hamburger that opens it, per the spatial-consistency rule:
+   a menu should emerge from the control that triggered it, so transform-origin
+   is the top-right corner where that button sits, not the element's centre.
+   The blur and scale animate together so the panel reads as a real material
+   arriving rather than a rectangle being cross-faded in. */
 .mob-menu {
   display:flex; position:fixed; top:60px; left:0; right:0; z-index:299;
-  background:rgba(255,255,255,0.98); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+  background:rgba(255,255,255,0.98);
+  backdrop-filter:blur(0px); -webkit-backdrop-filter:blur(0px);
   border-bottom:1.5px solid #E2E8F0; padding:0.75rem 1.25rem 1.5rem;
   flex-direction:column; gap:4px; box-shadow:0 8px 30px rgba(0,0,0,0.1); border-radius:0 0 20px 20px;
-  opacity:0; transform:translateY(-8px); visibility:hidden; pointer-events:none;
-  transition:opacity 0.22s cubic-bezier(0.16,1,0.3,1), transform 0.22s cubic-bezier(0.16,1,0.3,1), visibility 0s linear 0.22s;
+  transform-origin:top right;
+  opacity:0; transform:translateY(-8px) scale(0.97); visibility:hidden; pointer-events:none;
+  transition:opacity 0.22s cubic-bezier(0.16,1,0.3,1),
+             transform 0.22s cubic-bezier(0.16,1,0.3,1),
+             backdrop-filter 0.22s cubic-bezier(0.16,1,0.3,1),
+             -webkit-backdrop-filter 0.22s cubic-bezier(0.16,1,0.3,1),
+             visibility 0s linear 0.22s;
 }
 .mob-menu.open {
   opacity:1; transform:none; visibility:visible; pointer-events:auto;
-  transition:opacity 0.22s cubic-bezier(0.16,1,0.3,1), transform 0.22s cubic-bezier(0.16,1,0.3,1);
+  backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+  transition:opacity 0.22s cubic-bezier(0.16,1,0.3,1),
+             transform 0.22s cubic-bezier(0.16,1,0.3,1),
+             backdrop-filter 0.22s cubic-bezier(0.16,1,0.3,1),
+             -webkit-backdrop-filter 0.22s cubic-bezier(0.16,1,0.3,1);
 }
 .mob-link { font-family:'DM Sans', sans-serif; font-size:15px; font-weight:600; color:#0F172A; text-decoration:none; padding:0.9rem 1rem; border-radius:10px; display:block; transition:background 0.18s,color 0.18s,transform 0.25s cubic-bezier(0.16,1,0.3,1); }
 .mob-link:hover { background:#EEF3FF; color:#1560FF; transform:translateX(3px); }
@@ -172,6 +197,14 @@
 @media (max-width:900px) {
 .desk-nav { display:none; }
 .mob-nav  { display:flex; }
+}
+/* Above 900px the hamburger is gone, so nothing can close this menu. Without
+   this rule, opening the menu on a phone and then rotating to landscape (or
+   resizing a window across the breakpoint) left the panel stranded on screen
+   with no control to dismiss it. Also stops an always-rendered blurred
+   surface costing compositor work on desktop. */
+@media (min-width:901px) {
+.mob-menu { display:none; }
 }
 @media (max-width:720px) {
 .sticky-cta { display:flex; }
@@ -315,6 +348,48 @@ footer {
   .footer-social a:hover, .footer-social a:active {
     transform:none;
   }
-  .mob-menu { transition:opacity 0.15s ease, visibility 0s linear 0.15s; }
-  .mob-menu.open { transition:opacity 0.15s ease; }
+  .mob-menu {
+    transform:none;
+    backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+    transition:opacity 0.15s ease, visibility 0s linear 0.15s;
+  }
+  .mob-menu.open { transform:none; transition:opacity 0.15s ease; }
+}
+
+/* Reduced transparency. Every translucent surface here goes solid and drops
+   its blur. The backgrounds were already 0.88-0.97 alpha, so going opaque
+   barely changes the look but removes the blur cost and the see-through. */
+@media (prefers-reduced-transparency: reduce) {
+  .desk-nav, .mob-nav, .mob-menu, .sticky-cta {
+    background:#FFFFFF;
+    backdrop-filter:none;
+    -webkit-backdrop-filter:none;
+  }
+  .mob-menu.open { backdrop-filter:none; -webkit-backdrop-filter:none; }
+}
+
+/* High contrast. Near-solid backgrounds with a defined, contrasting border,
+   and the muted greys darkened to carry real contrast against the footer's
+   light background. */
+@media (prefers-contrast: more) {
+  .desk-nav, .mob-nav, .mob-menu, .sticky-cta {
+    background:#FFFFFF;
+    backdrop-filter:none;
+    -webkit-backdrop-filter:none;
+    border-bottom:1px solid #0F172A;
+  }
+  .sticky-cta { border-bottom:0; border-top:1px solid #0F172A; }
+  .mob-menu.open { backdrop-filter:none; -webkit-backdrop-filter:none; }
+  .pill-ghost { border-color:#0F172A; }
+  .footer-col a, .footer-contact address, .footer-copy, .footer-note { color:#334155; }
+  .footer-hours { color:#475569; }
+  .footer-social a { border-color:#0F172A; }
+}
+
+/* The grey iOS tap flash paints over the press-scale feedback defined above,
+   so the two fight each other. Suppressed on the chrome's tappable elements;
+   the scale and colour change are the feedback now. */
+.nav-pill, .nav-logo, .mob-link, .mob-hamburger,
+.sticky-cta a, .wa-bubble, .footer-social a, .footer-phone, .footer-col a {
+  -webkit-tap-highlight-color:transparent;
 }

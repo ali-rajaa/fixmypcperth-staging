@@ -1,5 +1,10 @@
 /* ==========================================================
-   pricing.css   VERSION 5
+   pricing.css   VERSION 6
+   v6: adds prefers-contrast, kills the iOS tap flash, em tracking on the
+   fluid section title, and fixes stacked translucency - .pr-tools was a
+   translucent blurred bar sticking directly under the equally translucent
+   .desk-nav, which collapses legibility. It is opaque now.
+   (v5 below)
    Apple-design pass: critically damped hover, instant press
    feedback, reduced-motion sweep. Also fixes a real bug found
    in audit: .pr-row-main had no rule at all (see below).
@@ -97,7 +102,12 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 .pr-intro strong { color:var(--ink2); font-weight:700; }
 
 /* ---------- search and category bar ---------- */
-.pr-tools { position:sticky; top:var(--nav-h); z-index:40; background:rgba(255,255,255,0.94); backdrop-filter:blur(10px); border-bottom:1px solid var(--border); }
+/* This bar sticks directly beneath .desk-nav, which is itself a translucent
+   blurred surface. Two light translucent layers stacked on each other is the
+   one thing that reliably destroys legibility - whatever scrolls under this
+   bar showed through it and then through the nav above it. Since this is
+   never the topmost layer, it is opaque and the nav keeps the blur. */
+.pr-tools { position:sticky; top:var(--nav-h); z-index:40; background:var(--bg); border-bottom:1px solid var(--border); }
 .pr-tools-inner { padding-top:0.9rem; padding-bottom:0.9rem; }
 /* The input carried its own focus outline on top of the wrapper's border,
    which is where the thick double ring came from. The input's ring is off and
@@ -177,7 +187,7 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 .pr-main { min-width:0; padding-bottom:2rem; }
 .pr-sec { padding:0 0 2.5rem; }
 .pr-sec:first-of-type { padding-top:0; }
-.pr-sec-title { font-family:var(--display); font-size:clamp(1.25rem,2.4vw,1.6rem); font-weight:800; letter-spacing:-0.6px; color:var(--ink); margin:0 0 0.4rem; display:flex; align-items:center; gap:10px; }
+.pr-sec-title { font-family:var(--display); font-size:clamp(1.25rem,2.4vw,1.6rem); font-weight:800; letter-spacing:-0.027em; color:var(--ink); margin:0 0 0.4rem; display:flex; align-items:center; gap:10px; }
 .pr-sec-count { font-family:var(--body); font-size:12px; font-weight:700; color:var(--muted); background:var(--bg3); border-radius:6px; padding:3px 8px; }
 .pr-sec-blurb { font-size:14.5px; color:var(--muted); line-height:1.65; max-width:64ch; margin:0 0 1.2rem; }
 
@@ -291,6 +301,23 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 @media (prefers-reduced-motion: reduce) {
   .faq-a, .faq-a p, .faq-q svg, .pr-chips, .pr-side-item { transition:none; scroll-behavior:auto; }
   .pr-chip:active, .pr-book:active, .pr-side-cta:active, .btn-outline:active, .pr-search-clear:active { transform:none; }
+}
+
+/* High contrast. Muted greys darkened, and the tinted panels given a
+   defined border rather than relying on fill alone. */
+@media (prefers-contrast: more) {
+  .pr-intro, .pr-desc, .pr-sec-blurb, .pr-opt-desc, .pr-rule p,
+  .faq-a p, .pr-plan-who, .pr-quick-lbl { color:#334155; }
+  .pr-row, .pr-opt, .pr-plan, .faq-item, .pr-side-card, .pr-quick-item { border-color:#0F172A; }
+  .pr-book { border-color:#0A3ACC; }
+  .btn-outline, .pr-side-cta { border-color:#0F172A; }
+  .pr-tools { border-bottom-color:#0F172A; }
+}
+
+/* The grey iOS tap flash paints over the press-scale feedback above. */
+.pr-chip, .pr-book, .pr-side-item, .pr-side-cta, .pr-search-clear,
+.btn-outline, .faq-q {
+  -webkit-tap-highlight-color:transparent;
 }
 
 /* ==========================================================

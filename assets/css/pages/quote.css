@@ -1,5 +1,7 @@
 /* ==========================================================
-   quote.css   VERSION 3
+   quote.css   VERSION 4
+   v4: adds prefers-contrast, kills the iOS tap flash, em tracking on the
+   fluid h1. (v3 below)
    Page stylesheet for /quote-request. Self-contained with its
    own :root, like every page CSS here. Tokens are never
    shared between page stylesheets.
@@ -35,7 +37,7 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
    on screen, not to give the headline room to breathe. */
 .qr-hero { background:var(--bg2); padding:88px 0 2rem; border-bottom:1px solid var(--border); }
 .qr-hero-inner { max-width:1100px; margin:0 auto; padding:0 2rem; }
-.qr-hero h1 { font-family:var(--display); font-size:clamp(1.8rem,3.2vw,2.4rem); font-weight:800; letter-spacing:-1.2px; line-height:1.12; color:var(--ink); margin:0 0 0.6rem; }
+.qr-hero h1 { font-family:var(--display); font-size:clamp(1.8rem,3.2vw,2.4rem); font-weight:800; letter-spacing:-0.036em; line-height:1.12; color:var(--ink); margin:0 0 0.6rem; }
 .qr-sub { font-size:15.5px; color:var(--muted); line-height:1.7; margin:0; max-width:64ch; }
 
 /* ---------- layout ---------- */
@@ -214,4 +216,18 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
   .qr-progress-fill, .qr-opt-face, .qr-submit, .qr-btn, .qr-saved button { transition:none; }
   .qr-opt:active .qr-opt-face, .qr-submit:active, .qr-btn:active { transform:none; }
   html { scroll-behavior:auto; }
+}
+
+/* High contrast. Muted greys darkened, panels and form fields given a
+   defined border rather than relying on a tinted fill alone. */
+@media (prefers-contrast: more) {
+  .qr-sub, .qr-privacy, .qr-note, .qr-addr, .qr-card-eyebrow { color:#334155; }
+  .qr-opt-face, .qr-card, .qr-field input, .qr-field select, .qr-field textarea { border-color:#0F172A; }
+  .qr-btn-ghost { border-color:#0F172A; }
+  .qr-list li::before { border-color:#15803D; }
+}
+
+/* The grey iOS tap flash paints over the press-scale feedback above. */
+.qr-opt, .qr-submit, .qr-btn, .qr-saved button, .qr-radio {
+  -webkit-tap-highlight-color:transparent;
 }
