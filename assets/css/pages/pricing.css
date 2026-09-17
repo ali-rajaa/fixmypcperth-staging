@@ -276,6 +276,19 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 .pr-rule h3 { font-family:var(--display); font-size:1.02rem; font-weight:700; color:var(--ink); margin:0 0 0.45rem; }
 .pr-rule p { font-size:14.5px; color:var(--muted); line-height:1.75; margin:0; }
 
+/* ---------- links out to the service detail pages ---------- */
+.pr-links { display:flex; flex-wrap:wrap; gap:8px; }
+.pr-link-pill {
+  display:inline-flex; align-items:center; font-family:var(--body); font-size:13.5px;
+  font-weight:600; color:var(--blue); text-decoration:none;
+  background:var(--bg); border:1.5px solid var(--blue-mid);
+  padding:8px 16px; border-radius:50px;
+  -webkit-tap-highlight-color:transparent;
+  transition:background 0.15s,border-color 0.15s,transform 0.1s var(--ease-press);
+}
+.pr-link-pill:hover { background:var(--blue-lt); border-color:var(--blue); }
+.pr-link-pill:active { transform:scale(0.95); }
+
 /* ---------- faq ---------- */
 .pr-faq-sec { padding:3.75rem 0 4rem; }
 .pr-faq { display:flex; flex-direction:column; gap:8px; margin-top:1.5rem; max-width:840px; }
@@ -300,7 +313,7 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 
 @media (prefers-reduced-motion: reduce) {
   .faq-a, .faq-a p, .faq-q svg, .pr-chips, .pr-side-item { transition:none; scroll-behavior:auto; }
-  .pr-chip:active, .pr-book:active, .pr-side-cta:active, .btn-outline:active, .pr-search-clear:active { transform:none; }
+  .pr-chip:active, .pr-book:active, .pr-side-cta:active, .btn-outline:active, .pr-search-clear:active, .pr-link-pill:active { transform:none; }
 }
 
 /* High contrast. Muted greys darkened, and the tinted panels given a
@@ -309,7 +322,7 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
   .pr-intro, .pr-desc, .pr-sec-blurb, .pr-opt-desc, .pr-rule p,
   .faq-a p, .pr-plan-who, .pr-quick-lbl { color:#334155; }
   .pr-row, .pr-opt, .pr-plan, .faq-item, .pr-side-card, .pr-quick-item { border-color:#0F172A; }
-  .pr-book { border-color:#0A3ACC; }
+  .pr-book, .pr-link-pill { border-color:#0A3ACC; }
   .btn-outline, .pr-side-cta { border-color:#0F172A; }
   .pr-tools { border-bottom-color:#0F172A; }
 }

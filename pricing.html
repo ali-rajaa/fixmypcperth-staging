@@ -1,7 +1,7 @@
 ---
 layout: default
 css: pricing
-title: "Computer Repair Prices Perth | FixMyPC Perth"
+title: "Computer Repair Prices Perth | Flat $120 All-In | FixMyPC"
 description: "Computer repair Perth prices, all upfront. Diagnostic and repair $120 flat, virus removal $99, data recovery from $149. Canning Vale workshop, $35 call-out."
 ---
 {%- comment -%}
@@ -22,7 +22,7 @@ description: "Computer repair Perth prices, all upfront. Diagnostic and repair $
 {%- assign first = true -%}
 {%- for s in D.services -%}{%- if s.price -%}
 {%- unless first %},{% endunless %}{%- assign first = false -%}
-{"@type":"Offer","itemOffered":{"@type":"Service","name":{{ s.name | jsonify }}},"price":"{{ s.price }}","priceCurrency":"{{ D.meta.currency }}"}
+{"@type":"Offer","itemOffered":{"@type":"Service","name":{{ s.name | jsonify }}},"price":"{{ s.price }}","priceCurrency":"{{ D.meta.currency }}","availability":"https://schema.org/InStock","seller":{"@id":"https://www.fixmypcperth.com/#business"}}
 {%- endif -%}{%- endfor -%}
 {%- for a in D.addons -%},{"@type":"Offer","itemOffered":{"@type":"Service","name":{{ a.name | jsonify }}},"price":"{{ a.price }}","priceCurrency":"{{ D.meta.currency }}"}{%- endfor -%}
 {%- for p in D.packages -%},{"@type":"Offer","itemOffered":{"@type":"Service","name":{{ p.name | jsonify }}},"price":"{{ p.price }}","priceCurrency":"{{ D.meta.currency }}"}{%- endfor -%}
@@ -284,7 +284,7 @@ description: "Computer repair Perth prices, all upfront. Diagnostic and repair $
 <section class="pr-sec pr-wide" id="bizit">
   <div class="wrap">
     <h2 class="pr-sec-title">Business IT Support Perth</h2>
-    <p class="pr-sec-blurb">Monthly managed plans, billed monthly with no lock-in and 14 days notice to cancel. Full detail on the business IT page.</p>
+    <p class="pr-sec-blurb">Monthly managed plans, billed monthly with no lock-in and 14 days notice to cancel. Full detail on the <a href="/business-it-support">business IT support</a> page.</p>
   </div>
   <div class="wrap pr-plans">
     {%- for pl in D.plans %}
@@ -307,13 +307,37 @@ description: "Computer repair Perth prices, all upfront. Diagnostic and repair $
     <div class="pr-rule"><h3>The {% include price.html key='diagnostic-repair-all-in' bare=true raw=true %} is the job, not the hour</h3><p>One flat fee covers the diagnostic, all repair labour and the 30-day warranty. It is charged in full whether you go ahead with the repair or not, because the diagnostic is the work. If a part is needed, the labour to fit it is already included and you pay only for the part.</p></div>
     <div class="pr-rule"><h3>Prices are fixed, never requoted</h3><p>The price you are quoted is the price you pay. If we find something else once the machine is open, we tell you. We do not come back with a bigger number.</p></div>
     <div class="pr-rule"><h3>Quotes hold for six months</h3><p>A written quote from us is valid for six months from the date we issue it.</p></div>
-    <div class="pr-rule"><h3>No fix no fee on data recovery</h3><p>Both recovery services carry it. If we cannot get your files back you pay nothing. If we come to you rather than you coming to us, the {% include price.html key='on-site-call-out' bare=true raw=true %} call-out still applies.</p></div>
+    <div class="pr-rule"><h3>No fix no fee on data recovery</h3><p>Both <a href="/data-recovery-perth">data recovery</a> services carry it. If we cannot get your files back you pay nothing. If we come to you rather than you coming to us, the {% include price.html key='on-site-call-out' bare=true raw=true %} call-out still applies.</p></div>
     <div class="pr-rule"><h3>On-site is a flat {% include price.html key='on-site-call-out' bare=true raw=true %} call-out</h3><p>Charged per visit, on top of the service price, on every service. A $90 job at your place is $125. Most mobile technicians in Perth bill $205 an hour with a one-hour minimum.</p></div>
     <div class="pr-rule"><h3>Everything includes GST</h3><p>Parts and labour. No fees added at collection.</p></div>
     <div class="pr-rule"><h3>Payment</h3><p>Cash, bank transfer or PayID. A deposit covering the part cost is taken when we have to order one, with the labour paid on collection.</p></div>
     <div class="pr-rule"><h3>Same day where we can</h3><p>Drop off before 2pm and most repairs are ready by 6pm the same day at no extra cost. It is best effort rather than a guarantee, and we tell you early if we cannot make it. Work finishing after 6pm carries the $20 priority booking fee.</p></div>
   </div>
 </section>
+
+<!-- Detail pages for the services priced above. The pricing page is one of
+     the strongest pages on the site but was linking out to almost nothing,
+     so the equity stopped here instead of reaching the service pages. -->
+<section class="pr-sec pr-wide" id="service-pages">
+  <div class="wrap">
+    <span class="s-eyebrow">Service detail</span>
+    <h2 class="pr-sec-title">Read more about a repair</h2>
+    <p class="pr-sec-blurb">Every price on this page has a page behind it explaining what the job involves, how long it takes and what you get back.</p>
+  </div>
+  <div class="wrap pr-links">
+    <a class="pr-link-pill" href="/laptop-repair-perth">Laptop Repair Perth</a>
+    <a class="pr-link-pill" href="/virus-removal-perth">Virus Removal Perth</a>
+    <a class="pr-link-pill" href="/data-recovery-perth">Data Recovery Perth</a>
+    <a class="pr-link-pill" href="/ssd-upgrade-perth">SSD Upgrade Perth</a>
+    <a class="pr-link-pill" href="/slow-computer-repair-perth">Slow Computer Fix Perth</a>
+    <a class="pr-link-pill" href="/computer-wont-turn-on-perth">Computer Won't Turn On</a>
+    <a class="pr-link-pill" href="/laptop-battery-replacement-perth">Laptop Battery Replacement</a>
+    <a class="pr-link-pill" href="/windows-11-upgrade-perth">Windows 11 Upgrade</a>
+    <a class="pr-link-pill" href="/gaming-pc-build-perth">Gaming PC Build Perth</a>
+    <a class="pr-link-pill" href="/computer-backup-setup-perth">Computer Backup Setup</a>
+  </div>
+</section>
+
 <section class="pr-sec pr-faq-sec pr-wide" id="faq">
   <div class="wrap">
     <span class="s-eyebrow">Pricing questions</span>
