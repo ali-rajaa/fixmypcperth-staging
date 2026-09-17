@@ -1,0 +1,515 @@
+---
+layout: default
+css: business-it
+title: "Managed IT Support Perth | From $149/Month | FixMyPC Perth"
+description: "Managed IT support for Perth small business from $149/month. Antivirus, cloud backup, monitoring and 4 hour on-site response. Monthly, no lock-in."
+---
+{%- comment -%}
+  Every plan price and bolt-on price on this page comes from
+  _data/services.yml through the price include. Never type a figure here.
+
+  Claims policy for this page. The old version carried several numbers that
+  could not be backed: "most businesses recover 8+ hours a month", "70%+ less
+  than in-house" and "the output of a part-time IT professional". Under
+  Australian Consumer Law a specific numeric claim needs a reasonable basis,
+  so the unverifiable ones are gone. What remains is either sourced market
+  data (Perth IT salary figures, published competitor hourly rates) or a
+  named client's own reported experience, attributed to that client rather
+  than presented as a typical result.
+{%- endcomment -%}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://www.fixmypcperth.com/business-it-support#service",
+  "serviceType": "Managed IT Support",
+  "name": "Managed IT Support Perth",
+  "description": "Monthly managed IT support for Perth small businesses. Managed antivirus, cloud backup, proactive monitoring, unlimited remote support and on-site attendance.",
+  "url": "https://www.fixmypcperth.com/business-it-support",
+  "provider": {
+    "@type": "LocalBusiness",
+    "@id": "https://www.fixmypcperth.com/#business",
+    "name": "FixMyPC Perth",
+    "telephone": "+61452573701",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "7 Barraberry Retreat",
+      "addressLocality": "Canning Vale",
+      "addressRegion": "WA",
+      "postalCode": "6155",
+      "addressCountry": "AU"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -32.0697802,
+      "longitude": 115.9245929
+    }
+  },
+  "areaServed": [
+    {"@type": "City", "name": "Perth"},
+    {"@type": "AdministrativeArea", "name": "Canning Vale"},
+    {"@type": "AdministrativeArea", "name": "Willetton"},
+    {"@type": "AdministrativeArea", "name": "Thornlie"},
+    {"@type": "AdministrativeArea", "name": "Cannington"},
+    {"@type": "AdministrativeArea", "name": "Jandakot"},
+    {"@type": "AdministrativeArea", "name": "Cockburn"},
+    {"@type": "AdministrativeArea", "name": "Harrisdale"},
+    {"@type": "AdministrativeArea", "name": "Huntingdale"}
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Managed IT Support Plans",
+    "itemListElement": [
+      {%- assign first = true -%}
+      {%- for pl in site.data.services.plans -%}
+      {%- unless first %},{% endunless %}{%- assign first = false -%}
+      {
+        "@type": "Offer",
+        "name": {{ pl.name | append: " managed IT plan" | jsonify }},
+        "description": {{ pl.covers | jsonify }},
+        "price": "{{ pl.price }}",
+        "priceCurrency": "{{ site.data.services.meta.currency }}",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "{{ pl.price }}",
+          "priceCurrency": "{{ site.data.services.meta.currency }}",
+          "unitCode": "MON",
+          "billingIncrement": 1
+        },
+        "availability": "https://schema.org/InStock",
+        "seller": {"@id": "https://www.fixmypcperth.com/#business"}
+      }
+      {%- endfor -%}
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.fixmypcperth.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Business IT Support", "item": "https://www.fixmypcperth.com/business-it-support"}
+  ]
+}
+</script>
+
+{%- comment -%}
+  FAQPage. Every question below appears word for word in the visible FAQ at
+  the bottom of this page. The old page had seven questions in schema and six
+  on the page, with different wording, which is the usual trigger for a
+  structured data manual action.
+{%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does managed IT support cost for a Perth small business?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Plans start at {% include price.html key='business-it-essential' bare=true raw=true %} a month for up to 5 PCs, {% include price.html key='business-it-business' bare=true raw=true %} for up to 10 and {% include price.html key='business-it-premium' bare=true raw=true %} for up to 20. Extra devices beyond the plan limit are $35, $45 or $60 a month depending on the plan. Every price includes GST."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is included in managed IT support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Managed antivirus on every PC, cloud backup with restore testing, Windows and software patching, proactive monitoring, unlimited remote support during coverage hours and on-site attendance. Hardware, software licences and project work are quoted separately."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you lock businesses into a long contract?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The minimum is one month, billed monthly. There is no lock-in period and you can cancel with 14 days notice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How fast do you respond when something breaks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Remote support runs seven days a week, 7am to 11pm. For an emergency that needs someone on site, we attend within 4 hours on weekdays and within 3 hours on weekends, across the southern Perth corridor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which Perth suburbs do you cover for business IT?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our workshop is in Canning Vale and we attend on site across the southern Perth corridor, including Willetton, Thornlie, Cannington, Jandakot, Cockburn, Harrisdale, Huntingdale and the surrounding suburbs. Remote support covers anywhere in Perth."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a managed plan cheaper than hiring someone in-house?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For a small business, usually yes. An IT support officer in Perth averages around $82,500 a year before superannuation. A managed plan is a few thousand a year. A plan is not a replacement for a full-time employee, but most businesses under 20 staff do not need one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens in the first month?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We audit what you have, then get antivirus and backup live on every machine in the first week. After that we document your setup so any technician who picks up your call already knows how your business is put together."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you support Macs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, for monitoring, antivirus, backup and everyday support. We do not do screen or battery replacement on MacBook or Surface hardware."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="bit-hero">
+  <div class="wrap bit-hero-inner">
+    <span class="s-eyebrow">Managed IT support Perth</span>
+    <h1 class="bit-h1">Your IT, handled.<br>One monthly price.</h1>
+    <p class="bit-hero-sub">
+      We look after the computers your business runs on, so problems get caught
+      before they stop anybody working. Antivirus, backup, updates and support
+      for one fixed monthly fee. Monthly contract, no lock-in.
+    </p>
+    <div class="bit-hero-cta">
+      <a class="btn-blue" href="https://wa.me/61452573701?text=Hi%20I%27d%20like%20to%20talk%20about%20managed%20IT%20support" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-1.6-.8-2.7-1.5-3.8-3.4-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5s-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 00-8.6 15L2 22l5.1-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-3-.2-.3A8.2 8.2 0 1112 20.2z"/></svg>
+        Talk to us about a plan
+      </a>
+      <a class="btn-outline" href="#plans">See the plans and prices</a>
+    </div>
+    <ul class="bit-hero-points">
+      <li>Monthly contract, 14 days notice to cancel</li>
+      <li>Remote support 7 days, 7am to 11pm</li>
+      <li>Local. Canning Vale workshop, southern Perth corridor</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════ THE HONEST COMPARISON ══════════════ -->
+<section class="bit-sec" id="why">
+  <div class="wrap">
+    <span class="s-eyebrow">Why a plan</span>
+    <h2 class="bit-sec-title">Most Perth IT support bills by the hour. We do not.</h2>
+    <p class="bit-sec-blurb">
+      Hourly support only pays when something is broken. That is the wrong way
+      round. A monthly plan pays us to stop things breaking, and it means you
+      know the number before the month starts.
+    </p>
+  </div>
+
+  <div class="wrap bit-compare">
+    <div class="bit-cmp-card">
+      <span class="bit-cmp-label">Hourly IT support</span>
+      <p class="bit-cmp-figure">$130 to $250<span>per hour</span></p>
+      <p class="bit-cmp-note">
+        The published Australian range for break-fix support in 2026. Geeks
+        Perth advertises $205 an hour. You pay after the problem has already
+        cost you a morning.
+      </p>
+    </div>
+    <div class="bit-cmp-card">
+      <span class="bit-cmp-label">In-house IT person</span>
+      <p class="bit-cmp-figure">~$82,500<span>a year, before super</span></p>
+      <p class="bit-cmp-note">
+        The Perth average for an IT support officer. A real option once you
+        are past about 20 staff. Below that it is usually more person than
+        the work needs.
+      </p>
+    </div>
+    <div class="bit-cmp-card bit-cmp-ours">
+      <span class="bit-cmp-label">A managed plan</span>
+      <p class="bit-cmp-figure">{% include price.html key='business-it-essential' bare=true %}<span>a month, from</span></p>
+      <p class="bit-cmp-note">
+        Fixed. Monitoring, antivirus, backup and support included. You are
+        paying for the problems that never happen, which is the part hourly
+        billing can never sell you.
+      </p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <p class="bit-source-note">
+      Hourly range from published 2026 Australian MSP pricing guides. Perth
+      salary figure is the Glassdoor average for an IT Support Officer in
+      Perth, July 2026. A managed plan is not a replacement for a full-time
+      employee and we will say so if that is what you actually need.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════ PLANS ══════════════ -->
+<section class="bit-sec bit-plans-sec" id="plans">
+  <div class="wrap">
+    <span class="s-eyebrow">Plans and pricing</span>
+    <h2 class="bit-sec-title">Three plans. Pick by how many PCs you run.</h2>
+    <p class="bit-sec-blurb">
+      Every plan includes the same core cover. The difference is how many
+      machines it stretches to and how fast we get to you. All prices include
+      GST and are billed monthly.
+    </p>
+  </div>
+
+  <div class="wrap bit-plans">
+    {%- for pl in site.data.services.plans %}
+    <div class="bit-plan{% if pl.key == 'business-it-business' %} bit-plan-pick{% endif %}">
+      {%- if pl.key == 'business-it-business' %}
+      <span class="bit-plan-flag">Most businesses land here</span>
+      {%- endif %}
+      <span class="bit-plan-name">{{ pl.name | escape }}</span>
+      <p class="bit-plan-price">
+        {% include price.html key=pl.key bare=true %}<span class="bit-plan-per">/month</span>
+      </p>
+      <p class="bit-plan-covers">{{ pl.covers | escape }}</p>
+      <p class="bit-plan-extra">{{ pl.extra | escape }}</p>
+      <p class="bit-plan-who">{{ pl.who | escape }}</p>
+      <a class="bit-plan-btn" href="https://wa.me/61452573701?text=Hi%20I%27d%20like%20to%20ask%20about%20the%20{{ pl.name | url_encode }}%20IT%20plan" rel="noopener">Ask about {{ pl.name | escape }}</a>
+    </div>
+    {%- endfor %}
+  </div>
+
+  <div class="wrap bit-promo">
+    <p><strong>First month is $99 on any plan.</strong> One month minimum after
+    that, billed monthly, 14 days notice to cancel whenever you want to stop.</p>
+  </div>
+</section>
+
+<!-- ══════════════ WHAT YOU GET ══════════════ -->
+<section class="bit-sec" id="included">
+  <div class="wrap">
+    <span class="s-eyebrow">What is covered</span>
+    <h2 class="bit-sec-title">What every plan includes</h2>
+  </div>
+  <div class="wrap bit-inc">
+    <div class="bit-inc-item">
+      <h3>Managed antivirus</h3>
+      <p>Installed, licensed and monitored by us on every PC on the plan. We see the alerts, not just you.</p>
+    </div>
+    <div class="bit-inc-item">
+      <h3>Cloud backup, tested</h3>
+      <p>Your business files backed up daily, with a restore actually tested rather than assumed. A backup nobody has tested is not a backup.</p>
+    </div>
+    <div class="bit-inc-item">
+      <h3>Updates and patching</h3>
+      <p>Windows and business software kept current, scheduled outside your working hours so nothing reboots mid-invoice.</p>
+    </div>
+    <div class="bit-inc-item">
+      <h3>Proactive monitoring</h3>
+      <p>We watch drive health, disk space and failures. Two failing drives caught early is two machines that never died on a Monday.</p>
+    </div>
+    <div class="bit-inc-item">
+      <h3>Unlimited remote support</h3>
+      <p>Seven days a week, 7am to 11pm. Most issues are fixed while you are still on the phone.</p>
+    </div>
+    <div class="bit-inc-item">
+      <h3>On-site when it needs it</h3>
+      <p>Some things cannot be fixed down a wire. We come out. Emergencies get 4 hours on weekdays, 3 on weekends.</p>
+    </div>
+    <div class="bit-inc-item">
+      <h3>Your setup, documented</h3>
+      <p>Passwords, network layout, what is plugged into what. So the answer is never "the last guy knew".</p>
+    </div>
+    <div class="bit-inc-item">
+      <h3>New starters and leavers</h3>
+      <p>Setting up a new employee's PC and email, and locking out someone who has left, are both included.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ BOLT-ONS ══════════════ -->
+<section class="bit-sec" id="bolt-ons">
+  <div class="wrap">
+    <span class="s-eyebrow">Bolt-ons</span>
+    <h2 class="bit-sec-title">Extras, only if you want them</h2>
+    <p class="bit-sec-blurb">Added to a plan, never billed as a surprise.</p>
+  </div>
+  <div class="wrap bit-addons">
+    <div class="bit-addon">
+      <span class="bit-addon-name">Backup audit and restore test</span>
+      <p class="bit-addon-desc">A full test of your backups to prove the data actually comes back, not just that the job ran.</p>
+      <span class="bit-addon-price">{% include price.html key='biz-backup-audit' bare=true %} per year</span>
+    </div>
+    <div class="bit-addon">
+      <span class="bit-addon-name">Extra on-site visit</span>
+      <p class="bit-addon-desc">An additional site visit beyond what your plan covers, booked when you need it.</p>
+      <span class="bit-addon-price">{% include price.html key='biz-extra-onsite' bare=true %} per visit</span>
+    </div>
+    <div class="bit-addon">
+      <span class="bit-addon-name">After-hours emergency call-out</span>
+      <p class="bit-addon-desc">On-site emergency response outside standard hours, evenings and weekends.</p>
+      <span class="bit-addon-price">{% include price.html key='biz-afterhours-callout' bare=true %} flat</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CASE STUDY ══════════════ -->
+<section class="bit-sec bit-case-sec" id="case-study">
+  <div class="wrap">
+    <span class="s-eyebrow">Client case study</span>
+    <h2 class="bit-sec-title">Hyperlink Solutions, Perth</h2>
+  </div>
+  <div class="wrap bit-case">
+    <div class="bit-case-body">
+      <p class="bit-case-meta">IT outsourcing and development &middot; Perth WA &middot; on the Business plan</p>
+      <p>
+        Hyperlink Solutions came to us with unmanaged workstations, no
+        antivirus, no backup and no visibility into any of it. Small problems
+        were quietly eating billable developer hours every week.
+      </p>
+      <p>
+        We moved them onto the Business plan. Inside the first week managed
+        antivirus was live, cloud backup was protecting client project files
+        and the network audit was done. Two failing drives were found before
+        either of them took data with it.
+      </p>
+      <p class="bit-case-claim">
+        Over the following twelve months, their owner reported recovering
+        around 8 hours of staff time a month that had previously gone on IT
+        problems.
+      </p>
+      <blockquote class="bit-quote">
+        <p>
+          Before FixMyPC Perth, small IT issues were adding up to real lost
+          time every week. Since they took over our IT, everything just works.
+          Our developers focus on client work instead of troubleshooting. The
+          fixed monthly cost means no surprise bills and budgeting is finally
+          predictable. Having a local Perth business who knows our setup and
+          responds fast has been genuinely valuable.
+        </p>
+        <cite>Hyperlink Solutions, IT outsourcing and development, Perth WA</cite>
+      </blockquote>
+      <p class="bit-source-note">
+        One client's own reported experience over twelve months, shared with
+        their permission. Your results will depend on how your business is set
+        up and what shape your systems are in when we start.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ INDUSTRIES ══════════════ -->
+<section class="bit-sec" id="industries">
+  <div class="wrap">
+    <span class="s-eyebrow">By industry</span>
+    <h2 class="bit-sec-title">Perth businesses we work with</h2>
+    <p class="bit-sec-blurb">
+      Different trades break in different ways. A childcare centre has
+      compliance records to protect. A cafe has a POS that cannot go down at
+      midday. These pages go into what each one actually needs.
+    </p>
+  </div>
+  <div class="wrap bit-inds">
+    <a class="bit-ind" href="/it-support-accountants-perth">Accountants and bookkeepers</a>
+    <a class="bit-ind" href="/it-support-allied-health-perth">Allied health and medical</a>
+    <a class="bit-ind" href="/it-support-childcare-perth">Childcare centres</a>
+    <a class="bit-ind" href="/it-support-hospitality-perth">Cafes and restaurants</a>
+    <a class="bit-ind" href="/it-support-legal-perth">Legal firms and conveyancers</a>
+    <a class="bit-ind" href="/it-support-real-estate-perth">Real estate agencies</a>
+    <a class="bit-ind" href="/it-support-retail-perth">Retail businesses</a>
+    <a class="bit-ind" href="/it-support-trades-perth">Trades and construction</a>
+  </div>
+</section>
+
+<!-- ══════════════ ALSO OFFER ══════════════ -->
+<section class="bit-sec" id="also">
+  <div class="wrap">
+    <span class="s-eyebrow">Also available</span>
+    <h2 class="bit-sec-title">One-off work, no plan needed</h2>
+    <p class="bit-sec-blurb">
+      Not every business wants a monthly plan. We do one-off repairs at the
+      same flat prices as everyone else.
+    </p>
+  </div>
+  <div class="wrap bit-links">
+    <a class="bit-link" href="/pricing">All repair prices</a>
+    <a class="bit-link" href="/data-recovery-perth">Data Recovery Perth</a>
+    <a class="bit-link" href="/virus-removal-perth">Virus Removal Perth</a>
+    <a class="bit-link" href="/ssd-upgrade-perth">SSD Upgrade Perth</a>
+    <a class="bit-link" href="/computer-backup-setup-perth">Computer Backup Setup</a>
+    <a class="bit-link" href="/windows-11-upgrade-perth">Windows 11 Upgrade</a>
+  </div>
+</section>
+
+<!-- ══════════════ FAQ ══════════════ -->
+<section class="bit-sec bit-faq-sec" id="faq">
+  <div class="wrap">
+    <span class="s-eyebrow">Common questions</span>
+    <h2 class="bit-sec-title">Business IT support, answered</h2>
+  </div>
+  <div class="wrap bit-faq">
+
+    <div class="faq-item">
+      <button type="button" class="faq-q" aria-expanded="false">How much does managed IT support cost for a Perth small business?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="faq-a"><p>Plans start at {% include price.html key='business-it-essential' bare=true %} a month for up to 5 PCs, {% include price.html key='business-it-business' bare=true %} for up to 10 and {% include price.html key='business-it-premium' bare=true %} for up to 20. Extra devices beyond the plan limit are $35, $45 or $60 a month depending on the plan. Every price includes GST.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q" aria-expanded="false">What is included in managed IT support?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="faq-a"><p>Managed antivirus on every PC, cloud backup with restore testing, Windows and software patching, proactive monitoring, unlimited remote support during coverage hours and on-site attendance. Hardware, software licences and project work are quoted separately.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q" aria-expanded="false">Do you lock businesses into a long contract?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="faq-a"><p>No. The minimum is one month, billed monthly. There is no lock-in period and you can cancel with 14 days notice.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q" aria-expanded="false">How fast do you respond when something breaks?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="faq-a"><p>Remote support runs seven days a week, 7am to 11pm. For an emergency that needs someone on site, we attend within 4 hours on weekdays and within 3 hours on weekends, across the southern Perth corridor.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q" aria-expanded="false">Which Perth suburbs do you cover for business IT?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="faq-a"><p>Our workshop is in Canning Vale and we attend on site across the southern Perth corridor, including Willetton, Thornlie, Cannington, Jandakot, Cockburn, Harrisdale, Huntingdale and the surrounding suburbs. Remote support covers anywhere in Perth.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q" aria-expanded="false">Is a managed plan cheaper than hiring someone in-house?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="faq-a"><p>For a small business, usually yes. An IT support officer in Perth averages around $82,500 a year before superannuation. A managed plan is a few thousand a year. A plan is not a replacement for a full-time employee, but most businesses under 20 staff do not need one.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q" aria-expanded="false">What happens in the first month?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="faq-a"><p>We audit what you have, then get antivirus and backup live on every machine in the first week. After that we document your setup so any technician who picks up your call already knows how your business is put together.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q" aria-expanded="false">Do you support Macs?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="faq-a"><p>Yes, for monitoring, antivirus, backup and everyday support. We do not do screen or battery replacement on MacBook or Surface hardware.</p></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════ CLOSING CTA ══════════════ -->
+<section class="bit-cta">
+  <div class="wrap bit-cta-inner">
+    <h2 class="bit-cta-title">Tell us what you are running.</h2>
+    <p class="bit-cta-sub">
+      Send us how many PCs you have and what keeps going wrong. We will tell
+      you which plan fits, or tell you honestly that you do not need one yet.
+    </p>
+    <div class="bit-cta-btns">
+      <a class="bit-cta-btn bit-cta-wa" href="https://wa.me/61452573701?text=Hi%20I%27d%20like%20to%20talk%20about%20managed%20IT%20support" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.1-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-3-.2-.3A8.2 8.2 0 1112 20.2z"/><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-1.6-.8-2.7-1.5-3.8-3.4-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5s-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 1.9.8 2.7.9 3.6.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+        Message us on WhatsApp
+      </a>
+      <a class="bit-cta-btn bit-cta-ghost" href="/quote-request">Send the details instead</a>
+    </div>
+  </div>
+</section>

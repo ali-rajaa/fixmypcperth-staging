@@ -157,6 +157,9 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
   .lg-btn { width:100%; }
 }
 
+.lg-help-links { font-size:13.5px; color:var(--muted); line-height:1.7; margin:1.1rem 0 0; }
+.lg-help-links a { color:var(--blue); font-weight:600; }
+
 @media (prefers-reduced-motion: reduce) {
   .lg-toc a, .lg-btn, .lg-sec a { transition:none; }
   .lg-btn:active { transform:none; }
