@@ -1,5 +1,8 @@
 /* ==========================================================
-   pricing.css   VERSION 4
+   pricing.css   VERSION 5
+   Apple-design pass: critically damped hover, instant press
+   feedback, reduced-motion sweep. Also fixes a real bug found
+   in audit: .pr-row-main had no rule at all (see below).
    Page stylesheet for /pricing. Self-contained, with its own
    :root, exactly like index.css. Design tokens are never
    shared between page stylesheets: a page that does not
@@ -29,6 +32,11 @@
   --body:      'DM Sans', sans-serif;
   --nav-h:     64px;
   --mob-nav-h: 60px;
+  /* Critically damped (no overshoot) - the default for hover/reveal motion
+     that isn't carrying momentum from a drag or flick. */
+  --ease-settle: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Fast, for the instant press feedback itself. */
+  --ease-press:  cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * { box-sizing: border-box; }
@@ -43,9 +51,10 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
   font-family:var(--body); font-size:15px; font-weight:700; text-decoration:none;
   color:var(--ink); background:var(--bg); border:1.5px solid var(--border2);
   padding:13px 26px; border-radius:50px; max-width:100%;
-  transition:border-color 0.2s,color 0.2s;
+  transition:border-color 0.2s,color 0.2s,transform 0.1s var(--ease-press);
 }
 .btn-outline:hover { border-color:var(--blue); color:var(--blue); }
+.btn-outline:active { transform:scale(0.97); }
 
 /* ---------- hero ---------- */
 .pr-hero { background:var(--bg2); padding:96px 2rem 2.5rem; overflow:hidden; }
@@ -100,8 +109,9 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 .pr-search svg { width:17px; height:17px; color:var(--muted2); flex-shrink:0; transition:color 0.2s; }
 .pr-search input { flex:1; min-width:0; border:0; background:none; outline:none; font-family:var(--body); font-size:15px; color:var(--ink); }
 .pr-search input::-webkit-search-cancel-button { display:none; }
-.pr-search-clear { display:flex; align-items:center; justify-content:center; width:28px; height:28px; border:0; background:none; padding:0; cursor:pointer; color:var(--muted); border-radius:50%; }
+.pr-search-clear { display:flex; align-items:center; justify-content:center; width:28px; height:28px; border:0; background:none; padding:0; cursor:pointer; color:var(--muted); border-radius:50%; transition:background 0.15s,color 0.15s,transform 0.1s var(--ease-press); }
 .pr-search-clear:hover { background:var(--bg3); color:var(--ink); }
+.pr-search-clear:active { transform:scale(0.88); }
 
 /* Phone and small tablet only. From 1000px the sidebar rail replaces it. */
 .pr-chips { display:none; gap:8px; margin-top:0.8rem; overflow-x:auto; scrollbar-width:none; scroll-behavior:smooth; }
@@ -110,9 +120,10 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
   flex:0 0 auto; font-family:var(--body); font-size:13px; font-weight:600; white-space:nowrap;
   color:var(--ink2); background:var(--bg); border:1px solid var(--border);
   border-radius:10px; padding:9px 15px; cursor:pointer;
-  transition:background 0.18s,border-color 0.18s,color 0.18s;
+  transition:background 0.18s,border-color 0.18s,color 0.18s,transform 0.1s var(--ease-press);
 }
 .pr-chip:hover { border-color:var(--blue-mid); color:var(--blue); }
+.pr-chip:active { transform:scale(0.95); }
 .pr-chip.is-active { background:var(--blue); border-color:var(--blue); color:#fff; }
 .pr-chip:focus-visible { outline:2px solid var(--blue); outline-offset:2px; }
 .pr-search input:focus, .pr-search input:focus-visible { outline:none; }
@@ -138,6 +149,7 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 }
 .pr-side-item:last-child { margin-bottom:0; }
 .pr-side-item:hover { background:var(--bg2); }
+.pr-side-item:active { background:var(--border); transition:background 0.1s var(--ease-press); }
 .pr-side-item.is-active { background:var(--blue-lt); }
 .pr-side-item:focus-visible { outline:2px solid var(--blue); outline-offset:-2px; }
 .pr-side-accent { width:3px; height:42px; border-radius:0 2px 2px 0; background:transparent; flex-shrink:0; transition:background 0.16s; }
@@ -154,9 +166,10 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
   display:block; text-align:center; margin-top:0.85rem; text-decoration:none;
   font-family:var(--body); font-size:13px; font-weight:700; color:var(--muted);
   border:1.5px dashed var(--border2); border-radius:12px; padding:0.8rem;
-  transition:border-color 0.18s,color 0.18s;
+  transition:border-color 0.18s,color 0.18s,transform 0.1s var(--ease-press);
 }
 .pr-side-cta:hover { border-color:var(--blue); color:var(--blue); }
+.pr-side-cta:active { transform:scale(0.97); }
 
 .pr-wide { padding-top:3.25rem; }
 
@@ -183,10 +196,14 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
 .pr-row {
   display:grid; grid-template-columns:1fr auto; gap:1.25rem; align-items:center;
   background:var(--bg); border:1px solid var(--border); border-radius:13px;
-  padding:0.9rem 1.1rem; transition:border-color 0.18s,box-shadow 0.18s;
+  padding:0.9rem 1.1rem; transition:border-color 0.18s,box-shadow 0.3s var(--ease-settle);
 }
 .pr-row:hover { border-color:var(--blue-mid); box-shadow:0 6px 22px rgba(15,23,42,0.05); }
 .pr-row[hidden] { display:none; }
+/* Had no rule at all. In a 1fr grid column that means this can't shrink
+   below its content's natural width, so a long service name or description
+   pushes the row wider than its container instead of wrapping inside it. */
+.pr-row-main { min-width:0; }
 .pr-name { font-family:var(--display); font-size:15px; font-weight:700; color:var(--ink); margin:0 0 0.2rem; line-height:1.35; }
 .pr-badge { display:inline-block; font-family:var(--body); font-size:10px; font-weight:700; letter-spacing:0.07em; text-transform:uppercase; color:var(--green); margin-left:6px; vertical-align:middle; }
 .pr-desc { font-size:13.5px; color:var(--muted); line-height:1.6; margin:0; max-width:62ch; }
@@ -211,9 +228,10 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
   font-family:var(--body); font-size:13px; font-weight:700; text-decoration:none;
   color:var(--blue); background:var(--bg); border:1px solid var(--blue-mid);
   padding:7px 16px; border-radius:50px; white-space:nowrap;
-  transition:background 0.18s,border-color 0.18s;
+  transition:background 0.18s,border-color 0.18s,transform 0.1s var(--ease-press);
 }
 .pr-book:hover { background:var(--blue-lt); border-color:var(--blue); }
+.pr-book:active { transform:scale(0.94); }
 .pr-book-wide { width:100%; padding:12px 18px; font-size:14px; }
 
 /* tiered options inside a row */
@@ -257,18 +275,22 @@ body { background:var(--bg); color:var(--ink); font-family:var(--body); font-siz
   width:100%; display:flex; align-items:center; justify-content:space-between; gap:1rem;
   background:none; border:0; text-align:left; cursor:pointer;
   font-family:var(--display); font-size:15px; font-weight:700; color:var(--ink);
-  padding:1.15rem 1.35rem; line-height:1.45;
+  padding:1.15rem 1.35rem; line-height:1.45; transition:background 0.15s;
 }
-.faq-q svg { width:18px; height:18px; flex-shrink:0; color:var(--muted); transition:transform 0.25s cubic-bezier(0.4,0,0.2,1); }
+.faq-q:active { background:var(--bg2); }
+/* A touch of overshoot on the rotation (Apple's own spec value for rotation
+   is damping 0.8) so the tap feels answered rather than merely obeyed. */
+.faq-q svg { width:18px; height:18px; flex-shrink:0; color:var(--muted); transition:transform 0.35s cubic-bezier(0.34,1.35,0.64,1); }
 .faq-item.open .faq-q svg { transform:rotate(180deg); color:var(--blue); }
 .faq-q:focus-visible { outline:2px solid var(--blue); outline-offset:-3px; }
-.faq-a { display:grid; grid-template-rows:0fr; overflow:hidden; transition:grid-template-rows 0.28s cubic-bezier(0.4,0,0.2,1); }
+.faq-a { display:grid; grid-template-rows:0fr; overflow:hidden; transition:grid-template-rows 0.32s var(--ease-settle); }
 .faq-item.open .faq-a { grid-template-rows:1fr; }
-.faq-a p { min-height:0; font-size:14.5px; color:var(--muted); line-height:1.8; margin:0; padding:0 1.35rem; transition:padding 0.28s cubic-bezier(0.4,0,0.2,1); }
+.faq-a p { min-height:0; font-size:14.5px; color:var(--muted); line-height:1.8; margin:0; padding:0 1.35rem; transition:padding 0.32s var(--ease-settle); }
 .faq-item.open .faq-a p { padding:0 1.35rem 1.35rem; }
 
 @media (prefers-reduced-motion: reduce) {
   .faq-a, .faq-a p, .faq-q svg, .pr-chips, .pr-side-item { transition:none; scroll-behavior:auto; }
+  .pr-chip:active, .pr-book:active, .pr-side-cta:active, .btn-outline:active, .pr-search-clear:active { transform:none; }
 }
 
 /* ==========================================================
