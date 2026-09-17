@@ -174,13 +174,20 @@ services:
     price: 145
     prefix: from
     options:
-      - name: Standard
+      # Each option carries its own key so the price include can resolve a
+      # single tier inside a sentence, e.g. the laptop screen FAQ on /pricing.
+      # Without these keys those three figures rendered blank on the page and
+      # in its FAQ schema.
+      - key: laptop-screen-standard
+        name: Standard
         price: 145
         note: Non-touch, the most common panel type
-      - name: Touchscreen
+      - key: laptop-screen-touchscreen
+        name: Touchscreen
         price: 170
         note: Touchscreen or gaming high-refresh panels
-      - name: OLED / Premium
+      - key: laptop-screen-oled-premium
+        name: OLED / Premium
         price: 190
         note: OLED or premium 2-in-1 displays
   - key: laptop-battery-replacement
@@ -572,6 +579,28 @@ addons:
     name: Home PC Care Plan, monthly
     price: 35
     plus: true
+
+# ----------------------------------------------------------
+# BUSINESS IT BOLT-ONS
+# Added to a managed plan, never sold on their own. Kept in
+# addons so the price include resolves them like any other
+# key. The old site also advertised "extra PC coverage
+# $25 to $29 per PC" here, which contradicted the +$35/$45/$60
+# per-device figures on the plans themselves. Removed: the
+# per-device price belongs to the plan, in one place only.
+# ----------------------------------------------------------
+  - key: biz-backup-audit
+    name: Backup audit and restore test
+    price: 99
+    suffix: per year
+  - key: biz-extra-onsite
+    name: Extra on-site visit
+    price: 89
+    suffix: per visit
+  - key: biz-afterhours-callout
+    name: After-hours emergency call-out
+    price: 99
+    suffix: flat
 packages:
   - key: complete-pc-overhaul
     name: Complete PC Overhaul
