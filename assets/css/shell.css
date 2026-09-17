@@ -1,5 +1,5 @@
 /* ==========================================================
-   shell.css   VERSION 4
+   shell.css   VERSION 5
    Header, mobile nav, hamburger, sticky bar and footer.
    Desktop and mobile, media queries included.
 
@@ -7,6 +7,22 @@
    no var() references, so it can never override a page's own
    design tokens. Loaded AFTER the page stylesheet so the
    chrome always wins.
+
+   v5: Apple-design pass plus an audit that found three real bugs, now
+   fixed:
+   1. .wa-bubble (the floating WhatsApp button) ships in the shared
+      sticky-cta.html include and renders on every page, but was only
+      ever styled in index.css - so it appeared as a bare unstyled link
+      on pricing, terms, privacy and quote-request. Moved here.
+   2. .pill-fb hid a nav item with no matching class anywhere in the
+      markup - dead CSS from a removed Facebook pill. Removed.
+   3. .sc-quote, the primary sticky mobile CTA, had no hover or active
+      state at all. Added press feedback.
+   Also: critically damped hover easing throughout (was a mix of ad hoc
+   bounce curves), real press-scale feedback on every tappable element,
+   a proper open/close transition on the mobile menu (was an instant
+   display:none/flex swap), and a reduced-motion pass - previously only
+   the scroll-driven nav condense respected it.
 
    v2: header polish only. Pill and logo hover states reworked,
    focus-visible rings added, and a scroll-reactive condense on
@@ -37,8 +53,9 @@
 }
 .desk-nav-inner { display:flex; align-items:center; justify-content:space-between; width:100%; max-width:1100px; margin:0 auto; }
 .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; border-radius: 12px; }
-.logo-mark { width: 38px; height: 38px; border-radius: 9px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.28s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.28s ease; }
+.logo-mark { width: 38px; height: 38px; border-radius: 9px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s ease; }
 .nav-logo:hover .logo-mark { transform: scale(1.03); box-shadow: 0 3px 10px rgba(21,96,255,0.18); }
+.nav-logo:active .logo-mark { transform: scale(0.96); transition: transform 0.1s cubic-bezier(0.4,0,0.2,1); }
 .logo-mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .logo-name { font-family: 'Sora', sans-serif; font-size: 16px; font-weight: 700; color: #0F172A; letter-spacing: -0.3px; white-space: nowrap; }
 .logo-name--mob { font-size: 14px; }
@@ -47,9 +64,9 @@
 .nav-logo:hover .logo-name em { color: #0A3ACC; }
 .nav-right { display: flex; align-items: center; gap: 8px; margin-left: auto; }
 .nav-pill { display: inline-flex; align-items: center; gap: 6px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; padding: 9px 18px; border-radius: 50px; text-decoration: none; border: none; cursor: pointer; white-space: nowrap; position: relative;
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.22s ease, transform 0.22s cubic-bezier(0.34,1.4,0.64,1); }
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.22s ease, transform 0.25s cubic-bezier(0.16,1,0.3,1); }
 .nav-pill:hover { transform: translateY(-1px); }
-.nav-pill:active { transform: translateY(0); }
+.nav-pill:active { transform: translateY(0) scale(0.96); transition: transform 0.1s cubic-bezier(0.4,0,0.2,1); }
 .pill-ghost { background: transparent; color: #0F172A; border: 1.5px solid #CBD5E1; padding: 8px 16px; }
 /* A light wash and a slightly warmer border is enough to show which pill is
    under the cursor. The glow and the 2px jump were doing too much for a nav. */
@@ -63,17 +80,28 @@
 .mob-link:focus-visible,
 .mob-hamburger:focus-visible { outline: 2px solid #1560FF; outline-offset: 2px; }
 .mob-nav { display:none; position:fixed; top:0; left:0; right:0; z-index:300; height:60px; background:rgba(255,255,255,0.97); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border-bottom:1.5px solid #E2E8F0; padding:0 1.25rem; align-items:center; justify-content:space-between; box-shadow:0 4px 20px rgba(0,0,0,0.07); }
-.mob-hamburger { display:flex; flex-direction:column; justify-content:center; align-items:center; gap:5px; width:42px; height:42px; background:#F1F5F9; border:1.5px solid #CBD5E1; border-radius:10px; cursor:pointer; flex-shrink:0; transition:background 0.15s,border-color 0.15s,transform 0.15s ease; }
-.mob-hamburger:active { transform:scale(0.93); }
+.mob-hamburger { display:flex; flex-direction:column; justify-content:center; align-items:center; gap:5px; width:42px; height:42px; background:#F1F5F9; border:1.5px solid #CBD5E1; border-radius:10px; cursor:pointer; flex-shrink:0; transition:background 0.15s,border-color 0.15s,transform 0.2s cubic-bezier(0.16,1,0.3,1); }
+.mob-hamburger:active { transform:scale(0.9); transition:transform 0.1s cubic-bezier(0.4,0,0.2,1); }
 .mob-hamburger:hover { background:#EEF3FF; border-color:#C7D8FF; }
 .mob-hamburger span { display:block; width:16px; height:2px; background:#0F172A; border-radius:2px; transition:transform 0.3s ease,opacity 0.3s ease; }
 .mob-hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
 .mob-hamburger.open span:nth-child(2) { opacity:0; }
 .mob-hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
-.mob-menu { display:none; position:fixed; top:60px; left:0; right:0; z-index:299; background:rgba(255,255,255,0.98); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border-bottom:1.5px solid #E2E8F0; padding:0.75rem 1.25rem 1.5rem; flex-direction:column; gap:4px; box-shadow:0 8px 30px rgba(0,0,0,0.1); border-radius:0 0 20px 20px; }
-.mob-menu.open { display:flex; }
-.mob-link { font-family:'DM Sans', sans-serif; font-size:15px; font-weight:600; color:#0F172A; text-decoration:none; padding:0.9rem 1rem; border-radius:10px; display:block; transition:background 0.18s,color 0.18s,transform 0.18s ease; }
+.mob-menu {
+  display:flex; position:fixed; top:60px; left:0; right:0; z-index:299;
+  background:rgba(255,255,255,0.98); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+  border-bottom:1.5px solid #E2E8F0; padding:0.75rem 1.25rem 1.5rem;
+  flex-direction:column; gap:4px; box-shadow:0 8px 30px rgba(0,0,0,0.1); border-radius:0 0 20px 20px;
+  opacity:0; transform:translateY(-8px); visibility:hidden; pointer-events:none;
+  transition:opacity 0.22s cubic-bezier(0.16,1,0.3,1), transform 0.22s cubic-bezier(0.16,1,0.3,1), visibility 0s linear 0.22s;
+}
+.mob-menu.open {
+  opacity:1; transform:none; visibility:visible; pointer-events:auto;
+  transition:opacity 0.22s cubic-bezier(0.16,1,0.3,1), transform 0.22s cubic-bezier(0.16,1,0.3,1);
+}
+.mob-link { font-family:'DM Sans', sans-serif; font-size:15px; font-weight:600; color:#0F172A; text-decoration:none; padding:0.9rem 1rem; border-radius:10px; display:block; transition:background 0.18s,color 0.18s,transform 0.25s cubic-bezier(0.16,1,0.3,1); }
 .mob-link:hover { background:#EEF3FF; color:#1560FF; transform:translateX(3px); }
+.mob-link:active { background:#E4EEFF; transform:translateX(3px) scale(0.98); transition:transform 0.1s cubic-bezier(0.4,0,0.2,1),background 0.1s; }
 .mob-link.active { background:#EEF3FF; color:#0A3ACC; }
 .sticky-cta {
   display:none; position:fixed; bottom:0; left:0; right:0; z-index:400;
@@ -87,9 +115,30 @@
   flex:1; display:flex; align-items:center; justify-content:center; gap:7px;
   font-family:'DM Sans', sans-serif; font-size:14px; font-weight:700; padding:13px 10px;
   border-radius:50px; text-decoration:none; white-space:nowrap;
+  transition:transform 0.1s cubic-bezier(0.4,0,0.2,1), filter 0.15s;
 }
+.sticky-cta a:active { transform:scale(0.96); filter:brightness(0.95); }
 .sticky-cta svg { width:17px; height:17px; flex-shrink:0; }
 .sticky-cta .sc-quote { background:#1560FF; color:#fff; box-shadow:0 4px 14px rgba(21,96,255,0.35); }
+
+/* WhatsApp floating bubble. Ships in the shared sticky-cta.html include, so
+   it renders on every page - it belongs here, not in a page stylesheet.
+   It previously had no rule outside index.css, so on every other page
+   (pricing, terms, privacy, quote-request) it rendered as a bare, unstyled
+   link with a giant raw SVG icon sitting in the document flow. */
+.wa-bubble {
+  position:fixed; bottom:24px; right:24px; z-index:9999; width:58px; height:58px;
+  background:#22C55E; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 4px 20px rgba(34,197,94,0.45); text-decoration:none;
+  transition:transform 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s cubic-bezier(0.16,1,0.3,1);
+}
+.wa-bubble:hover { transform:scale(1.1); box-shadow:0 6px 28px rgba(34,197,94,0.55); }
+.wa-bubble:active { transform:scale(0.95); transition:transform 0.1s cubic-bezier(0.4,0,0.2,1); }
+@media (max-width:720px) {
+  /* Cleared above the sticky call bar, which is fixed to the bottom and
+     about 70px tall. The two were overlapping. */
+  .wa-bubble { bottom:calc(84px + env(safe-area-inset-bottom)); right:16px; width:52px; height:52px; }
+}
 /* Scroll-reactive header. Progressive enhancement: the whole block is
    ignored by browsers that do not support scroll-driven animations, and
    is skipped for anyone who has asked for reduced motion. Nothing here
@@ -121,7 +170,6 @@
 .pill-ghost { padding: 7px 11px; }
 }
 @media (max-width:900px) {
-.desk-nav .pill-fb { display:none; }
 .desk-nav { display:none; }
 .mob-nav  { display:flex; }
 }
@@ -162,9 +210,10 @@ footer {
   display:inline-flex; align-items:center; justify-content:center;
   width:42px; height:42px; border-radius:11px;
   border:1px solid #E2E8F0; background:#FFFFFF; color:#1E293B;
-  transition:border-color .18s, color .18s, transform .18s;
+  transition:border-color .18s, color .18s, transform .25s cubic-bezier(0.16,1,0.3,1);
 }
 .footer-social a:hover { border-color:#1877F2; color:#1877F2; transform:translateY(-2px); }
+.footer-social a:active { transform:translateY(0) scale(0.92); transition:transform 0.1s cubic-bezier(0.4,0,0.2,1); }
 
 .footer-head {
   font-family:'Sora',sans-serif; font-size:12px; font-weight:700;
@@ -250,4 +299,22 @@ footer {
   .footer-contact address, .footer-hours, .footer-phone { display: block; margin-right: 0; }
   .footer-bar { flex-direction: column; align-items: flex-start; gap: .35rem; margin-top: 1.5rem; padding-bottom: 1.25rem; }
   .footer-copy, .footer-note { font-size: 12px; }
+}
+
+/* Reduced motion for the header and footer chrome. Previously only the
+   scroll-driven nav condense checked for this; every hover lift and press
+   scale added above needs the same courtesy. Kept as short opacity/color
+   feedback rather than silence. */
+@media (prefers-reduced-motion: reduce) {
+  .nav-logo:hover .logo-mark, .nav-logo:active .logo-mark,
+  .nav-pill:hover, .nav-pill:active,
+  .mob-hamburger:active,
+  .mob-link:hover, .mob-link:active,
+  .sticky-cta a:active,
+  .wa-bubble:hover, .wa-bubble:active,
+  .footer-social a:hover, .footer-social a:active {
+    transform:none;
+  }
+  .mob-menu { transition:opacity 0.15s ease, visibility 0s linear 0.15s; }
+  .mob-menu.open { transition:opacity 0.15s ease; }
 }
