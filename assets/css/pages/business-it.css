@@ -687,3 +687,25 @@ summary:active { background: var(--bg3); }
 @media (prefers-contrast: more) {
   .hov-lift, .hov-edge { border-color: #0F172A; }
 }
+
+
+/* ----------------------------------------------------------
+   Who we work with, card scroller
+   Was inline: repeat(9, calc((100vw - 2.5rem) / 2)), so every card was half
+   the viewport wide. On a 1920px screen that is a 950px box for two lines of
+   text, which is what made the row look empty and stretched. Fixed widths
+   now, with the half-viewport behaviour kept only on phones where it is
+   actually the right call.
+   ---------------------------------------------------------- */
+.who-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 260px;
+  grid-template-rows: auto;
+  gap: 14px;
+  padding: 4px 0 8px;
+  width: max-content;
+}
+.who-grid > div { min-width: 0; }
+@media (max-width: 900px) { .who-grid { grid-auto-columns: 240px; } }
+@media (max-width: 560px) { .who-grid { grid-auto-columns: calc((100vw - 3.5rem) / 1.6); } }
