@@ -170,8 +170,10 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
   <div class="hero-inner">
     <div>
       <div class="hero-eyebrow">Serving All Perth Businesses</div>
-      <p class="hero-seo-h1">Managed IT Support Perth</p>
-      <h1>We Manage Your <span class="accent">Business Tech</span></h1>
+      <h1 class="hero-h1">
+            <span class="hero-seo-h1">Managed IT Support Perth</span>
+            We Manage Your <span class="accent">Business Tech</span>
+          </h1>
       <p class="hero-sub">Your Full-Scale IT Department, Without the In-House Costs.</p>
       <p class="hero-desc">Your dedicated Managed Service Provider (MSP) in Perth. We provide proactive IT support, remote helpdesk available 7am to 11pm daily, and scheduled onsite visits to keep your business running smoothly. Covering the Perth Metro Region, we protect your data and manage your infrastructure.</p>
       <div class="hero-actions">
@@ -235,9 +237,7 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
     </div>
     <a href="#audit-section"
        onclick="event.preventDefault();document.querySelector('.audit-section').scrollIntoView({behavior:'smooth',block:'start'})"
-       style="display:inline-flex;align-items:center;justify-content:center;background:#fff;color:var(--blue);font-family:var(--body);font-size:13.5px;font-weight:700;padding:10px 22px;border-radius:50px;text-decoration:none;white-space:nowrap;box-shadow:0 4px 16px rgba(0,0,0,0.15);transition:transform 0.15s,box-shadow 0.15s;flex-shrink:0;"
-       onmouseover="this.style.transform='translateY(-2px)'"
-       onmouseout="this.style.transform='translateY(0)'">
+       style="--hov-accent:var(--blue);display:inline-flex;align-items:center;justify-content:center;background:#fff;color:var(--blue);font-family:var(--body);font-size:13.5px;font-weight:700;padding:10px 22px;border-radius:50px;text-decoration:none;white-space:nowrap;box-shadow:0 4px 16px rgba(0,0,0,0.15);transition:transform 0.15s cubic-bezier(0.16,1,0.3,1),box-shadow 0.15s;flex-shrink:0;">
       Book Free IT Audit
     </a>
   </div>
@@ -294,8 +294,7 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
           <p class="plan-tagline">The right foundation for sole traders and small teams. Ideal for businesses running 2 to 5 devices.</p>
           <div class="plan-price-block">
             <div class="plan-price-row">
-              <span class="plan-dollar">$</span>
-              <span class="plan-num">149</span>
+              <span class="plan-num">{% include price.html key='business-it-essential' bare=true raw=true %}</span>
             </div>
             <div class="plan-period">base per month, billed monthly</div>
             <div class="plan-note">+ $35 per device / month</div>
@@ -329,8 +328,7 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
           <p class="plan-tagline">Complete coverage for growing businesses with 3 to 10 devices and no tolerance for downtime.</p>
           <div class="plan-price-block">
             <div class="plan-price-row">
-              <span class="plan-dollar">$</span>
-              <span class="plan-num">199</span>
+              <span class="plan-num">{% include price.html key='business-it-business' bare=true raw=true %}</span>
             </div>
             <div class="plan-period">base per month, billed monthly</div>
             <div class="plan-note">+ $45 per device / month</div>
@@ -365,8 +363,7 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
           <p class="plan-tagline">The complete IT partnership for businesses where every hour of downtime has a direct cost.</p>
           <div class="plan-price-block">
             <div class="plan-price-row">
-              <span class="plan-dollar">$</span>
-              <span class="plan-num">299</span>
+              <span class="plan-num">{% include price.html key='business-it-premium' bare=true raw=true %}</span>
             </div>
             <div class="plan-period">base per month, billed monthly</div>
             <div class="plan-note">+ $60 per device / month</div>
@@ -421,9 +418,7 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
     <div style="overflow-x:auto;padding-bottom:1rem;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.15) transparent;">
       <div style="display:flex;gap:14px;padding:4px 2px 8px;">
 
-        <div class="fade-up" style="width:300px;flex-shrink:0;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:1.5rem;position:relative;overflow:hidden;transition:background 0.2s,border-color 0.2s,transform 0.2s;"
-             onmouseover="this.style.background='rgba(21,96,255,0.1)';this.style.borderColor='rgba(21,96,255,0.35)';this.style.transform='translateY(-4px)'"
-             onmouseout="this.style.background='rgba(255,255,255,0.04)';this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='translateY(0)'">
+        <div class="fade-up hov-lift" style="--hov-accent:rgba(21,96,255,0.35);width:300px;flex-shrink:0;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:1.5rem;position:relative;overflow:hidden;transition:background 0.2s cubic-bezier(0.16,1,0.3,1),border-color 0.2s,transform 0.2s;">
           <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),#00CFFF);"></div>
           <div style="width:36px;height:36px;background:rgba(21,96,255,0.15);border:1px solid rgba(21,96,255,0.3);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -433,9 +428,7 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
           <div style="font-size:12.5px;color:rgba(255,255,255,0.5);line-height:1.65;">We resolve issues remotely before staff are impacted. One client, Hyperlink Solutions, reported recovering around 8 hours a month over twelve months.</div>
         </div>
 
-        <div class="fade-up" style="width:300px;flex-shrink:0;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:1.5rem;position:relative;overflow:hidden;transition:background 0.2s,border-color 0.2s,transform 0.2s;"
-             onmouseover="this.style.background='rgba(34,197,94,0.08)';this.style.borderColor='rgba(34,197,94,0.3)';this.style.transform='translateY(-4px)'"
-             onmouseout="this.style.background='rgba(255,255,255,0.04)';this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='translateY(0)'">
+        <div class="fade-up hov-lift" style="--hov-accent:rgba(34,197,94,0.3);width:300px;flex-shrink:0;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:1.5rem;position:relative;overflow:hidden;transition:background 0.2s cubic-bezier(0.16,1,0.3,1),border-color 0.2s,transform 0.2s;">
           <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#22C55E,#00CFFF);"></div>
           <div style="width:36px;height:36px;background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 110 7H6"/></svg>
@@ -445,9 +438,7 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
           <div style="font-size:12.5px;color:rgba(255,255,255,0.5);line-height:1.65;">One predictable monthly fee. No surprise callout charges, no emergency repair bills. Ever.</div>
         </div>
 
-        <div class="fade-up" style="width:300px;flex-shrink:0;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:1.5rem;position:relative;overflow:hidden;transition:background 0.2s,border-color 0.2s,transform 0.2s;"
-             onmouseover="this.style.background='rgba(168,85,247,0.08)';this.style.borderColor='rgba(168,85,247,0.3)';this.style.transform='translateY(-4px)'"
-             onmouseout="this.style.background='rgba(255,255,255,0.04)';this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='translateY(0)'">
+        <div class="fade-up hov-lift" style="--hov-accent:rgba(168,85,247,0.3);width:300px;flex-shrink:0;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:1.5rem;position:relative;overflow:hidden;transition:background 0.2s cubic-bezier(0.16,1,0.3,1),border-color 0.2s,transform 0.2s;">
           <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#A855F7,#1560FF);"></div>
           <div style="width:36px;height:36px;background:rgba(168,85,247,0.12);border:1px solid rgba(168,85,247,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C084FC" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -457,9 +448,7 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
           <div style="font-size:12.5px;color:rgba(255,255,255,0.5);line-height:1.65;">Cloud backup configured and verified monthly. If a drive fails or ransomware hits, your data is recoverable the same day.</div>
         </div>
 
-        <div class="fade-up" style="width:300px;flex-shrink:0;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:1.5rem;position:relative;overflow:hidden;transition:background 0.2s,border-color 0.2s,transform 0.2s;"
-             onmouseover="this.style.background='rgba(245,158,11,0.08)';this.style.borderColor='rgba(245,158,11,0.3)';this.style.transform='translateY(-4px)'"
-             onmouseout="this.style.background='rgba(255,255,255,0.04)';this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='translateY(0)'">
+        <div class="fade-up hov-lift" style="--hov-accent:rgba(245,158,11,0.3);width:300px;flex-shrink:0;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:1.5rem;position:relative;overflow:hidden;transition:background 0.2s cubic-bezier(0.16,1,0.3,1),border-color 0.2s,transform 0.2s;">
           <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#F59E0B,#FF6B6B);"></div>
           <div style="width:36px;height:36px;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FCD34D" stroke-width="2" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
@@ -469,9 +458,7 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
           <div style="font-size:12.5px;color:rgba(255,255,255,0.5);line-height:1.65;">Premium clients get guaranteed onsite within 4 hours. Remote issues resolved within the hour on all plans.</div>
         </div>
 
-        <div class="fade-up" style="width:300px;flex-shrink:0;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:1.5rem;position:relative;overflow:hidden;transition:background 0.2s,border-color 0.2s,transform 0.2s;"
-             onmouseover="this.style.background='rgba(21,96,255,0.1)';this.style.borderColor='rgba(21,96,255,0.35)';this.style.transform='translateY(-4px)'"
-             onmouseout="this.style.background='rgba(255,255,255,0.04)';this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='translateY(0)'">
+        <div class="fade-up hov-lift" style="--hov-accent:rgba(21,96,255,0.35);width:300px;flex-shrink:0;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:1.5rem;position:relative;overflow:hidden;transition:background 0.2s cubic-bezier(0.16,1,0.3,1),border-color 0.2s,transform 0.2s;">
           <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#1560FF,#A855F7);"></div>
           <div style="width:36px;height:36px;background:rgba(21,96,255,0.15);border:1px solid rgba(21,96,255,0.3);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
@@ -481,9 +468,7 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
           <div style="font-size:12.5px;color:rgba(255,255,255,0.5);line-height:1.65;">A managed plan costs a few thousand a year rather than a salary. It is not a replacement for a full-time employee, and we will say so if that is what you need.</div>
         </div>
 
-        <div class="fade-up" style="width:300px;flex-shrink:0;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:1.5rem;position:relative;overflow:hidden;transition:background 0.2s,border-color 0.2s,transform 0.2s;"
-             onmouseover="this.style.background='rgba(0,207,255,0.08)';this.style.borderColor='rgba(0,207,255,0.3)';this.style.transform='translateY(-4px)'"
-             onmouseout="this.style.background='rgba(255,255,255,0.04)';this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='translateY(0)'">
+        <div class="fade-up hov-lift" style="--hov-accent:rgba(0,207,255,0.3);width:300px;flex-shrink:0;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:1.5rem;position:relative;overflow:hidden;transition:background 0.2s cubic-bezier(0.16,1,0.3,1),border-color 0.2s,transform 0.2s;">
           <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#00CFFF,#22C55E);"></div>
           <div style="width:36px;height:36px;background:rgba(0,207,255,0.1);border:1px solid rgba(0,207,255,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
@@ -609,9 +594,7 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
             btn.innerHTML = '<span style=\'display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;background:var(--blue);border-radius:50%;margin-right:8px;\'><svg width=\'8\' height=\'8\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'white\' stroke-width=\'3\' stroke-linecap=\'round\'><polyline points=\'6 9 12 15 18 9\'/></svg></span>Show All Add-Ons';
           }
         "
-        style="display:inline-flex;align-items:center;background:transparent;border:1.5px solid var(--border2);color:var(--ink);font-family:var(--body);font-size:13.5px;font-weight:600;padding:10px 22px;border-radius:50px;cursor:pointer;transition:border-color 0.15s,color 0.15s;"
-        onmouseover="this.style.borderColor='var(--blue)';this.style.color='var(--blue)'"
-        onmouseout="this.style.borderColor='var(--border2)';this.style.color='var(--ink)'">
+        style="display:inline-flex;align-items:center;background:transparent;border:1.5px solid var(--border2);color:var(--ink);font-family:var(--body);font-size:13.5px;font-weight:600;padding:10px 22px;border-radius:50px;cursor:pointer;transition:border-color 0.15s cubic-bezier(0.16,1,0.3,1),color 0.15s;">
         <span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;background:var(--blue);border-radius:50%;margin-right:8px;">
           <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </span>
@@ -641,9 +624,7 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
       <div id="who-grid" style="display:grid;grid-template-columns:repeat(9,calc((100vw - 2.5rem) / 2));grid-template-rows:auto auto;gap:14px;padding:4px 0 8px;width:max-content;">
 
         <!-- Card 1 -->
-        <div style="background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem 1.4rem;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;cursor:default;position:relative;overflow:hidden;"
-             onmouseover="this.style.borderColor='var(--blue)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(21,96,255,0.1)'"
-             onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div class="hov-lift" style="--hov-accent:var(--blue);background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem 1.4rem;transition:border-color 0.2s cubic-bezier(0.16,1,0.3,1),transform 0.2s,box-shadow 0.2s;cursor:default;position:relative;overflow:hidden;">
           <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),#00CFFF);"></div>
           <div style="width:48px;height:48px;background:var(--blue-lt);border:1.5px solid var(--blue-mid);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:1rem;">☕</div>
           <div style="font-family:var(--display);font-size:15px;font-weight:700;color:var(--ink);margin-bottom:6px;line-height:1.3;">Cafes and Restaurants</div>
@@ -651,9 +632,7 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
         </div>
 
         <!-- Card 2 -->
-        <div style="background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem 1.4rem;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;cursor:default;position:relative;overflow:hidden;"
-             onmouseover="this.style.borderColor='#A855F7';this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(168,85,247,0.1)'"
-             onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div class="hov-lift" style="--hov-accent:#A855F7;background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem 1.4rem;transition:border-color 0.2s cubic-bezier(0.16,1,0.3,1),transform 0.2s,box-shadow 0.2s;cursor:default;position:relative;overflow:hidden;">
           <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#A855F7,#EC4899);"></div>
           <div style="width:48px;height:48px;background:rgba(168,85,247,0.08);border:1.5px solid rgba(168,85,247,0.2);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:1rem;">✂️</div>
           <div style="font-family:var(--display);font-size:15px;font-weight:700;color:var(--ink);margin-bottom:6px;line-height:1.3;">Hair and Beauty Salons</div>
@@ -661,9 +640,7 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
         </div>
 
         <!-- Card 3 -->
-        <div style="background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem 1.4rem;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;cursor:default;position:relative;overflow:hidden;"
-             onmouseover="this.style.borderColor='#F59E0B';this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(245,158,11,0.1)'"
-             onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div class="hov-lift" style="--hov-accent:#F59E0B;background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem 1.4rem;transition:border-color 0.2s cubic-bezier(0.16,1,0.3,1),transform 0.2s,box-shadow 0.2s;cursor:default;position:relative;overflow:hidden;">
           <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#F59E0B,#FF6B6B);"></div>
           <div style="width:48px;height:48px;background:rgba(245,158,11,0.08);border:1.5px solid rgba(245,158,11,0.2);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:1rem;">🏠</div>
           <div style="font-family:var(--display);font-size:15px;font-weight:700;color:var(--ink);margin-bottom:6px;line-height:1.3;">Real Estate Offices</div>
@@ -671,9 +648,7 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
         </div>
 
         <!-- Card 4 -->
-        <div style="background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem 1.4rem;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;cursor:default;position:relative;overflow:hidden;"
-             onmouseover="this.style.borderColor='#22C55E';this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(34,197,94,0.1)'"
-             onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div class="hov-lift" style="--hov-accent:#22C55E;background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem 1.4rem;transition:border-color 0.2s cubic-bezier(0.16,1,0.3,1),transform 0.2s,box-shadow 0.2s;cursor:default;position:relative;overflow:hidden;">
           <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#22C55E,#00CFFF);"></div>
           <div style="width:48px;height:48px;background:rgba(34,197,94,0.08);border:1.5px solid rgba(34,197,94,0.2);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:1rem;">🦷</div>
           <div style="font-family:var(--display);font-size:15px;font-weight:700;color:var(--ink);margin-bottom:6px;line-height:1.3;">Dental Clinics</div>
@@ -681,9 +656,7 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
         </div>
 
         <!-- Card 5 -->
-        <div style="background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem 1.4rem;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;cursor:default;position:relative;overflow:hidden;"
-             onmouseover="this.style.borderColor='#EF4444';this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(239,68,68,0.1)'"
-             onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div class="hov-lift" style="--hov-accent:#EF4444;background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem 1.4rem;transition:border-color 0.2s cubic-bezier(0.16,1,0.3,1),transform 0.2s,box-shadow 0.2s;cursor:default;position:relative;overflow:hidden;">
           <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#EF4444,#F59E0B);"></div>
           <div style="width:48px;height:48px;background:rgba(239,68,68,0.08);border:1.5px solid rgba(239,68,68,0.2);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:1rem;">🏥</div>
           <div style="font-family:var(--display);font-size:15px;font-weight:700;color:var(--ink);margin-bottom:6px;line-height:1.3;">Medical Practices</div>
@@ -691,9 +664,7 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
         </div>
 
         <!-- Card 6 -->
-        <div style="background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem 1.4rem;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;cursor:default;position:relative;overflow:hidden;"
-             onmouseover="this.style.borderColor='#00CFFF';this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,207,255,0.1)'"
-             onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div class="hov-lift" style="--hov-accent:#00CFFF;background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem 1.4rem;transition:border-color 0.2s cubic-bezier(0.16,1,0.3,1),transform 0.2s,box-shadow 0.2s;cursor:default;position:relative;overflow:hidden;">
           <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00CFFF,#A855F7);"></div>
           <div style="width:48px;height:48px;background:rgba(0,207,255,0.08);border:1.5px solid rgba(0,207,255,0.2);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:1rem;">🛒</div>
           <div style="font-family:var(--display);font-size:15px;font-weight:700;color:var(--ink);margin-bottom:6px;line-height:1.3;">Retail Shops</div>
@@ -701,9 +672,7 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
         </div>
 
         <!-- Card 7 -->
-        <div style="background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem 1.4rem;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;cursor:default;position:relative;overflow:hidden;"
-             onmouseover="this.style.borderColor='#F59E0B';this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(245,158,11,0.1)'"
-             onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div class="hov-lift" style="--hov-accent:#F59E0B;background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem 1.4rem;transition:border-color 0.2s cubic-bezier(0.16,1,0.3,1),transform 0.2s,box-shadow 0.2s;cursor:default;position:relative;overflow:hidden;">
           <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#F59E0B,#22C55E);"></div>
           <div style="width:48px;height:48px;background:rgba(245,158,11,0.08);border:1.5px solid rgba(245,158,11,0.2);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:1rem;">🏗️</div>
           <div style="font-family:var(--display);font-size:15px;font-weight:700;color:var(--ink);margin-bottom:6px;line-height:1.3;">Tradies and Contractors</div>
@@ -711,9 +680,7 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
         </div>
 
         <!-- Card 8 -->
-        <div style="background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem 1.4rem;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;cursor:default;position:relative;overflow:hidden;"
-             onmouseover="this.style.borderColor='#A855F7';this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(168,85,247,0.1)'"
-             onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div class="hov-lift" style="--hov-accent:#A855F7;background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem 1.4rem;transition:border-color 0.2s cubic-bezier(0.16,1,0.3,1),transform 0.2s,box-shadow 0.2s;cursor:default;position:relative;overflow:hidden;">
           <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#A855F7,var(--blue));"></div>
           <div style="width:48px;height:48px;background:rgba(168,85,247,0.08);border:1.5px solid rgba(168,85,247,0.2);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:1rem;">⚖️</div>
           <div style="font-family:var(--display);font-size:15px;font-weight:700;color:var(--ink);margin-bottom:6px;line-height:1.3;">Law and Accounting Firms</div>
@@ -721,9 +688,7 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
         </div>
 
         <!-- Card 9 -->
-        <div style="background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem 1.4rem;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;cursor:default;position:relative;overflow:hidden;"
-             onmouseover="this.style.borderColor='#22C55E';this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(34,197,94,0.1)'"
-             onmouseout="this.style.borderColor='var(--border)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div class="hov-lift" style="--hov-accent:#22C55E;background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem 1.4rem;transition:border-color 0.2s cubic-bezier(0.16,1,0.3,1),transform 0.2s,box-shadow 0.2s;cursor:default;position:relative;overflow:hidden;">
           <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#22C55E,#00CFFF);"></div>
           <div style="width:48px;height:48px;background:rgba(34,197,94,0.08);border:1.5px solid rgba(34,197,94,0.2);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:1rem;">🏋️</div>
           <div style="font-family:var(--display);font-size:15px;font-weight:700;color:var(--ink);margin-bottom:6px;line-height:1.3;">Gyms and Studios</div>
@@ -921,9 +886,7 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
     <div style="overflow-x:auto;padding-bottom:1rem;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;">
       <div style="display:flex;gap:14px;width:max-content;padding:4px 2px 8px;">
 
-        <div class="fade-up" style="width:280px;flex-shrink:0;background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem;position:relative;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s,border-color 0.2s;"
-             onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(21,96,255,0.1)';this.style.borderColor='var(--blue)'"
-             onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';this.style.borderColor='var(--border)'">
+        <div class="fade-up hov-lift" style="--hov-accent:var(--blue);width:280px;flex-shrink:0;background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem;position:relative;overflow:hidden;transition:transform 0.2s cubic-bezier(0.16,1,0.3,1),box-shadow 0.2s,border-color 0.2s;">
           <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),#00CFFF);"></div>
           <div style="width:38px;height:38px;background:var(--blue-lt);border:1.5px solid var(--blue-mid);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
@@ -933,9 +896,7 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
           <div style="font-size:13px;color:var(--muted);line-height:1.7;">Our monitoring tools identify problems before they become outages. We resolve issues in the background before your team is ever aware of them.</div>
         </div>
 
-        <div class="fade-up" style="width:280px;flex-shrink:0;background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem;position:relative;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s,border-color 0.2s;"
-             onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(21,96,255,0.1)';this.style.borderColor='var(--blue)'"
-             onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';this.style.borderColor='var(--border)'">
+        <div class="fade-up hov-lift" style="--hov-accent:var(--blue);width:280px;flex-shrink:0;background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem;position:relative;overflow:hidden;transition:transform 0.2s cubic-bezier(0.16,1,0.3,1),box-shadow 0.2s,border-color 0.2s;">
           <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#22C55E,#00CFFF);"></div>
           <div style="width:38px;height:38px;background:rgba(34,197,94,0.1);border:1.5px solid rgba(34,197,94,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -945,9 +906,7 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
           <div style="font-size:13px;color:var(--muted);line-height:1.7;">Based in Canning Vale, we cover all southern Perth suburbs for onsite visits including Cockburn, Cannington, Willetton, Jandakot, Harrisdale and Thornlie.</div>
         </div>
 
-        <div class="fade-up" style="width:280px;flex-shrink:0;background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem;position:relative;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s,border-color 0.2s;"
-             onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(21,96,255,0.1)';this.style.borderColor='var(--blue)'"
-             onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';this.style.borderColor='var(--border)'">
+        <div class="fade-up hov-lift" style="--hov-accent:var(--blue);width:280px;flex-shrink:0;background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem;position:relative;overflow:hidden;transition:transform 0.2s cubic-bezier(0.16,1,0.3,1),box-shadow 0.2s,border-color 0.2s;">
           <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#F59E0B,#FF6B6B);"></div>
           <div style="width:38px;height:38px;background:rgba(245,158,11,0.1);border:1.5px solid rgba(245,158,11,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
@@ -957,9 +916,7 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
           <div style="font-size:13px;color:var(--muted);line-height:1.7;">Every plan is month-to-month. We earn your business through results, not contracts. Cancel or adjust your plan at any time with 14 days notice.</div>
         </div>
 
-        <div class="fade-up" style="width:280px;flex-shrink:0;background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem;position:relative;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s,border-color 0.2s;"
-             onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(21,96,255,0.1)';this.style.borderColor='var(--blue)'"
-             onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';this.style.borderColor='var(--border)'">
+        <div class="fade-up hov-lift" style="--hov-accent:var(--blue);width:280px;flex-shrink:0;background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem;position:relative;overflow:hidden;transition:transform 0.2s cubic-bezier(0.16,1,0.3,1),box-shadow 0.2s,border-color 0.2s;">
           <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#A855F7,#1560FF);"></div>
           <div style="width:38px;height:38px;background:rgba(168,85,247,0.1);border:1.5px solid rgba(168,85,247,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9333EA" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 110 7H6"/></svg>
@@ -969,9 +926,7 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
           <div style="font-size:13px;color:var(--muted);line-height:1.7;">No surprise invoices. No callout fees on covered plans. One predictable cost that makes IT a known business expense rather than an unexpected liability.</div>
         </div>
 
-        <div class="fade-up" style="width:280px;flex-shrink:0;background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem;position:relative;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s,border-color 0.2s;"
-             onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(21,96,255,0.1)';this.style.borderColor='var(--blue)'"
-             onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';this.style.borderColor='var(--border)'">
+        <div class="fade-up hov-lift" style="--hov-accent:var(--blue);width:280px;flex-shrink:0;background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem;position:relative;overflow:hidden;transition:transform 0.2s cubic-bezier(0.16,1,0.3,1),box-shadow 0.2s,border-color 0.2s;">
           <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00CFFF,#22C55E);"></div>
           <div style="width:38px;height:38px;background:rgba(0,207,255,0.1);border:1.5px solid rgba(0,207,255,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0891B2" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -981,9 +936,7 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
           <div style="font-size:13px;color:var(--muted);line-height:1.7;">Business operations do not stop at 5pm. Our remote support team is available 7am to 11pm, seven days a week, on all plans.</div>
         </div>
 
-        <div class="fade-up" style="width:280px;flex-shrink:0;background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem;position:relative;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s,border-color 0.2s;"
-             onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(21,96,255,0.1)';this.style.borderColor='var(--blue)'"
-             onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';this.style.borderColor='var(--border)'">
+        <div class="fade-up hov-lift" style="--hov-accent:var(--blue);width:280px;flex-shrink:0;background:var(--bg);border:1.5px solid var(--border);border-radius:18px;padding:1.5rem;position:relative;overflow:hidden;transition:transform 0.2s cubic-bezier(0.16,1,0.3,1),box-shadow 0.2s,border-color 0.2s;">
           <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#F59E0B,#22C55E);"></div>
           <div style="width:38px;height:38px;background:rgba(245,158,11,0.1);border:1.5px solid rgba(245,158,11,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
@@ -1018,8 +971,7 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
             <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#60A5FA;margin-bottom:0.6rem;">Business Plan Client · Canning Vale, Perth</div>
             <div style="font-family:var(--display);font-size:2rem;font-weight:800;color:#fff;letter-spacing:-1px;line-height:1.1;margin-bottom:0.4rem;">Hyperlink Solutions</div>
             <div style="font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:0.5rem;">IT Outsourcing and Custom Development · Perth WA</div>
-            <a href="https://hyperlinksolutions.com.au" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:#60A5FA;text-decoration:none;opacity:0.85;transition:opacity 0.15s;"
-               onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.85'">
+            <a href="https://hyperlinksolutions.com.au" target="_blank" rel="noopener" style="--hov-accent:var(--blue);display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:#60A5FA;text-decoration:none;opacity:0.85;transition:opacity 0.15s cubic-bezier(0.16,1,0.3,1);">
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               hyperlinksolutions.com.au
             </a>
@@ -1096,17 +1048,13 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
 
       <a href="#audit-form"
          onclick="event.preventDefault();document.querySelector('.audit-section').scrollIntoView({behavior:'smooth',block:'start'});"
-         style="display:inline-flex;align-items:center;justify-content:center;width:280px;padding:14px 24px;border-radius:50px;background:var(--blue);color:#fff;font-family:var(--body);font-size:16px;font-weight:700;text-decoration:none;white-space:nowrap;box-shadow:0 4px 16px rgba(21,96,255,0.35);transition:transform 0.15s,box-shadow 0.15s;"
-         onmouseover="this.style.transform='translateY(-2px)'"
-         onmouseout="this.style.transform='translateY(0)'">
+         style="--hov-accent:var(--blue);display:inline-flex;align-items:center;justify-content:center;width:280px;padding:14px 24px;border-radius:50px;background:var(--blue);color:#fff;font-family:var(--body);font-size:16px;font-weight:700;text-decoration:none;white-space:nowrap;box-shadow:0 4px 16px rgba(21,96,255,0.35);transition:transform 0.15s cubic-bezier(0.16,1,0.3,1),box-shadow 0.15s;">
         Book My Free Session
       </a>
 
       <a href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20to%20book%20a%20free%20business%20IT%20health%20check."
          target="_blank" rel="noopener"
-         style="display:inline-flex;align-items:center;justify-content:center;gap:9px;width:280px;padding:14px 24px;border-radius:50px;background:#25D366;color:#fff;font-family:var(--body);font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 4px 16px rgba(37,211,102,0.35);transition:transform 0.15s,box-shadow 0.15s;"
-         onmouseover="this.style.transform='translateY(-2px)'"
-         onmouseout="this.style.transform='translateY(0)'">
+         style="--hov-accent:var(--blue);display:inline-flex;align-items:center;justify-content:center;gap:9px;width:280px;padding:14px 24px;border-radius:50px;background:#25D366;color:#fff;font-family:var(--body);font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 4px 16px rgba(37,211,102,0.35);transition:transform 0.15s cubic-bezier(0.16,1,0.3,1),box-shadow 0.15s;">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="white" style="flex-shrink:0;">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
           <path d="M12 0C5.373 0 0 5.373 0 12c0 2.116.553 4.103 1.523 5.824L0 24l6.341-1.496A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.369l-.36-.213-3.732.881.916-3.618-.235-.372A9.818 9.818 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182S21.818 6.578 21.818 12 17.422 21.818 12 21.818z"/>
@@ -1116,9 +1064,7 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
 
       <a href="https://www.facebook.com/profile.php?id=61588810785733"
          target="_blank" rel="noopener"
-         style="display:inline-flex;align-items:center;justify-content:center;gap:9px;width:280px;padding:14px 24px;border-radius:50px;background:#1877F2;color:#fff;font-family:var(--body);font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 4px 16px rgba(24,119,242,0.35);transition:transform 0.15s,box-shadow 0.15s;"
-         onmouseover="this.style.transform='translateY(-2px)'"
-         onmouseout="this.style.transform='translateY(0)'">
+         style="--hov-accent:var(--blue);display:inline-flex;align-items:center;justify-content:center;gap:9px;width:280px;padding:14px 24px;border-radius:50px;background:#1877F2;color:#fff;font-family:var(--body);font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 4px 16px rgba(24,119,242,0.35);transition:transform 0.15s cubic-bezier(0.16,1,0.3,1),box-shadow 0.15s;">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="white" style="flex-shrink:0;">
           <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
         </svg>
@@ -1139,32 +1085,32 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:10px;">
 
-      <details style="background:var(--bg2);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;" onmouseover="this.style.borderColor='var(--blue-mid)'" onmouseout="this.style.borderColor='var(--border)'">
+      <details class="hov-edge" style="background:var(--bg2);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;">
         <summary style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.25rem;cursor:pointer;font-family:var(--display);font-size:13.5px;font-weight:700;color:var(--ink);list-style:none;">How much does managed IT support cost for a Perth small business? <span style="width:21px;height:21px;border-radius:50%;background:var(--bg3);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;">▾</span></summary>
         <div style="padding:0.8rem 1.25rem 1rem;font-size:13px;color:var(--muted);line-height:1.7;border-top:1px solid var(--border);">Plans start from {% include price.html key='business-it-essential' bare=true raw=true %} per month base for the Essential plan covering up to 5 PCs, plus $35 per device. The Business plan is {% include price.html key='business-it-business' bare=true raw=true %} base plus $45 per device for up to 10 PCs. The Premium plan is {% include price.html key='business-it-premium' bare=true raw=true %} base plus $60 per device for up to 20 PCs. All plans are month-to-month with no lock-in contracts.</div>
       </details>
 
-      <details style="background:var(--bg2);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;" onmouseover="this.style.borderColor='var(--blue-mid)'" onmouseout="this.style.borderColor='var(--border)'">
+      <details class="hov-edge" style="background:var(--bg2);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;">
         <summary style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.25rem;cursor:pointer;font-family:var(--display);font-size:13.5px;font-weight:700;color:var(--ink);list-style:none;">What is included in managed IT support for a small business? <span style="width:21px;height:21px;border-radius:50%;background:var(--bg3);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;">▾</span></summary>
         <div style="padding:0.8rem 1.25rem 1rem;font-size:13px;color:var(--muted);line-height:1.7;border-top:1px solid var(--border);">All plans include unlimited remote support, scheduled onsite visits, managed antivirus, Windows updates management and a monthly PC health report. Higher plans add cloud backup, proactive monitoring, network security audits, printer support and priority response.</div>
       </details>
 
-      <details style="background:var(--bg2);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;" onmouseover="this.style.borderColor='var(--blue-mid)'" onmouseout="this.style.borderColor='var(--border)'">
+      <details class="hov-edge" style="background:var(--bg2);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;">
         <summary style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.25rem;cursor:pointer;font-family:var(--display);font-size:13.5px;font-weight:700;color:var(--ink);list-style:none;">Do you offer IT support with no lock-in contracts? <span style="width:21px;height:21px;border-radius:50%;background:var(--bg3);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;">▾</span></summary>
         <div style="padding:0.8rem 1.25rem 1rem;font-size:13px;color:var(--muted);line-height:1.7;border-top:1px solid var(--border);">Yes. Every plan is month-to-month. Cancel or change plans at any time with 14 days notice. We earn your business through results, not contracts.</div>
       </details>
 
-      <details style="background:var(--bg2);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;" onmouseover="this.style.borderColor='var(--blue-mid)'" onmouseout="this.style.borderColor='var(--border)'">
+      <details class="hov-edge" style="background:var(--bg2);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;">
         <summary style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.25rem;cursor:pointer;font-family:var(--display);font-size:13.5px;font-weight:700;color:var(--ink);list-style:none;">Which Perth suburbs do you service for business IT support? <span style="width:21px;height:21px;border-radius:50%;background:var(--bg3);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;">▾</span></summary>
         <div style="padding:0.8rem 1.25rem 1rem;font-size:13px;color:var(--muted);line-height:1.7;border-top:1px solid var(--border);">We provide onsite IT support across southern Perth including Canning Vale, Cockburn, Cannington, Willetton, Jandakot, Harrisdale, Thornlie, Gosnells, Fremantle, Subiaco and surrounding suburbs. Remote support is available Australia-wide.</div>
       </details>
 
-      <details style="background:var(--bg2);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;" onmouseover="this.style.borderColor='var(--blue-mid)'" onmouseout="this.style.borderColor='var(--border)'">
+      <details class="hov-edge" style="background:var(--bg2);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;">
         <summary style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.25rem;cursor:pointer;font-family:var(--display);font-size:13.5px;font-weight:700;color:var(--ink);list-style:none;">How fast is emergency IT support response for Perth businesses? <span style="width:21px;height:21px;border-radius:50%;background:var(--bg3);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;">▾</span></summary>
         <div style="padding:0.8rem 1.25rem 1rem;font-size:13px;color:var(--muted);line-height:1.7;border-top:1px solid var(--border);">Premium plan clients get a guaranteed same day onsite response within 4 hours. Business and Essential plan clients receive priority remote support with most issues resolved within the hour. Support is available 7am to 11pm, 7 days a week on all plans.</div>
       </details>
 
-      <details style="background:var(--bg2);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;" onmouseover="this.style.borderColor='var(--blue-mid)'" onmouseout="this.style.borderColor='var(--border)'">
+      <details class="hov-edge" style="background:var(--bg2);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;">
         <summary style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.25rem;cursor:pointer;font-family:var(--display);font-size:13.5px;font-weight:700;color:var(--ink);list-style:none;">Is outsourced IT support cheaper than hiring in-house? <span style="width:21px;height:21px;border-radius:50%;background:var(--bg3);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;">▾</span></summary>
         <div style="padding:0.8rem 1.25rem 1rem;font-size:13px;color:var(--muted);line-height:1.7;border-top:1px solid var(--border);">For most Perth small businesses with fewer than 20 staff, outsourced IT support through FixMyPC Perth costs significantly less than a part-time hire, without recruitment costs, sick leave or coverage gaps. A managed plan costs a few thousand a year against a Perth IT support salary averaging around $82,500 before super.</div>
       </details>
@@ -1178,11 +1124,11 @@ description: "Managed IT support for Perth small business from $149/month. Antiv
   <div style="max-width:1100px;margin:0 auto;">
     <div style="font-family:var(--display);font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:1rem;">Also need PC repair? We cover everything.</div>
     <div style="display:flex;flex-wrap:wrap;gap:8px;">
-      <a href="/pricing#sec-repairs" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--muted);background:var(--bg);border:1.5px solid var(--border);border-radius:50px;padding:6px 14px;text-decoration:none;transition:border-color 0.15s,color 0.15s,background 0.15s;" onmouseover="this.style.borderColor='var(--blue)';this.style.color='var(--blue)';this.style.background='var(--blue-lt)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)';this.style.background='var(--bg)'">Virus Removal Perth</a>
-      <a href="/pricing#sec-repairs" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--muted);background:var(--bg);border:1.5px solid var(--border);border-radius:50px;padding:6px 14px;text-decoration:none;transition:border-color 0.15s,color 0.15s,background 0.15s;" onmouseover="this.style.borderColor='var(--blue)';this.style.color='var(--blue)';this.style.background='var(--blue-lt)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)';this.style.background='var(--bg)'">Data Recovery Perth</a>
-      <a href="/pricing#sec-upgrades" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--muted);background:var(--bg);border:1.5px solid var(--border);border-radius:50px;padding:6px 14px;text-decoration:none;transition:border-color 0.15s,color 0.15s,background 0.15s;" onmouseover="this.style.borderColor='var(--blue)';this.style.color='var(--blue)';this.style.background='var(--blue-lt)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)';this.style.background='var(--bg)'">SSD Upgrade Perth</a>
-      <a href="/pricing#sec-gaming" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--muted);background:var(--bg);border:1.5px solid var(--border);border-radius:50px;padding:6px 14px;text-decoration:none;transition:border-color 0.15s,color 0.15s,background 0.15s;" onmouseover="this.style.borderColor='var(--blue)';this.style.color='var(--blue)';this.style.background='var(--blue-lt)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)';this.style.background='var(--bg)'">Gaming PC Builds Perth</a>
-      <a href="/pricing#sec-repairs" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--muted);background:var(--bg);border:1.5px solid var(--border);border-radius:50px;padding:6px 14px;text-decoration:none;transition:border-color 0.15s,color 0.15s,background 0.15s;" onmouseover="this.style.borderColor='var(--blue)';this.style.color='var(--blue)';this.style.background='var(--blue-lt)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)';this.style.background='var(--bg)'">Laptop Screen Replacement Perth</a>
+      <a href="/pricing#sec-repairs" style="--hov-accent:var(--blue);display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--muted);background:var(--bg);border:1.5px solid var(--border);border-radius:50px;padding:6px 14px;text-decoration:none;transition:border-color 0.15s cubic-bezier(0.16,1,0.3,1),color 0.15s,background 0.15s;">Virus Removal Perth</a>
+      <a href="/pricing#sec-repairs" style="--hov-accent:var(--blue);display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--muted);background:var(--bg);border:1.5px solid var(--border);border-radius:50px;padding:6px 14px;text-decoration:none;transition:border-color 0.15s cubic-bezier(0.16,1,0.3,1),color 0.15s,background 0.15s;">Data Recovery Perth</a>
+      <a href="/pricing#sec-upgrades" style="--hov-accent:var(--blue);display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--muted);background:var(--bg);border:1.5px solid var(--border);border-radius:50px;padding:6px 14px;text-decoration:none;transition:border-color 0.15s cubic-bezier(0.16,1,0.3,1),color 0.15s,background 0.15s;">SSD Upgrade Perth</a>
+      <a href="/pricing#sec-gaming" style="--hov-accent:var(--blue);display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--muted);background:var(--bg);border:1.5px solid var(--border);border-radius:50px;padding:6px 14px;text-decoration:none;transition:border-color 0.15s cubic-bezier(0.16,1,0.3,1),color 0.15s,background 0.15s;">Gaming PC Builds Perth</a>
+      <a href="/pricing#sec-repairs" style="--hov-accent:var(--blue);display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--muted);background:var(--bg);border:1.5px solid var(--border);border-radius:50px;padding:6px 14px;text-decoration:none;transition:border-color 0.15s cubic-bezier(0.16,1,0.3,1),color 0.15s,background 0.15s;">Laptop Screen Replacement Perth</a>
       <a href="/pricing" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--blue);background:var(--blue-lt);border:1.5px solid var(--blue-mid);border-radius:50px;padding:6px 14px;text-decoration:none;">View All Pricing →</a>
     </div>
   </div>

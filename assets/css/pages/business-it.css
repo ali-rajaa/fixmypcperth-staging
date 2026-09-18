@@ -69,8 +69,8 @@ img { max-width: 100%; height: auto; }
 .audit-strip { padding: 1.6rem 2rem !important; }
 
 /* ─── TYPOGRAPHY ─────────────────────────────────────────────── */
-.s-eyebrow { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); background: var(--blue-lt); padding: 4px 12px; border-radius: 50px; border: 1px solid var(--blue-mid); margin-bottom: 1rem; }
-.s-eyebrow-light { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #60A5FA; background: rgba(96,165,250,0.1); padding: 4px 12px; border-radius: 50px; border: 1px solid rgba(96,165,250,0.2); margin-bottom: 1rem; }
+.s-eyebrow { display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.9rem; }
+.s-eyebrow-light { display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: #60A5FA; margin-bottom: 0.9rem; }
 .s-title { font-family: var(--display); font-size: clamp(1.8rem, 3vw, 2.75rem); font-weight: 800; letter-spacing: -1.2px; line-height: 1.1; color: var(--ink); margin-bottom: 0.75rem; }
 .s-title-light { font-family: var(--display); font-size: clamp(1.8rem, 3vw, 2.75rem); font-weight: 800; letter-spacing: -1.2px; line-height: 1.1; color: #fff; margin-bottom: 0.75rem; }
 .s-sub-light { font-size: 16px; color: rgba(255,255,255,0.65); max-width: 540px; line-height: 1.75; }
@@ -119,14 +119,8 @@ img { max-width: 100%; height: auto; }
   pointer-events: none;
 }
 .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 380px; gap: 3.5rem; align-items: center; }
-.hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 12px; font-weight: 600; color: var(--blue);
-  background: var(--blue-lt); border: 1px solid var(--blue-mid);
-  padding: 5px 14px; border-radius: 50px; margin-bottom: 1.25rem;
-  letter-spacing: 0.04em; text-transform: uppercase;
-}
-.hero-eyebrow::before { content: ''; width: 6px; height: 6px; background: var(--blue); border-radius: 50%; animation: pulse 2s infinite; }
+.hero-eyebrow { display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--blue); margin-bottom: 1.25rem; }
+
 @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
 .hero h1 { font-family: var(--display); font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 800; letter-spacing: -2px; line-height: 1.04; color: var(--ink); margin-bottom: 0.65rem; }
 .hero-sub { font-family: var(--display); font-size: 17px; font-weight: 600; color: var(--blue); margin-bottom: 0.9rem; }
@@ -136,15 +130,7 @@ img { max-width: 100%; height: auto; }
 .hero-trust-item { display: flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600; color: var(--muted); }
 .hero-trust-dot { width: 16px; height: 16px; background: rgba(34,197,94,0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 9px; color: var(--wa-dk); font-weight: 800; }
 
-.hero-seo-h1 {
-  font-family: var(--display);
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 0.5rem;
-}
+.hero-seo-h1 { display: block; font-family: var(--body); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
 
 /* ─── HERO CARD ──────────────────────────────────────────────── */
 .hero-card { background: var(--bg); border: 1px solid var(--border); border-radius: 20px; box-shadow: 0 8px 40px rgba(15,23,42,0.1); overflow: hidden; }
@@ -204,7 +190,7 @@ img { max-width: 100%; height: auto; }
 .plan-card.featured .plan-bar { background: linear-gradient(90deg, var(--blue), #00CFFF); }
 .plan-card.premium-tier .plan-bar { background: linear-gradient(90deg, #F59E0B, #FF6B6B, #A855F7); }
 .plan-inner { padding: 1.75rem; }
-.plan-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 12px; border-radius: 50px; margin-bottom: 1.1rem; }
+.plan-badge { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; margin-bottom: 1.1rem; }
 .badge-popular { background: var(--blue); color: #fff; }
 .badge-premium { background: linear-gradient(135deg, #F59E0B, #FF6B6B); color: #fff; }
 .plan-name { font-family: var(--display); font-size: 21px; font-weight: 800; letter-spacing: -0.4px; margin-bottom: 0.3rem; }
@@ -231,10 +217,11 @@ img { max-width: 100%; height: auto; }
 .plan-note { font-size: 11.5px; font-weight: 500; margin-top: 3px; }
 .plan-card:not(.premium-tier) .plan-note { color: var(--muted); }
 .plan-card.premium-tier .plan-note { color: rgba(255,255,255,0.38); }
-.plan-coverage { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 4px 10px; border-radius: 50px; margin-top: 8px; }
-.plan-card:not(.featured):not(.premium-tier) .plan-coverage { background: var(--bg3); color: var(--muted); border: 1px solid var(--border2); }
-.plan-card.featured .plan-coverage { background: rgba(21,96,255,0.1); color: var(--blue); border: 1px solid var(--blue-mid); }
-.plan-card.premium-tier .plan-coverage { background: rgba(245,158,11,0.14); color: #F59E0B; border: 1px solid rgba(245,158,11,0.28); }
+/* Coverage line and tier badge: plain uppercase text, no capsule. The tier is
+   carried by colour and weight, which is enough to tell the three cards apart. */
+.plan-coverage { display: block; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin-top: 10px; color: var(--muted); }
+.plan-card.featured .plan-coverage { color: var(--blue); }
+.plan-card.premium-tier .plan-coverage { color: #9333EA; }
 .plan-cta { display: flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--body); font-size: 14.5px; font-weight: 700; padding: 14px 22px; border-radius: 50px; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s; margin-bottom: 1.5rem; }
 .plan-card:not(.featured):not(.premium-tier) .plan-cta { background: var(--ink); color: #fff; box-shadow: 0 4px 14px rgba(15,23,42,0.2); }
 .plan-card:not(.featured):not(.premium-tier) .plan-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(15,23,42,0.28); }
@@ -279,7 +266,10 @@ img { max-width: 100%; height: auto; }
 }
 .first-month-banner::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #93C5FD, #fff); }
 .first-month-badge { background: #fff; color: #1b2a52; font-family: var(--display); font-size: 1.6rem; font-weight: 800; letter-spacing: -1px; padding: 0.6rem 1.1rem; border-radius: 12px; flex-shrink: 0; white-space: nowrap; box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
-.first-month-text h4 { font-family: var(--display); font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 3px; }
+/* Was an h4, demoted to a p because it sat under an h2 and broke the heading
+   order. It is a banner line, not a document section, so it keeps the look
+   without the heading level. */
+.first-month-text .first-month-h { font-family: var(--display); font-size: 16px; font-weight: 700; color: #fff; margin: 0 0 3px; }
 .first-month-text p { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.5; }
  
 
@@ -311,7 +301,7 @@ img { max-width: 100%; height: auto; }
 /* ── INDUSTRIES SECTION ── */
 .industries-section { padding: 5.5rem 2rem; background: var(--bg2); }
 .industries-inner { max-width: 1100px; margin: 0 auto; }
-.industries-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); background: var(--blue-lt); padding: 4px 12px; border-radius: 50px; border: 1px solid var(--blue-mid); display: inline-block; margin-bottom: 1rem; }
+.industries-label { display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.9rem; }
 .industries-heading { font-family: var(--display); font-size: clamp(1.8rem, 3vw, 2.75rem); font-weight: 800; letter-spacing: -1.2px; line-height: 1.1; color: var(--ink); margin-bottom: 0.75rem; }
 .industries-sub { font-size: 16px; color: var(--muted); margin-bottom: 1.5rem; }
 .industries-grid { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -662,4 +652,38 @@ summary:active { background: var(--bg3); }
   .hero-desc, .s-sub, .plan-note, .addon-desc, .industries-sub, .metric-lbl { color: #334155; }
   .plan-card, .industry-card, .addon-row, .audit-card, .hero-card, details { border-color: #0F172A; }
   .btn-outline, .plan-tab { border-color: #0F172A; }
+}
+
+
+/* ----------------------------------------------------------
+   Hover, moved out of inline JS
+   The page previously set transform, border-color and box-shadow through
+   76 inline onmouseover/onmouseout handlers. Inline styles set by script
+   beat any stylesheet, so none of the motion rules below could reach those
+   elements. The handlers are gone; each element now carries its accent
+   colour as --hov-accent and CSS does the rest.
+   ---------------------------------------------------------- */
+.hov-lift {
+  transition: border-color 0.2s, transform 0.3s var(--ease-settle), box-shadow 0.3s var(--ease-settle);
+}
+.hov-lift:hover {
+  border-color: var(--hov-accent, var(--blue));
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(15,23,42,0.10);
+}
+.hov-lift:active {
+  transform: translateY(-1px) scale(0.985);
+  transition: transform 0.1s var(--ease-press);
+}
+.hov-edge { transition: border-color 0.2s; }
+.hov-edge:hover { border-color: var(--blue-mid); }
+.hov-edge:active { border-color: var(--blue); }
+.hov-lift, .hov-edge { -webkit-tap-highlight-color: transparent; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hov-lift, .hov-edge { transition-duration: 0.15s; }
+  .hov-lift:hover, .hov-lift:active { transform: none; }
+}
+@media (prefers-contrast: more) {
+  .hov-lift, .hov-edge { border-color: #0F172A; }
 }
