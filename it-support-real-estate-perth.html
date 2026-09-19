@@ -1,0 +1,651 @@
+---
+layout: default
+css: industry
+title: "IT Support for Real Estate Agencies Perth | From $149/mo"
+description: "Managed IT support for Perth real estate agencies. PropertyMe, Console and REST, trust account records and the 31 March audit deadline. From $149 a month."
+---
+{%- comment -%}
+  Industry page, built on the allied-health pattern.
+  Shares assets/css/pages/industry.css with the whole cluster.
+
+  Fixed from the live page: 27 broken ../ links (these pages sit at the site
+  root, so every one resolved above it), the "Why Perth <industry> Choose
+  FixMyPC Perth" and "problems we see in" claims (there are no clients in this
+  sector), "no obligation" phrasing, hardcoded plan prices now pulled from
+  _data/services.yml, and FAQ schema generated from the visible FAQ so the two
+  cannot drift apart.
+
+  Added: the compliance section, and an on-page audit form so the CTAs stop
+  sending people to the hub to convert. No WhatsApp route on these pages.
+{%- endcomment -%}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://www.fixmypcperth.com/it-support-real-estate-perth#service",
+  "serviceType": "Managed IT Support for Real Estate Agencies",
+  "name": "IT Support for Real Estate Agencies in Perth",
+  "description": "Managed IT support for Perth real estate agencies. Trust and property management software, trust account record keeping, and secure storage of client identity documents.",
+  "url": "https://www.fixmypcperth.com/it-support-real-estate-perth",
+  "provider": {
+    "@type": "LocalBusiness",
+    "@id": "https://www.fixmypcperth.com/#business",
+    "name": "FixMyPC Perth",
+    "telephone": "+61452573701",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "7 Barraberry Retreat",
+      "addressLocality": "Canning Vale",
+      "addressRegion": "WA",
+      "postalCode": "6155",
+      "addressCountry": "AU"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": -32.0697802, "longitude": 115.9245929 }
+  },
+  "areaServed": [
+    {"@type": "City", "name": "Perth"},
+    {"@type": "AdministrativeArea", "name": "Canning Vale"},
+    {"@type": "AdministrativeArea", "name": "Willetton"},
+    {"@type": "AdministrativeArea", "name": "Thornlie"},
+    {"@type": "AdministrativeArea", "name": "Cannington"},
+    {"@type": "AdministrativeArea", "name": "Jandakot"},
+    {"@type": "AdministrativeArea", "name": "Cockburn"},
+    {"@type": "AdministrativeArea", "name": "Harrisdale"},
+    {"@type": "AdministrativeArea", "name": "Huntingdale"}
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Managed IT Support Plans",
+    "itemListElement": [
+      {%- assign first = true -%}
+      {%- for pl in site.data.services.plans -%}
+      {%- unless first %},{% endunless %}{%- assign first = false -%}
+      {
+        "@type": "Offer",
+        "name": {{ pl.name | append: " managed IT plan" | jsonify }},
+        "description": {{ pl.covers | jsonify }},
+        "price": "{{ pl.price }}",
+        "priceCurrency": "{{ site.data.services.meta.currency }}",
+        "availability": "https://schema.org/InStock",
+        "seller": {"@id": "https://www.fixmypcperth.com/#business"}
+      }
+      {%- endfor -%}
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.fixmypcperth.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Business IT Support", "item": "https://www.fixmypcperth.com/business-it-support"},
+    {"@type": "ListItem", "position": 3, "name": "Real Estate", "item": "https://www.fixmypcperth.com/it-support-real-estate-perth"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What IT support do real estate agencies in Perth need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Real estate agencies in Perth typically need IT support for property management platforms such as PropertyMe, PropertyTree and Console Cloud, trust accounting software including Rockend and REST Professional, digital signing tools such as DocuSign and REI Forms Live, secure cloud backup of tenancy files and compliance records, and reliable connectivity across front and back office. FixMyPC Perth covers all of these under a single fixed monthly plan with no lock-in contracts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does IT support for a real estate agency cost in Perth?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Managed IT support for real estate agencies starts from {% include price.html key='business-it-essential' bare=true raw=true %} per month base plus $35 per device per month on the Essential plan covering up to 5 devices. The Business plan is {% include price.html key='business-it-business' bare=true raw=true %} base plus $45 per device for up to 10 devices. The Premium plan is {% include price.html key='business-it-premium' bare=true raw=true %} base plus $60 per device for up to 20 devices. All plans are month to month with no lock-in contracts and include unlimited remote support, managed antivirus and scheduled onsite visits."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you support PropertyMe, Console Cloud and other property management software?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. FixMyPC Perth supports all common property management platforms used by Perth real estate agencies including PropertyMe, PropertyTree, Console Cloud, MRI Property Management, REST Professional and Rockend. We handle installation, configuration, device setup and troubleshooting so your property managers can focus on their portfolio rather than IT problems."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer onsite IT support for real estate agencies in southern Perth?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. All managed IT plans include scheduled onsite visits at no additional travel charge for agencies in southern Perth suburbs including Canning Vale, Cockburn, Jandakot, Harrisdale, Armadale, Gosnells, Thornlie and Willetton. Remote support is available Australia wide for software issues that can be resolved without a site visit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if our property management software goes down during settlement week?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Business and Premium plan clients receive priority remote support with most software issues resolved within the hour. Premium clients receive a guaranteed same day onsite response within 4 hours for emergencies. For a real estate agency, downtime during settlement week or end-of-month trust account reconciliation has a direct financial cost. Fast response is built into every plan we offer for exactly this reason."
+      }
+    }
+  ]
+}
+</script>
+
+<div class="article-wrap">
+
+  <div class="post-breadcrumb">
+    <a href="/business-it-support">Business IT Support</a>
+    <span>/</span>
+    <span>Real Estate Agencies</span>
+  </div>
+
+  <span class="post-cat">Industry IT Support</span>
+  <h1 class="post-h1">IT Support for Real Estate Agencies in Perth</h1>
+
+  <div class="post-meta">
+    <span class="post-meta-author">Ali Raja · FixMyPC Perth</span>
+    <span>·</span>
+    <span>Canning Vale, Perth WA</span>
+    <span>·</span>
+    <span>From {% include price.html key='business-it-essential' bare=true raw=true %} per month</span>
+  </div>
+
+  <!-- SUMMARY BOX -->
+  <div class="summary-box">
+    <div class="summary-box-title">What this page covers</div>
+    <ul>
+      <li>Why real estate agencies in Perth cannot afford unreliable IT</li>
+      <li>The most common IT problems that cost property managers time and money</li>
+      <li>Exactly what FixMyPC Perth covers for your agency</li>
+      <li>How choosing us saves money compared to reactive IT</li>
+      <li>Transparent plan pricing with no lock-in contracts</li>
+    </ul>
+  </div>
+
+  <div class="post-body">
+
+    <p>Real estate agencies in Perth operate under constant time pressure. Lease renewals, settlement deadlines, routine inspections, end-of-month trust account reconciliations and back-to-back appraisals leave property managers and principals with very little tolerance for technology failure. When your property management software is unavailable, when DocuSign will not load during a lease signing, or when the shared drive holding tenancy documents becomes inaccessible mid-morning, the entire office loses productive time it cannot recover.</p>
+
+    <p>Most real estate agencies in Perth manage IT in the same way: reactively. Something stops working, a staff member spends time trying to fix it, and eventually an outside technician is called. By that point, appointments have been missed, clients have been kept waiting and the cost in lost time has already far exceeded what a proper managed IT arrangement would cost in fees. FixMyPC Perth provides Perth real estate agencies with a better approach: proactive, fixed-price IT support from a local technician who understands how your agency operates and what it depends on.</p>
+
+    <div class="stat-row">
+      <div class="stat-box"><span class="stat-val">{% include price.html key='business-it-essential' bare=true raw=true %}</span><span class="stat-lbl">Starting from per month</span></div>
+      <div class="stat-box"><span class="stat-val">Same day</span><span class="stat-lbl">Remote support response</span></div>
+      <div class="stat-box"><span class="stat-val">0</span><span class="stat-lbl">Lock-in contracts</span></div>
+    </div>
+
+    <h2>Why IT Failures Are Particularly Costly for Real Estate Agencies</h2>
+
+    <p>A real estate agency is a data-driven business running on tight legal deadlines. Trust accounting errors carry regulatory consequences under the Real Estate and Business Agents Act. Missed inspection records create liability. Unsigned lease documents delay occupancy and cost landlord clients rental income. Every hour of IT downtime in a real estate office translates into a measurable financial and reputational cost that cannot simply be recovered by working longer the next day.</p>
+
+    <p>Real estate agencies also carry significant compliance obligations under the Australian Privacy Act with respect to the personal and financial information they hold for tenants, landlords and buyers. A security breach affecting client data is not just a reputational problem. It is a regulatory one. Agencies that do not have properly managed antivirus, device security and backup arrangements in place are exposed to risks that a single ransomware incident could make very real.</p>
+
+    <p>Staff turnover in real estate is higher than most industries. New property managers and sales staff join regularly, each needing a correctly configured device with access to the right software, cloud accounts and internal systems from day one. Without a structured IT arrangement, each new starter costs hours of setup time that falls on whoever in the office is most technically capable, which is rarely the most productive use of their time.</p>
+
+    <h2>What goes wrong in a real estate agency</h2>
+
+    <p>After working with real estate businesses across Perth and the southern suburbs, the same IT problems appear repeatedly. Understanding them is the first step toward making sure they stop affecting your agency.</p>
+
+    <ul class="problem-list">
+      <li class="problem-item">
+        <div class="problem-label">
+          <span class="problem-icon">!</span>
+          <span class="problem-label-text">Property management software going down</span>
+        </div>
+        <div class="problem-desc">PropertyMe, Console Cloud and PropertyTree outages are often caused by Windows update conflicts or network misconfigurations that were never properly addressed during initial setup. The software gets blamed when the underlying IT environment is the real cause.</div>
+      </li>
+      <li class="problem-item">
+        <div class="problem-label">
+          <span class="problem-icon">!</span>
+          <span class="problem-label-text">Trust accounting software errors</span>
+        </div>
+        <div class="problem-desc">Rockend, REST Professional and Console trust accounting tools require consistent environments across all devices. Driver conflicts, outdated software versions and incorrect user permissions generate accounting errors that take hours to trace and correct at end of month.</div>
+      </li>
+      <li class="problem-item">
+        <div class="problem-label">
+          <span class="problem-icon">!</span>
+          <span class="problem-label-text">DocuSign and digital signing failures</span>
+        </div>
+        <div class="problem-desc">Digital lease and contract signing through DocuSign and REI Forms Live fails when browser extensions conflict, security certificates expire or network settings block the required connections. This holds up lease signings and settlement completions at the worst possible moments.</div>
+      </li>
+      <li class="problem-item">
+        <div class="problem-label">
+          <span class="problem-icon">!</span>
+          <span class="problem-label-text">Cloud file access problems in the field</span>
+        </div>
+        <div class="problem-desc">Property managers accessing inspection reports, tenancy agreements and condition reports from tablets or phones in the field encounter access problems when OneDrive or SharePoint synchronisation settings were never correctly configured across all devices.</div>
+      </li>
+      <li class="problem-item">
+        <div class="problem-label">
+          <span class="problem-icon">!</span>
+          <span class="problem-label-text">Slow office computers affecting productivity</span>
+        </div>
+        <div class="problem-desc">Aging or poorly maintained computers slow down quoting, database searches and document processing across the office. The time lost each week across an entire team is rarely measured but consistently costs more than the IT support that would prevent it.</div>
+      </li>
+      <li class="problem-item">
+        <div class="problem-label">
+          <span class="problem-icon">!</span>
+          <span class="problem-label-text">No secure backup of critical records</span>
+        </div>
+        <div class="problem-desc">Tenancy files, inspection records, maintenance history, landlord communications and financial records stored only on local drives or desktop folders are unprotected. A single hardware failure, theft or ransomware attack can permanently destroy records that carry legal obligations to retain.</div>
+      </li>
+    </ul>
+
+    <p>Every one of these problems is preventable with the right IT support in place. None of them should be absorbing your team's time during a working day.</p>
+
+    <h2>What We Cover for Real Estate Agencies</h2>
+
+    <p>FixMyPC Perth acts as the dedicated IT department for your agency. You get a local Perth technician who knows your setup, responds fast and addresses problems before they become outages. The following is covered under our managed IT plans for real estate businesses.</p>
+
+    <ul class="coverage-list">
+      <li class="coverage-item">
+        <div class="coverage-label">
+          <span class="coverage-icon">&#10003;</span>
+          <span class="coverage-label-text">Property management software support</span>
+        </div>
+        <div class="coverage-desc">Including PropertyMe, PropertyTree, Console Cloud, MRI Property Management, REST Professional and Rockend. We handle installation, configuration, updates and troubleshooting across every device your team uses.</div>
+      </li>
+      <li class="coverage-item">
+        <div class="coverage-label">
+          <span class="coverage-icon">&#10003;</span>
+          <span class="coverage-label-text">Trust accounting software maintenance</span>
+        </div>
+        <div class="coverage-desc">We ensure your trust accounting environment is correctly maintained across all devices so that end-of-month reconciliations run without software-related errors or access failures.</div>
+      </li>
+      <li class="coverage-item">
+        <div class="coverage-label">
+          <span class="coverage-icon">&#10003;</span>
+          <span class="coverage-label-text">Digital signing and forms tools</span>
+        </div>
+        <div class="coverage-desc">DocuSign, REI Forms Live and related signing platforms are configured and maintained across all devices so that lease signings and contract completions proceed without IT delays.</div>
+      </li>
+      <li class="coverage-item">
+        <div class="coverage-label">
+          <span class="coverage-icon">&#10003;</span>
+          <span class="coverage-label-text">Managed antivirus across all devices</span>
+        </div>
+        <div class="coverage-desc">Every computer, laptop and tablet used by your team is protected and monitored at all times, including devices taken into the field for inspections and open homes.</div>
+      </li>
+      <li class="coverage-item">
+        <div class="coverage-label">
+          <span class="coverage-icon">&#10003;</span>
+          <span class="coverage-label-text">Cloud backup for critical business records</span>
+        </div>
+        <div class="coverage-desc">Tenancy files, inspection reports, landlord agreements, financial records and compliance documents are backed up securely so that no single failure can result in permanent data loss.</div>
+      </li>
+      <li class="coverage-item">
+        <div class="coverage-label">
+          <span class="coverage-icon">&#10003;</span>
+          <span class="coverage-label-text">Network and wifi setup and maintenance</span>
+        </div>
+        <div class="coverage-desc">Your office network is configured for reliable performance and properly secured against intrusion. This includes ensuring tablets and phones connecting from the field can access shared resources without problems.</div>
+      </li>
+      <li class="coverage-item">
+        <div class="coverage-label">
+          <span class="coverage-icon">&#10003;</span>
+          <span class="coverage-label-text">New staff device setup and onboarding</span>
+        </div>
+        <div class="coverage-desc">When a new property manager or sales team member joins, their device is ready to use from day one with the correct software, cloud access, email configuration and permissions already in place.</div>
+      </li>
+      <li class="coverage-item">
+        <div class="coverage-label">
+          <span class="coverage-icon">&#10003;</span>
+          <span class="coverage-label-text">Unlimited remote support</span>
+        </div>
+        <div class="coverage-desc">Available seven days a week so small issues are resolved before they interrupt the working day. No call queues, no ticket systems and no waiting for a callback from an offshore support centre.</div>
+      </li>
+      <li class="coverage-item">
+        <div class="coverage-label">
+          <span class="coverage-icon">&#10003;</span>
+          <span class="coverage-label-text">Scheduled onsite visits</span>
+        </div>
+        <div class="coverage-desc">Included in every plan at no additional travel charge for agencies in southern Perth including Canning Vale, Cockburn, Jandakot, Harrisdale, Armadale, Gosnells, Thornlie and Willetton.</div>
+      </li>
+      <li class="coverage-item">
+        <div class="coverage-label">
+          <span class="coverage-icon">&#10003;</span>
+          <span class="coverage-label-text">Windows updates managed centrally</span>
+        </div>
+        <div class="coverage-desc">Updates are scheduled and tested so your devices stay current and secure without patches being applied at times that interrupt the working day or break software compatibility.</div>
+      </li>
+    </ul>
+
+    <div class="callout">
+      <strong>Note on software support:</strong> We do not develop or build property management platforms. We handle the IT layer that keeps those platforms running reliably on your devices and network. Where an issue relates to the software itself rather than the underlying IT environment, we will connect you with the right support channel and ensure the IT side of the problem is not contributing to the issue.
+    </div>
+
+    <!-- MID-PAGE CTA -->
+    <div class="inline-cta">
+      <div class="inline-cta-title">Ready to stop IT problems interrupting your agency?</div>
+      <div class="inline-cta-desc">Book a free 30-minute IT audit. We document exactly where your agency stands and what needs fixing, at no cost and.</div>
+      <div class="inline-cta-btns">
+        <a href="#audit" class="inline-cta-btn">Book a free IT audit</a>
+        <a href="/pricing" class="inline-cta-btn-outline">View full pricing</a>
+      </div>
+    </div>
+
+    <h2>Why Choosing FixMyPC Perth Saves Your Agency Money</h2>
+
+    <p>The true cost of reactive IT is rarely visible until you add it up. Consider a property manager who cannot access PropertyMe for two hours during a busy inspection day. That is two hours of billable activity that does not happen, plus the follow-up time to reschedule, plus the damage to client relationships when communication breaks down. A single IT failure of that kind costs far more in real terms than a month of managed IT support.</p>
+
+    <p>Managed IT eliminates that cost structure. You pay a fixed monthly amount that covers monitoring, maintenance, unlimited support and scheduled visits. Issues are identified and resolved before they become outages. When something does go wrong, it is fixed the same day rather than waiting days for a technician to become available. The productivity your team retains across a year of proactive IT management consistently delivers a return that is multiples of the monthly plan cost.</p>
+
+    <p>There is also the question of what happens when a staff member leaves and their replacement needs to be set up. Without a managed IT arrangement, that process takes an entire day of someone's time and often results in missed software licences, incorrect access permissions or devices that are not properly secured. Under a managed plan, new staff onboarding is a structured process that takes a fraction of that time and results in a correctly configured device every time.</p>
+
+    <p>Cyber incidents represent a financial risk that is increasingly relevant to Perth small businesses. The average cost of recovering from a ransomware attack for a small business that does not have a current and properly tested backup runs into tens of thousands of dollars. Managed antivirus and cloud backup, both included in every FixMyPC Perth plan, remove that risk for a cost that is a small fraction of the exposure it eliminates.</p>
+
+    <h2>Our Managed IT Plans for Real Estate Agencies</h2>
+
+    <p>All plans are month to month with no lock-in contracts. You can cancel or change plans at any time with 14 days notice. Every plan includes unlimited remote support, managed antivirus, cloud backup and scheduled onsite visits.</p>
+
+    <div class="service-links">
+      <a href="/business-it-support#plans" class="service-link-card">
+        <div>
+          <div class="service-link-label">Essential Plan</div>
+          <div class="service-link-price">From {% include price.html key='business-it-essential' bare=true raw=true %} base per month · Up to 5 devices</div>
+        </div>
+        <span class="service-link-arrow">&#8594;</span>
+      </a>
+      <a href="/business-it-support#plans" class="service-link-card">
+        <div>
+          <div class="service-link-label">Business Plan</div>
+          <div class="service-link-price">From {% include price.html key='business-it-business' bare=true raw=true %} base per month · Up to 10 devices</div>
+        </div>
+        <span class="service-link-arrow">&#8594;</span>
+      </a>
+      <a href="/business-it-support#plans" class="service-link-card">
+        <div>
+          <div class="service-link-label">Premium Plan</div>
+          <div class="service-link-price">From {% include price.html key='business-it-premium' bare=true raw=true %} base per month · Up to 20 devices</div>
+        </div>
+        <span class="service-link-arrow">&#8594;</span>
+      </a>
+      <a href="#audit" class="service-link-card">
+        <div>
+          <div class="service-link-label">Free IT Audit</div>
+          <div class="service-link-price">30 minutes ·</div>
+        </div>
+        <span class="service-link-arrow">&#8594;</span>
+      </a>
+    </div>
+
+    <h2>What a real estate agency should expect from IT support</h2>
+
+    <p>Perth has no shortage of IT support providers. What distinguishes FixMyPC Perth for real estate agencies specifically is a combination of local presence, fast response and direct accountability that larger IT providers cannot offer at this price point.</p>
+
+    <p>When your agency contacts us, you reach Ali directly. There is no ticket number, no call centre and no escalation path. Ali knows your setup, knows the software your team depends on and knows what needs to happen to resolve the problem. Most remote issues are resolved the same day. Onsite visits for agencies in the southern Perth corridor are scheduled without weeks of lead time.</p>
+
+    <p>Real estate agencies require an IT provider who understands the rhythm of the industry. Settlement weeks, end-of-month reconciliations, inspection periods and lease renewal cycles all create predictable points of high IT demand. A managed IT arrangement with FixMyPC Perth is built around ensuring that your systems perform reliably during exactly those periods, not just on quiet days when the pressure is off.</p>
+
+    <p>We are based in Canning Vale and cover all southern Perth suburbs for onsite visits including Cockburn, Jandakot, Harrisdale, Armadale, Gosnells, Thornlie and Willetton. If your agency operates in the southern corridor of Perth, we are close and available when you need us.</p>
+
+    <div class="callout callout-green">
+      <strong>No lock-in contracts:</strong> Every plan at FixMyPC Perth is month to month. We retain your business through consistent results and fast response, not through contracts that make it difficult to leave. If we are not delivering value, you can exit with 14 days notice.
+    </div>
+
+    <h2>Which Plan Is Right for Your Real Estate Agency</h2>
+
+    <p>The right plan depends on the number of devices your agency uses and the level of coverage you need. A boutique agency with a principal and two property managers will typically be well covered by the Essential plan. An agency with a front office team, dedicated property management staff and principals accessing cloud files from multiple devices will usually suit the Business plan. Larger agencies with 10 or more active devices and a need for guaranteed emergency response during settlement periods will find the Premium plan is the appropriate fit.</p>
+
+    <p>If you are uncertain which plan makes sense for your agency, the free 30-minute IT audit is the right starting point. We assess your current setup, document what you have, identify any risks or gaps and give you a clear recommendation with no pressure to proceed. The audit itself is useful regardless of whether you sign up, and most principals find the documentation it produces valuable on its own. Full plan details including per-device pricing, visit frequency, response time commitments and optional add-ons are available on the <a href="/business-it-support#plans">Business IT Support page</a>.</p>
+
+    <!-- BOTTOM CTA -->
+    <div class="inline-cta">
+      <div class="inline-cta-title">Get your real estate agency IT sorted today</div>
+      <div class="inline-cta-desc">Book a free 30-minute IT audit. We assess every critical area, document your current setup and show you exactly what needs to be in place to keep your agency running reliably.</div>
+      <div class="inline-cta-btns">
+        <a href="#audit" class="inline-cta-btn">Book a free IT audit</a>
+        <a href="/business-it-support#plans" class="inline-cta-btn-outline">View plans and pricing</a>
+      </div>
+    </div>
+
+    
+<h2>Trust account records, audits and the new AML obligations</h2>
+<p>
+  Agencies in Western Australia hold trust money under the
+  <strong>Real Estate and Business Agents Act 1978</strong> and the
+  <strong>Real Estate and Business Agents (General) Regulations 1979</strong>.
+  The Act requires a formal set of trust records that can show
+  <strong>at any time</strong> the state of the account, and section 70 requires
+  those accounts to be audited to the standard set by the
+  <strong>Commissioner for Consumer Protection</strong>.
+</p>
+<p>
+  The audit has a hard deadline. It must be completed and lodged within three
+  months of the end of each calendar year, so 31 March. Missing it is not
+  treated lightly: in 2025 a Bicton agency was fined $14,000 for overdue audits
+  across 2021, 2022 and 2023, and the penalty range in WA extends to suspension
+  or cancellation of the licence.
+</p>
+<p>
+  From <strong>1 July 2026</strong> there is a second layer. The federal
+  <strong>AML/CTF</strong> regime now covers real estate professionals, which
+  adds customer due diligence and suspicious matter reporting to what you
+  already keep for <strong>AUSTRAC</strong>. In practice that means more
+  identity documents, held for longer, on the same systems that were already
+  carrying trust records and tenancy files.
+</p>
+<div class="callout callout-blue">
+  <strong>What this asks of your IT:</strong> records that can be produced on
+  demand rather than reconstructed, so the audit trail survives a failed drive
+  or a staff departure. Per-user logins so entries in PropertyMe, Console or
+  REST are attributable. Retention long enough to cover the audit period rather
+  than whatever the backup product defaulted to. And real access control now
+  that identity documents are sitting in your system.
+</div>
+<p>
+  We handle that side of it: tested backups with retention set to the
+  obligation, access control, patching and monitored antivirus on every machine
+  touching trust or client data. We are not auditors or AML advisers and we do
+  not certify compliance. We make sure your systems are not the weak point when
+  someone asks for the records.
+</p>
+
+<div class="audit-block" id="audit">
+  <p class="audit-block-title">Book a free IT audit for your agency</p>
+  <p class="audit-block-desc">Tell us what your agency runs on and we will go through where your trust records and client files sit, whether your backups meet the audit period, and what a plan would cost. No charge for the audit itself.</p>
+  <form id="auditForm" action="https://api.web3forms.com/submit" method="POST" class="audit-grid">
+    <input type="hidden" name="access_key" value="b00c2b06-22d4-4924-af92-5143e83ab186">
+    <input type="hidden" name="subject" value="Free IT Audit Request, Real Estate. FixMyPC Perth">
+    <input type="hidden" name="from_page" value="it-support-real-estate-perth">
+    <input type="hidden" name="botcheck" value="">
+
+    <div class="audit-input-group">
+      <label class="audit-label" for="af-business">Agency name</label>
+      <input class="audit-input" id="af-business" name="business_name" type="text" placeholder="e.g. Southern Suburbs Realty" autocomplete="organization" required>
+    </div>
+    <div class="audit-input-group">
+      <label class="audit-label" for="af-suburb">Your suburb</label>
+      <input class="audit-input" id="af-suburb" name="suburb" type="text" placeholder="e.g. Canning Vale, Willetton" autocomplete="address-level2" required>
+    </div>
+    <div class="audit-input-group">
+      <label class="audit-label" for="af-pcs">How many PCs?</label>
+      <select class="audit-select" id="af-pcs" name="pc_count">
+        <option value="1 to 5">1 to 5</option>
+        <option value="6 to 10">6 to 10</option>
+        <option value="11 to 20">11 to 20</option>
+        <option value="more than 20">More than 20</option>
+      </select>
+    </div>
+    <div class="audit-input-group">
+      <label class="audit-label" for="af-software">Trust or property software</label>
+      <input class="audit-input" id="af-software" name="software" type="text" placeholder="e.g. PropertyMe, Console, REST">
+    </div>
+    <div class="audit-input-group">
+      <label class="audit-label" for="af-email">Your email</label>
+      <input class="audit-input" id="af-email" name="email" type="email" placeholder="you@yourbusiness.com.au" autocomplete="email" required>
+    </div>
+    <div class="audit-input-group">
+      <label class="audit-label" for="af-phone">Your phone number</label>
+      <input class="audit-input" id="af-phone" name="phone" type="tel" placeholder="e.g. 0412 345 678" autocomplete="tel">
+    </div>
+    <div class="audit-input-group full">
+      <label class="audit-label" for="af-msg">What is giving you trouble? (optional)</label>
+      <input class="audit-input" id="af-msg" name="message" type="text" placeholder="e.g. the trust reconciliation PC is on its last legs">
+    </div>
+
+    <button class="audit-submit" type="submit">Request the audit</button>
+    <p class="audit-err" id="auditErr" hidden>That did not send. Please try again, or call 0452 573 701.</p>
+    <p class="audit-note">We will get back to you as fast as we can. Your details are used to answer your enquiry and nothing else.</p>
+  </form>
+  <div class="audit-done" id="auditDone" hidden>
+    <div class="audit-done-tick" aria-hidden="true">&#10003;</div>
+    <p class="audit-done-title">Request received.</p>
+    <p class="audit-done-text">We will come back to you as fast as we can, usually the same day. If it is urgent, call 0452 573 701.</p>
+  </div>
+</div>
+
+<!-- FAQ -->
+    <div class="faq-section">
+      <div class="faq-section-title">Frequently Asked Questions</div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What IT support do real estate agencies in Perth need?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Real estate agencies in Perth typically need IT support for property management platforms such as PropertyMe, PropertyTree and Console Cloud, trust accounting software including Rockend and REST Professional, digital signing tools such as DocuSign and REI Forms Live, secure cloud backup of tenancy files and compliance records, and reliable connectivity across front and back office. FixMyPC Perth covers all of these under a single fixed monthly plan with no lock-in contracts.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How much does IT support for a real estate agency cost in Perth?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Managed IT support for real estate agencies starts from {% include price.html key='business-it-essential' bare=true raw=true %} per month base plus $35 per device per month on the Essential plan covering up to 5 devices. The Business plan is {% include price.html key='business-it-business' bare=true raw=true %} base plus $45 per device for up to 10 devices. The Premium plan is {% include price.html key='business-it-premium' bare=true raw=true %} base plus $60 per device for up to 20 devices. All plans are month to month with no lock-in contracts and include unlimited remote support, managed antivirus and scheduled onsite visits.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Can you support PropertyMe, Console Cloud and other property management software?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Yes. FixMyPC Perth supports all common property management platforms used by Perth real estate agencies including PropertyMe, PropertyTree, Console Cloud, MRI Property Management, REST Professional and Rockend. We handle installation, configuration, device setup and troubleshooting so your property managers can focus on their portfolio rather than IT problems.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Do you offer onsite IT support for real estate agencies in southern Perth?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Yes. All managed IT plans include scheduled onsite visits at no additional travel charge for agencies in southern Perth suburbs including Canning Vale, Cockburn, Jandakot, Harrisdale, Armadale, Gosnells, Thornlie and Willetton. Remote support is available Australia wide for software issues that can be resolved without a site visit.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What happens if our property management software goes down during settlement week?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Business and Premium plan clients receive priority remote support with most software issues resolved within the hour. Premium clients receive a guaranteed same day onsite response within 4 hours for emergencies. For a real estate agency, downtime during settlement week or end-of-month trust account reconciliation has a direct financial cost. Fast response is built into every plan we offer for exactly this reason.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- OTHER INDUSTRIES -->
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1.5px solid var(--border);">
+      <div style="font-family: var(--display); font-size: 1rem; font-weight: 800; color: var(--ink); margin-bottom: 0.5rem;">IT support for other Perth industries</div>
+      <p style="font-size: 14px; color: var(--muted); margin-bottom: 1.25rem;">We provide industry-specific managed IT support across Perth. Find your sector below.</p>
+      <div class="industry-links">
+        <a href="/it-support-trades-perth" class="industry-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          Trades &amp; Construction
+        </a>
+        <a href="/it-support-accountants-perth" class="industry-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Accountants &amp; Bookkeepers
+        </a>
+        <a href="/it-support-allied-health-perth" class="industry-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          Allied Health &amp; Medical
+        </a>
+        <a href="/it-support-legal-perth" class="industry-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Legal &amp; Conveyancing
+        </a>
+        <a href="/it-support-retail-perth" class="industry-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          Retail Businesses
+        </a>
+        <a href="/it-support-childcare-perth" class="industry-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Childcare Centres
+        </a>
+        <a href="/it-support-hospitality-perth" class="industry-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          Cafes &amp; Restaurants
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="post-footer-nav">
+    <a href="/business-it-support" class="post-footer-link">&#8592; Back to Business IT Support</a>
+    <a href="/pricing" class="post-footer-link">View full pricing &#8594;</a>
+  </div>
+
+</div>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+
+<script>
+/* Web3Forms redirects to its own branded success page by default, which drops
+   the visitor off the site entirely. Submit over fetch instead and show the
+   panel above, the same pattern the homepage and quote-request form use. */
+(function () {
+  var form = document.getElementById('auditForm');
+  if (!form) return;
+  var btn  = form.querySelector('.audit-submit');
+  var done = document.getElementById('auditDone');
+  var errEl = document.getElementById('auditErr');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (errEl) errEl.hidden = true;
+    btn.disabled = true;
+    var label = btn.textContent;
+    btn.textContent = 'Sending...';
+
+    var data = {};
+    new FormData(form).forEach(function (v, k) { data[k] = v; });
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function (r) { return r.json(); }).then(function (res) {
+      if (!res.success) throw new Error(res.message || 'failed');
+      form.hidden = true;
+      /* The intro copy is asking for details that have now been given, so it
+         goes too. The title stays as context for the confirmation. */
+      var desc = document.querySelector('.audit-block-desc');
+      if (desc) desc.hidden = true;
+      done.hidden = false;
+      done.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }).catch(function () {
+      btn.disabled = false;
+      btn.textContent = label;
+      if (errEl) errEl.hidden = false;
+    });
+  });
+})();
+</script>

@@ -1,0 +1,614 @@
+---
+layout: default
+css: industry
+title: "IT Support for Retail Businesses Perth | From $149/mo"
+description: "Managed IT support for Perth retail businesses. POS and stock systems, payment network separation and sales records kept for the ATO. From $149 a month."
+---
+{%- comment -%}
+  Industry page, built on the allied-health pattern.
+  Shares assets/css/pages/industry.css with the whole cluster.
+
+  Fixed from the live page: 27 broken ../ links (these pages sit at the site
+  root, so every one resolved above it), the "Why Perth <industry> Choose
+  FixMyPC Perth" and "problems we see in" claims (there are no clients in this
+  sector), "no obligation" phrasing, hardcoded plan prices now pulled from
+  _data/services.yml, and FAQ schema generated from the visible FAQ so the two
+  cannot drift apart.
+
+  Added: the compliance section, and an on-page audit form so the CTAs stop
+  sending people to the hub to convert. No WhatsApp route on these pages.
+{%- endcomment -%}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://www.fixmypcperth.com/it-support-retail-perth#service",
+  "serviceType": "Managed IT Support for Retail Businesses",
+  "name": "IT Support for Retail Businesses in Perth",
+  "description": "Managed IT support for Perth retail businesses. POS and inventory systems, multi-terminal setups, payment network separation and sales record retention.",
+  "url": "https://www.fixmypcperth.com/it-support-retail-perth",
+  "provider": {
+    "@type": "LocalBusiness",
+    "@id": "https://www.fixmypcperth.com/#business",
+    "name": "FixMyPC Perth",
+    "telephone": "+61452573701",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "7 Barraberry Retreat",
+      "addressLocality": "Canning Vale",
+      "addressRegion": "WA",
+      "postalCode": "6155",
+      "addressCountry": "AU"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": -32.0697802, "longitude": 115.9245929 }
+  },
+  "areaServed": [
+    {"@type": "City", "name": "Perth"},
+    {"@type": "AdministrativeArea", "name": "Canning Vale"},
+    {"@type": "AdministrativeArea", "name": "Willetton"},
+    {"@type": "AdministrativeArea", "name": "Thornlie"},
+    {"@type": "AdministrativeArea", "name": "Cannington"},
+    {"@type": "AdministrativeArea", "name": "Jandakot"},
+    {"@type": "AdministrativeArea", "name": "Cockburn"},
+    {"@type": "AdministrativeArea", "name": "Harrisdale"},
+    {"@type": "AdministrativeArea", "name": "Huntingdale"}
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Managed IT Support Plans",
+    "itemListElement": [
+      {%- assign first = true -%}
+      {%- for pl in site.data.services.plans -%}
+      {%- unless first %},{% endunless %}{%- assign first = false -%}
+      {
+        "@type": "Offer",
+        "name": {{ pl.name | append: " managed IT plan" | jsonify }},
+        "description": {{ pl.covers | jsonify }},
+        "price": "{{ pl.price }}",
+        "priceCurrency": "{{ site.data.services.meta.currency }}",
+        "availability": "https://schema.org/InStock",
+        "seller": {"@id": "https://www.fixmypcperth.com/#business"}
+      }
+      {%- endfor -%}
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.fixmypcperth.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Business IT Support", "item": "https://www.fixmypcperth.com/business-it-support"},
+    {"@type": "ListItem", "position": 3, "name": "Retail", "item": "https://www.fixmypcperth.com/it-support-retail-perth"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What IT support do retail businesses in Perth need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Retail businesses in Perth typically need support for point-of-sale software such as Lightspeed, Vend and Square, EFTPOS and payment terminal connectivity, inventory management systems, receipt printers and barcode scanners, secure backup of sales and customer data, and fast response when systems go down during trading hours. FixMyPC Perth covers all of these under a single fixed monthly plan with no lock-in contracts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does IT support for a retail business cost in Perth?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Managed IT support for retail businesses starts from {% include price.html key='business-it-essential' bare=true raw=true %} per month base plus $35 per device per month on the Essential plan covering up to 5 devices. The Business plan is {% include price.html key='business-it-business' bare=true raw=true %} base plus $45 per device for up to 10 devices. The Premium plan is {% include price.html key='business-it-premium' bare=true raw=true %} base plus $60 per device for up to 20 devices. All plans are month to month with no lock-in contracts and include unlimited remote support, managed antivirus and scheduled onsite visits."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you support POS systems like Lightspeed, Vend and Square?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. FixMyPC Perth supports all common retail point-of-sale platforms including Lightspeed, Vend, Square, Shopify POS, MYOB Retail Manager and similar systems. We handle installation, configuration, device setup, receipt printer connectivity and troubleshooting so your team can keep serving customers without technology interruptions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if our POS or EFTPOS goes down during trading hours?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Business and Premium plan clients receive priority remote support with most software issues resolved within the hour. Premium clients get a guaranteed same day onsite response within 4 hours for emergencies. Remote support is available seven days a week on all plans. A POS outage during a busy trading period is a direct revenue loss, which is why fast response is built into every plan we offer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer onsite IT support for retail businesses in southern Perth?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. All managed IT plans include scheduled onsite visits at no additional travel charge for businesses in southern Perth suburbs including Canning Vale, Cockburn, Jandakot, Harrisdale, Armadale, Gosnells, Thornlie and Willetton. Remote support is available Australia wide for software issues that can be resolved without a site visit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you support a retail business with multiple locations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We support multi-site retail businesses across southern Perth. Each location is covered under the same plan with devices counted across the total fleet. We configure inventory sync, cloud access and network settings so all locations operate consistently, and we manage updates centrally so a patch at one site does not create problems at another."
+      }
+    }
+  ]
+}
+</script>
+
+<div class="article-wrap">
+
+  <div class="post-breadcrumb">
+    <a href="/business-it-support">Business IT Support</a>
+    <span>/</span>
+    <span>Retail Businesses</span>
+  </div>
+
+  <span class="post-cat">Industry IT Support</span>
+  <h1 class="post-h1">IT Support for Retail Businesses in Perth</h1>
+
+  <div class="post-meta">
+    <span class="post-meta-author">Ali Raja &middot; FixMyPC Perth</span>
+    <span>&middot;</span>
+    <span>Canning Vale, Perth WA</span>
+    <span>&middot;</span>
+    <span>From {% include price.html key='business-it-essential' bare=true raw=true %} per month</span>
+  </div>
+
+  <div class="summary-box">
+    <div class="summary-box-title">What this page covers</div>
+    <ul>
+      <li>Why retail businesses need reliable managed IT support during trading hours</li>
+      <li>The most common IT problems that cost retail stores revenue every week</li>
+      <li>Exactly what FixMyPC Perth covers for your store</li>
+      <li>Transparent plan pricing with no lock-in contracts</li>
+    </ul>
+  </div>
+
+  <div class="post-body">
+
+    <p>Retail businesses in Perth run on uptime. A point-of-sale system that stops responding on a Saturday afternoon, an EFTPOS terminal that cannot connect during a busy lunch period, or inventory software that loses sync across locations, each of these is a direct revenue loss, not an inconvenience to schedule a technician around next week. IT problems in retail happen in real time, and they need to be resolved in real time.</p>
+
+    <p>Most Perth retail businesses manage IT reactively. Something breaks, staff attempt to fix it, and eventually someone finds a solution or the store limps through the day. That approach costs far more in lost sales, staff frustration and customer experience than a proper managed IT support arrangement would ever cost in monthly fees. FixMyPC Perth gives retail businesses a better model: proactive, fixed-price IT support from a local Perth provider who understands that your technology has to work during every hour you are open.</p>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <span class="stat-val">{% include price.html key='business-it-essential' bare=true raw=true %}</span>
+        <span class="stat-lbl">Starting from per month</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-val">Same day</span>
+        <span class="stat-lbl">Remote support response</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-val">0</span>
+        <span class="stat-lbl">Lock-in contracts</span>
+      </div>
+    </div>
+
+    <h2>What goes wrong in a retail business</h2>
+
+    <p>After working with retail businesses across Perth and the southern suburbs, the same issues come up time and again. Every one of them is preventable with the right IT support in place before it becomes a crisis on the shop floor.</p>
+
+    <ul class="check-list">
+      <li>
+        <span class="check-icon warn">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="3" x2="6" y2="7"/><line x1="6" y1="9" x2="6.01" y2="9"/></svg>
+        </span>
+        <span><strong>POS system failures during peak trading.</strong> Usually caused by a Windows update that installed overnight and conflicted with the POS software, or a network setting that was never properly configured when the system was first set up.</span>
+      </li>
+      <li>
+        <span class="check-icon warn">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="3" x2="6" y2="7"/><line x1="6" y1="9" x2="6.01" y2="9"/></svg>
+        </span>
+        <span><strong>EFTPOS terminals dropping connectivity.</strong> Most terminal outages are caused by routers that have not been updated, wifi networks that were set up years ago without proper configuration, or IP address conflicts on ageing network hardware.</span>
+      </li>
+      <li>
+        <span class="check-icon warn">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="3" x2="6" y2="7"/><line x1="6" y1="9" x2="6.01" y2="9"/></svg>
+        </span>
+        <span><strong>Inventory software out of sync across locations.</strong> Multi-site retail businesses frequently see stock level discrepancies caused by cloud sync failures or software that was never configured correctly to handle multiple terminals or registers.</span>
+      </li>
+      <li>
+        <span class="check-icon warn">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="3" x2="6" y2="7"/><line x1="6" y1="9" x2="6.01" y2="9"/></svg>
+        </span>
+        <span><strong>Receipt printers and barcode scanners losing connection.</strong> Peripheral devices on retail networks are commonly the first thing to stop working after a software update or router restart, and rarely get proactive attention until they fail mid-transaction.</span>
+      </li>
+      <li>
+        <span class="check-icon warn">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="3" x2="6" y2="7"/><line x1="6" y1="9" x2="6.01" y2="9"/></svg>
+        </span>
+        <span><strong>No real backup of sales data and customer records.</strong> Many retail businesses assume their POS software backs up automatically. In practice, backups are either not running, storing data locally only, or have never been tested to confirm they actually restore correctly.</span>
+      </li>
+      <li>
+        <span class="check-icon warn">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="3" x2="6" y2="7"/><line x1="6" y1="9" x2="6.01" y2="9"/></svg>
+        </span>
+        <span><strong>Slow back-office computers delaying end-of-day tasks.</strong> Reconciliation, ordering and reporting that should take 20 minutes takes over an hour because the office computer was never maintained and has years of accumulated software clutter slowing it down.</span>
+      </li>
+    </ul>
+
+    <h2>What We Cover for Retail Businesses</h2>
+
+    <p>FixMyPC Perth acts as your dedicated IT support. You get a local Perth technician who knows your store setup, keeps things running proactively, and responds fast the moment something goes wrong during trading hours.</p>
+
+    <ul class="check-list">
+      <li>
+        <span class="check-icon ok">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg>
+        </span>
+        <span><strong>POS software support</strong> across all common retail platforms including Lightspeed, Vend, Square, Shopify POS, MYOB Retail Manager and similar systems. We handle installation, configuration, updates and troubleshooting so your registers stay running.</span>
+      </li>
+      <li>
+        <span class="check-icon ok">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg>
+        </span>
+        <span><strong>EFTPOS and payment terminal connectivity.</strong> Network configuration and ongoing maintenance so your payment terminals connect reliably throughout every trading day, including card-not-present and contactless setups.</span>
+      </li>
+      <li>
+        <span class="check-icon ok">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg>
+        </span>
+        <span><strong>Retail peripheral setup and maintenance</strong> including receipt printers, barcode scanners, cash drawers and customer displays. We configure these correctly from the start and keep them connected after every system update.</span>
+      </li>
+      <li>
+        <span class="check-icon ok">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg>
+        </span>
+        <span><strong>Managed antivirus across all devices.</strong> Every computer and terminal in your store is protected with real-time threat detection, monitored centrally so security gaps do not develop between visits.</span>
+      </li>
+      <li>
+        <span class="check-icon ok">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg>
+        </span>
+        <span><strong>Cloud backup of sales data, customer records and business files.</strong> Automated, offsite backup that runs without anyone having to remember to do it, and that we test regularly to confirm it actually restores.</span>
+      </li>
+      <li>
+        <span class="check-icon ok">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg>
+        </span>
+        <span><strong>Network and wifi maintenance.</strong> Router firmware updates, wifi coverage optimisation and network security so your store connectivity is stable and your payment systems are isolated from your public guest network.</span>
+      </li>
+      <li>
+        <span class="check-icon ok">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg>
+        </span>
+        <span><strong>New staff device setup and access management.</strong> When a new team member starts, their device and accounts are ready before their first shift. When someone leaves, their access is removed the same day.</span>
+      </li>
+      <li>
+        <span class="check-icon ok">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg>
+        </span>
+        <span><strong>Unlimited remote support seven days a week.</strong> Issues that come up during trading hours are treated with urgency. There is no ticket queue and no waiting until business hours on Monday.</span>
+      </li>
+      <li>
+        <span class="check-icon ok">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,6 5,9 10,3"/></svg>
+        </span>
+        <span><strong>Scheduled onsite visits</strong> at no additional travel charge for businesses in southern Perth including Canning Vale, Cockburn, Jandakot, Willetton, Armadale, Gosnells and Thornlie.</span>
+      </li>
+    </ul>
+
+    <div class="callout callout-blue">
+      <strong>Note on POS software support:</strong> We handle the IT layer that keeps your POS software running reliably on your hardware and network. For issues that relate to the software itself, such as product catalogue questions or feature requests, we will direct you to the right support channel while ensuring the underlying IT environment is not the cause of the problem.
+    </div>
+
+    <div class="inline-cta">
+      <div class="inline-cta-title">Ready to stop IT problems costing your store revenue?</div>
+      <div class="inline-cta-desc">Book a free 30-minute IT audit. We review your current setup, identify risks and give you a clear picture of what needs fixing. No cost.</div>
+      <div class="inline-cta-btns">
+        <a href="#audit" class="inline-cta-btn">Book a free IT audit</a>
+        <a href="/pricing" class="inline-cta-btn-outline">View full pricing</a>
+      </div>
+    </div>
+
+    <h2>Our Managed IT Plans for Retail Businesses</h2>
+
+    <p>All plans are month to month with no lock-in contracts. You can change or cancel at any time with 14 days notice. Every plan includes unlimited remote support, managed antivirus and scheduled onsite visits.</p>
+
+    <div class="service-links">
+      <a href="/business-it-support#plans" class="service-link-card">
+        <div>
+          <div class="service-link-label">Essential Plan</div>
+          <div class="service-link-price">From {% include price.html key='business-it-essential' bare=true raw=true %} base &middot; Up to 5 devices</div>
+        </div>
+        <span class="service-link-arrow">&#8594;</span>
+      </a>
+      <a href="/business-it-support#plans" class="service-link-card">
+        <div>
+          <div class="service-link-label">Business Plan</div>
+          <div class="service-link-price">From {% include price.html key='business-it-business' bare=true raw=true %} base &middot; Up to 10 devices</div>
+        </div>
+        <span class="service-link-arrow">&#8594;</span>
+      </a>
+      <a href="/business-it-support#plans" class="service-link-card">
+        <div>
+          <div class="service-link-label">Premium Plan</div>
+          <div class="service-link-price">From {% include price.html key='business-it-premium' bare=true raw=true %} base &middot; Up to 20 devices</div>
+        </div>
+        <span class="service-link-arrow">&#8594;</span>
+      </a>
+      <a href="#audit" class="service-link-card">
+        <div>
+          <div class="service-link-label">Free IT Audit</div>
+          <div class="service-link-price">30 minutes &middot;</div>
+        </div>
+        <span class="service-link-arrow">&#8594;</span>
+      </a>
+    </div>
+
+    <p>A single-location store with one or two registers, a back-office computer and an EFTPOS terminal will generally suit the Essential plan. A store with multiple registers, a stockroom device and a back-office setup typically fits the Business plan. Multi-location retail operations or stores with ten or more devices will find the Premium plan covers their needs with a guaranteed emergency response time.</p>
+
+    <p>If you are not sure which plan fits, the free IT audit is the right starting point. We assess your current setup and give you a straightforward recommendation. You can view the full plan breakdown including per-device pricing and onsite visit frequency on the <a href="/business-it-support#plans">Business IT Support page</a>.</p>
+
+    <div class="callout callout-green">
+      <strong>No lock-in contracts:</strong> Every plan at FixMyPC Perth is month to month. We earn your business by keeping your store running reliably, not by locking you into an agreement you cannot exit. Cancel or change plans with 14 days notice.
+    </div>
+
+    <div class="inline-cta">
+      <div class="inline-cta-title">Get your store IT sorted today</div>
+      <div class="inline-cta-desc">A free 30-minute audit covers your POS, EFTPOS, network and backup. No cost. Most retail owners find it useful regardless of whether they sign up.</div>
+      <div class="inline-cta-btns">
+        <a href="#audit" class="inline-cta-btn">Book free IT audit</a>
+        <a href="/business-it-support#plans" class="inline-cta-btn-outline">View plans and pricing</a>
+      </div>
+    </div>
+
+    
+<h2>Card payments, customer data and the records you have to keep</h2>
+<p>
+  Retail has two obligations pulling in different directions. Card payments sit
+  under the <strong>Payment Card Industry Data Security Standard</strong>, PCI
+  DSS, which is a condition of your merchant agreement rather than a law, but
+  carries real consequences: after a breach you can be liable for the fraud, the
+  investigation and the card scheme penalties.
+</p>
+<p>
+  Modern terminals encrypt the card inside the device, so the number never
+  touches your POS. That reduces your exposure a great deal. What remains is
+  yours: the network the terminal sits on, keeping the POS and back office
+  machines patched, and never storing a full card number or security code
+  anywhere, including a customer email confirming a phone order.
+</p>
+<p>
+  Pulling the other way, the <strong>ATO</strong> requires most business records
+  to be kept for <strong>5 years</strong>, and if you trade through a company,
+  section 286 of the <strong>Corporations Act 2001</strong> requires financial
+  records for <strong>7 years</strong>. For a retailer that means sales history,
+  stock records and the reports your POS generates, all of which live in a
+  system that was probably set up by whoever installed the till.
+</p>
+<div class="callout callout-blue">
+  <strong>The question worth asking:</strong> if your POS terminal died
+  tomorrow, could you produce five years of sales history? For a lot of shops
+  the answer is that the data is on the terminal, the terminal is the backup,
+  and nobody has checked. That is one hardware failure away from a problem with
+  the ATO rather than just a bad afternoon.
+</div>
+<p>
+  We back the POS and back office data up properly with retention set to the
+  obligation rather than the default, test that it restores, keep the payment
+  network separate from guest and staff wifi, and patch the machines. We are not
+  a QSA and we do not certify PCI compliance. We make your side of it hold up.
+</p>
+
+<div class="audit-block" id="audit">
+  <p class="audit-block-title">Book a free IT audit for your shop</p>
+  <p class="audit-block-desc">Tell us what your shop runs on and we will go through your POS, your stock system, your payment network and your backups, and what a plan would cost. No charge for the audit itself.</p>
+  <form id="auditForm" action="https://api.web3forms.com/submit" method="POST" class="audit-grid">
+    <input type="hidden" name="access_key" value="b00c2b06-22d4-4924-af92-5143e83ab186">
+    <input type="hidden" name="subject" value="Free IT Audit Request, Retail. FixMyPC Perth">
+    <input type="hidden" name="from_page" value="it-support-retail-perth">
+    <input type="hidden" name="botcheck" value="">
+
+    <div class="audit-input-group">
+      <label class="audit-label" for="af-business">Business name</label>
+      <input class="audit-input" id="af-business" name="business_name" type="text" placeholder="e.g. Riverton Cycles" autocomplete="organization" required>
+    </div>
+    <div class="audit-input-group">
+      <label class="audit-label" for="af-suburb">Your suburb</label>
+      <input class="audit-input" id="af-suburb" name="suburb" type="text" placeholder="e.g. Canning Vale, Willetton" autocomplete="address-level2" required>
+    </div>
+    <div class="audit-input-group">
+      <label class="audit-label" for="af-pcs">How many PCs?</label>
+      <select class="audit-select" id="af-pcs" name="pc_count">
+        <option value="1 to 5">1 to 5</option>
+        <option value="6 to 10">6 to 10</option>
+        <option value="11 to 20">11 to 20</option>
+        <option value="more than 20">More than 20</option>
+      </select>
+    </div>
+    <div class="audit-input-group">
+      <label class="audit-label" for="af-software">POS or stock system</label>
+      <input class="audit-input" id="af-software" name="software" type="text" placeholder="e.g. Vend, Lightspeed, Shopify">
+    </div>
+    <div class="audit-input-group">
+      <label class="audit-label" for="af-email">Your email</label>
+      <input class="audit-input" id="af-email" name="email" type="email" placeholder="you@yourbusiness.com.au" autocomplete="email" required>
+    </div>
+    <div class="audit-input-group">
+      <label class="audit-label" for="af-phone">Your phone number</label>
+      <input class="audit-input" id="af-phone" name="phone" type="tel" placeholder="e.g. 0412 345 678" autocomplete="tel">
+    </div>
+    <div class="audit-input-group full">
+      <label class="audit-label" for="af-msg">What is giving you trouble? (optional)</label>
+      <input class="audit-input" id="af-msg" name="message" type="text" placeholder="e.g. stock counts never match the system">
+    </div>
+
+    <button class="audit-submit" type="submit">Request the audit</button>
+    <p class="audit-err" id="auditErr" hidden>That did not send. Please try again, or call 0452 573 701.</p>
+    <p class="audit-note">We will get back to you as fast as we can. Your details are used to answer your enquiry and nothing else.</p>
+  </form>
+  <div class="audit-done" id="auditDone" hidden>
+    <div class="audit-done-tick" aria-hidden="true">&#10003;</div>
+    <p class="audit-done-title">Request received.</p>
+    <p class="audit-done-text">We will come back to you as fast as we can, usually the same day. If it is urgent, call 0452 573 701.</p>
+  </div>
+</div>
+
+<!-- FAQ -->
+    <div class="faq-section">
+      <div class="faq-section-title">Frequently Asked Questions</div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What IT support do retail businesses in Perth need?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Retail businesses in Perth typically need support for point-of-sale software such as Lightspeed, Vend and Square, EFTPOS and payment terminal connectivity, inventory management systems, receipt printers and barcode scanners, secure backup of sales and customer data, and fast response when systems go down during trading hours. FixMyPC Perth covers all of these under a single fixed monthly plan with no lock-in contracts.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How much does IT support for a retail business cost in Perth?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Managed IT support for retail businesses starts from {% include price.html key='business-it-essential' bare=true raw=true %} per month base plus $35 per device per month on the Essential plan covering up to 5 devices. The Business plan is {% include price.html key='business-it-business' bare=true raw=true %} base plus $45 per device for up to 10 devices. The Premium plan is {% include price.html key='business-it-premium' bare=true raw=true %} base plus $60 per device for up to 20 devices. All plans are month to month with no lock-in contracts and include unlimited remote support, managed antivirus and scheduled onsite visits.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Can you support POS systems like Lightspeed, Vend and Square?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Yes. FixMyPC Perth supports all common retail point-of-sale platforms including Lightspeed, Vend, Square, Shopify POS, MYOB Retail Manager and similar systems. We handle installation, configuration, device setup, receipt printer connectivity and troubleshooting so your team can keep serving customers without technology interruptions.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What happens if our POS or EFTPOS goes down during trading hours?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Business and Premium plan clients receive priority remote support with most software issues resolved within the hour. Premium clients get a guaranteed same day onsite response within 4 hours for emergencies. Remote support is available seven days a week on all plans. A POS outage during a busy trading period is a direct revenue loss, which is why fast response is built into every plan we offer.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Do you offer onsite IT support for retail businesses in southern Perth?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Yes. All managed IT plans include scheduled onsite visits at no additional travel charge for businesses in southern Perth suburbs including Canning Vale, Cockburn, Jandakot, Harrisdale, Armadale, Gosnells, Thornlie and Willetton. Remote support is available Australia wide for software issues that can be resolved without a site visit.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Can you support a retail business with multiple locations?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Yes. We support multi-site retail businesses across southern Perth. Each location is covered under the same plan with devices counted across the total fleet. We configure inventory sync, cloud access and network settings so all locations operate consistently, and we manage updates centrally so a patch at one site does not create problems at another.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- OTHER INDUSTRIES -->
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border);">
+      <div style="font-family: var(--display); font-size: 1rem; font-weight: 800; color: var(--ink); margin-bottom: 0.5rem; letter-spacing: -0.3px;">IT support for other Perth industries</div>
+      <p style="font-size: 14px; color: var(--muted); margin-bottom: 1.25rem;">We provide industry-specific managed IT support across Perth. Find your sector below.</p>
+      <div class="industry-links">
+        <a href="/it-support-trades-perth" class="industry-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          Trades &amp; Construction
+        </a>
+        <a href="/it-support-allied-health-perth" class="industry-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          Allied Health &amp; Medical
+        </a>
+        <a href="/it-support-real-estate-perth" class="industry-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Real Estate Agencies
+        </a>
+        <a href="/it-support-accountants-perth" class="industry-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Accountants &amp; Bookkeepers
+        </a>
+        <a href="/it-support-legal-perth" class="industry-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Legal &amp; Conveyancing
+        </a>
+        <a href="/it-support-childcare-perth" class="industry-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Childcare Centres
+        </a>
+        <a href="/it-support-hospitality-perth" class="industry-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          Cafes &amp; Restaurants
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="post-footer-nav">
+    <a href="/business-it-support" class="post-footer-link">&#8592; Back to Business IT Support</a>
+    <a href="/pricing" class="post-footer-link">View full pricing &#8594;</a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+
+<script>
+/* Web3Forms redirects to its own branded success page by default, which drops
+   the visitor off the site entirely. Submit over fetch instead and show the
+   panel above, the same pattern the homepage and quote-request form use. */
+(function () {
+  var form = document.getElementById('auditForm');
+  if (!form) return;
+  var btn  = form.querySelector('.audit-submit');
+  var done = document.getElementById('auditDone');
+  var errEl = document.getElementById('auditErr');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (errEl) errEl.hidden = true;
+    btn.disabled = true;
+    var label = btn.textContent;
+    btn.textContent = 'Sending...';
+
+    var data = {};
+    new FormData(form).forEach(function (v, k) { data[k] = v; });
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function (r) { return r.json(); }).then(function (res) {
+      if (!res.success) throw new Error(res.message || 'failed');
+      form.hidden = true;
+      /* The intro copy is asking for details that have now been given, so it
+         goes too. The title stays as context for the confirmation. */
+      var desc = document.querySelector('.audit-block-desc');
+      if (desc) desc.hidden = true;
+      done.hidden = false;
+      done.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }).catch(function () {
+      btn.disabled = false;
+      btn.textContent = label;
+      if (errEl) errEl.hidden = false;
+    });
+  });
+})();
+</script>
