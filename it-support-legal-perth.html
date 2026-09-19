@@ -1,0 +1,506 @@
+---
+layout: default
+css: industry
+title: "IT Support for Law Firms Perth | From $149 a Month"
+description: "Managed IT support for Perth legal and conveyancing practices. LEAP, Smokeball and PEXA, trust account records and 7 year retention. From $149 a month."
+---
+{%- comment -%}
+  Second of the 9 industry pages, built on the allied-health pattern.
+  Shares assets/css/pages/industry.css with the whole cluster.
+
+  Fixed from the live page: 27 broken ../ links, the "Why Perth Legal Firms
+  Choose FixMyPC Perth" and "problems we see in Perth legal practices" claims
+  (no clients in this sector), 3 instances of "no obligation", 8 hardcoded plan
+  prices now from _data/services.yml, and FAQ schema generated from the visible
+  FAQ so the two cannot drift.
+
+  Added: the trust account section. Grounded in the Legal Profession Uniform
+  Law (WA), the Uniform General Rules 2015 and the Legal Practice Board of WA's
+  own guidance. It is careful to say what we do not do: we are not accountants
+  or External Examiners and we do not certify trust compliance.
+{%- endcomment -%}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://www.fixmypcperth.com/it-support-legal-perth#service",
+  "serviceType": "Managed IT Support for Legal Practices",
+  "name": "IT Support for Legal Firms and Conveyancers in Perth",
+  "description": "Managed IT support for Perth law firms and conveyancing practices. Practice management software, PEXA settlement reliability, trust account record retention and client confidentiality.",
+  "url": "https://www.fixmypcperth.com/it-support-legal-perth",
+  "provider": {
+    "@type": "LocalBusiness",
+    "@id": "https://www.fixmypcperth.com/#business",
+    "name": "FixMyPC Perth",
+    "telephone": "+61452573701",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "7 Barraberry Retreat",
+      "addressLocality": "Canning Vale",
+      "addressRegion": "WA",
+      "postalCode": "6155",
+      "addressCountry": "AU"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": -32.0697802, "longitude": 115.9245929 }
+  },
+  "areaServed": [
+    {"@type": "City", "name": "Perth"},
+    {"@type": "AdministrativeArea", "name": "Canning Vale"},
+    {"@type": "AdministrativeArea", "name": "Willetton"},
+    {"@type": "AdministrativeArea", "name": "Thornlie"},
+    {"@type": "AdministrativeArea", "name": "Cannington"},
+    {"@type": "AdministrativeArea", "name": "Jandakot"},
+    {"@type": "AdministrativeArea", "name": "Cockburn"},
+    {"@type": "AdministrativeArea", "name": "Harrisdale"},
+    {"@type": "AdministrativeArea", "name": "Huntingdale"}
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Managed IT Support Plans",
+    "itemListElement": [
+      {%- assign first = true -%}
+      {%- for pl in site.data.services.plans -%}
+      {%- unless first %},{% endunless %}{%- assign first = false -%}
+      {
+        "@type": "Offer",
+        "name": {{ pl.name | append: " managed IT plan" | jsonify }},
+        "description": {{ pl.covers | jsonify }},
+        "price": "{{ pl.price }}",
+        "priceCurrency": "{{ site.data.services.meta.currency }}",
+        "availability": "https://schema.org/InStock",
+        "seller": {"@id": "https://www.fixmypcperth.com/#business"}
+      }
+      {%- endfor -%}
+    ]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.fixmypcperth.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Business IT Support", "item": "https://www.fixmypcperth.com/business-it-support"},
+    {"@type": "ListItem", "position": 3, "name": "Legal and Conveyancing", "item": "https://www.fixmypcperth.com/it-support-legal-perth"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What IT support do law firms and conveyancers in Perth need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Law firms and conveyancing practices in Perth typically need support for practice management software such as LEAP, Smokeball, Actionstep and Filepro, reliable access to PEXA for electronic conveyancing settlements, court filing portals including eCourt and CMS, InfoTrack and CITEC Confirm for searches, encrypted storage and backup of privileged client files and trust account records, and managed antivirus across all staff devices. FixMyPC Perth covers all of these under a single fixed monthly plan with no lock-in contracts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does IT support for a law firm or conveyancing practice cost in Perth?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Managed IT support for legal practices starts from {% include price.html key='business-it-essential' bare=true raw=true %} per month base plus $35 per device per month on the Essential plan covering up to 5 devices. The Business plan is {% include price.html key='business-it-business' bare=true raw=true %} base plus $45 per device for up to 10 devices. The Premium plan is {% include price.html key='business-it-premium' bare=true raw=true %} base plus $60 per device for up to 20 devices. All plans are month to month with no lock-in contracts and include unlimited remote support, managed antivirus and scheduled onsite visits."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you support LEAP, Smokeball and PEXA for our legal practice?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. FixMyPC Perth supports all common legal practice management software including LEAP, Smokeball, Actionstep, Filepro and Lawmaster, as well as the IT infrastructure supporting PEXA access, InfoTrack, CITEC Confirm and court filing portals. We handle installation, updates, device configuration and troubleshooting of the technology layer that keeps these platforms running reliably. Where an issue lies within the software itself rather than the IT environment, we identify this clearly and connect you with the appropriate support channel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if PEXA or our practice software goes down on a settlement day?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Business and Premium plan clients receive priority remote support with most software access issues resolved within the hour. Premium clients receive a guaranteed same-day onsite response within 4 hours for critical emergencies. We also conduct proactive checks on PEXA connectivity, digital certificate validity and authentication configurations as part of scheduled maintenance, specifically to reduce the risk of access failures occurring on settlement days. We understand that a failed settlement has direct financial and professional consequences that make fast resolution essential, not optional."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you protect privileged client data and trust account records for legal practices?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We implement a layered security approach covering managed antivirus on all devices, encrypted cloud backup of client matter files and trust account records with versioned recovery, secure network and wifi configuration, two-factor authentication across all critical platforms, and Windows update management to close known security vulnerabilities. We can provide written documentation of security controls in place for professional indemnity insurance and Law Society compliance purposes. We also provide staff guidance on phishing attacks specifically targeting legal firms and conveyancing practices in Australia, including impersonation of PEXA, the Department of Justice, and settlement parties."
+      }
+    }
+  ]
+}
+</script>
+
+<div class="article-wrap">
+
+  <div class="post-breadcrumb">
+    <a href="/business-it-support">Business IT Support</a>
+    <span>/</span>
+    <span>Legal &amp; Conveyancing</span>
+  </div>
+
+  <span class="post-cat">Industry IT Support</span>
+  <h1 class="post-h1">IT Support for Legal Firms and Conveyancers in Perth</h1>
+
+  <div class="post-meta">
+    <span class="post-meta-author">Ali Raja · FixMyPC Perth</span>
+    <span>·</span>
+    <span>Canning Vale, Perth WA</span>
+    <span>·</span>
+    <span>From {% include price.html key='business-it-essential' bare=true raw=true %} per month</span>
+  </div>
+
+  <!-- SUMMARY BOX -->
+  <div class="summary-box">
+    <div class="summary-box-title">What this page covers</div>
+    <ul>
+      <li>Why law firms and conveyancers need proactive, reliable managed IT support</li>
+      <li>The most common IT failures that put settlements and client matters at risk</li>
+      <li>Exactly what FixMyPC Perth covers for your legal practice</li>
+      <li>Transparent plan pricing with no lock-in contracts</li>
+    </ul>
+  </div>
+
+  <div class="post-body">
+
+    <p>Law firms and conveyancing practices in Perth operate under some of the most demanding IT reliability requirements of any professional services sector. Settlement deadlines are immovable. Court filing windows are fixed. PEXA transactions require uninterrupted connectivity at precisely the moment a client expects the process to complete. When the IT infrastructure supporting your practice fails at any of these moments, the consequences extend well beyond inconvenience. A failed settlement, a missed filing deadline, or an inaccessible client matter file carries professional, financial, and reputational consequences that no amount of apology to a client can fully repair.</p>
+
+    <p>Most small and mid-sized legal practices in Perth manage IT the way they always have: reactively. A problem surfaces, someone tries to resolve it, and eventually a technician is called. In most industries this approach is merely inefficient. In a legal practice, it is genuinely risky. FixMyPC Perth provides Perth law firms and conveyancing practices with proactive, fixed-price managed IT support from a local technician who understands the specific platforms, deadlines, and confidentiality obligations that define the way your practice operates.</p>
+
+    <div class="stat-row">
+      <div class="stat-box"><span class="stat-val">{% include price.html key='business-it-essential' bare=true raw=true %}</span><span class="stat-lbl">Starting from per month</span></div>
+      <div class="stat-box"><span class="stat-val">Same day</span><span class="stat-lbl">Remote support response</span></div>
+      <div class="stat-box"><span class="stat-val">0</span><span class="stat-lbl">Lock-in contracts</span></div>
+    </div>
+
+    <h2>Why IT Failures Carry Greater Risk in Legal and Conveyancing Practices</h2>
+
+    <p>The dependency that legal practices have on specific software platforms and reliable internet access is higher than almost any other professional services category. A conveyancer who cannot access PEXA on settlement day is not just inconvenienced. They are exposed to claims, financial penalties, and client complaints that can trigger Law Society investigations. A solicitor whose practice management software is inaccessible on a court filing deadline faces consequences that go well beyond the technical failure that caused the problem.</p>
+
+    <p>There is also the question of data. Law firms hold client information that is protected not only by the Privacy Act 1988 but by legal professional privilege and the professional conduct obligations imposed by the Law Society of Western Australia. A data breach affecting client communications, matter files, or trust account records is not a matter that can be quietly resolved. It carries mandatory reporting obligations, potential regulatory consequences, and the kind of reputational damage that is extremely difficult to recover from in a sector where client trust is the foundation of every engagement.</p>
+
+    <p>Conveyancing practices face a further layer of complexity. The shift to electronic conveyancing through PEXA has introduced new dependencies on stable internet connectivity, valid digital certificates, and correctly configured devices. Any one of these failing on settlement day creates a cascade of problems affecting not just one client but potentially every party to the transaction. Managing that risk proactively is not optional. It is a core part of running a compliant and reliable conveyancing operation in Western Australia today.</p>
+
+    <h2>What goes wrong in a legal practice</h2>
+
+    <p>After working with legal and conveyancing businesses across Perth and the southern suburbs, the same categories of IT failure appear consistently. Each one is preventable with the right managed IT arrangement in place.</p>
+
+    <ul class="check-list">
+      <li><span class="check-icon">!</span><strong>PEXA access failures on settlement days</strong> caused by expired digital certificates, authentication configuration problems following a Windows update, or network settings that conflict with PEXA's connectivity requirements at precisely the wrong moment</li>
+      <li><span class="check-icon">!</span><strong>Practice management software inaccessible</strong> including LEAP, Smokeball and Actionstep going down due to update conflicts, licence authentication failures, or server configuration issues that nobody in the firm has the technical knowledge to resolve quickly</li>
+      <li><span class="check-icon">!</span><strong>Court portal and eCourt filing access disrupted</strong> by browser compatibility issues, certificate errors, or Windows security updates that block access to government-hosted filing systems without warning</li>
+      <li><span class="check-icon">!</span><strong>No compliant backup of client matter files and trust account records</strong> meaning that if a device fails, is stolen, or is encrypted by ransomware, the data on it is unrecoverable and the practice faces both client and regulatory exposure</li>
+      <li><span class="check-icon">!</span><strong>Inadequate security on devices holding privileged communications</strong> leaving confidential client files and trust account information exposed without the practice's knowledge until an incident makes the gap visible</li>
+      <li><span class="check-icon">!</span><strong>New staff setup consuming disproportionate time</strong> because there is no documented process for configuring LEAP or Smokeball access, email accounts, document management permissions, and trust accounting software across a new solicitor or conveyancer's device</li>
+    </ul>
+
+    <p>Every one of these failures is preventable. None of them should be absorbing time that your practice could be spending on client matters.</p>
+
+    <h2>What We Cover for Legal Firms and Conveyancing Practices</h2>
+
+    <p>FixMyPC Perth acts as the dedicated IT department for your practice. You get a local Perth technician who understands your software stack, responds fast when something goes wrong, and conducts proactive maintenance that prevents the most common failures from occurring in the first place. Here is what is covered under our managed IT plans for legal and conveyancing practices.</p>
+
+    <ul class="check-list">
+      <li><span class="check-icon">&#10003;</span><strong>Legal practice management software support</strong> including LEAP, Smokeball, Actionstep, Filepro and Lawmaster. We handle installation, updates, device configuration and troubleshooting of the IT layer that keeps these platforms available and performing reliably for your team</li>
+      <li><span class="check-icon">&#10003;</span><strong>PEXA connectivity and digital certificate management</strong> so your conveyancing access is reliable through device changes, Windows updates, and certificate renewals that commonly disrupt e-conveyancing operations if not managed proactively</li>
+      <li><span class="check-icon">&#10003;</span><strong>Court portal and government filing system access</strong> including eCourt, CMS and other Western Australian court systems. We maintain browser compatibility, certificate configurations and network settings so filing access is available when it is needed</li>
+      <li><span class="check-icon">&#10003;</span><strong>InfoTrack and CITEC Confirm integration support</strong> for title searches, company searches and other property and legal searches that form part of day-to-day conveyancing and legal workflows</li>
+      <li><span class="check-icon">&#10003;</span><strong>Managed antivirus across all devices</strong> so every computer and laptop in your practice is protected at all times, with threats identified and neutralised before they can reach client matter files or trust account data</li>
+      <li><span class="check-icon">&#10003;</span><strong>Encrypted cloud backup of client files and matter records</strong> with versioned recovery so accidentally overwritten or deleted documents can be fully restored, and so the practice can demonstrate compliant data management to a regulator or insurer if required</li>
+      <li><span class="check-icon">&#10003;</span><strong>Two-factor authentication setup across all critical platforms</strong> including email, practice management software, document storage and trust accounting systems to protect against credential theft targeting legal firms</li>
+      <li><span class="check-icon">&#10003;</span><strong>Unlimited remote support seven days a week</strong> so issues during a settlement run or before a court deadline are resolved fast without waiting for a scheduled visit or a callback queue</li>
+      <li><span class="check-icon">&#10003;</span><strong>Scheduled onsite visits at no additional travel charge</strong> for legal practices in southern Perth including Canning Vale, Cockburn, Willetton, Murdoch, Winthrop, Jandakot, Thornlie and Armadale</li>
+    </ul>
+
+    <div class="callout">
+      <strong>Note on software support:</strong> We do not develop, build or provide legal training on practice management software. We handle the IT infrastructure layer that keeps LEAP, Smokeball, PEXA and your other platforms running reliably on your devices and network. Where an issue originates within the software rather than the IT environment, we identify this clearly and connect you with the appropriate vendor support channel while ensuring the underlying IT is not contributing to the problem.
+    </div>
+
+    <!-- MID-PAGE CTA -->
+    <div class="inline-cta">
+      <div class="inline-cta-title">Ready to protect your practice from IT failures on settlement days and filing deadlines?</div>
+      <div class="inline-cta-desc">Book a free 30-minute IT audit. We assess your entire IT environment including PEXA access, software configurations, backup and security, at no cost and.</div>
+      <div class="inline-cta-btns">
+        <a href="#audit" class="inline-cta-btn">Book a free IT audit</a>
+        <a href="/pricing" class="inline-cta-btn-outline">View full pricing</a>
+      </div>
+    </div>
+
+    <h2>Our Managed IT Plans for Legal Practices</h2>
+
+    <p>All plans are month to month with no lock-in contracts. You can cancel or change plans at any time with 14 days notice. Every plan includes unlimited remote support, managed antivirus and scheduled onsite visits. The right plan depends on the number of devices in your practice and the level of response time guarantee you require.</p>
+
+    <div class="service-links">
+      <a href="/business-it-support#plans" class="service-link-card">
+        <div>
+          <div class="service-link-label">Essential Plan</div>
+          <div class="service-link-price">From {% include price.html key='business-it-essential' bare=true raw=true %} base per month · Up to 5 devices</div>
+        </div>
+        <span class="service-link-arrow">&#8594;</span>
+      </a>
+      <a href="/business-it-support#plans" class="service-link-card">
+        <div>
+          <div class="service-link-label">Business Plan</div>
+          <div class="service-link-price">From {% include price.html key='business-it-business' bare=true raw=true %} base per month · Up to 10 devices</div>
+        </div>
+        <span class="service-link-arrow">&#8594;</span>
+      </a>
+      <a href="/business-it-support#plans" class="service-link-card">
+        <div>
+          <div class="service-link-label">Premium Plan</div>
+          <div class="service-link-price">From {% include price.html key='business-it-premium' bare=true raw=true %} base per month · Up to 20 devices</div>
+        </div>
+        <span class="service-link-arrow">&#8594;</span>
+      </a>
+      <a href="#audit" class="service-link-card">
+        <div>
+          <div class="service-link-label">Free IT Audit</div>
+          <div class="service-link-price">30 minutes ·</div>
+        </div>
+        <span class="service-link-arrow">&#8594;</span>
+      </a>
+    </div>
+
+    <h2>What a legal practice should expect from IT support</h2>
+
+    <p>There is no shortage of IT support options in Perth. What makes FixMyPC Perth the right fit for legal and conveyancing practices specifically is the combination of direct access, local accountability, and a genuinely fast response when the situation demands it. Legal practices do not have the luxury of waiting 48 hours for a technician to become available when a settlement is at risk or a matter deadline is approaching.</p>
+
+    <p>When you contact us, you reach Ali directly. He knows your practice's software configuration, your PEXA setup, your device inventory and your specific requirements. There is no case queue, no offshore help desk, and no waiting to be reassigned to someone who has never seen your environment before. Remote issues are resolved the same day in almost all cases. For Premium plan clients, onsite response within four hours is guaranteed for critical emergencies.</p>
+
+    <p>We also understand the confidentiality obligations that legal practices carry in a way that generic IT providers often do not. Every person who works on your system has been briefed on legal professional privilege, the handling of client files, and the sensitivity of the data we encounter. We do not treat a law firm's IT environment the same way we treat a retail business. The standards we apply to your practice reflect the standards your practice applies to client data.</p>
+
+    <p>We are based in Canning Vale and cover all southern Perth suburbs for onsite visits including Cockburn, Willetton, Murdoch, Winthrop, Jandakot, Armadale, Gosnells and Thornlie. If your legal practice operates in southern Perth, we are nearby and can be on site quickly when the situation requires it.</p>
+
+    <div class="callout callout-green">
+      <strong>No lock-in contracts:</strong> Every plan at FixMyPC Perth is month to month. We earn your practice's ongoing business through reliable service, fast response and demonstrated results. If we are not delivering, you can leave with 14 days notice. No exit fees, no penalties, no lock-in.
+    </div>
+
+    <h2>Data Security, Confidentiality and Compliance for Legal Practices</h2>
+
+    <p>Legal practices in Western Australia hold some of the most sensitive personal and commercial data in any professional services sector. Client communications protected by legal professional privilege, trust account financial records, executed contracts, property title documentation, and family law matters all sit within the IT environment that your practice relies on every day. The obligations that attach to this data are not merely ethical. They are regulatory, and breaches carry consequences under the Privacy Act 1988, the Law Society of Western Australia's Professional Conduct Rules, and the Legal Profession Uniform Law Australian Solicitors Conduct Rules.</p>
+
+    <p>Ransomware attacks targeting professional services firms are increasing in frequency across Australia. Law firms are a particularly attractive target because they hold high-value client information and are often less well-protected than the financial institutions and corporate clients whose data they handle. A successful ransomware attack on a legal practice does not just encrypt files. It triggers mandatory data breach notification obligations, exposes the practice to regulatory scrutiny, and makes every affected client a potential source of complaint and claim.</p>
+
+    <p>FixMyPC Perth addresses this risk through a layered security architecture covering managed antivirus, encrypted backup with versioned recovery, two-factor authentication across all platforms, secure network configuration, and proactive Windows update management. We can provide written documentation of the security controls in place for professional indemnity insurance purposes or Law Society compliance reviews. We also deliver staff phishing awareness guidance tailored to the specific attack patterns used against legal firms in Australia, including impersonation of the Department of Justice, PEXA, and major property settlement parties.</p>
+
+    <h2>Which Plan Is Right for Your Legal Practice</h2>
+
+    <p>A sole practitioner or conveyancer running three to four devices will be well served by the Essential plan. A small legal firm with four to eight staff including solicitors, paralegals, and administrative support will typically suit the Business plan. Firms with ten or more devices, multiple practice areas, and a need for guaranteed fast emergency response will find the Premium plan is the appropriate fit.</p>
+
+    <p>The free 30-minute IT audit is the right starting point if you are unsure. We assess your current environment across PEXA connectivity, practice software configuration, backup integrity, device security, and network reliability. We document what we find and give you a clear recommendation with to proceed. Most principals and practice managers find the audit genuinely useful regardless of whether they proceed with a plan, because it gives a clear and independent view of where their IT risk actually sits.</p>
+
+    <p>Full plan details including per-device pricing, onsite visit frequency, response time commitments, and available add-ons are on the <a href="/business-it-support#plans">Business IT Support page</a>.</p>
+
+    <!-- BOTTOM CTA -->
+    <div class="inline-cta">
+      <div class="inline-cta-title">Protect your practice before a settlement day IT failure becomes a professional liability</div>
+      <div class="inline-cta-desc">Book a free 30-minute IT audit. We check PEXA access, software configurations, backup, security and device health, and show you exactly what needs to change.</div>
+      <div class="inline-cta-btns">
+        <a href="#audit" class="inline-cta-btn">Book free IT audit</a>
+        <a href="/business-it-support#plans" class="inline-cta-btn-outline">View plans and pricing</a>
+      </div>
+    </div>
+
+    
+<h2>Trust account records and what the rules ask of your IT</h2>
+<p>
+  Trust accounts in Western Australia run under the
+  <strong>Legal Profession Uniform Law (WA)</strong> and the
+  <strong>Legal Profession Uniform General Rules 2015</strong>, overseen by the
+  <strong>Legal Practice Board of WA</strong>. If your practice holds a trust
+  account you appoint an External Examiner to examine the records every year.
+  Several of those obligations are really IT obligations wearing a different hat.
+</p>
+<p>
+  If you keep trust records on a computerised accounting system, the rules
+  require a chronological record of every creation, amendment and deletion of
+  information in that system. That is an audit trail, and an audit trail is only
+  as good as the machine it sits on and the backup behind it. Monthly trust
+  records also have to be produced within 15 working days of month end and kept
+  in printed or readable and printable form, which means the system that
+  produces them cannot be down when you need them.
+</p>
+<p>
+  Two things worth knowing. Trust records must be kept for
+  <strong>7 years</strong>, which is longer than most backup retention defaults.
+  And the Board is explicit that trust records kept in Excel or Word are not a
+  computerised accounting system at all, they count as manual records, so a
+  practice that has drifted into spreadsheets has a bigger problem than an IT one.
+</p>
+<p>
+  Electronic funds transfers out of trust are authorised by password. The Board's
+  own guidance notes that a bank will process any transaction where the correct
+  password was entered, and that weak control over passwords makes it very hard
+  to establish what happened afterwards. That makes password practice, access
+  control and knowing who logged in from where a trust account matter, not just
+  an IT housekeeping one.
+</p>
+<div class="callout callout-blue">
+  <strong>Where we fit:</strong> encrypted backup with a tested restore and
+  retention that actually reaches 7 years, per-user logins so the audit trail
+  attributes actions to a person, access control and monitored antivirus on
+  every machine that touches trust data, and patching so known holes are closed.
+  We are not accountants or External Examiners and we do not certify trust
+  compliance. We make sure your systems are not the reason an examination goes
+  badly.
+</div>
+
+<!-- FAQ -->
+    <div class="audit-block" id="audit">
+  <p class="audit-block-title">Book a free IT audit for your practice</p>
+  <p class="audit-block-desc">Tell us what your firm runs on and we will go through where your matter files and trust records sit, how your backups are actually performing and what a plan would cost. No charge for the audit itself.</p>
+  <form action="https://api.web3forms.com/submit" method="POST" class="audit-grid">
+    <input type="hidden" name="access_key" value="b00c2b06-22d4-4924-af92-5143e83ab186">
+    <input type="hidden" name="subject" value="Free IT Audit Request, Legal. FixMyPC Perth">
+    <input type="hidden" name="redirect" value="false">
+    <input type="hidden" name="from_page" value="it-support-legal-perth">
+    <input type="hidden" name="botcheck" value="">
+
+    <div class="audit-input-group">
+      <label class="audit-label" for="af-business">Firm name</label>
+      <input class="audit-input" id="af-business" name="business_name" type="text" placeholder="e.g. Hartley & Co Lawyers" autocomplete="organization" required>
+    </div>
+    <div class="audit-input-group">
+      <label class="audit-label" for="af-suburb">Your suburb</label>
+      <input class="audit-input" id="af-suburb" name="suburb" type="text" placeholder="e.g. Canning Vale, Willetton" autocomplete="address-level2" required>
+    </div>
+    <div class="audit-input-group">
+      <label class="audit-label" for="af-pcs">How many PCs?</label>
+      <select class="audit-select" id="af-pcs" name="pc_count">
+        <option value="1 to 5">1 to 5</option>
+        <option value="6 to 10">6 to 10</option>
+        <option value="11 to 20">11 to 20</option>
+        <option value="more than 20">More than 20</option>
+      </select>
+    </div>
+    <div class="audit-input-group">
+      <label class="audit-label" for="af-software">Practice management software</label>
+      <input class="audit-input" id="af-software" name="software" type="text" placeholder="e.g. LEAP, Smokeball, Actionstep">
+    </div>
+    <div class="audit-input-group">
+      <label class="audit-label" for="af-email">Your email</label>
+      <input class="audit-input" id="af-email" name="email" type="email" placeholder="you@yourbusiness.com.au" autocomplete="email" required>
+    </div>
+    <div class="audit-input-group">
+      <label class="audit-label" for="af-phone">Your phone number</label>
+      <input class="audit-input" id="af-phone" name="phone" type="tel" placeholder="e.g. 0412 345 678" autocomplete="tel">
+    </div>
+    <div class="audit-input-group full">
+      <label class="audit-label" for="af-msg">What is giving you trouble? (optional)</label>
+      <input class="audit-input" id="af-msg" name="message" type="text" placeholder="e.g. PEXA settlements keep dropping out">
+    </div>
+
+    <button class="audit-submit" type="submit">Request the audit</button>
+    <p class="audit-note">We will get back to you as fast as we can. Your details are used to answer your enquiry and nothing else.</p>
+  </form>
+</div>
+
+<div class="faq-section">
+      <div class="faq-section-title">Frequently Asked Questions</div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What IT support do law firms and conveyancers in Perth need?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Law firms and conveyancing practices in Perth typically need support for practice management software such as LEAP, Smokeball, Actionstep and Filepro, reliable access to PEXA for electronic conveyancing settlements, court filing portals including eCourt and CMS, InfoTrack and CITEC Confirm for searches, encrypted storage and backup of privileged client files and trust account records, and managed antivirus across all staff devices. FixMyPC Perth covers all of these under a single fixed monthly plan with no lock-in contracts.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How much does IT support for a law firm or conveyancing practice cost in Perth?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Managed IT support for legal practices starts from {% include price.html key='business-it-essential' bare=true raw=true %} per month base plus $35 per device per month on the Essential plan covering up to 5 devices. The Business plan is {% include price.html key='business-it-business' bare=true raw=true %} base plus $45 per device for up to 10 devices. The Premium plan is {% include price.html key='business-it-premium' bare=true raw=true %} base plus $60 per device for up to 20 devices. All plans are month to month with no lock-in contracts and include unlimited remote support, managed antivirus and scheduled onsite visits.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Can you support LEAP, Smokeball and PEXA for our legal practice?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Yes. FixMyPC Perth supports all common legal practice management software including LEAP, Smokeball, Actionstep, Filepro and Lawmaster, as well as the IT infrastructure supporting PEXA access, InfoTrack, CITEC Confirm and court filing portals. We handle installation, updates, device configuration and troubleshooting of the technology layer that keeps these platforms running reliably. Where an issue lies within the software itself rather than the IT environment, we identify this clearly and connect you with the appropriate support channel.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What happens if PEXA or our practice software goes down on a settlement day?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Business and Premium plan clients receive priority remote support with most software access issues resolved within the hour. Premium clients receive a guaranteed same-day onsite response within 4 hours for critical emergencies. We also conduct proactive checks on PEXA connectivity, digital certificate validity and authentication configurations as part of scheduled maintenance, specifically to reduce the risk of access failures occurring on settlement days. We understand that a failed settlement has direct financial and professional consequences that make fast resolution essential, not optional.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How do you protect privileged client data and trust account records for legal practices?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          We implement a layered security approach covering managed antivirus on all devices, encrypted cloud backup of client matter files and trust account records with versioned recovery, secure network and wifi configuration, two-factor authentication across all critical platforms, and Windows update management to close known security vulnerabilities. We can provide written documentation of security controls in place for professional indemnity insurance and Law Society compliance purposes. We also provide staff guidance on phishing attacks specifically targeting legal firms and conveyancing practices in Australia, including impersonation of PEXA, the Department of Justice, and settlement parties.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- OTHER INDUSTRIES -->
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1.5px solid var(--border);">
+      <div style="font-family: var(--display); font-size: 1rem; font-weight: 800; color: var(--ink); margin-bottom: 0.5rem;">IT support for other Perth industries</div>
+      <p style="font-size: 14px; color: var(--muted); margin-bottom: 1.25rem;">We provide industry-specific managed IT support across Perth. Find your sector below.</p>
+      <div class="industry-links">
+        <a href="/it-support-trades-perth" class="industry-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          Trades &amp; Construction
+        </a>
+        <a href="/it-support-accountants-perth" class="industry-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Accountants &amp; Bookkeepers
+        </a>
+        <a href="/it-support-real-estate-perth" class="industry-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Real Estate Agencies
+        </a>
+        <a href="/it-support-allied-health-perth" class="industry-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          Allied Health &amp; Medical
+        </a>
+        <a href="/it-support-retail-perth" class="industry-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          Retail Businesses
+        </a>
+        <a href="/it-support-childcare-perth" class="industry-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Childcare Centres
+        </a>
+        <a href="/it-support-hospitality-perth" class="industry-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          Cafes &amp; Restaurants
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="post-footer-nav">
+    <a href="/business-it-support" class="post-footer-link">&#8592; Back to Business IT Support</a>
+    <a href="/pricing" class="post-footer-link">View full pricing &#8594;</a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
