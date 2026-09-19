@@ -1,4 +1,4 @@
-<!-- Shared behaviour: scroll bar, hamburger toggle, GA4 click tracking. -->
+\<!-- Shared behaviour: scroll bar, hamburger toggle, GA4 click tracking. -->
 <script>
 /* ============================================================
    GA4 conversion helpers.
@@ -146,6 +146,35 @@ function trackQuoteForm() {
       });
       if (!isOpen) {
         item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  /* ---- FAQ Accordion, industry pages ---- */
+  /* Those pages use .faq-question / .faq-answer rather than the .faq-q and
+     .faq-item.open markup above, so the handler before this one never bound to
+     them and the accordions did not open at all.
+     max-height is set from the panel's own scrollHeight rather than a fixed
+     value, because several of the compliance answers are long enough to be
+     clipped by a hard 500px cap. */
+  document.querySelectorAll('.faq-question').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var panel  = btn.nextElementSibling;
+      if (!panel) return;
+      var isOpen = panel.classList.contains('open');
+
+      document.querySelectorAll('.faq-answer').forEach(function(p) {
+        p.classList.remove('open');
+        p.style.maxHeight = null;
+      });
+      document.querySelectorAll('.faq-question').forEach(function(b) {
+        b.setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isOpen) {
+        panel.classList.add('open');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
         btn.setAttribute('aria-expanded', 'true');
       }
     });

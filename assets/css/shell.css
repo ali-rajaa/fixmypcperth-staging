@@ -393,3 +393,31 @@ footer {
 .sticky-cta a, .wa-bubble, .footer-social a, .footer-phone, .footer-col a {
   -webkit-tap-highlight-color:transparent;
 }
+
+/* ==========================================================
+   Page scrollbar
+   Lives here rather than in the page stylesheets because it is
+   browser chrome: it should look the same on every page, and
+   it did not. index, business-it and industry each carried
+   their own copy; pricing, legal and quote had none at all,
+   so those three showed the default grey bar.
+
+   Firefox ignores ::-webkit-scrollbar entirely, so the
+   standard scrollbar-color and scrollbar-width are set too.
+   Neither was anywhere on the site before.
+   ========================================================== */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #1560FF #F8FAFC;
+}
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #F8FAFC; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #1560FF 0%, #0A3ACC 100%);
+  border-radius: 10px;
+  border: 2px solid #F8FAFC;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #0A3ACC 0%, #1560FF 100%);
+}
+::-webkit-scrollbar-corner { background: #F8FAFC; }

@@ -637,6 +637,10 @@ description: "Managed IT support for Perth allied health and medical practices. 
     }).then(function (r) { return r.json(); }).then(function (res) {
       if (!res.success) throw new Error(res.message || 'failed');
       form.hidden = true;
+      /* The intro copy is asking for details that have now been given, so it
+         goes too. The title stays as context for the confirmation. */
+      var desc = document.querySelector('.audit-block-desc');
+      if (desc) desc.hidden = true;
       done.hidden = false;
       done.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }).catch(function () {
