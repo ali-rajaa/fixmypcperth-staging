@@ -328,125 +328,24 @@ description: "Answer 7 questions about what your computer is doing and find out 
   </div>
 </section>
 
-<!-- ============================================================
-     PRICING
-     ============================================================ -->
+<!-- Pricing lives on /pricing, which is the single source of truth. A full
+     table here was duplicate content and had already drifted: it still showed
+     $175 and $199 for laptop screens against the current $170 and $190. -->
 <section class="section section-alt" aria-label="PC repair pricing Perth">
   <div class="wrap">
     <div class="fade-up">
       <span class="s-eyebrow">Transparent pricing</span>
       <h2 class="s-title">What it actually <span class="accent">costs to fix</span></h2>
-      <p class="s-sub">Every price below is what you pay. Diagnostic-led faults are covered by one flat all-in fee. Fixed-scope jobs have their own set price. Parts are quoted separately and only when your machine genuinely needs them.</p>
-    </div>
-
-    <div class="pricing-table fade-up">
-      <div class="pricing-table-header">
-        <strong>Service</strong>
-        <span>From price (incl. GST)</span>
-      </div>
-
-      <div class="pricing-row">
-        <div>
-          <div class="pricing-row-name">Diagnostic &amp; Repair, All-In</div>
-          <span class="pricing-row-sub">Blue screens, won't turn on, boot loops, freezing, crashes, driver faults</span>
-        </div>
-        <div class="pricing-row-price">{% include price.html key='diagnostic-repair-all-in' bare=true raw=true %}</div>
-      </div>
-
-      <div class="pricing-row">
-        <div>
-          <div class="pricing-row-name">Virus &amp; Malware Removal</div>
-          <span class="pricing-row-sub">Full scan, removal, browser cleanup and antivirus setup</span>
-        </div>
-        <div class="pricing-row-price">$99</div>
-      </div>
-
-      <div class="pricing-row">
-        <div>
-          <div class="pricing-row-name">SSD Upgrade. Labour Only</div>
-          <span class="pricing-row-sub">You supply the SSD, we fit it and transfer all your data</span>
-        </div>
-        <div class="pricing-row-price">$65</div>
-      </div>
-
-      <div class="pricing-row">
-        <div>
-          <div class="pricing-row-name">SSD Upgrade. Drive Supplied</div>
-          <span class="pricing-row-sub">Samsung or Crucial SSD supplied, fitted and data transferred</span>
-        </div>
-        <div class="pricing-row-price">From $150</div>
-      </div>
-
-      <div class="pricing-row">
-        <div>
-          <div class="pricing-row-name">Windows Reinstall with Data Backup</div>
-          <span class="pricing-row-sub">Clean install, all personal files backed up and transferred safely</span>
-        </div>
-        <div class="pricing-row-price">{% include price.html key='diagnostic-repair-all-in' bare=true raw=true %}</div>
-      </div>
-
-      <div class="pricing-row">
-        <div>
-          <div class="pricing-row-name">RAM Upgrade. Labour Only</div>
-          <span class="pricing-row-sub">You supply the RAM, we install and enable XMP or EXPO</span>
-        </div>
-        <div class="pricing-row-price">$55</div>
-      </div>
-
-      <div class="pricing-row">
-        <div>
-          <div class="pricing-row-name">Overheating Fix &amp; Deep Clean</div>
-          <span class="pricing-row-sub">Full internal clean, thermal paste replaced, airflow optimised</span>
-        </div>
-        <div class="pricing-row-price">$89</div>
-      </div>
-
-      <div class="pricing-row">
-        <div>
-          <div class="pricing-row-name">Data Recovery. Failing Drive</div>
-          <span class="pricing-row-sub">Recover files from slow, clicking or partially working drives</span>
-        </div>
-        <div class="pricing-row-price">$149</div>
-      </div>
-
-      <div class="pricing-row">
-        <div>
-          <div class="pricing-row-name">Data Recovery. Dead Drive</div>
-          <span class="pricing-row-sub">Advanced recovery, no fix no fee guarantee applies</span>
-        </div>
-        <div class="pricing-row-price">$249</div>
-      </div>
-
-      <div class="pricing-row">
-        <div>
-          <div class="pricing-row-name">Laptop Screen Replacement</div>
-          <span class="pricing-row-sub">Labour only from $145 standard, $175 touch, $199 OLED. Parts quoted separately</span>
-        </div>
-        <div class="pricing-row-price">From $145</div>
-      </div>
-
-      <div class="pricing-row">
-        <div>
-          <div class="pricing-row-name">Complete PC Overhaul Package</div>
-          <span class="pricing-row-sub">Twelve services in one drop off, labour only</span>
-        </div>
-        <div class="pricing-row-price">$180</div>
-      </div>
-
-      <div class="pricing-row">
-        <div>
-          <div class="pricing-row-name">Used Laptop Revival Package</div>
-          <span class="pricing-row-sub">Sixteen point service for second-hand laptops, labour only</span>
-        </div>
-        <div class="pricing-row-price">$140</div>
-      </div>
-
-      <div class="pricing-cta-row">
-        <span class="pricing-cta-note">All prices include GST. Upfront written quote before any work begins. No hidden fees.</span>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
-          <a href="https://wa.me/61452573701?text=Hi%21%20I%27d%20like%20a%20free%20quote%20for%20PC%20repair." target="_blank" rel="noopener noreferrer" class="btn-wa" onclick="trackWAClick()">Get a free quote</a>
-          <a href="/pricing" class="btn-outline">View all pricing</a>
-        </div>
+      <p class="s-sub">
+        Most faults are covered by one flat {% include price.html key='diagnostic-repair-all-in' bare=true raw=true %} all-in fee: diagnosis,
+        repair labour and a 30-day warranty, charged whether the fault turns out
+        to be software or hardware. Fixed-scope jobs like virus removal or an SSD
+        fit have their own set price. Parts are quoted separately and only when
+        your machine genuinely needs them. No hourly rates.
+      </p>
+      <div class="area-links" style="margin-top:1.5rem;">
+        <a class="area-link" href="/pricing">See every price</a>
+        <a class="area-link" href="/quote-request">Get a fixed quote</a>
       </div>
     </div>
   </div>
@@ -691,7 +590,7 @@ document.addEventListener('click', function(e) {
       const m = Math.floor((diff % 3600000) / 60000);
       const s = Math.floor((diff % 60000) / 1000);
       const left = h > 0 ? (h + 'h ' + m + 'm') : (m + 'm ' + s + 's');
-      text.innerHTML = 'Book within <span class="hc-time">' + left + '</span> for same-day pickup today';
+      text.innerHTML = 'Drop off within <span class="hc-time">' + left + '</span> and we aim to have it ready today';
     } else {
       text.innerHTML = 'Open 24 hours, drop off tonight for first slot tomorrow';
     }
