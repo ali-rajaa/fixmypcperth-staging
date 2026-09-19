@@ -447,10 +447,9 @@ description: "Managed IT support for Perth allied health and medical practices. 
     <div class="audit-block" id="audit">
   <p class="audit-block-title">Book a free IT audit for your practice</p>
   <p class="audit-block-desc">Tell us what your practice runs on and we will go through where your patient data sits, how your backups are actually performing and what a plan would cost. No charge for the audit itself.</p>
-  <form action="https://api.web3forms.com/submit" method="POST" class="audit-grid">
+  <form id="auditForm" action="https://api.web3forms.com/submit" method="POST" class="audit-grid">
     <input type="hidden" name="access_key" value="b00c2b06-22d4-4924-af92-5143e83ab186">
     <input type="hidden" name="subject" value="Free IT Audit Request, Allied Health. FixMyPC Perth">
-    <input type="hidden" name="redirect" value="false">
     <input type="hidden" name="from_page" value="it-support-allied-health-perth">
     <input type="hidden" name="botcheck" value="">
 
@@ -489,8 +488,14 @@ description: "Managed IT support for Perth allied health and medical practices. 
     </div>
 
     <button class="audit-submit" type="submit">Request the audit</button>
+    <p class="audit-err" id="auditErr" hidden>That did not send. Please try again, or call 0452 573 701.</p>
     <p class="audit-note">We will get back to you as fast as we can. Your details are used to answer your enquiry and nothing else.</p>
   </form>
+  <div class="audit-done" id="auditDone" hidden>
+    <div class="audit-done-tick" aria-hidden="true">&#10003;</div>
+    <p class="audit-done-title">Request received.</p>
+    <p class="audit-done-text">We will come back to you as fast as we can, usually the same day. If it is urgent, call 0452 573 701.</p>
+  </div>
 </div>
 
 <div class="faq-section">
@@ -604,3 +609,41 @@ description: "Managed IT support for Perth allied health and medical practices. 
 </div><!-- /.article-wrap -->
 
 <!-- FOOTER -->
+<script>
+/* Web3Forms redirects to its own branded success page by default, which drops
+   the visitor off the site entirely. Submit over fetch instead and show the
+   panel above, the same pattern the homepage and quote-request form use. */
+(function () {
+  var form = document.getElementById('auditForm');
+  if (!form) return;
+  var btn  = form.querySelector('.audit-submit');
+  var done = document.getElementById('auditDone');
+  var errEl = document.getElementById('auditErr');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (errEl) errEl.hidden = true;
+    btn.disabled = true;
+    var label = btn.textContent;
+    btn.textContent = 'Sending...';
+
+    var data = {};
+    new FormData(form).forEach(function (v, k) { data[k] = v; });
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function (r) { return r.json(); }).then(function (res) {
+      if (!res.success) throw new Error(res.message || 'failed');
+      form.hidden = true;
+      done.hidden = false;
+      done.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }).catch(function () {
+      btn.disabled = false;
+      btn.textContent = label;
+      if (errEl) errEl.hidden = false;
+    });
+  });
+})();
+</script>
