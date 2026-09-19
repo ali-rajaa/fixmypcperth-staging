@@ -202,6 +202,48 @@ description: "Managed IT support for Perth trades and construction. ServiceM8, s
     </ul>
 
     <p>Every one of these problems is preventable with the right IT support in place. None of them should be absorbing your time or your team's time to resolve.</p>
+<h2>Job records, quotes and the paperwork that has to survive</h2>
+<p>
+  A trades business generates records that matter long after the job is done.
+  In Western Australia, residential building work is covered by the
+  <strong>Home Building Contracts Act 1991</strong> for work between $7,500 and
+  $500,000, which requires a written contract, and
+  <strong>Building and Energy</strong> handles licensing and complaints. If a
+  dispute comes up two years later, the quote, the variations, the photos and
+  the sign-off are the evidence, and they are usually sitting on a phone.
+</p>
+<p>
+  On top of that, the <strong>ATO</strong> requires most business records for
+  <strong>5 years</strong>, a company structure adds the
+  <strong>Corporations Act</strong> 7 year requirement for financial records,
+  and employee records under Fair Work are 7 years. Work health and safety
+  records, including SWMS and incident reports, need to be retained and
+  produced if anything goes wrong on site.
+</p>
+<p>
+  The pattern we see is not that trades businesses keep bad records. It is that
+  the records live in three places that do not talk to each other: job
+  management software like <strong>ServiceM8</strong>, <strong>simPRO</strong>,
+  <strong>AroFlo</strong> or <strong>Tradify</strong>, the accounting package,
+  and a phone full of site photos that has never been backed up anywhere.
+</p>
+<div class="callout callout-blue">
+  <strong>The one that actually costs money:</strong> site photos. They are the
+  proof that the work was done to spec and the proof of what the site looked
+  like before you started. They are also almost always on a phone with no
+  backup, and phones get dropped off scaffolding. Getting those onto cloud
+  storage automatically is a ten minute job that has saved arguments worth
+  thousands.
+</div>
+<p>
+  We get job management, accounting and photos backed up on a schedule with
+  retention that matches the obligation, make sure the office machine is not the
+  single copy of anything, and keep remote access working so quotes can go out
+  from site rather than at 9pm. We are not lawyers or WHS consultants. We make
+  sure the records exist when you need them.
+</p>
+
+
 
     <h2>What We Cover for Trades and Construction Businesses</h2>
 
@@ -297,49 +339,7 @@ description: "Managed IT support for Perth trades and construction. ServiceM8, s
       </div>
     </div>
 
-    
-<h2>Job records, quotes and the paperwork that has to survive</h2>
-<p>
-  A trades business generates records that matter long after the job is done.
-  In Western Australia, residential building work is covered by the
-  <strong>Home Building Contracts Act 1991</strong> for work between $7,500 and
-  $500,000, which requires a written contract, and
-  <strong>Building and Energy</strong> handles licensing and complaints. If a
-  dispute comes up two years later, the quote, the variations, the photos and
-  the sign-off are the evidence, and they are usually sitting on a phone.
-</p>
-<p>
-  On top of that, the <strong>ATO</strong> requires most business records for
-  <strong>5 years</strong>, a company structure adds the
-  <strong>Corporations Act</strong> 7 year requirement for financial records,
-  and employee records under Fair Work are 7 years. Work health and safety
-  records, including SWMS and incident reports, need to be retained and
-  produced if anything goes wrong on site.
-</p>
-<p>
-  The pattern we see is not that trades businesses keep bad records. It is that
-  the records live in three places that do not talk to each other: job
-  management software like <strong>ServiceM8</strong>, <strong>simPRO</strong>,
-  <strong>AroFlo</strong> or <strong>Tradify</strong>, the accounting package,
-  and a phone full of site photos that has never been backed up anywhere.
-</p>
-<div class="callout callout-blue">
-  <strong>The one that actually costs money:</strong> site photos. They are the
-  proof that the work was done to spec and the proof of what the site looked
-  like before you started. They are also almost always on a phone with no
-  backup, and phones get dropped off scaffolding. Getting those onto cloud
-  storage automatically is a ten minute job that has saved arguments worth
-  thousands.
-</div>
-<p>
-  We get job management, accounting and photos backed up on a schedule with
-  retention that matches the obligation, make sure the office machine is not the
-  single copy of anything, and keep remote access working so quotes can go out
-  from site rather than at 9pm. We are not lawyers or WHS consultants. We make
-  sure the records exist when you need them.
-</p>
-
-<div class="audit-block" id="audit">
+    <div class="audit-block" id="audit">
   <p class="audit-block-title">Book a free IT audit for your business</p>
   <p class="audit-block-desc">Tell us what your business runs on and we will go through your job management software, where your quotes and site photos actually live, and what a plan would cost. No charge for the audit itself.</p>
   <form id="auditForm" action="https://api.web3forms.com/submit" method="POST" class="audit-grid">
